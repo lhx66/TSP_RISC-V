@@ -1,0 +1,17 @@
+Model Technology ModelSim SE-64 vopt 2020.4 Compiler 2020.10 Oct 13 2020
+Start time: 15:23:23 on Mar 03,2026
+vopt -reportprogress 300 "+acc" "+nospecify" work.tb_Booth_Multiplier_32b -o voptsim -l ./log/vopt.log 
+
+Top level modules:
+	tb_Booth_Multiplier_32b
+
+Analyzing design...
+-- Loading module tb_Booth_Multiplier_32b
+-- Loading module Booth_Multiplier_4xB
+Incremental compilation check found no design-units (out of 2) may be reused.
+Optimizing 2 design-units (inlining 0/2 module instances):
+-- Optimizing module Booth_Multiplier_4xB(fast)
+-- Optimizing module tb_Booth_Multiplier_32b(fast)
+Optimized design name is voptsim
+End time: 15:23:23 on Mar 03,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

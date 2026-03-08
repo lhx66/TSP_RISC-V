@@ -1,0 +1,316 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/FPGA/TSP_RVmaster/RTL/sim
+vBooth_Multiplier_4xB
+Z1 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z2 !s110 1772522602
+!i10b 1
+!s100 d7_PTf<daf8cZEa[QEKVc1
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IfMU6oXT_aD3Yz;;40:LJO2
+S1
+R0
+Z4 w1772522589
+Z5 8../core/exu_muldiv.v
+Z6 F../core/exu_muldiv.v
+!i122 19
+L0 159 423
+Z7 VDg1SIo80bB@j0V0VzS_@n1
+Z8 OL;L;2020.4;71
+r1
+!s85 0
+31
+Z9 !s108 1772522602.000000
+Z10 !s107 ..\core\defines.v|../sim/tb_divfunc.v|../sim/tb_Booth_Multiplier_32b.v|../core/defines.v|../core/exu_muldiv.v|
+Z11 !s90 -reportprogress|300|-sv|-incr|-v|work|-override_timescale|1ns/10ps|-f|modelsim_filelist.f|-l|./log/vlog.log|
+!i113 0
+Z12 o-sv -override_timescale 1ns/10ps -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z13 !s92 -sv -v work -override_timescale 1ns/10ps -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z14 tCvgOpt 0
+n@booth_@multiplier_4x@b
+vdff_async_rst
+Z15 !s10a 1772502960
+R1
+Z16 !s110 1772503028
+!i10b 1
+!s100 [?AR;QCD5VQT[XX`oOF:F1
+R3
+I]S6^oO?3NeOoBo@91@:K61
+S1
+R0
+Z17 w1772502960
+Z18 8../sim/tb_dff.v
+Z19 F../sim/tb_dff.v
+!i122 3
+L0 6 15
+R7
+R8
+r1
+!s85 0
+31
+Z20 !s108 1772503028.000000
+Z21 !s107 ../sim/tb_dff.v|../global/defines.v|../core/exu_muldiv.v|
+R11
+!i113 0
+R12
+R13
+R14
+vdivfunc
+R1
+R2
+!i10b 1
+!s100 N6Se_;2;;1@hg;AZGUZQj2
+R3
+I7m0^9=;cFiQH<^ngKc@Sd2
+S1
+R0
+R4
+R5
+R6
+!i122 19
+L0 589 116
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R13
+R14
+vREGs_NLNR
+R1
+R2
+!i10b 1
+!s100 `UMB8[mEM1Q`abRVgR_Xz0
+R3
+IlP^CSMYe3lCkbY=>QCK9c0
+S1
+R0
+Z22 w1772503082
+Z23 8../core/defines.v
+Z24 F../core/defines.v
+!i122 19
+L0 95 13
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R13
+R14
+n@r@e@gs_@n@l@n@r
+vREGs_NLWR
+R1
+R2
+!i10b 1
+!s100 cd[O<<VC7goTON@`L]FV<1
+R3
+Ie>FS7CMbc:mj7n>[S`Lae2
+S1
+R0
+R22
+R23
+R24
+!i122 19
+L0 75 18
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R13
+R14
+n@r@e@gs_@n@l@w@r
+vREGs_WLNR
+R1
+R2
+!i10b 1
+!s100 >db=Gd?<bhdScF>5N4SWm3
+R3
+IGbgWYUBed`3o0jQS9SZ1o1
+S1
+R0
+R22
+R23
+R24
+!i122 19
+L0 58 15
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R13
+R14
+n@r@e@gs_@w@l@n@r
+vREGs_WLWR
+R1
+R2
+!i10b 1
+!s100 dzk9Xg6i71Ii0KA2hh[:l2
+R3
+IE<L=3KmGV228XLV<jG:`_0
+S1
+R0
+R22
+R23
+R24
+!i122 19
+L0 37 19
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R13
+R14
+n@r@e@gs_@w@l@w@r
+vtb_Booth_Multiplier_32b
+!s10a 1772517629
+R1
+!s110 1772517639
+!i10b 1
+!s100 Dioc[B`l?I77E`o9;G^832
+R3
+I>3o:h99RCV`Bj]V?26oGn0
+S1
+R0
+w1772517629
+8../sim/tb_Booth_Multiplier_32b.v
+F../sim/tb_Booth_Multiplier_32b.v
+!i122 15
+L0 3 128
+R7
+R8
+r1
+!s85 0
+31
+!s108 1772517639.000000
+R10
+R11
+!i113 0
+R12
+R13
+R14
+ntb_@booth_@multiplier_32b
+vtb_dff
+R15
+R1
+R16
+!i10b 1
+!s100 2d[<[6O7ng=<<6<f@X5>B3
+R3
+IBm`^=HE;Mme`G8:DQDXYj3
+S1
+R0
+R17
+R18
+R19
+!i122 3
+L0 25 70
+R7
+R8
+r1
+!s85 0
+31
+R20
+R21
+R11
+!i113 0
+R12
+R13
+R14
+vtb_divfunc
+!s10a 1772517074
+R1
+!s110 1772517084
+!i10b 1
+!s100 iPec2N:FJX8X6JA7>DhLi0
+R3
+I[HoWAMbZ9R:=BDYS91lE51
+S1
+R0
+w1772517074
+8../sim/tb_divfunc.v
+F../sim/tb_divfunc.v
+!i122 12
+L0 3 176
+R7
+R8
+r1
+!s85 0
+31
+!s108 1772517084.000000
+!s107 ..\core\defines.v|../sim/tb_divfunc.v|../core/defines.v|../core/exu_muldiv.v|
+R11
+!i113 0
+R12
+R13
+R14
+vTSP_Exu_muldiv
+R1
+R2
+!i10b 1
+!s100 H2I[H2ILKUe2Ao0cm:d6l1
+R3
+InBX1eVgSHfj@Ce52>P;hV0
+S1
+R0
+R4
+R5
+R6
+!i122 19
+L0 5 150
+R7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 0
+R12
+R13
+R14
+n@t@s@p_@exu_muldiv
+Tvoptsim
+!s110 1772522603
+VGIdnGCDnPiMgdhhDT6AV@0
+04 23 4 work tb_Booth_Multiplier_32b fast 0
+o+acc +nospecify
+R14
+nvoptsim
+OL;O;2020.4;71

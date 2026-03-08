@@ -1,0 +1,40 @@
+# vsim -c "+nospecify" voptsim -l ./log/vsim.log 
+# Start time: 15:23:23 on Mar 03,2026
+# Loading sv_std.std
+# Loading work.tb_Booth_Multiplier_32b(fast)
+# Loading work.Booth_Multiplier_4xB(fast)
+# =================== STARTING MIXED TESTS ===================
+# 
+# --- 1. 纯有符号乘法 (Signed * Signed) ---
+# [PASS] M(S):    120 | R(S):     50 || P(S):       6000
+# [PASS] M(S):    120 | R(S):    -50 || P(S):      -6000
+# [PASS] M(S):   -200 | R(S):     30 || P(S):      -6000
+# [PASS] M(S):   -100 | R(S):    -40 || P(S):       4000
+# 
+# --- 2. 纯无符号乘法 (Unsigned * Unsigned) ---
+# [PASS] M(U):  40000 | R(U):  50000 || P(U): 2000000000
+# [PASS] M(U):  65535 | R(U):      2 || P(U):     131070
+# 
+# --- 3. 混合乘法：M(无符号) * R(有符号) ---
+# [PASS] M(U):  40000 | R(S):    -10 || P(S):    -400000
+# [PASS] M(U):  65535 | R(S):     -2 || P(S):    -131070
+# [PASS] M(U):  50000 | R(S):    100 || P(S):    5000000
+# 
+# --- 4. 混合乘法：M(有符号) * R(无符号) ---
+# [PASS] M(S):  -1000 | R(U):  50000 || P(S):  -50000000
+# [PASS] M(S):     -1 | R(U):  65535 || P(S):     -65535
+# [PASS] M(S):    500 | R(U):  40000 || P(S):   20000000
+# 
+# --- 5. 极端边界测试 ---
+# [PASS] M(S):  32768 | R(S):  32768 || P(S): 1073741824
+# [PASS] M(U):  65535 | R(U):  65535 || P(U): 4294836225
+# [PASS] M(S):  32768 | R(U):  65535 || P(S): 2147450880
+# [PASS] M(U):  65535 | R(S):  32768 || P(S): 2147450880
+# 
+# =================== TESTS COMPLETE ===================
+# ** Note: $finish    : ../sim/tb_Booth_Multiplier_32b.v(128)
+#    Time: 1695 ns  Iteration: 0  Instance: /tb_Booth_Multiplier_32b
+# 1
+# Break in Module tb_Booth_Multiplier_32b at ../sim/tb_Booth_Multiplier_32b.v line 128
+# End time: 15:24:12 on Mar 03,2026, Elapsed time: 0:00:49
+# Errors: 0, Warnings: 0

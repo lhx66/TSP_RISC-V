@@ -1,0 +1,31 @@
+Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
+Start time: 15:23:22 on Mar 03,2026
+vlog -reportprogress 300 -sv -incr -v work -override_timescale 1ns/10ps -f modelsim_filelist.f -l ./log/vlog.log 
+-- Compiling module REGs_WLWR
+-- Compiling module REGs_WLNR
+-- Compiling module REGs_NLWR
+-- Compiling module REGs_NLNR
+-- Compiling module TSP_Exu_muldiv
+-- Compiling module Booth_Multiplier_4xB
+-- Compiling module divfunc
+** Warning: ../core/defines.v(37): (vlog-2275) Existing module 'REGs_WLWR' at ..\core\defines.v(37) will be overwritten.
+-- Compiling module REGs_WLWR
+** Warning: ../core/defines.v(58): (vlog-2275) Existing module 'REGs_WLNR' at ..\core\defines.v(58) will be overwritten.
+-- Compiling module REGs_WLNR
+** Warning: ../core/defines.v(75): (vlog-2275) Existing module 'REGs_NLWR' at ..\core\defines.v(75) will be overwritten.
+-- Compiling module REGs_NLWR
+** Warning: ../core/defines.v(95): (vlog-2275) Existing module 'REGs_NLNR' at ..\core\defines.v(95) will be overwritten.
+-- Compiling module REGs_NLNR
+-- Skipping module tb_Booth_Multiplier_32b
+-- Skipping module tb_divfunc
+
+Top level modules:
+	REGs_WLWR
+	REGs_WLNR
+	REGs_NLWR
+	REGs_NLNR
+	TSP_Exu_muldiv
+	tb_Booth_Multiplier_32b
+	tb_divfunc
+End time: 15:23:22 on Mar 03,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 4

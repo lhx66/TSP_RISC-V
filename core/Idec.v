@@ -8,13 +8,19 @@ module TSP_Idec(
     input rst_n,
     input [`INST_MAX_WIDTH-1:0] inst_i,//指令
     input inst_valid_i,
+    input flush_i,
+    output idec_ready_o,//译码模块就绪
+    input [`INST_ADDR_WIDTH-1:0] next_pc_i,
+    output [`INST_ADDR_WIDTH-1:0] inst_pc_o,
 
+    //译码结果 与派遣模块交互
     output [`REGFILE_IDX_WIDTH-1:0] rs1_o,      //源寄存器1索引
     output [`REGFILE_IDX_WIDTH-1:0] rs2_o,      //源寄存器2索引
     output [`REGFILE_IDX_WIDTH-1:0] rd_o,       //目标寄存器索引
     output [`REGFILE_DAT_WIDTH-1:0] imm_o,      //符号扩展后的立即数
 
-    output inst_dec_valid_o,
+    output idec_valid_o,
+    input disp_ready_i,
     // R-type
     output INST_ADD, INST_SUB, INST_SLL, INST_SLT, INST_SLTU,
     output INST_XOR, INST_SRL, INST_SRA, INST_OR,  INST_AND,
@@ -43,8 +49,11 @@ module TSP_Idec(
     output INST_MUL,    INST_MULH, INST_MULHSU, INST_MULHU,
     output INST_DIV,    INST_DIVU, INST_REM,    INST_REMU,
 `endif
-    output RV32I_Btype //供BPU使用
+    output RV32I_Btype, //供BPU使用
+    output RV32M_type
 ); //instruction decoder
+
+assign inst_pc_o = next_pc_i;
 
 wire [6:0] RV32I_opcode = inst_i[6:0];
 wire [4:0] RV32I_rd     = inst_i[11:7];
@@ -186,6 +195,41 @@ assign imm_o = RV32I_Itype ? imm_I :
                RV32I_Jtype ? imm_J :
                              {`REGFILE_DAT_WIDTH{1'b0}};
 
-assign inst_dec_valid_o = inst_valid_i;
+assign idec_valid_o = inst_valid_i & (~flush_i);
+assign idec_ready_o = disp_ready_i;//译码模块全为组合逻辑，直接传递派遣模块
+
+//非法指令处理
+wire is_legal_inst =
+    // R-type
+    INST_ADD | INST_SUB | INST_SLL | INST_SLT | INST_SLTU |
+    INST_XOR | INST_SRL | INST_SRA | INST_OR  | INST_AND |
+    // I-type OP-IMM
+    INST_ADDI | INST_SLTI | INST_SLTIU | INST_XORI |
+    INST_ORI | INST_ANDI | INST_SLLI | INST_SRLI | INST_SRAI |
+    // I-type LOAD
+    INST_LB | INST_LH | INST_LW | INST_LBU | INST_LHU |
+    // I-type JALR
+    INST_JALR |
+    // I-type FENCE
+    INST_FENCE |
+    // I-type SYSTEM
+    INST_ECALL | INST_EBREAK |
+    INST_CSRRW | INST_CSRRS | INST_CSRRC |
+    INST_CSRRWI | INST_CSRRSI | INST_CSRRCI |
+    // S-type
+    INST_SB | INST_SH | INST_SW |
+    // B-type
+    INST_BEQ | INST_BNE | INST_BLT | INST_BGE | INST_BLTU | INST_BGEU |
+    // U-type
+    INST_LUI | INST_AUIPC |
+    // J-type
+    INST_JAL
+`ifdef USE_RV32M
+    // M-type
+    | INST_MUL | INST_MULH | INST_MULHSU | INST_MULHU |
+    INST_DIV | INST_DIVU | INST_REM | INST_REMU
+`endif
+    ;
+wire illegal_inst_o = inst_valid_i & (~is_legal_inst);
 
 endmodule
