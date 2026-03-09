@@ -6,29 +6,38 @@ module TSP_Wb_arbiter (
 
     // 执行模块交互
     output wb_common_ready_o,
-    output wb_ls_ready_o,
-    output wb_muldiv_ready_o, //多周期指令写回许可
+    output wb_muldiv_ready_o, // 多周期指令写回许可
     input common_wb_en,
+    input [`REGFILE_IDX_WIDTH-1:0] common_rd,
+    input [`REGFILE_DAT_WIDTH-1:0] common_rd_op,
     `ifdef USE_RV32M
         input muldiv_wb_en,
+        input [`REGFILE_DAT_WIDTH-1:0] muldiv_rd_op,
+        input [`REGFILE_IDX_WIDTH-1:0] muldiv_rd,
     `endif
-    input [`REGFILE_IDX_WIDTH-1:0] common_rd,
-    input [`REGFILE_IDX_WIDTH-1:0] muldiv_rd,
     output [`REGFILE_IDX_WIDTH-1:0] oitf_wb_rd,// OITF要清除的寄存器序号
 
     // 与访存控制器交互
     input        ls_ctrl_wb_en,   // Load指令完成，请求写回
     input [`REGFILE_IDX_WIDTH-1:0] ls_ctrl_wb_rd, // 写回的寄存器索引
-    input [31:0] ls_ctrl_wb_data  // 【补全】符号扩展后的最终写回数据
+    input [31:0] ls_ctrl_wb_data,  // 符号扩展后的最终写回数据
+    output wb_ls_ready_o,
+
+    // 与寄存器组交互
+    output wb_arbiter_en_o,
+    output [`REGFILE_IDX_WIDTH-1:0] wb_arbiter_rd_o,
+    output [31:0] wb_arbiter_dat
 );
 
-reg [1:0] wb_pointer; //指示正在写回的操作 0:复位 1:单周期信号 2:load写回 3:乘除法写回
-always @(*) begin
-    if(~rst_n)
-        wb_pointer = 2'd0;
-    else if(muldiv_wb_en) //乘除法优先级最高
-        wb_pointer = 2'd3;
-    else if(ls_ctrl_wb_en_o)
-end
+//
+assign wb_arbiter_en_o = muldiv_wb_en | ls_ctrl_wb_en | common_wb_en;
+assign wb_arbiter_rd_o = (muldiv_wb_en) ? muldiv_rd : (ls_ctrl_wb_en) ? ls_ctrl_wb_rd : common_rd;
+assign wb_arbiter_dat = (muldiv_wb_en) ? muldiv_rd_op : (ls_ctrl_wb_en) ? ls_ctrl_wb_data : common_rd_op;
+assign wb_common_ready_o = (muldiv_wb_en | ls_ctrl_wb_en) ? 1'b0 : (common_wb_en) ? 1'b1 : 1'b0;
+assign wb_ls_ready_o = (muldiv_wb_en) ? 1'b0 : (ls_ctrl_wb_en) ? 1'b1 : 1'b0;
+assign wb_muldiv_ready_o = (muldiv_wb_en) ? 1'b1 : 1'b0;// 乘除法指令优先级最高
+
+assign oitf_wb_rd = wb_arbiter_rd_o;
+
 
 endmodule

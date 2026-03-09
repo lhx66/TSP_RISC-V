@@ -16,7 +16,7 @@ module ls_ctrl( //修改一下反压信号处理
     input [`REGFILE_IDX_WIDTH-1:0] ls_rd, // 目标寄存器
     input [2:0]   ls_load_type,    // 0:LW, 1:LH, 2:LHU, 3:LB, 4:LBU
     
-    output        ls_ctrl_ready_o, // 访存就绪 (告诉 Exu_ls 任务完成)
+    output        ls_ctrl_ready_o, // 访存就绪
 
     // ==========================================
     // 2. 与写回仲裁器交互接口
@@ -39,7 +39,7 @@ wire [11:0] word_addr = ls_addr_i[13:2];
 
 always @(posedge clk) begin
     // 同步写操作 (受 Mask 控制)
-    if (ls_req_i && ls_we_i) begin
+    if (ls_req_i && ls_we_i & wb_ls_ready_i) begin
         if (ls_byte_en_i[0]) sram_array[word_addr][7:0]   <= ls_wdata_i[7:0];
         if (ls_byte_en_i[1]) sram_array[word_addr][15:8]  <= ls_wdata_i[15:8];
         if (ls_byte_en_i[2]) sram_array[word_addr][23:16] <= ls_wdata_i[23:16];
@@ -47,7 +47,7 @@ always @(posedge clk) begin
     end
     
     // 同步读操作 (默认 1 周期延迟)
-    if (ls_req_i && ~ls_we_i) begin
+    if (ls_req_i & ~ls_we_i & wb_ls_ready_i) begin
         sram_rdata <= sram_array[word_addr];
     end
 end
@@ -56,7 +56,6 @@ end
 // 2. 状态锁存与时序控制 (生成 Ready 脉冲)
 // -------------------------------------------------------------
 // 因为 SRAM 读写需要 1 个周期，我们需要把请求信息打一拍，留给下个周期处理数据
-reg       req_d1;
 reg [1:0] addr_align_r;
 reg [2:0] load_type_r;
 reg [`REGFILE_IDX_WIDTH-1:0] wb_rd_r;
@@ -64,26 +63,19 @@ reg       we_r;
 
 always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
-        req_d1       <= 1'b0;
         addr_align_r <= 2'b0;
         load_type_r  <= 3'b0;
         wb_rd_r      <= 5'b0;
         we_r         <= 1'b0;
-    end else begin
-        // 握手逻辑：当接收到请求，且当前没有在吐出 ready 时，打入一拍有效状态
-        req_d1 <= ls_req_i & ~req_d1; //??
-
-        if (ls_req_i & ~req_d1) begin
+    end else if (ls_req_i & ls_ctrl_ready_o) begin
             addr_align_r <= ls_addr_i[1:0]; // 保存地址对齐偏移量
             load_type_r  <= ls_load_type;
             wb_rd_r      <= ls_rd;
             we_r         <= ls_we_i;
-        end
     end
 end
 
-// SRAM 操作完成后 (1拍后)，向 Exu_ls 输出 Ready 脉冲
-assign ls_ctrl_ready_o = req_d1;
+assign ls_ctrl_ready_o = wb_ls_ready_i; // 反压信号传递
 
 // -------------------------------------------------------------
 // 3. Load 数据的对齐、截取与符号扩展 (组合逻辑)
@@ -121,8 +113,7 @@ end
 // -------------------------------------------------------------
 // 4. 写回仲裁器输出
 // -------------------------------------------------------------
-// 只有在是 Load 且完成的这一拍，才向后方仲裁器申请写回
-assign ls_ctrl_wb_en_o   = req_d1 & ~we_r; 
+REGs_NLWR #(1,0) ls_ctrl_wb_en_reg (ls_req_i & ~ls_we_i & wb_ls_ready_i, ls_ctrl_wb_en_o, clk, rst_n);
 assign ls_ctrl_wb_rd_o   = wb_rd_r;
 assign ls_ctrl_wb_data_o = final_wb_data;
 
