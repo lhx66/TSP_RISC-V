@@ -1,5 +1,5 @@
 # vsim -c "+nospecify" voptsim -l ./log/vsim.log 
-# Start time: 18:31:41 on Mar 09,2026
+# Start time: 00:52:10 on Mar 10,2026
 # Loading sv_std.std
 # Loading work.tb_TSP_Core(fast)
 # Loading work.TSP_Core(fast)
@@ -21,11 +21,19 @@
 # Loading work.TSP_Exu_ls(fast)
 # Loading work.ls_ctrl(fast)
 # Loading work.TSP_Wb_arbiter(fast)
-# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'ls_addr_i'. The port definition is at: ../core/exu_ls.v(22).
-#    Time: 0 ps  Iteration: 0  Instance: /tb_TSP_Core/u_TSP_Core/u_TSP_Disp_Exu/Exu_ls_u0 File: ../core/disp_exu.v Line: 217
+# [Time: 4500 ns] write back regfile x1 = 27 (0x0000001b)
+# [Time: 5500 ns] write back regfile x2 = 5 (0x00000005)
+# [Time: 7500 ns] write back regfile x4 = 10 (0x0000000a)
+# [Time: 13500 ns] write back regfile x3 = 5 (0x00000005)
+# [Time: 15500 ns] write back regfile x5 = 15 (0x0000000f)
+# [Time: 17500 ns] write back regfile x7 = -27 (0xffffffe5)
+# [Time: 23500 ns] write back regfile x6 = 2 (0x00000002)
+# [Time: 32500 ns] write back regfile x8 = -5 (0xfffffffb)
+# [Time: 41500 ns] write back regfile x9 = -2 (0xfffffffe)
+# [Time: 50500 ns] write back regfile x10 = 5 (0x00000005)
 # ** Note: $finish    : ../sim/tb_TSP_Core.v(38)
-#    Time: 2023 ns  Iteration: 0  Instance: /tb_TSP_Core
+#    Time: 50023 ns  Iteration: 0  Instance: /tb_TSP_Core
 # 1
 # Break in Module tb_TSP_Core at ../sim/tb_TSP_Core.v line 38
-# End time: 18:32:06 on Mar 09,2026, Elapsed time: 0:00:25
-# Errors: 0, Warnings: 1
+# End time: 00:55:01 on Mar 10,2026, Elapsed time: 0:02:51
+# Errors: 0, Warnings: 0

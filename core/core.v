@@ -265,6 +265,11 @@ module TSP_Core(
         .oitf_wb_en_i      (oitf_wb_en),
         .oitf_wb_rd_i      (oitf_wb_rd),
 
+        // 接收仲裁器的最终写回信号，用于 Forwarding
+        .wb_fw_en_i(wb_en),   // 仲裁器最终的写使能
+        .wb_fw_rd_i(wb_rd_idx),   // 仲裁器最终要写的寄存器号
+        .wb_fw_dat_i(wb_data),  // 仲裁器最终要写的数据
+
         // 与访存控制模块交互
         .ls_ctrl_ready_i   (ls_ctrl_ready),
         .ls_req_o          (ls_req),

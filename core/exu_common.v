@@ -15,7 +15,7 @@ module TSP_Exu_common(
 
     output reg [`REGFILE_DAT_WIDTH-1:0] rd_op,      //rd写回操作数（已寄存）
     output reg [`REGFILE_IDX_WIDTH-1:0] rd_o,           //目标寄存器索引
-    output reg                          wb_en,       //rd写回使能（已寄存）
+    output reg                          common_wb_en,       //rd写回使能（已寄存）
     input                               wb_common_ready_i,
     output reg                          branch_taken, //B-type分支跳转（已寄存）
     output reg [`REGFILE_DAT_WIDTH-1:0] bjp_cal_pre_pc, //计算出的跳转目的地址
@@ -147,26 +147,38 @@ wire [`REGFILE_DAT_WIDTH-1:0] pc_plus4 = bjp_pc + 32'd4; //或许有办法复用
 
 //─────────────────────────────────────────
 // 结果选择与输出寄存（EX→WB 流水寄存器）
-// exu_common_fire 为使能，无效周期保持上一拍值
 //─────────────────────────────────────────
+// 【核心修改1：反压与保持逻辑】
+// 只要我当前没有“被仲裁器拒收的数据”，就是 Ready
+assign exu_common_ready_o = ~(common_wb_en & ~wb_common_ready_i);
+
 wire exu_common_fire = idec_valid_i & exu_common_ready_o;
+
 always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
-        rd_op        <= {`REGFILE_DAT_WIDTH{1'b0}};
-        wb_en        <= 1'b0;
-        branch_taken <= 1'b0;
-        rd_o <= {`REGFILE_IDX_WIDTH{1'b0}};
+        rd_op          <= {`REGFILE_DAT_WIDTH{1'b0}};
+        common_wb_en   <= 1'b0;
+        branch_taken   <= 1'b0;
+        rd_o           <= {`REGFILE_IDX_WIDTH{1'b0}};
         bjp_cal_pre_pc <= {`REGFILE_DAT_WIDTH{1'b0}};
-    end else begin
-        // 控制信号：无条件更新，无有效指令时自动清零，防止下游误触发
-        wb_en  <= exu_common_fire & (
+    end else begin  
+        // 【核心修改2：仲裁器未接收时的状态保持】
+        if (common_wb_en && ~wb_common_ready_i) begin
+            // 仲裁器没空，死死抱住当前数据不变
+            common_wb_en <= 1'b1;
+        end 
+        else begin
+            // 仲裁器收下了，或者当前处于空闲状态：
+            // 注意！这里是直接赋值，如果 fire 为 0，common_wb_en 就会被瞬间清零！不再像机枪一样突突突了！
+            common_wb_en  <= exu_common_fire & (
                       INST_ADD  | INST_SUB  | INST_XOR  | INST_OR   | INST_AND  |
                       INST_SLL  | INST_SRL  | INST_SRA  | INST_SLT  | INST_SLTU |
                       INST_ADDI | INST_XORI | INST_ORI  | INST_ANDI |
                       INST_SLLI | INST_SRLI | INST_SRAI | INST_SLTI | INST_SLTIU|
                       INST_LUI  | INST_AUIPC |
                       INST_JAL  | INST_JALR);
-        branch_taken <= exu_common_fire & (
+                      
+            branch_taken <= exu_common_fire & (
                             (INST_BEQ  &  cmp_eq)   |
                             (INST_BNE  & ~cmp_eq)   |
                             (INST_BLT  &  cmp_lt_s) |
@@ -174,29 +186,29 @@ always @(posedge clk or negedge rst_n) begin
                             (INST_BLTU &  cmp_lt_u) |
                             (INST_BGEU & ~cmp_lt_u))|
                             INST_JAL | INST_JALR;
-        // 数据信号：仅有效指令时更新（wb_en=0 可屏蔽其使用）
-        if (exu_common_fire) begin
-            rd_op <=
-                (INST_ADD  | INST_SUB  | INST_ADDI | INST_AUIPC)  ? adder_result :
-                (INST_XOR  | INST_XORI)                           ? xor_result   :
-                (INST_OR   | INST_ORI)                            ? or_result    :
-                (INST_AND  | INST_ANDI)                           ? and_result   :
-                (INST_SLL  | INST_SRL  | INST_SRA  |
-                 INST_SLLI | INST_SRLI | INST_SRAI)               ? shift_result :
-                (INST_SLT  | INST_SLTI)                           ? slt_result   :
-                (INST_SLTU | INST_SLTIU)                          ? sltu_result  :
-                INST_LUI                                           ? imm_i        :
-                (INST_JAL  | INST_JALR)                           ? pc_plus4     :
-                                                                    {`REGFILE_DAT_WIDTH{1'b0}};
-            rd_o <= rd_i;
-            bjp_cal_pre_pc <= (INST_JALR) ? {adder_result[31:1], 1'b0} : adder_result; //RISC-V 规范强制要求：JALR 指令计算出的目标地址，必须将最低位 (LSB) 强制清零
+
+            // 数据载荷：只有发生 fire 时才更新数据，否则保持旧值也无所谓（因为上面 wb_en 已经清 0 了）
+            if (exu_common_fire) begin
+                rd_op <=
+                    (INST_ADD  | INST_SUB  | INST_ADDI | INST_AUIPC)  ? adder_result :
+                    (INST_XOR  | INST_XORI)                           ? xor_result   :
+                    (INST_OR   | INST_ORI)                            ? or_result    :
+                    (INST_AND  | INST_ANDI)                           ? and_result   :
+                    (INST_SLL  | INST_SRL  | INST_SRA  |
+                     INST_SLLI | INST_SRLI | INST_SRAI)               ? shift_result :
+                    (INST_SLT  | INST_SLTI)                           ? slt_result   :
+                    (INST_SLTU | INST_SLTIU)                          ? sltu_result  :
+                    INST_LUI                                          ? imm_i        :
+                    (INST_JAL  | INST_JALR)                           ? pc_plus4     :
+                                                                        {`REGFILE_DAT_WIDTH{1'b0}};
+                rd_o <= rd_i;
+                bjp_cal_pre_pc <= (INST_JALR) ? {adder_result[31:1], 1'b0} : adder_result; 
+            end
         end
     end
 end
 
 // 传递访存地址计算结果，到访存模块中再进行打拍
 assign ls_addr_adder_result = adder_result;
-
-assign exu_common_ready_o = wb_common_ready_i;//传递反压信号
 
 endmodule

@@ -67,6 +67,10 @@ module TSP_Disp_Exu( //dispatch 发射\派遣\执行
     `endif
     input oitf_wb_en_i,
     input [`REGFILE_IDX_WIDTH-1:0] oitf_wb_rd_i,
+    // 接收写回仲裁器的最终写回信号，用于 Forwarding
+    input                           wb_fw_en_i,   // 仲裁器最终的写使能
+    input  [`REGFILE_IDX_WIDTH-1:0] wb_fw_rd_i,   // 仲裁器最终要写的寄存器号
+    input  [`REGFILE_DAT_WIDTH-1:0] wb_fw_dat_i,  // 仲裁器最终要写的数据
     //与访存控制模块交互
     input ls_ctrl_ready_i, //访存就绪
     output ls_req_o, 
@@ -87,6 +91,18 @@ REGs_WLWR #(`INST_ADDR_WIDTH, 0) DECODE_PC_REG1(global_fire, next_pc_i, inst_pc_
 wire branch_taken;
 wire [`REGFILE_DAT_WIDTH-1:0] bjp_cal_pre_pc;
 
+// 数据旁路前推网络 (Data Forwarding)
+wire [`REGFILE_DAT_WIDTH-1:0] rs1_op_dat;
+wire [`REGFILE_DAT_WIDTH-1:0] rs2_op_dat;
+
+// 旁路拦截条件：写使能有效 && 目标不是 x0 && 目标刚好是我需要的源寄存器
+wire rs1_forward_match = wb_fw_en_i && (wb_fw_rd_i != 5'd0) && (wb_fw_rd_i == rs1_i);
+wire rs2_forward_match = wb_fw_en_i && (wb_fw_rd_i != 5'd0) && (wb_fw_rd_i == rs2_i);
+
+// MUX 选择：如果命中旁路，用仲裁器总线上的热乎数据；否则老老实实用寄存器读出的数据
+assign rs1_op_dat = rs1_forward_match ? wb_fw_dat_i : rs1_op;
+assign rs2_op_dat = rs2_forward_match ? wb_fw_dat_i : rs2_op;
+
 //─────────────────────────────────────────
 // I-common 执行单元例化
 //─────────────────────────────────────────
@@ -98,15 +114,15 @@ TSP_Exu_common Exu_common_u0( //通用加法器及其他基础指令
 
     .idec_valid_i(global_fire), //译码valid 需要处理反压\写回冲突
     .exu_common_ready_o(exu_common_ready),
-    .rs1_op(rs1_op),         //源寄存器1操作数
-    .rs2_op(rs2_op),         //源寄存器2操作数
+    .rs1_op(rs1_op_dat),         //源寄存器1操作数
+    .rs2_op(rs2_op_dat),         //源寄存器2操作数
     .rd_i(rd_i),            //目标寄存器索引
     .imm_i(imm_i),          //符号扩展后的立即数
     .bjp_pc(next_pc_i),         //跳转指令的PC值
 
     .rd_op(common_rd_op),      //rd写回操作数（已寄存）
     .rd_o(common_rd),          //目标寄存器索引（包含load指令写回的寄存器索引）
-    .wb_en(common_wb_en),      //rd写回使能（已寄存）
+    .common_wb_en(common_wb_en),      //rd写回使能（已寄存）
     .wb_common_ready_i(wb_common_ready_i),
     .branch_taken(branch_taken), //B-type分支跳转（已寄存）
     .bjp_cal_pre_pc(bjp_cal_pre_pc),
@@ -190,8 +206,8 @@ TSP_Exu_muldiv Exu_muldiv_u0(
     .inst_dec_valid_i(global_fire),
     .exu_ready_o(exu_muldiv_ready),
 
-    .rs1_op(rs1_op),
-    .rs2_op(rs2_op),
+    .rs1_op(rs1_op_dat),
+    .rs2_op(rs2_op_dat),
     .rd_i(rd_i),
 
     .rd_op(muldiv_rd_op),
@@ -219,15 +235,15 @@ TSP_Exu_ls Exu_ls_u0(
     .rst_n(rst_n),
 
     .idec_valid_i(global_fire),
-    .exu_ls_ready_o(exu_ls_ready),       // 【新增】输出反压：告诉 Dispatch 模块 LSU 是否空闲
+    .exu_ls_ready_o(exu_ls_ready),       // 输出反压：告诉 Dispatch 模块 LSU 是否空闲
 
     .INST_LB(INST_LB), .INST_LH(INST_LH), .INST_LW(INST_LW), .INST_LBU(INST_LBU), .INST_LHU(INST_LHU),
     .INST_SB(INST_SB), .INST_SH(INST_SH), .INST_SW(INST_SW),
     
-    .rs2_op(rs2_op), // Store 写入的数据
+    .rs2_op(rs2_op_dat), // Store 写入的数据
     .rd_i(rd_i),
 
-    .ls_addr_i(ls_addr), 
+    .ls_addr_i(ls_addr_adder_result), 
 
     .ls_req_o(ls_req_o),      // 访存请求有效 (读或写)
     .ls_we_o(ls_we_o),       // 1: Store写, 0: Load读

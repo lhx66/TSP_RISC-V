@@ -31,7 +31,7 @@ module TSP_Wb_arbiter (
 );
 
 //OITF交互
-assign wb_arbiter_en_o = wb_arbiter_en_o; //muldiv_wb_en | ls_ctrl_wb_en | common_wb_en;
+assign wb_arbiter_en_o = muldiv_wb_en | ls_ctrl_wb_en | common_wb_en;
 assign wb_arbiter_rd_o = (muldiv_wb_en)  ? muldiv_rd : 
                          (ls_ctrl_wb_en) ? ls_ctrl_wb_rd : common_rd;
 assign wb_arbiter_dat  = (muldiv_wb_en)  ? muldiv_rd_op : 

@@ -34,8 +34,8 @@ module tb_TSP_Core;
         // 释放复位，启动 CPU
         #23 rst_n = 1;
 
-        // 运行 200 个时钟周期后自动结束仿真
-        #2000 $finish;
+        // 运行 5000 个时钟周期后自动结束仿真
+        #50000 $finish;
     end
 
     // 5. 生成波形文件 (用于 ModelSim/Vivado/GTKWave 查看)
@@ -50,7 +50,7 @@ module tb_TSP_Core;
         if (rst_n && u_TSP_Core.u_TSP_Regfiles.wb_en) begin
             // 忽略对 x0 寄存器的无效写回
             if (u_TSP_Core.u_TSP_Regfiles.wb_reg_idx != 5'd0) begin
-                $display("[Time: %0t ns] 写回寄存器 x%0d = %0d (0x%08x)", 
+                $display("[Time: %0t ns] write back regfile x%0d = %0d (0x%08x)", 
                          $time, 
                          u_TSP_Core.u_TSP_Regfiles.wb_reg_idx, 
                          $signed(u_TSP_Core.u_TSP_Regfiles.wb_dat),
