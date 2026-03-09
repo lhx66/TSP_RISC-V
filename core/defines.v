@@ -30,6 +30,8 @@
 //`define USE_RAM_IPcore
 `define USE_RV32M //乘除法扩展指令集
 `define PC_RSTVAL 16'h1000 //PC复位时的启动地址
+//`define PROG_FPGA //FPGA编译下载
+`define PROG_BIN_PATH "../peripheral/Ibin.txt"
 
 `define REGs_LPD //寄存器功耗控制low-power dissipation
 `ifdef REGs_LPD

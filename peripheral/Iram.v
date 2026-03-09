@@ -1,4 +1,4 @@
-`include "defines.v"
+`include "../core/defines.v"
 
 module Iram(
     input clk,
@@ -16,7 +16,13 @@ module Iram(
 
 `else
     reg [`INST_MAX_WIDTH-1:0] IRAM [`IRAM_DEPTH-1:0];
+    `ifdef PROG_FPGA
+        initial begin
+            $readmemh (`PROG_BIN_PATH, RAM);//bin -> txt -> RTL
+        end
+    `endif
 `endif
+
 
 always @(posedge clk or negedge rst_n) begin
     if (~rst_n)

@@ -1,17 +1,60 @@
 Model Technology ModelSim SE-64 vopt 2020.4 Compiler 2020.10 Oct 13 2020
-Start time: 15:23:23 on Mar 03,2026
-vopt -reportprogress 300 "+acc" "+nospecify" work.tb_Booth_Multiplier_32b -o voptsim -l ./log/vopt.log 
+Start time: 18:31:38 on Mar 09,2026
+vopt -reportprogress 300 "+acc" "+nospecify" work.tb_TSP_Core -o voptsim -l ./log/vopt.log 
 
 Top level modules:
-	tb_Booth_Multiplier_32b
+	tb_TSP_Core
 
 Analyzing design...
--- Loading module tb_Booth_Multiplier_32b
+-- Loading module tb_TSP_Core
+-- Loading module TSP_Core
+-- Loading module PC_control
+-- Loading module REGs_NLNR
+-- Loading module TSP_Ifu
+-- Loading module Iram
+-- Loading module REGs_NLWR
+-- Loading module REGs_WLWR
+-- Loading module TSP_Idec
+-- Loading module TSP_Regfiles
+-- Loading module TSP_Disp_Exu
+-- Loading module TSP_Exu_common
+-- Loading module Exu_bjp
+-- Loading module TSP_Exu_muldiv
 -- Loading module Booth_Multiplier_4xB
-Incremental compilation check found no design-units (out of 2) may be reused.
-Optimizing 2 design-units (inlining 0/2 module instances):
+-- Loading module divfunc
+-- Loading module TSP_Exu_ls
+-- Loading module ls_ctrl
+-- Loading module TSP_Wb_arbiter
+Optimizing 20 design-units (inlining 0/55 module instances):
+-- Optimizing module divfunc(fast)
 -- Optimizing module Booth_Multiplier_4xB(fast)
--- Optimizing module tb_Booth_Multiplier_32b(fast)
+-- Optimizing module TSP_Exu_common(fast)
+-- Optimizing module TSP_Idec(fast)
+-- Optimizing module TSP_Regfiles(fast)
+-- Optimizing module TSP_Disp_Exu(fast)
+** Warning: ../core/disp_exu.v(95): (vopt-2685) [TFMPC] - Too few port connections for 'Exu_common_u0'.  Expected 54, found 46.
+** Warning: ../core/disp_exu.v(95): (vopt-2718) [TFMPC] - Missing connection for port 'INST_SW'.
+** Warning: ../core/disp_exu.v(95): (vopt-2718) [TFMPC] - Missing connection for port 'INST_SH'.
+** Warning: ../core/disp_exu.v(95): (vopt-2718) [TFMPC] - Missing connection for port 'INST_SB'.
+** Warning: ../core/disp_exu.v(95): (vopt-2718) [TFMPC] - Missing connection for port 'INST_LHU'.
+** Warning: ../core/disp_exu.v(95): (vopt-2718) [TFMPC] - Missing connection for port 'INST_LBU'.
+** Warning: ../core/disp_exu.v(95): (vopt-2718) [TFMPC] - Missing connection for port 'INST_LW'.
+** Warning: ../core/disp_exu.v(95): (vopt-2718) [TFMPC] - Missing connection for port 'INST_LH'.
+** Warning: ../core/disp_exu.v(95): (vopt-2718) [TFMPC] - Missing connection for port 'INST_LB'.
+-- Optimizing module TSP_Core(fast)
+-- Optimizing module TSP_Exu_muldiv(fast)
+-- Optimizing module TSP_Exu_ls(fast)
+-- Optimizing module ls_ctrl(fast)
+-- Optimizing module PC_control(fast)
+-- Optimizing module TSP_Wb_arbiter(fast)
+-- Optimizing module Exu_bjp(fast)
+-- Optimizing module tb_TSP_Core(fast)
+-- Optimizing module TSP_Ifu(fast)
+-- Optimizing module Iram(fast)
+-- Optimizing module REGs_WLWR(fast)
+-- Optimizing module REGs_NLWR(fast)
+-- Optimizing module REGs_NLWR(fast__1)
+-- Optimizing module REGs_NLNR(fast)
 Optimized design name is voptsim
-End time: 15:23:23 on Mar 03,2026, Elapsed time: 0:00:00
-Errors: 0, Warnings: 0
+End time: 18:31:40 on Mar 09,2026, Elapsed time: 0:00:02
+Errors: 0, Warnings: 9

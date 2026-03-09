@@ -1,4 +1,4 @@
-set tbname tb_Booth_Multiplier_32b
+set tbname tb_TSP_Core
 
 proc all {} {
     global tbname

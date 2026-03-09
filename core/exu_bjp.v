@@ -31,7 +31,7 @@ assign pc_correct_o = ((~pre_pc_taken_i)&branch_taken)?bjp_cal_pre_pc:
 assign pc_redirect_o = (branch_taken & (bjp_cal_pre_pc!=pre_pc_r)) | //Btype指令需要跳，而且目的地址与真实地址不符，则预测错误；
                        ((~branch_taken) & (pre_pc_taken_i) & (global_pc_i!=bjp_pc+4));                                           //Btype指令不用跳转，但是之前分支预测选择了跳转，而且没有跳转到+4的位置，则预测错误
 
-wire [`BTB_TAG_WIDTH-1:0] BTB_tag = bjp_pc[BTB_TAG_PC_HIGH:BTB_TAG_PC_LOW];
+wire [`BTB_TAG_WIDTH-1:0] BTB_tag = bjp_pc[`BTB_TAG_PC_HIGH:`BTB_TAG_PC_LOW];
 assign BTB_update = {branch_taken,BTB_tag,bjp_cal_pre_pc[`REGFILE_DAT_WIDTH-1:2]};
 // 条目字段布局（高位→低位）：
 //   [BTB_ENTRY_WIDTH-1]                    : 预测位 taken(1)/not-taken(0)

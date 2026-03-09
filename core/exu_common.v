@@ -18,7 +18,7 @@ module TSP_Exu_common(
     output reg                          wb_en,       //rd写回使能（已寄存）
     input                               wb_common_ready_i,
     output reg                          branch_taken, //B-type分支跳转（已寄存）
-    output reg [`REGFILE_DAT_WIDTH-1:0] bjp_cal_pre_pc; //计算出的跳转目的地址
+    output reg [`REGFILE_DAT_WIDTH-1:0] bjp_cal_pre_pc, //计算出的跳转目的地址
 
     output [`REGFILE_DAT_WIDTH-1:0] ls_addr_adder_result, //计算出的访存地址
 

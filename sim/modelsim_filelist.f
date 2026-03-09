@@ -1,3 +1,3 @@
-../core/exu_muldiv.v
-../core/defines.v
-../sim/*.v
+../core/*.v
+../peripheral/Iram.v
+../sim/tb_TSP_Core.v

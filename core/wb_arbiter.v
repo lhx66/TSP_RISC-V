@@ -15,7 +15,8 @@ module TSP_Wb_arbiter (
         input [`REGFILE_DAT_WIDTH-1:0] muldiv_rd_op,
         input [`REGFILE_IDX_WIDTH-1:0] muldiv_rd,
     `endif
-    output [`REGFILE_IDX_WIDTH-1:0] oitf_wb_rd,// OITF要清除的寄存器序号
+    output oitf_wb_en_o,//OITF清除使能
+    output [`REGFILE_IDX_WIDTH-1:0] oitf_wb_rd_o,// OITF要清除的寄存器序号
 
     // 与访存控制器交互
     input        ls_ctrl_wb_en,   // Load指令完成，请求写回
@@ -29,15 +30,21 @@ module TSP_Wb_arbiter (
     output [31:0] wb_arbiter_dat
 );
 
-//
-assign wb_arbiter_en_o = muldiv_wb_en | ls_ctrl_wb_en | common_wb_en;
-assign wb_arbiter_rd_o = (muldiv_wb_en) ? muldiv_rd : (ls_ctrl_wb_en) ? ls_ctrl_wb_rd : common_rd;
-assign wb_arbiter_dat = (muldiv_wb_en) ? muldiv_rd_op : (ls_ctrl_wb_en) ? ls_ctrl_wb_data : common_rd_op;
-assign wb_common_ready_o = (muldiv_wb_en | ls_ctrl_wb_en) ? 1'b0 : (common_wb_en) ? 1'b1 : 1'b0;
-assign wb_ls_ready_o = (muldiv_wb_en) ? 1'b0 : (ls_ctrl_wb_en) ? 1'b1 : 1'b0;
-assign wb_muldiv_ready_o = (muldiv_wb_en) ? 1'b1 : 1'b0;// 乘除法指令优先级最高
+//OITF交互
+assign wb_arbiter_en_o = wb_arbiter_en_o; //muldiv_wb_en | ls_ctrl_wb_en | common_wb_en;
+assign wb_arbiter_rd_o = (muldiv_wb_en)  ? muldiv_rd : 
+                         (ls_ctrl_wb_en) ? ls_ctrl_wb_rd : common_rd;
+assign wb_arbiter_dat  = (muldiv_wb_en)  ? muldiv_rd_op : 
+                         (ls_ctrl_wb_en) ? ls_ctrl_wb_data : common_rd_op;
 
-assign oitf_wb_rd = wb_arbiter_rd_o;
+// 2. 纯粹的优先级反压逻辑 (优先级: MulDiv > LS > Common)
+assign wb_muldiv_ready_o = 1'b1; 
+assign wb_ls_ready_o     = ~muldiv_wb_en;
+assign wb_common_ready_o = ~(muldiv_wb_en | ls_ctrl_wb_en);
+
+// 3. 专供 OITF 清除的信号 (只有长指令写回才清空 OITF)
+assign oitf_wb_en_o = muldiv_wb_en | ls_ctrl_wb_en;
+assign oitf_wb_rd_o = (muldiv_wb_en) ? muldiv_rd : ls_ctrl_wb_rd;
 
 
 endmodule

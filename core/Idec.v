@@ -75,7 +75,7 @@ wire RV32I_Itype = (RV32I_opcode == 7'b0010011)  // OP-IMM
 
 wire RV32I_Stype = (RV32I_opcode == 7'b0100011);
 
-wire RV32I_Btype = (RV32I_opcode == 7'b1100011);
+assign RV32I_Btype = (RV32I_opcode == 7'b1100011);
 
 wire RV32I_Utype = (RV32I_opcode == 7'b0110111)  // LUI
                  | (RV32I_opcode == 7'b0010111);  // AUIPC
@@ -87,88 +87,88 @@ wire RV32I_Jtype = (RV32I_opcode == 7'b1101111);
 //─────────────────────────────────────────
 
 // R-type：OP（opcode=0110011）
-wire INST_ADD  = RV32I_Rtype & (RV32I_funct3==3'b000) & (RV32I_funct7==7'b0000000);
-wire INST_SUB  = RV32I_Rtype & (RV32I_funct3==3'b000) & (RV32I_funct7==7'b0100000);
-wire INST_SLL  = RV32I_Rtype & (RV32I_funct3==3'b001) & (RV32I_funct7==7'b0000000);
-wire INST_SLT  = RV32I_Rtype & (RV32I_funct3==3'b010) & (RV32I_funct7==7'b0000000);
-wire INST_SLTU = RV32I_Rtype & (RV32I_funct3==3'b011) & (RV32I_funct7==7'b0000000);
-wire INST_XOR  = RV32I_Rtype & (RV32I_funct3==3'b100) & (RV32I_funct7==7'b0000000);
-wire INST_SRL  = RV32I_Rtype & (RV32I_funct3==3'b101) & (RV32I_funct7==7'b0000000);
-wire INST_SRA  = RV32I_Rtype & (RV32I_funct3==3'b101) & (RV32I_funct7==7'b0100000);
-wire INST_OR   = RV32I_Rtype & (RV32I_funct3==3'b110) & (RV32I_funct7==7'b0000000);
-wire INST_AND  = RV32I_Rtype & (RV32I_funct3==3'b111) & (RV32I_funct7==7'b0000000);
+assign INST_ADD  = RV32I_Rtype & (RV32I_funct3==3'b000) & (RV32I_funct7==7'b0000000);
+assign INST_SUB  = RV32I_Rtype & (RV32I_funct3==3'b000) & (RV32I_funct7==7'b0100000);
+assign INST_SLL  = RV32I_Rtype & (RV32I_funct3==3'b001) & (RV32I_funct7==7'b0000000);
+assign INST_SLT  = RV32I_Rtype & (RV32I_funct3==3'b010) & (RV32I_funct7==7'b0000000);
+assign INST_SLTU = RV32I_Rtype & (RV32I_funct3==3'b011) & (RV32I_funct7==7'b0000000);
+assign INST_XOR  = RV32I_Rtype & (RV32I_funct3==3'b100) & (RV32I_funct7==7'b0000000);
+assign INST_SRL  = RV32I_Rtype & (RV32I_funct3==3'b101) & (RV32I_funct7==7'b0000000);
+assign INST_SRA  = RV32I_Rtype & (RV32I_funct3==3'b101) & (RV32I_funct7==7'b0100000);
+assign INST_OR   = RV32I_Rtype & (RV32I_funct3==3'b110) & (RV32I_funct7==7'b0000000);
+assign INST_AND  = RV32I_Rtype & (RV32I_funct3==3'b111) & (RV32I_funct7==7'b0000000);
 
 // I-type：OP-IMM（opcode=0010011）
 wire RV32I_OPimm = (RV32I_opcode == 7'b0010011);
-wire INST_ADDI  = RV32I_OPimm & (RV32I_funct3==3'b000);
-wire INST_SLTI  = RV32I_OPimm & (RV32I_funct3==3'b010);
-wire INST_SLTIU = RV32I_OPimm & (RV32I_funct3==3'b011);
-wire INST_XORI  = RV32I_OPimm & (RV32I_funct3==3'b100);
-wire INST_ORI   = RV32I_OPimm & (RV32I_funct3==3'b110);
-wire INST_ANDI  = RV32I_OPimm & (RV32I_funct3==3'b111);
-wire INST_SLLI  = RV32I_OPimm & (RV32I_funct3==3'b001) & (RV32I_funct7==7'b0000000);
-wire INST_SRLI  = RV32I_OPimm & (RV32I_funct3==3'b101) & (RV32I_funct7==7'b0000000);
-wire INST_SRAI  = RV32I_OPimm & (RV32I_funct3==3'b101) & (RV32I_funct7==7'b0100000);
+assign INST_ADDI  = RV32I_OPimm & (RV32I_funct3==3'b000);
+assign INST_SLTI  = RV32I_OPimm & (RV32I_funct3==3'b010);
+assign INST_SLTIU = RV32I_OPimm & (RV32I_funct3==3'b011);
+assign INST_XORI  = RV32I_OPimm & (RV32I_funct3==3'b100);
+assign INST_ORI   = RV32I_OPimm & (RV32I_funct3==3'b110);
+assign INST_ANDI  = RV32I_OPimm & (RV32I_funct3==3'b111);
+assign INST_SLLI  = RV32I_OPimm & (RV32I_funct3==3'b001) & (RV32I_funct7==7'b0000000);
+assign INST_SRLI  = RV32I_OPimm & (RV32I_funct3==3'b101) & (RV32I_funct7==7'b0000000);
+assign INST_SRAI  = RV32I_OPimm & (RV32I_funct3==3'b101) & (RV32I_funct7==7'b0100000);
 
 // I-type：LOAD（opcode=0000011）
-wire RV32I_LOAD = (RV32I_opcode == 7'b0000011);
-wire INST_LB  = RV32I_LOAD & (RV32I_funct3==3'b000);
-wire INST_LH  = RV32I_LOAD & (RV32I_funct3==3'b001);
-wire INST_LW  = RV32I_LOAD & (RV32I_funct3==3'b010);
-wire INST_LBU = RV32I_LOAD & (RV32I_funct3==3'b100);
-wire INST_LHU = RV32I_LOAD & (RV32I_funct3==3'b101);
+assign RV32I_LOAD = (RV32I_opcode == 7'b0000011);
+assign INST_LB  = RV32I_LOAD & (RV32I_funct3==3'b000);
+assign INST_LH  = RV32I_LOAD & (RV32I_funct3==3'b001);
+assign INST_LW  = RV32I_LOAD & (RV32I_funct3==3'b010);
+assign INST_LBU = RV32I_LOAD & (RV32I_funct3==3'b100);
+assign INST_LHU = RV32I_LOAD & (RV32I_funct3==3'b101);
 
 // I-type：JALR（opcode=1100111）
-wire INST_JALR = (RV32I_opcode == 7'b1100111) & (RV32I_funct3==3'b000);
+assign INST_JALR = (RV32I_opcode == 7'b1100111) & (RV32I_funct3==3'b000);
 
 // I-type：FENCE（opcode=0001111）
-wire INST_FENCE = (RV32I_opcode == 7'b0001111) & (RV32I_funct3==3'b000);
+assign INST_FENCE = (RV32I_opcode == 7'b0001111) & (RV32I_funct3==3'b000);
 
 // I-type：SYSTEM（opcode=1110011）
-wire RV32I_SYSTEM = (RV32I_opcode == 7'b1110011);
-wire INST_ECALL  = RV32I_SYSTEM & (RV32I_funct3==3'b000) & (inst_i[31:20]==12'b000000000000);
-wire INST_EBREAK = RV32I_SYSTEM & (RV32I_funct3==3'b000) & (inst_i[31:20]==12'b000000000001);
-wire INST_CSRRW  = RV32I_SYSTEM & (RV32I_funct3==3'b001);
-wire INST_CSRRS  = RV32I_SYSTEM & (RV32I_funct3==3'b010);
-wire INST_CSRRC  = RV32I_SYSTEM & (RV32I_funct3==3'b011);
-wire INST_CSRRWI = RV32I_SYSTEM & (RV32I_funct3==3'b101);
-wire INST_CSRRSI = RV32I_SYSTEM & (RV32I_funct3==3'b110);
-wire INST_CSRRCI = RV32I_SYSTEM & (RV32I_funct3==3'b111);
+assign RV32I_SYSTEM = (RV32I_opcode == 7'b1110011);
+assign INST_ECALL  = RV32I_SYSTEM & (RV32I_funct3==3'b000) & (inst_i[31:20]==12'b000000000000);
+assign INST_EBREAK = RV32I_SYSTEM & (RV32I_funct3==3'b000) & (inst_i[31:20]==12'b000000000001);
+assign INST_CSRRW  = RV32I_SYSTEM & (RV32I_funct3==3'b001);
+assign INST_CSRRS  = RV32I_SYSTEM & (RV32I_funct3==3'b010);
+assign INST_CSRRC  = RV32I_SYSTEM & (RV32I_funct3==3'b011);
+assign INST_CSRRWI = RV32I_SYSTEM & (RV32I_funct3==3'b101);
+assign INST_CSRRSI = RV32I_SYSTEM & (RV32I_funct3==3'b110);
+assign INST_CSRRCI = RV32I_SYSTEM & (RV32I_funct3==3'b111);
 
 // S-type：STORE（opcode=0100011）
-wire INST_SB = RV32I_Stype & (RV32I_funct3==3'b000);
-wire INST_SH = RV32I_Stype & (RV32I_funct3==3'b001);
-wire INST_SW = RV32I_Stype & (RV32I_funct3==3'b010);
+assign INST_SB = RV32I_Stype & (RV32I_funct3==3'b000);
+assign INST_SH = RV32I_Stype & (RV32I_funct3==3'b001);
+assign INST_SW = RV32I_Stype & (RV32I_funct3==3'b010);
 
 // B-type：BRANCH（opcode=1100011）
-wire INST_BEQ  = RV32I_Btype & (RV32I_funct3==3'b000);
-wire INST_BNE  = RV32I_Btype & (RV32I_funct3==3'b001);
-wire INST_BLT  = RV32I_Btype & (RV32I_funct3==3'b100);
-wire INST_BGE  = RV32I_Btype & (RV32I_funct3==3'b101);
-wire INST_BLTU = RV32I_Btype & (RV32I_funct3==3'b110);
-wire INST_BGEU = RV32I_Btype & (RV32I_funct3==3'b111);
+assign INST_BEQ  = RV32I_Btype & (RV32I_funct3==3'b000);
+assign INST_BNE  = RV32I_Btype & (RV32I_funct3==3'b001);
+assign INST_BLT  = RV32I_Btype & (RV32I_funct3==3'b100);
+assign INST_BGE  = RV32I_Btype & (RV32I_funct3==3'b101);
+assign INST_BLTU = RV32I_Btype & (RV32I_funct3==3'b110);
+assign INST_BGEU = RV32I_Btype & (RV32I_funct3==3'b111);
 
 // U-type
-wire INST_LUI   = (RV32I_opcode == 7'b0110111);
-wire INST_AUIPC = (RV32I_opcode == 7'b0010111);
+assign INST_LUI   = (RV32I_opcode == 7'b0110111);
+assign INST_AUIPC = (RV32I_opcode == 7'b0010111);
 
 // J-type
-wire INST_JAL = RV32I_Jtype;
+assign INST_JAL = RV32I_Jtype;
 
 //─────────────────────────────────────────
 // RV32M 乘除法扩展（opcode=0110011，funct7=0000001）
 //─────────────────────────────────────────
 `ifdef USE_RV32M
-wire RV32M_type = (RV32I_opcode == 7'b0110011) & (RV32I_funct7 == 7'b0000001);
+assign RV32M_type = (RV32I_opcode == 7'b0110011) & (RV32I_funct7 == 7'b0000001);
 
-wire INST_MUL    = RV32M_type & (RV32I_funct3 == 3'b000); // 有符号×有符号，取低32位
-wire INST_MULH   = RV32M_type & (RV32I_funct3 == 3'b001); // 有符号×有符号，取高32位
-wire INST_MULHSU = RV32M_type & (RV32I_funct3 == 3'b010); // 有符号×无符号，取高32位
-wire INST_MULHU  = RV32M_type & (RV32I_funct3 == 3'b011); // 无符号×无符号，取高32位
-wire INST_DIV    = RV32M_type & (RV32I_funct3 == 3'b100); // 有符号除法
-wire INST_DIVU   = RV32M_type & (RV32I_funct3 == 3'b101); // 无符号除法
-wire INST_REM    = RV32M_type & (RV32I_funct3 == 3'b110); // 有符号取余
-wire INST_REMU   = RV32M_type & (RV32I_funct3 == 3'b111); // 无符号取余
+assign INST_MUL    = RV32M_type & (RV32I_funct3 == 3'b000); // 有符号×有符号，取低32位
+assign INST_MULH   = RV32M_type & (RV32I_funct3 == 3'b001); // 有符号×有符号，取高32位
+assign INST_MULHSU = RV32M_type & (RV32I_funct3 == 3'b010); // 有符号×无符号，取高32位
+assign INST_MULHU  = RV32M_type & (RV32I_funct3 == 3'b011); // 无符号×无符号，取高32位
+assign INST_DIV    = RV32M_type & (RV32I_funct3 == 3'b100); // 有符号除法
+assign INST_DIVU   = RV32M_type & (RV32I_funct3 == 3'b101); // 无符号除法
+assign INST_REM    = RV32M_type & (RV32I_funct3 == 3'b110); // 有符号取余
+assign INST_REMU   = RV32M_type & (RV32I_funct3 == 3'b111); // 无符号取余
 `endif
 
 //─────────────────────────────────────────

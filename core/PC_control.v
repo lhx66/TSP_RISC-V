@@ -39,7 +39,7 @@ assign BTB_hit[1] = (global_pc_o[`BTB_TAG_PC_HIGH:`BTB_TAG_PC_LOW]
 // 分支预测输出
 //─────────────────────────────────────────
 wire [`INST_ADDR_WIDTH-1:0] pre_pc;
-wire pre_pc_taken,pre_pc_taken_r,pre_pc_taken_rr; //预测结果是跳转还是不跳转
+wire pre_pc_taken,pre_pc_taken_r; //预测结果是跳转还是不跳转
 assign pre_pc_taken = (BTB_hit[0] & BTBuffer[0][`BTB_ENTRY_WIDTH-1]) |
                       (BTB_hit[1] & BTBuffer[1][`BTB_ENTRY_WIDTH-1]); //1:跳转 0：不跳转
 

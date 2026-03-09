@@ -65,8 +65,8 @@ module TSP_Disp_Exu( //dispatch 发射\派遣\执行
         output [`REGFILE_DAT_WIDTH-1:0] muldiv_rd_op,
         output [`REGFILE_IDX_WIDTH-1:0] muldiv_rd,
     `endif
-    
-    input [`REGFILE_IDX_WIDTH-1:0] ls_wb_rd_i,// load指令待写回的寄存器。用于清除oitf。此信号经过了ls_ctrl模块的一周期打拍
+    input oitf_wb_en_i,
+    input [`REGFILE_IDX_WIDTH-1:0] oitf_wb_rd_i,
     //与访存控制模块交互
     input ls_ctrl_ready_i, //访存就绪
     output ls_req_o, 
@@ -78,6 +78,9 @@ module TSP_Disp_Exu( //dispatch 发射\派遣\执行
     output [2:0]  ls_load_type   // 0:LW, 1:LH, 2:LHU, 3:LB, 4:LBU
 );
 
+
+// 派遣-执行模块全局执行许可
+wire global_fire = idec_valid_i & disp_exu_ready_o;
 //打拍当前PC
 REGs_WLWR #(`INST_ADDR_WIDTH, 0) DECODE_PC_REG1(global_fire, next_pc_i, inst_pc_o, clk, rst_n);
 
@@ -178,7 +181,6 @@ Exu_bjp Exu_bjp_u0( //级联在Exu_common后
 // M-type 乘除法执行单元例化
 //─────────────────────────────────────────
 `ifdef USE_RV32M
-wire muldiv_wb_en;
 wire exu_muldiv_ready;
 
 TSP_Exu_muldiv Exu_muldiv_u0(
@@ -207,7 +209,7 @@ TSP_Exu_muldiv Exu_muldiv_u0(
     .INST_REM(INST_REM),
     .INST_REMU(INST_REMU)
 );
-
+`endif
 //─────────────────────────────────────────
 // Load-Store指令处理（复用common中加法器）
 //─────────────────────────────────────────
@@ -248,7 +250,7 @@ wire is_load_inst   = INST_LB | INST_LH | INST_LW | INST_LBU | INST_LHU;
 wire is_store_inst  = INST_SB | INST_SH | INST_SW;
 wire is_muldiv_inst = RV32M_type;
 
-// 【核心修改 1】：Load 指令也是长指令，必须进 OITF 保护！
+// Load 指令也是长指令，须进 OITF 保护！
 wire INST_LONG = is_muldiv_inst | is_load_inst; 
 
 wire moitf_wen = global_fire & INST_LONG & (rd_i != 5'd0);
@@ -256,8 +258,8 @@ wire moitf_wen = global_fire & INST_LONG & (rd_i != 5'd0);
 // 【核心修改 2】：出队解锁。乘除法写回，或者 Load 指令写回，都可以解锁！
 // (注意：这里你需要从外部的访存控制模块/仲裁器引入 ls_wb_en 和 ls_wb_rd 信号，
 //  目前假设你已经有了 ls_wb_en_i 和 ls_wb_rd_i)
-wire moitf_ren = wb_ls_ready_i | wb_muldiv_ready_i; 
-wire [`REGFILE_IDX_WIDTH-1:0] clear_rd = muldiv_wb_en ? muldiv_rd : ls_wb_rd_i; 
+wire moitf_ren = oitf_wb_en_i;
+wire [`REGFILE_IDX_WIDTH-1:0] clear_rd = oitf_wb_rd_i; 
 
 always @(posedge clk or negedge rst_n) begin
     if(~rst_n) begin
@@ -286,6 +288,7 @@ wire moitf_hit1 = (moitf1 != 5'd0) & ((rd_i == moitf1) | (rs1_i == moitf1) | (rs
 wire short_hit_moitf = moitf_hit0 | moitf_hit1;
 
 // 乱序执行，只要没命中oitf，不同类型指令可以独立执行
+wire is_ls_inst = is_load_inst | is_store_inst;
 wire target_unit_ready = 
     is_muldiv_inst ? exu_muldiv_ready :         // 乘除指令只看 muldiv 脸色
     is_ls_inst     ? exu_ls_ready :         // 访存指令只看 ls 脸色
@@ -293,11 +296,6 @@ wire target_unit_ready =
 
 assign disp_exu_ready_o = target_unit_ready & (~short_hit_moitf);
 
-// 派遣-执行模块全局执行许可
-wire global_fire = idec_valid_i & disp_exu_ready_o;
 
-`else
-wire exu_muldiv_ready = 1'b1; // 未使能 RV32M 时，默认 ready
-`endif
 
 endmodule
