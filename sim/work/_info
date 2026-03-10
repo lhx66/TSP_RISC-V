@@ -10,94 +10,93 @@ z2
 cModel Technology
 Z0 dE:/FPGA/TSP_RVmaster/RTL/sim
 vBooth_Multiplier_4xB
-Z1 !s10a 1773063602
-Z2 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z3 !s110 1773064649
+Z1 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1773118316
 !i10b 1
-!s100 O1_SdofMDI2LazlkOoZ_T1
-Z4 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I^]mU@J74H8_z@G[dJHA?j2
+!s100 >]^zLc7@ZA3G6YHEFXTXb2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IlG:D[U6n1aKZRIi4@hQN92
 S1
 R0
-Z5 w1773063602
-Z6 8../core/exu_muldiv.v
-Z7 F../core/exu_muldiv.v
-!i122 32
+w1773118255
+Z3 8../core/exu_muldiv.v
+Z4 F../core/exu_muldiv.v
+!i122 45
 L0 159 407
-Z8 VDg1SIo80bB@j0V0VzS_@n1
-Z9 OL;L;2020.4;71
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2020.4;71
 r1
 !s85 0
 31
-Z10 !s108 1773064649.000000
-Z11 !s107 ..\core\defines.v|../sim/tb_TSP_Core.v|../peripheral/Iram.v|../core/wb_arbiter.v|../core/regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/dff.v|../core/defines.v|../core/core.v|
-Z12 !s90 -reportprogress|300|-sv|-incr|-v|work|-override_timescale|1ns/10ps|-f|modelsim_filelist.f|-l|./log/vlog.log|
+!s108 1773118315.000000
+Z7 !s107 ..\core\defines.v|../sim/tb_TSP_Core.v|../peripheral/Iram.v|../core/wb_arbiter.v|../core/regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/dff.v|../core/defines.v|../core/core.v|
+Z8 !s90 -reportprogress|300|-sv|-incr|-v|work|-override_timescale|1ns/10ps|-f|modelsim_filelist.f|-l|./log/vlog.log|
 !i113 0
-Z13 o-sv -override_timescale 1ns/10ps -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z14 !s92 -sv -v work -override_timescale 1ns/10ps -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z15 tCvgOpt 0
+Z9 o-sv -override_timescale 1ns/10ps -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z10 !s92 -sv -v work -override_timescale 1ns/10ps -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z11 tCvgOpt 0
 n@booth_@multiplier_4x@b
 vdff_async_rst
-Z16 !s10a 1772502960
-R2
-Z17 !s110 1772503028
+Z12 !s10a 1772502960
+R1
+Z13 !s110 1772503028
 !i10b 1
 !s100 [?AR;QCD5VQT[XX`oOF:F1
-R4
+R2
 I]S6^oO?3NeOoBo@91@:K61
 S1
 R0
-Z18 w1772502960
-Z19 8../sim/tb_dff.v
-Z20 F../sim/tb_dff.v
+Z14 w1772502960
+Z15 8../sim/tb_dff.v
+Z16 F../sim/tb_dff.v
 !i122 3
 L0 6 15
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
-Z21 !s108 1772503028.000000
-Z22 !s107 ../sim/tb_dff.v|../global/defines.v|../core/exu_muldiv.v|
-R12
+Z17 !s108 1772503028.000000
+Z18 !s107 ../sim/tb_dff.v|../global/defines.v|../core/exu_muldiv.v|
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 vdivfunc
+Z19 !s10a 1773118255
 R1
-R2
-R3
+!s110 1773064649
 !i10b 1
 !s100 johKE]D?KJ]zzQe>;R9EH1
-R4
+R2
 IX?g0m;R`emaDjh@=o@em22
 S1
 R0
-R5
-R6
-R7
+w1773063602
+R3
+R4
 !i122 32
 L0 573 116
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
+!s108 1773064649.000000
+R7
+R8
+!i113 0
+R9
 R10
 R11
-R12
-!i113 0
-R13
-R14
-R15
 vExu_bjp
 !s10a 1773048670
-R2
-Z23 !s110 1773048820
+R1
+Z20 !s110 1773048820
 !i10b 1
 !s100 cRWQ=Jf1BlEcZA4@PmmTI1
-R4
+R2
 I4Lc2N1^N5z8VF;G^:65FY2
 S1
 R0
@@ -106,26 +105,26 @@ w1773048670
 F../core/exu_bjp.v
 !i122 21
 L0 3 40
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
-Z24 !s108 1773048820.000000
-Z25 !s107 ..\core\defines.v|../sim/tb_TSP_Core.v|../peripheral/Iram.v|../core/wb_arbiter.v|../core/Regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/defines.v|../core/core.v|
-R12
+Z21 !s108 1773048820.000000
+Z22 !s107 ..\core\defines.v|../sim/tb_TSP_Core.v|../peripheral/Iram.v|../core/wb_arbiter.v|../core/Regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/defines.v|../core/core.v|
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@exu_bjp
 vIram
 !s10a 1773048216
-R2
-Z26 !s110 1773048286
+R1
+Z23 !s110 1773048286
 !i10b 1
 !s100 Ql2F16TPWOCW?PfSIAO_93
-R4
+R2
 Iz`6o@QJEIPHb[AWNQj5lm1
 S1
 R0
@@ -134,26 +133,26 @@ w1773048216
 F../peripheral/Iram.v
 !i122 20
 L0 3 39
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
-Z27 !s108 1773048285.000000
-R25
-R12
+Z24 !s108 1773048285.000000
+R22
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@iram
 vls_ctrl
 !s10a 1773048808
-R2
+R1
 !s110 1773048821
 !i10b 1
 !s100 >Qg3c5fePkbdoO2S1UB0^3
-R4
+R2
 IkQeo8c0e]lN;cZJ>geom23
 S1
 R0
@@ -162,25 +161,25 @@ w1773048808
 F../core/ls_ctrl.v
 !i122 21
 L0 3 121
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
-R24
-R25
-R12
+R21
+R22
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 vPC_control
 !s10a 1773052148
-R2
+R1
 !s110 1773061787
 !i10b 1
 !s100 CQ<7GUfV:SYd2XPMnh8VR3
-R4
+R2
 IJAHhhTRM59z0ZoDNOQF:d0
 S1
 R0
@@ -189,138 +188,138 @@ w1773052148
 F../core/PC_control.v
 !i122 27
 L0 4 103
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
 !s108 1773061787.000000
-Z28 !s107 ..\core\defines.v|../sim/tb_TSP_Core.v|../peripheral/Iram.v|../core/wb_arbiter.v|../core/regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/defines.v|../core/core.v|
-R12
+Z25 !s107 ..\core\defines.v|../sim/tb_TSP_Core.v|../peripheral/Iram.v|../core/wb_arbiter.v|../core/regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/defines.v|../core/core.v|
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@p@c_control
 vREGs_NLNR
-Z29 !s10a 1773062349
-R2
-Z30 !s110 1773062363
+Z26 !s10a 1773062349
+R1
+Z27 !s110 1773062363
 !i10b 1
 !s100 Wg9cN:]D7Iook:abLIznW2
-R4
+R2
 IS:cJEdi0dEHD53VVXLko]3
 S1
 R0
-Z31 w1773062349
-Z32 8../core/dff.v
-Z33 F../core/dff.v
+Z28 w1773062349
+Z29 8../core/dff.v
+Z30 F../core/dff.v
 !i122 29
 L0 62 13
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
-Z34 !s108 1773062363.000000
-R11
-R12
+Z31 !s108 1773062363.000000
+R7
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@r@e@gs_@n@l@n@r
 vREGs_NLWR
-R29
-R2
-R30
+R26
+R1
+R27
 !i10b 1
 !s100 GQ:6K;CWjciHh1nLGE3zf0
-R4
+R2
 IbV1;^2d4Sc0Vg_=ZGMYon3
 S1
 R0
-R31
-R32
-R33
+R28
+R29
+R30
 !i122 29
 L0 42 18
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
-R34
-R11
-R12
+R31
+R7
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@r@e@gs_@n@l@w@r
 vREGs_WLNR
-R29
-R2
-R30
+R26
+R1
+R27
 !i10b 1
 !s100 _Y>jDf_?SM_CZ;5LkKglh3
-R4
+R2
 IIO:<_noe2YRRlQo2MHbLO0
 S1
 R0
-R31
-R32
-R33
+R28
+R29
+R30
 !i122 29
 L0 25 15
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
-R34
-R11
-R12
+R31
+R7
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@r@e@gs_@w@l@n@r
 vREGs_WLWR
-R29
-R2
-R30
+R26
+R1
+R27
 !i10b 1
 !s100 0dEIS98Q[K[HFCb^=zJlV3
-R4
+R2
 IBXXf:Ibd@KV5n?dQf4d>W3
 S1
 R0
-R31
-R32
-R33
+R28
+R29
+R30
 !i122 29
 L0 4 19
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
-R34
-R11
-R12
+R31
+R7
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@r@e@gs_@w@l@w@r
 vtb_Booth_Multiplier_32b
 !s10a 1772517629
-R2
+R1
 !s110 1772517639
 !i10b 1
 !s100 Dioc[B`l?I77E`o9;G^832
-R4
+R2
 I>3o:h99RCV`Bj]V?26oGn0
 S1
 R0
@@ -329,53 +328,53 @@ w1772517629
 F../sim/tb_Booth_Multiplier_32b.v
 !i122 15
 L0 3 128
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
 !s108 1772517639.000000
 !s107 ..\core\defines.v|../sim/tb_divfunc.v|../sim/tb_Booth_Multiplier_32b.v|../core/defines.v|../core/exu_muldiv.v|
-R12
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 ntb_@booth_@multiplier_32b
 vtb_dff
-R16
-R2
-R17
+R12
+R1
+R13
 !i10b 1
 !s100 2d[<[6O7ng=<<6<f@X5>B3
-R4
+R2
 IBm`^=HE;Mme`G8:DQDXYj3
 S1
 R0
-R18
-R19
-R20
+R14
+R15
+R16
 !i122 3
 L0 25 70
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
-R21
-R22
-R12
+R17
+R18
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 vtb_divfunc
 !s10a 1772517074
-R2
+R1
 !s110 1772517084
 !i10b 1
 !s100 iPec2N:FJX8X6JA7>DhLi0
-R4
+R2
 I[HoWAMbZ9R:=BDYS91lE51
 S1
 R0
@@ -384,25 +383,25 @@ w1772517074
 F../sim/tb_divfunc.v
 !i122 12
 L0 3 176
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
 !s108 1772517084.000000
 !s107 ..\core\defines.v|../sim/tb_divfunc.v|../core/defines.v|../core/exu_muldiv.v|
-R12
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 vtb_TSP_Core
 !s10a 1773065600
-R2
+R1
 !s110 1773065608
 !i10b 1
 !s100 z9JBz0W3ce[YIj;>n9e?73
-R4
+R2
 I40S3cFQeUY9`aDd]2dgDR0
 S1
 R0
@@ -411,26 +410,26 @@ w1773065600
 F../sim/tb_TSP_Core.v
 !i122 35
 L0 3 60
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
 !s108 1773065608.000000
-R11
-R12
+R7
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 ntb_@t@s@p_@core
 vTSP_Core
 !s10a 1773072166
-R2
+R1
 !s110 1773072175
 !i10b 1
 !s100 g>=KlY@dZP=JmPlKgdAUE1
-R4
+R2
 INHz>A2k?_DJG]NT8hH5C_3
 S1
 R0
@@ -439,26 +438,26 @@ w1773072166
 F../core/core.v
 !i122 40
 L0 3 347
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
 !s108 1773072175.000000
-R11
-R12
+R7
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@t@s@p_@core
 vTSP_Disp_Exu
 !s10a 1773073043
-R2
+R1
 !s110 1773073382
 !i10b 1
 !s100 U`6;KbNd5FMKaNReXR=m[1
-R4
+R2
 Ien[2Hlg]ZYNTo`zHU=R`C3
 S1
 R0
@@ -467,26 +466,26 @@ w1773073043
 F../core/disp_exu.v
 !i122 41
 L0 3 315
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
 !s108 1773073382.000000
-R11
-R12
+R7
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@t@s@p_@disp_@exu
 vTSP_Exu_common
 !s10a 1773073664
-R2
+R1
 !s110 1773073677
 !i10b 1
 !s100 ?U7UYDz6a0EzK2_f5NKCE1
-R4
+R2
 IVA2n^k:UV<I2C?N8KHSAb2
 S1
 R0
@@ -495,26 +494,26 @@ w1773073664
 F../core/exu_common.v
 !i122 43
 L0 3 212
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
 !s108 1773073676.000000
-R11
-R12
+R7
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@t@s@p_@exu_common
 vTSP_Exu_ls
 !s10a 1772870373
-R2
-R23
+R1
+R20
 !i10b 1
 !s100 ?bc32TEkH]O=63mlP4Y8e3
-R4
+R2
 IT1j^0RGaj:nH_Fi2W=g@e0
 S1
 R0
@@ -523,54 +522,54 @@ w1772870373
 F../core/exu_ls.v
 !i122 21
 L0 3 135
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
-R24
-R25
-R12
+R21
+R22
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@t@s@p_@exu_ls
 vTSP_Exu_muldiv
+R19
 R1
-R2
-R26
+R23
 !i10b 1
 !s100 Tdn3H9flX]g:V0mRTA@=G1
-R4
+R2
 IXaC6ALGL63JE3fIMezMZ33
 S1
 R0
 w1772708220
-R6
-R7
+R3
+R4
 !i122 20
 L0 3 152
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
-R27
-R25
-R12
+R24
+R22
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@t@s@p_@exu_muldiv
 vTSP_Idec
 !s10a 1773051861
-R2
-Z35 !s110 1773051923
+R1
+Z32 !s110 1773051923
 !i10b 1
 !s100 2NT<mVmFcF=MjV8BB9S8T1
-R4
+R2
 IQBBYz[5d:e?LaWFL>3JGB0
 S1
 R0
@@ -579,26 +578,26 @@ w1773051861
 F../core/idec.v
 !i122 22
 L0 6 230
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
-Z36 !s108 1773051923.000000
-R28
-R12
+Z33 !s108 1773051923.000000
+R25
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@t@s@p_@idec
 vTSP_Ifu
 !s10a 1773074814
-R2
+R1
 !s110 1773074823
 !i10b 1
 !s100 H:=admQiLOGM0a]cfaH5^0
-R4
+R2
 IlQAl9>52Sz`>zB]a^55Mf0
 S1
 R0
@@ -607,26 +606,26 @@ w1773074814
 F../core/Ifu.v
 !i122 44
 L0 3 81
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
 !s108 1773074823.000000
-R11
-R12
+R7
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@t@s@p_@ifu
 vTSP_Regfiles
 !s10a 1772028607
-R2
-R35
+R1
+R32
 !i10b 1
 !s100 _>c]g0<3CX6Pf=`MdV;c61
-R4
+R2
 IXSAW>?C_=NEWLgBl9AUV03
 S1
 R0
@@ -635,26 +634,26 @@ w1772028607
 F../core/regfiles.v
 !i122 22
 L0 3 32
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
-R36
-R28
-R12
+R33
+R25
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@t@s@p_@regfiles
 vTSP_Wb_arbiter
 !s10a 1773062644
-R2
+R1
 !s110 1773062654
 !i10b 1
 !s100 Lk4]lMfSEa6eZ7G>Xfc:11
-R4
+R2
 IC8Ye8Tmi[DeM>R>^7aN?22
 S1
 R0
@@ -663,24 +662,24 @@ w1773062644
 F../core/wb_arbiter.v
 !i122 30
 L0 3 48
-R8
-R9
+R5
+R6
 r1
 !s85 0
 31
 !s108 1773062654.000000
-R11
-R12
+R7
+R8
 !i113 0
-R13
-R14
-R15
+R9
+R10
+R11
 n@t@s@p_@wb_arbiter
 Tvoptsim
-!s110 1773075130
-V@cJ9ngo;M7fdbzjKXJ6Hn2
+!s110 1773118318
+VSRi6LOUV5U@Q^CAH0QPfd3
 04 11 4 work tb_TSP_Core fast 0
 o+acc +nospecify
-R15
+R11
 nvoptsim
 OL;O;2020.4;71

@@ -168,8 +168,8 @@ module Booth_Multiplier_4xB #(
 
     input   [(N - 1):0] m,          // Multiplicand
     input   [(N - 1):0] r,          // Multiplier
-    output  reg     valid,          // Product Valid
-    output  reg [((2*N) - 1):0] p   // Product <= M * R
+    output     valid,          // Product Valid
+    output [((2*N) - 1):0] p   // Product <= M * R
 );
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -686,3 +686,171 @@ module divfunc
     assign ack = ready[XLEN];
 
 endmodule
+
+
+/****乘法器除法器解耦版，后续可以对乘除法器进行阻塞，
+而现在乘除法器优先级最高不会阻塞，暂不使用
+`include "defines.v"
+
+module TSP_Exu_muldiv( 
+    input clk,
+    input rst_n,
+    // 译码输入 (Valid-Ready 握手)
+    input                           inst_dec_valid_i,
+    output                          exu_ready_o,   
+    
+    input  [`REGFILE_DAT_WIDTH-1:0] rs1_op,
+    input  [`REGFILE_DAT_WIDTH-1:0] rs2_op,
+    input  [`REGFILE_IDX_WIDTH-1:0] rd_i,
+    
+    // 写回输出
+    output [`REGFILE_DAT_WIDTH-1:0] rd_op,
+    output [`REGFILE_IDX_WIDTH-1:0] rd_o,
+    output                          wb_en,
+    input                           wb_muldiv_ready_i,
+
+    // 指令类型
+    input INST_MUL, input INST_MULH, input INST_MULHSU, input INST_MULHU,
+    input INST_DIV, input INST_DIVU, input INST_REM, input INST_REMU
+);
+
+wire is_mul = INST_MUL | INST_MULH | INST_MULHSU | INST_MULHU;
+wire is_div = INST_DIV | INST_DIVU | INST_REM | INST_REMU;
+
+// ====================================================================
+// 1. 完全独立的双通道状态机 (Fully Decoupled State Machines)
+// ====================================================================
+reg mul_busy_r, div_busy_r;
+reg mul_wb_pending_r, div_wb_pending_r;
+
+// 只要自己不忙，且自己的出口没被堵住，就可以接客！互不影响！
+wire mul_ready = ~mul_busy_r & ~mul_wb_pending_r;
+wire div_ready = ~div_busy_r & ~div_wb_pending_r;
+
+// 动态反压：进来的指令想用谁，就看谁是否 ready
+assign exu_ready_o = (is_mul ? mul_ready : 1'b1) & 
+                     (is_div ? div_ready : 1'b1);
+
+wire fire = inst_dec_valid_i & exu_ready_o;
+wire mul_fire = fire & is_mul;
+wire div_fire = fire & is_div;
+
+// ====================================================================
+// 2. 例化底层 IP 与信息锁存
+// ====================================================================
+reg [`REGFILE_IDX_WIDTH-1:0] mul_rd_r, div_rd_r;
+reg [1:0]                    mul_op_type_r, div_op_type_r;
+
+wire ip_mul_valid;
+wire ip_div_ack;
+
+always @(posedge clk or negedge rst_n) begin
+    if (~rst_n) begin
+        mul_busy_r    <= 1'b0;
+        div_busy_r    <= 1'b0;
+        mul_rd_r      <= 0;
+        div_rd_r      <= 0;
+        mul_op_type_r <= 2'd0;
+        div_op_type_r <= 2'd0;
+    end else begin
+        if (ip_mul_valid) mul_busy_r <= 1'b0;
+        if (ip_div_ack)   div_busy_r <= 1'b0;
+
+        if (mul_fire) begin
+            mul_busy_r    <= 1'b1;
+            mul_rd_r      <= rd_i;
+            mul_op_type_r <= (INST_MUL) ? 2'd0 : 2'd1;
+        end
+        if (div_fire) begin
+            div_busy_r    <= 1'b1;
+            div_rd_r      <= rd_i;
+            div_op_type_r <= (INST_DIV | INST_DIVU) ? 2'd2 : 2'd3;
+        end
+    end
+end
+
+wire unsigned_rs1op = INST_MULHU;
+wire unsigned_rs2op = INST_MULHSU | INST_MULHU;
+wire [2*`REGFILE_DAT_WIDTH-1:0] mul_P;
+
+Booth_Multiplier_4xB #(.N(`REGFILE_DAT_WIDTH)) Exu_multiplier(
+    .rst_n(rst_n), 
+    .clk(clk),
+    .ld(mul_fire), 
+    .unsigned_m(unsigned_rs1op),
+    .unsigned_r(unsigned_rs2op),
+    .m(rs1_op),
+    .r(rs2_op),
+    .valid(ip_mul_valid), 
+    .p(mul_P)
+);
+
+wire unsigned_divop = INST_DIVU | INST_REMU;
+wire [`REGFILE_DAT_WIDTH-1:0] quo, rem;
+
+divfunc #(
+    .XLEN(`REGFILE_DAT_WIDTH),
+    .STAGE_LIST(32'h11111111) // 你的 8 拍神仙除法器
+) Exu_divider(
+    .clk(clk),
+    .rst_n(rst_n), 
+    .a(rs1_op),
+    .b(rs2_op),
+    .vld(div_fire), 
+    .is_unsigned(unsigned_divop),
+    .quo(quo),
+    .rem(rem),
+    .ack(ip_div_ack) 
+);
+
+// ====================================================================
+// 3. 内部写回仲裁器 (Internal Write-Back Arbiter)
+// ====================================================================
+wire [`REGFILE_DAT_WIDTH-1:0] mul_res = (mul_op_type_r == 2'd0) ? mul_P[`REGFILE_DAT_WIDTH-1:0] : mul_P[2*`REGFILE_DAT_WIDTH-1:`REGFILE_DAT_WIDTH];
+wire [`REGFILE_DAT_WIDTH-1:0] div_res = (div_op_type_r == 2'd2) ? quo : rem;
+
+reg [`REGFILE_DAT_WIDTH-1:0] mul_wb_data_r, div_wb_data_r;
+
+// 各自通道的写回请求与数据透传
+wire mul_chan_req = mul_wb_pending_r | ip_mul_valid;
+wire div_chan_req = div_wb_pending_r | ip_div_ack;
+
+wire [`REGFILE_DAT_WIDTH-1:0] mul_chan_data = mul_wb_pending_r ? mul_wb_data_r : mul_res;
+wire [`REGFILE_DAT_WIDTH-1:0] div_chan_data = div_wb_pending_r ? div_wb_data_r : div_res;
+
+// 🚦 优先级仲裁：乘法优先。只有乘法不发请求时，才轮到除法！
+wire mul_wb_fire = mul_chan_req & wb_muldiv_ready_i;
+wire div_wb_fire = div_chan_req & ~mul_chan_req & wb_muldiv_ready_i;
+
+assign wb_en = mul_chan_req | div_chan_req;
+assign rd_o  = mul_chan_req ? mul_rd_r      : div_rd_r;
+assign rd_op = mul_chan_req ? mul_chan_data : div_chan_data;
+
+// 内部捕鼠夹逻辑 (Hold State Registers)
+always @(posedge clk or negedge rst_n) begin
+    if (~rst_n) begin
+        mul_wb_pending_r <= 1'b0;
+        div_wb_pending_r <= 1'b0;
+        mul_wb_data_r    <= 0;
+        div_wb_data_r    <= 0;
+    end else begin
+        // 乘法器捕网：吐出了数据，但由于全局堵塞没发出去，死死锁住！
+        if (ip_mul_valid && ~mul_wb_fire) begin
+            mul_wb_pending_r <= 1'b1;
+            mul_wb_data_r    <= mul_res;
+        end else if (mul_wb_pending_r && mul_wb_fire) begin
+            mul_wb_pending_r <= 1'b0;
+        end
+
+        // 除法器捕网：吐出了数据，但全局堵塞，【或者被乘法器抢了跑道】，死死锁住！
+        if (ip_div_ack && ~div_wb_fire) begin
+            div_wb_pending_r <= 1'b1;
+            div_wb_data_r    <= div_res;
+        end else if (div_wb_pending_r && div_wb_fire) begin
+            div_wb_pending_r <= 1'b0;
+        end
+    end
+end
+
+endmodule
+****/

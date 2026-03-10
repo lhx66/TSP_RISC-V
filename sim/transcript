@@ -14,7 +14,7 @@
 # do modelsim_sim.do
 # tb_TSP_Core
 # Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
-# Start time: 00:52:09 on Mar 10,2026
+# Start time: 12:51:55 on Mar 10,2026
 # vlog -reportprogress 300 -sv -incr -v work -override_timescale 1ns/10ps -f modelsim_filelist.f -l ./log/vlog.log 
 # -- Skipping module TSP_Core
 # -- Skipping module REGs_WLWR
@@ -26,7 +26,7 @@
 # -- Skipping module TSP_Exu_common
 # -- Skipping module TSP_Exu_ls
 # -- Skipping module TSP_Exu_muldiv
-# -- Skipping module Booth_Multiplier_4xB
+# -- Compiling module Booth_Multiplier_4xB
 # -- Skipping module divfunc
 # -- Skipping module TSP_Idec
 # -- Skipping module TSP_Ifu
@@ -40,10 +40,10 @@
 # Top level modules:
 # 	REGs_WLNR
 # 	tb_TSP_Core
-# End time: 00:52:10 on Mar 10,2026, Elapsed time: 0:00:01
+# End time: 12:51:56 on Mar 10,2026, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vopt 2020.4 Compiler 2020.10 Oct 13 2020
-# Start time: 00:52:10 on Mar 10,2026
+# Start time: 12:51:57 on Mar 10,2026
 # vopt -reportprogress 300 "+acc" "+nospecify" work.tb_TSP_Core -o voptsim -l ./log/vopt.log 
 # 
 # Top level modules:
@@ -69,7 +69,10 @@
 # -- Loading module TSP_Exu_ls
 # -- Loading module ls_ctrl
 # -- Loading module TSP_Wb_arbiter
-# Incremental compilation check found no design-units have changed.
+# Incremental compilation check found 18 design-units (out of 20) may be reused.
+# Optimizing 2 design-units (inlining 0/55 module instances):
+# -- Optimizing module Booth_Multiplier_4xB(fast)
+# -- Optimizing module TSP_Exu_muldiv(fast)
 # Optimized design name is voptsim
-# End time: 00:52:10 on Mar 10,2026, Elapsed time: 0:00:00
+# End time: 12:51:59 on Mar 10,2026, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0

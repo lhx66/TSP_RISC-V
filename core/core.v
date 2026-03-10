@@ -3,6 +3,9 @@
 module TSP_Core(
     input clk,
     input rst_n
+`ifndef PROG_FPGA
+    ,output debug_port
+`endif
 );
 
     // ====================================================================
@@ -142,6 +145,9 @@ module TSP_Core(
     // 4. 通用寄存器堆 (RegFile)
     // ====================================================================
     wire [`REGFILE_DAT_WIDTH-1:0] rs1_data, rs2_data;
+    `ifndef PROG_FPGA
+        assign debug_port = rs1_data[6]; // FPGA调试时输出
+    `endif
     
     // 留给写回仲裁器的统一写口
     wire                          wb_en;

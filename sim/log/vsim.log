@@ -1,5 +1,5 @@
 # vsim -c "+nospecify" voptsim -l ./log/vsim.log 
-# Start time: 00:52:10 on Mar 10,2026
+# Start time: 12:51:59 on Mar 10,2026
 # Loading sv_std.std
 # Loading work.tb_TSP_Core(fast)
 # Loading work.TSP_Core(fast)
@@ -35,5 +35,5 @@
 #    Time: 50023 ns  Iteration: 0  Instance: /tb_TSP_Core
 # 1
 # Break in Module tb_TSP_Core at ../sim/tb_TSP_Core.v line 38
-# End time: 00:55:01 on Mar 10,2026, Elapsed time: 0:02:51
+# End time: 12:52:46 on Mar 10,2026, Elapsed time: 0:00:47
 # Errors: 0, Warnings: 0

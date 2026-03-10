@@ -1,5 +1,5 @@
 Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
-Start time: 00:52:09 on Mar 10,2026
+Start time: 12:51:55 on Mar 10,2026
 vlog -reportprogress 300 -sv -incr -v work -override_timescale 1ns/10ps -f modelsim_filelist.f -l ./log/vlog.log 
 -- Skipping module TSP_Core
 -- Skipping module REGs_WLWR
@@ -11,7 +11,7 @@ vlog -reportprogress 300 -sv -incr -v work -override_timescale 1ns/10ps -f model
 -- Skipping module TSP_Exu_common
 -- Skipping module TSP_Exu_ls
 -- Skipping module TSP_Exu_muldiv
--- Skipping module Booth_Multiplier_4xB
+-- Compiling module Booth_Multiplier_4xB
 -- Skipping module divfunc
 -- Skipping module TSP_Idec
 -- Skipping module TSP_Ifu
@@ -25,5 +25,5 @@ vlog -reportprogress 300 -sv -incr -v work -override_timescale 1ns/10ps -f model
 Top level modules:
 	REGs_WLNR
 	tb_TSP_Core
-End time: 00:52:10 on Mar 10,2026, Elapsed time: 0:00:01
+End time: 12:51:56 on Mar 10,2026, Elapsed time: 0:00:01
 Errors: 0, Warnings: 0
