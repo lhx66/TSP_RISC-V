@@ -1,3 +1,5 @@
 ../core/*.v
-../peripheral/Iram.v
-../sim/tb_TSP_Core.v
+../peripheral/ram/*.v
+../peripheral/uart/*.v
+../peripheral/*.v
+../sim/tb_soc_top.v

@@ -1,4 +1,4 @@
-set tbname tb_TSP_Core
+set tbname tb_soc_top
 
 proc all {} {
     global tbname

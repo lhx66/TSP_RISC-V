@@ -10,121 +10,122 @@ z2
 cModel Technology
 Z0 dE:/FPGA/TSP_RVmaster/RTL/sim
 vBooth_Multiplier_4xB
-Z1 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z1 !s10a 1773213463
+Z2 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
 !s110 1773118316
 !i10b 1
 !s100 >]^zLc7@ZA3G6YHEFXTXb2
-Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
 IlG:D[U6n1aKZRIi4@hQN92
 S1
 R0
 w1773118255
-Z3 8../core/exu_muldiv.v
-Z4 F../core/exu_muldiv.v
+Z4 8../core/exu_muldiv.v
+Z5 F../core/exu_muldiv.v
 !i122 45
 L0 159 407
-Z5 VDg1SIo80bB@j0V0VzS_@n1
-Z6 OL;L;2020.4;71
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 OL;L;2020.4;71
 r1
 !s85 0
 31
 !s108 1773118315.000000
-Z7 !s107 ..\core\defines.v|../sim/tb_TSP_Core.v|../peripheral/Iram.v|../core/wb_arbiter.v|../core/regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/dff.v|../core/defines.v|../core/core.v|
-Z8 !s90 -reportprogress|300|-sv|-incr|-v|work|-override_timescale|1ns/10ps|-f|modelsim_filelist.f|-l|./log/vlog.log|
+Z8 !s107 ..\core\defines.v|../sim/tb_TSP_Core.v|../peripheral/Iram.v|../core/wb_arbiter.v|../core/regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/dff.v|../core/defines.v|../core/core.v|
+Z9 !s90 -reportprogress|300|-sv|-incr|-v|work|-override_timescale|1ns/10ps|-f|modelsim_filelist.f|-l|./log/vlog.log|
 !i113 0
-Z9 o-sv -override_timescale 1ns/10ps -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z10 !s92 -sv -v work -override_timescale 1ns/10ps -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z11 tCvgOpt 0
+Z10 o-sv -override_timescale 1ns/10ps -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z11 !s92 -sv -v work -override_timescale 1ns/10ps -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z12 tCvgOpt 0
 n@booth_@multiplier_4x@b
 vdff_async_rst
-Z12 !s10a 1772502960
-R1
-Z13 !s110 1772503028
+Z13 !s10a 1772502960
+R2
+Z14 !s110 1772503028
 !i10b 1
 !s100 [?AR;QCD5VQT[XX`oOF:F1
-R2
+R3
 I]S6^oO?3NeOoBo@91@:K61
 S1
 R0
-Z14 w1772502960
-Z15 8../sim/tb_dff.v
-Z16 F../sim/tb_dff.v
+Z15 w1772502960
+Z16 8../sim/tb_dff.v
+Z17 F../sim/tb_dff.v
 !i122 3
 L0 6 15
-R5
 R6
+R7
 r1
 !s85 0
 31
-Z17 !s108 1772503028.000000
-Z18 !s107 ../sim/tb_dff.v|../global/defines.v|../core/exu_muldiv.v|
-R8
-!i113 0
+Z18 !s108 1772503028.000000
+Z19 !s107 ../sim/tb_dff.v|../global/defines.v|../core/exu_muldiv.v|
 R9
+!i113 0
 R10
 R11
+R12
 vdivfunc
-Z19 !s10a 1773118255
 R1
+R2
 !s110 1773064649
 !i10b 1
 !s100 johKE]D?KJ]zzQe>;R9EH1
-R2
+R3
 IX?g0m;R`emaDjh@=o@em22
 S1
 R0
 w1773063602
-R3
 R4
+R5
 !i122 32
 L0 573 116
-R5
 R6
+R7
 r1
 !s85 0
 31
 !s108 1773064649.000000
-R7
 R8
-!i113 0
 R9
+!i113 0
 R10
 R11
+R12
 vExu_bjp
-!s10a 1773048670
-R1
-Z20 !s110 1773048820
-!i10b 1
-!s100 cRWQ=Jf1BlEcZA4@PmmTI1
+!s10a 1773211750
 R2
-I4Lc2N1^N5z8VF;G^:65FY2
+Z20 !s110 1773214960
+!i10b 1
+!s100 0lZQ4d<I9YLe4OjXd9Z0i0
+R3
+IPHLE::8HB_ib?YEXo=HAA1
 S1
 R0
-w1773048670
+w1773211750
 8../core/exu_bjp.v
 F../core/exu_bjp.v
-!i122 21
-L0 3 40
-R5
+!i122 135
+L0 3 63
 R6
+R7
 r1
 !s85 0
 31
-Z21 !s108 1773048820.000000
-Z22 !s107 ..\core\defines.v|../sim/tb_TSP_Core.v|../peripheral/Iram.v|../core/wb_arbiter.v|../core/Regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/defines.v|../core/core.v|
-R8
-!i113 0
+Z21 !s108 1773214960.000000
+Z22 !s107 ..\peripheral\ram\..\..\core\defines.v|..\core\defines.v|../sim/tb_soc_top.v|../peripheral/soc_top.v|../peripheral/AXI_Interconnect.v|../peripheral/uart/uart_tx.v|../peripheral/uart/uart_top.v|../peripheral/uart/uart_rx.v|../peripheral/uart/uart_baudgen.v|../peripheral/uart/uart_axi_lite.v|../peripheral/uart/sync_fifo_with_clear.v|../peripheral/uart/sync_fifo_fwft_with_clear.v|../peripheral/ram/sram.v|../peripheral/ram/ram.v|../core/wb_arbiter.v|../core/regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/dff.v|../core/defines.v|../core/core.v|
 R9
+!i113 0
 R10
 R11
+R12
 n@exu_bjp
 vIram
 !s10a 1773048216
-R1
+R2
 Z23 !s110 1773048286
 !i10b 1
 !s100 Ql2F16TPWOCW?PfSIAO_93
-R2
+R3
 Iz`6o@QJEIPHb[AWNQj5lm1
 S1
 R0
@@ -133,193 +134,275 @@ w1773048216
 F../peripheral/Iram.v
 !i122 20
 L0 3 39
-R5
 R6
+R7
 r1
 !s85 0
 31
 Z24 !s108 1773048285.000000
-R22
-R8
-!i113 0
+Z25 !s107 ..\core\defines.v|../sim/tb_TSP_Core.v|../peripheral/Iram.v|../core/wb_arbiter.v|../core/Regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/defines.v|../core/core.v|
 R9
+!i113 0
 R10
 R11
+R12
 n@iram
 vls_ctrl
-!s10a 1773048808
-R1
-!s110 1773048821
-!i10b 1
-!s100 >Qg3c5fePkbdoO2S1UB0^3
+!s10a 1773207947
 R2
-IkQeo8c0e]lN;cZJ>geom23
+Z26 !s110 1773208118
+!i10b 1
+!s100 5f2YF]=BD0h3FJP:CkbPV3
+R3
+I39fcg_TB75i?IE_GmVa^O2
 S1
 R0
-w1773048808
+w1773207947
 8../core/ls_ctrl.v
 F../core/ls_ctrl.v
-!i122 21
-L0 3 121
-R5
+!i122 125
+L0 3 190
 R6
+R7
 r1
 !s85 0
 31
-R21
+Z27 !s108 1773208118.000000
 R22
-R8
-!i113 0
 R9
+!i113 0
 R10
 R11
+R12
 vPC_control
 !s10a 1773052148
-R1
-!s110 1773061787
-!i10b 1
-!s100 CQ<7GUfV:SYd2XPMnh8VR3
 R2
-IJAHhhTRM59z0ZoDNOQF:d0
+R20
+!i10b 1
+!s100 3_bXV1?]2j5>[?hAzo@LJ1
+R3
+ILGlchekdk[c6^ne`iOUQQ2
 S1
 R0
 w1773052148
 8../core/PC_control.v
 F../core/PC_control.v
-!i122 27
+!i122 135
 L0 4 103
-R5
 R6
+R7
 r1
 !s85 0
 31
-!s108 1773061787.000000
-Z25 !s107 ..\core\defines.v|../sim/tb_TSP_Core.v|../peripheral/Iram.v|../core/wb_arbiter.v|../core/regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/defines.v|../core/core.v|
-R8
-!i113 0
+R21
+R22
 R9
+!i113 0
 R10
 R11
+R12
 n@p@c_control
 vREGs_NLNR
-Z26 !s10a 1773062349
-R1
-Z27 !s110 1773062363
+Z28 !s10a 1773062349
+R2
+Z29 !s110 1773062363
 !i10b 1
 !s100 Wg9cN:]D7Iook:abLIznW2
-R2
+R3
 IS:cJEdi0dEHD53VVXLko]3
 S1
 R0
-Z28 w1773062349
-Z29 8../core/dff.v
-Z30 F../core/dff.v
+Z30 w1773062349
+Z31 8../core/dff.v
+Z32 F../core/dff.v
 !i122 29
 L0 62 13
-R5
 R6
+R7
 r1
 !s85 0
 31
-Z31 !s108 1773062363.000000
-R7
+Z33 !s108 1773062363.000000
 R8
-!i113 0
 R9
+!i113 0
 R10
 R11
+R12
 n@r@e@gs_@n@l@n@r
 vREGs_NLWR
-R26
-R1
-R27
+R28
+R2
+R29
 !i10b 1
 !s100 GQ:6K;CWjciHh1nLGE3zf0
-R2
+R3
 IbV1;^2d4Sc0Vg_=ZGMYon3
 S1
 R0
-R28
-R29
 R30
+R31
+R32
 !i122 29
 L0 42 18
-R5
 R6
+R7
 r1
 !s85 0
 31
-R31
-R7
+R33
 R8
-!i113 0
 R9
+!i113 0
 R10
 R11
+R12
 n@r@e@gs_@n@l@w@r
 vREGs_WLNR
-R26
-R1
-R27
+R28
+R2
+R29
 !i10b 1
 !s100 _Y>jDf_?SM_CZ;5LkKglh3
-R2
+R3
 IIO:<_noe2YRRlQo2MHbLO0
 S1
 R0
-R28
-R29
 R30
+R31
+R32
 !i122 29
 L0 25 15
-R5
 R6
+R7
 r1
 !s85 0
 31
-R31
-R7
+R33
 R8
-!i113 0
 R9
+!i113 0
 R10
 R11
+R12
 n@r@e@gs_@w@l@n@r
 vREGs_WLWR
-R26
-R1
-R27
+R28
+R2
+R29
 !i10b 1
 !s100 0dEIS98Q[K[HFCb^=zJlV3
-R2
+R3
 IBXXf:Ibd@KV5n?dQf4d>W3
 S1
 R0
-R28
-R29
 R30
+R31
+R32
 !i122 29
 L0 4 19
-R5
 R6
+R7
 r1
 !s85 0
 31
-R31
-R7
+R33
 R8
-!i113 0
 R9
+!i113 0
 R10
 R11
+R12
 n@r@e@gs_@w@l@w@r
+vSoC_Top
+!s10a 1773207543
+R2
+R26
+!i10b 1
+!s100 aAN8z9LN2R:[`3]EUO?WQ2
+R3
+IR>zP>nHWHc?I[i_H]2[hN3
+S1
+R0
+w1773207543
+8../peripheral/soc_top.v
+F../peripheral/soc_top.v
+!i122 125
+L0 3 148
+R6
+R7
+r1
+!s85 0
+31
+R27
+R22
+R9
+!i113 0
+R10
+R11
+R12
+n@so@c_@top
+vsync_fifo_fwft_with_clear
+!s10a 1773143884
+R2
+Z34 !s110 1773143907
+!i10b 1
+!s100 1QI9dKJG347I_moLL[QWb2
+R3
+IleQC?IBO<<ieQKO=:hfA;2
+S1
+R0
+w1773143884
+8../peripheral/uart/sync_fifo_fwft_with_clear.v
+F../peripheral/uart/sync_fifo_fwft_with_clear.v
+!i122 51
+L0 3 100
+R6
+R7
+r1
+!s85 0
+31
+Z35 !s108 1773143906.000000
+R22
+R9
+!i113 0
+R10
+R11
+R12
+vsync_fifo_with_clear
+!s10a 1773143861
+R2
+R34
+!i10b 1
+!s100 GMO]cWM1f2?lGG`he=aJ?2
+R3
+I2EJ=>Qe`H4Y0X^G@cG<kG0
+S1
+R0
+w1773143861
+8../peripheral/uart/sync_fifo_with_clear.v
+F../peripheral/uart/sync_fifo_with_clear.v
+!i122 51
+L0 2 88
+R6
+R7
+r1
+!s85 0
+31
+R35
+R22
+R9
+!i113 0
+R10
+R11
+R12
 vtb_Booth_Multiplier_32b
 !s10a 1772517629
-R1
+R2
 !s110 1772517639
 !i10b 1
 !s100 Dioc[B`l?I77E`o9;G^832
-R2
+R3
 I>3o:h99RCV`Bj]V?26oGn0
 S1
 R0
@@ -328,53 +411,53 @@ w1772517629
 F../sim/tb_Booth_Multiplier_32b.v
 !i122 15
 L0 3 128
-R5
 R6
+R7
 r1
 !s85 0
 31
 !s108 1772517639.000000
 !s107 ..\core\defines.v|../sim/tb_divfunc.v|../sim/tb_Booth_Multiplier_32b.v|../core/defines.v|../core/exu_muldiv.v|
-R8
-!i113 0
 R9
+!i113 0
 R10
 R11
+R12
 ntb_@booth_@multiplier_32b
 vtb_dff
-R12
-R1
 R13
+R2
+R14
 !i10b 1
 !s100 2d[<[6O7ng=<<6<f@X5>B3
-R2
+R3
 IBm`^=HE;Mme`G8:DQDXYj3
 S1
 R0
-R14
 R15
 R16
+R17
 !i122 3
 L0 25 70
-R5
 R6
+R7
 r1
 !s85 0
 31
-R17
 R18
-R8
-!i113 0
+R19
 R9
+!i113 0
 R10
 R11
+R12
 vtb_divfunc
 !s10a 1772517074
-R1
+R2
 !s110 1772517084
 !i10b 1
 !s100 iPec2N:FJX8X6JA7>DhLi0
-R2
+R3
 I[HoWAMbZ9R:=BDYS91lE51
 S1
 R0
@@ -383,25 +466,52 @@ w1772517074
 F../sim/tb_divfunc.v
 !i122 12
 L0 3 176
-R5
 R6
+R7
 r1
 !s85 0
 31
 !s108 1772517084.000000
 !s107 ..\core\defines.v|../sim/tb_divfunc.v|../core/defines.v|../core/exu_muldiv.v|
-R8
-!i113 0
 R9
+!i113 0
 R10
 R11
+R12
+vtb_soc_top
+!s10a 1773210801
+R2
+!s110 1773210835
+!i10b 1
+!s100 [^z9aTcl^1BL0jYAY^@Al1
+R3
+I@8<2Zn:izN>k4Ujie?e?V2
+S1
+R0
+w1773210801
+8../sim/tb_soc_top.v
+F../sim/tb_soc_top.v
+!i122 131
+L0 3 74
+R6
+R7
+r1
+!s85 0
+31
+!s108 1773210835.000000
+R22
+R9
+!i113 0
+R10
+R11
+R12
 vtb_TSP_Core
 !s10a 1773065600
-R1
+R2
 !s110 1773065608
 !i10b 1
 !s100 z9JBz0W3ce[YIj;>n9e?73
-R2
+R3
 I40S3cFQeUY9`aDd]2dgDR0
 S1
 R0
@@ -410,82 +520,110 @@ w1773065600
 F../sim/tb_TSP_Core.v
 !i122 35
 L0 3 60
-R5
 R6
+R7
 r1
 !s85 0
 31
 !s108 1773065608.000000
-R7
 R8
-!i113 0
 R9
+!i113 0
 R10
 R11
+R12
 ntb_@t@s@p_@core
-vTSP_Core
-!s10a 1773072166
-R1
-!s110 1773072175
-!i10b 1
-!s100 g>=KlY@dZP=JmPlKgdAUE1
+vTSP_AXI_Interconnect
+!s10a 1773207655
 R2
-INHz>A2k?_DJG]NT8hH5C_3
+R26
+!i10b 1
+!s100 0emA[VzSaMa>`@i7ZThi`3
+R3
+IMYmLIXEKAVSJH@zoE`Dgl0
 S1
 R0
-w1773072166
+w1773207655
+8../peripheral/AXI_Interconnect.v
+F../peripheral/AXI_Interconnect.v
+!i122 125
+L0 3 141
+R6
+R7
+r1
+!s85 0
+31
+R27
+R22
+R9
+!i113 0
+R10
+R11
+R12
+n@t@s@p_@a@x@i_@interconnect
+vTSP_Core
+!s10a 1773145141
+R2
+R20
+!i10b 1
+!s100 0z>n?N_6^f^`bSNOM;@6Y1
+R3
+IH8zTi6_`7Ia8nIAkF7Sej0
+S1
+R0
+w1773145141
 8../core/core.v
 F../core/core.v
-!i122 40
-L0 3 347
-R5
+!i122 135
+L0 3 401
 R6
+R7
 r1
 !s85 0
 31
-!s108 1773072175.000000
-R7
-R8
-!i113 0
+R21
+R22
 R9
+!i113 0
 R10
 R11
+R12
 n@t@s@p_@core
 vTSP_Disp_Exu
-!s10a 1773073043
-R1
-!s110 1773073382
-!i10b 1
-!s100 U`6;KbNd5FMKaNReXR=m[1
+!s10a 1773215025
 R2
-Ien[2Hlg]ZYNTo`zHU=R`C3
+!s110 1773215035
+!i10b 1
+!s100 NLB7<=omz22M5MWnTEh@^3
+R3
+IO=9O2[Om]4kHI]j<U65kh3
 S1
 R0
-w1773073043
+w1773215025
 8../core/disp_exu.v
 F../core/disp_exu.v
-!i122 41
-L0 3 315
-R5
+!i122 136
+L0 3 320
 R6
+R7
 r1
 !s85 0
 31
-!s108 1773073382.000000
-R7
-R8
-!i113 0
+!s108 1773215035.000000
+R22
 R9
+!i113 0
 R10
 R11
+R12
 n@t@s@p_@disp_@exu
 vTSP_Exu_common
 !s10a 1773073664
-R1
+R2
 !s110 1773073677
 !i10b 1
 !s100 ?U7UYDz6a0EzK2_f5NKCE1
-R2
+R3
 IVA2n^k:UV<I2C?N8KHSAb2
 S1
 R0
@@ -494,82 +632,82 @@ w1773073664
 F../core/exu_common.v
 !i122 43
 L0 3 212
-R5
 R6
+R7
 r1
 !s85 0
 31
 !s108 1773073676.000000
-R7
 R8
-!i113 0
 R9
+!i113 0
 R10
 R11
+R12
 n@t@s@p_@exu_common
 vTSP_Exu_ls
-!s10a 1772870373
-R1
-R20
-!i10b 1
-!s100 ?bc32TEkH]O=63mlP4Y8e3
+!s10a 1773201435
 R2
-IT1j^0RGaj:nH_Fi2W=g@e0
+!s110 1773201471
+!i10b 1
+!s100 ?VSzYFC6PYk60OLMIM?4P2
+R3
+IWfS[X@b^Vib<O<=n^^Jzm2
 S1
 R0
-w1772870373
+w1773201435
 8../core/exu_ls.v
 F../core/exu_ls.v
-!i122 21
+!i122 123
 L0 3 135
-R5
 R6
+R7
 r1
 !s85 0
 31
-R21
+!s108 1773201471.000000
 R22
-R8
-!i113 0
 R9
+!i113 0
 R10
 R11
+R12
 n@t@s@p_@exu_ls
 vTSP_Exu_muldiv
-R19
 R1
+R2
 R23
 !i10b 1
 !s100 Tdn3H9flX]g:V0mRTA@=G1
-R2
+R3
 IXaC6ALGL63JE3fIMezMZ33
 S1
 R0
 w1772708220
-R3
 R4
+R5
 !i122 20
 L0 3 152
-R5
 R6
+R7
 r1
 !s85 0
 31
 R24
-R22
-R8
-!i113 0
+R25
 R9
+!i113 0
 R10
 R11
+R12
 n@t@s@p_@exu_muldiv
 vTSP_Idec
 !s10a 1773051861
-R1
-Z32 !s110 1773051923
+R2
+Z36 !s110 1773051923
 !i10b 1
 !s100 2NT<mVmFcF=MjV8BB9S8T1
-R2
+R3
 IQBBYz[5d:e?LaWFL>3JGB0
 S1
 R0
@@ -578,54 +716,82 @@ w1773051861
 F../core/idec.v
 !i122 22
 L0 6 230
-R5
 R6
+R7
 r1
 !s85 0
 31
-Z33 !s108 1773051923.000000
-R25
-R8
-!i113 0
+Z37 !s108 1773051923.000000
+Z38 !s107 ..\core\defines.v|../sim/tb_TSP_Core.v|../peripheral/Iram.v|../core/wb_arbiter.v|../core/regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/defines.v|../core/core.v|
 R9
+!i113 0
 R10
 R11
+R12
 n@t@s@p_@idec
 vTSP_Ifu
-!s10a 1773074814
-R1
-!s110 1773074823
-!i10b 1
-!s100 H:=admQiLOGM0a]cfaH5^0
+!s10a 1773209260
 R2
-IlQAl9>52Sz`>zB]a^55Mf0
+!s110 1773209271
+!i10b 1
+!s100 E^S@Aa3VRHCk>gn25TBg;1
+R3
+IBzEiR50RUKfDg_l2GN^`k0
 S1
 R0
-w1773074814
+w1773209260
 8../core/Ifu.v
 F../core/Ifu.v
-!i122 44
-L0 3 81
-R5
+!i122 127
+L0 3 185
 R6
+R7
 r1
 !s85 0
 31
-!s108 1773074823.000000
-R7
-R8
-!i113 0
+!s108 1773209271.000000
+R22
 R9
+!i113 0
 R10
 R11
+R12
 n@t@s@p_@ifu
+vTSP_RAM
+!s10a 1773143507
+R2
+!s110 1773143543
+!i10b 1
+!s100 MEb_0KQFk>9SVFRK?F32N2
+R3
+Ij2JJP0oKhH;Y?fIHn6NjZ1
+S1
+R0
+w1773143507
+8../peripheral/ram/ram.v
+F../peripheral/ram/ram.v
+!i122 48
+L0 3 87
+R6
+R7
+r1
+!s85 0
+31
+!s108 1773143543.000000
+Z39 !s107 ..\peripheral\ram\..\..\core\defines.v|..\core\defines.v|../sim/tb_soc_top.v|../peripheral/soc_top.v|../peripheral/AXI_Interconnect.v|../peripheral/uart/uart_tx.v|../peripheral/uart/uart_top.v|../peripheral/uart/uart_rx.v|../peripheral/uart/uart_baudgen.v|../peripheral/uart/uart_axi_lite.v|../peripheral/ram/sram.v|../peripheral/ram/ram.v|../core/wb_arbiter.v|../core/regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/dff.v|../core/defines.v|../core/core.v|
+R9
+!i113 0
+R10
+R11
+R12
+n@t@s@p_@r@a@m
 vTSP_Regfiles
 !s10a 1772028607
-R1
-R32
+R2
+R36
 !i10b 1
 !s100 _>c]g0<3CX6Pf=`MdV;c61
-R2
+R3
 IXSAW>?C_=NEWLgBl9AUV03
 S1
 R0
@@ -634,52 +800,215 @@ w1772028607
 F../core/regfiles.v
 !i122 22
 L0 3 32
-R5
 R6
+R7
 r1
 !s85 0
 31
-R33
-R25
-R8
-!i113 0
+R37
+R38
 R9
+!i113 0
 R10
 R11
+R12
 n@t@s@p_@regfiles
-vTSP_Wb_arbiter
-!s10a 1773062644
-R1
-!s110 1773062654
-!i10b 1
-!s100 Lk4]lMfSEa6eZ7G>Xfc:11
+vTSP_Sram
+!s10a 1773208102
 R2
-IC8Ye8Tmi[DeM>R>^7aN?22
+R26
+!i10b 1
+!s100 CCV0j5l>og0ofaz@:VO`62
+R3
+IX[aVN<2Q=DYfUQA^=[4Je3
 S1
 R0
-w1773062644
-8../core/wb_arbiter.v
-F../core/wb_arbiter.v
-!i122 30
-L0 3 48
-R5
+w1773208102
+8../peripheral/ram/sram.v
+F../peripheral/ram/sram.v
+!i122 125
+L0 3 108
 R6
+R7
 r1
 !s85 0
 31
-!s108 1773062654.000000
-R7
-R8
-!i113 0
+R27
+R22
 R9
+!i113 0
 R10
 R11
-n@t@s@p_@wb_arbiter
-Tvoptsim
-!s110 1773118318
-VSRi6LOUV5U@Q^CAH0QPfd3
-04 11 4 work tb_TSP_Core fast 0
-o+acc +nospecify
+R12
+n@t@s@p_@sram
+vTSP_Wb_arbiter
+!s10a 1773155521
+R2
+!s110 1773155621
+!i10b 1
+!s100 EDQOm2d5jjl7m@SU_CfPz0
+R3
+IRY_TK9Tg;cbFfC8]<f1463
+S1
+R0
+w1773155521
+8../core/wb_arbiter.v
+F../core/wb_arbiter.v
+!i122 84
+L0 3 49
+R6
+R7
+r1
+!s85 0
+31
+!s108 1773155621.000000
+R22
+R9
+!i113 0
+R10
 R11
+R12
+n@t@s@p_@wb_arbiter
+vuart_axi_lite
+!s10a 1773143624
+R2
+!s110 1773143645
+!i10b 1
+!s100 eKHkM;5Wgn4Vb_2T]XD4[1
+R3
+ID3QVm1efhOJj`3THlWP^j1
+S1
+R0
+w1773143624
+8../peripheral/uart/uart_axi_lite.v
+F../peripheral/uart/uart_axi_lite.v
+!i122 49
+L0 1 395
+R6
+R7
+r1
+!s85 0
+31
+!s108 1773143645.000000
+R39
+R9
+!i113 0
+R10
+R11
+R12
+vuart_baudgen
+!s10a 1773142997
+R2
+Z40 !s110 1773143462
+!i10b 1
+!s100 O_?nz6e4=czI?HZ;ebe572
+R3
+I6>^W:h=oXB_b2Ee49]Cb71
+S1
+R0
+w1773142997
+8../peripheral/uart/uart_baudgen.v
+F../peripheral/uart/uart_baudgen.v
+!i122 47
+L0 1 90
+R6
+R7
+r1
+!s85 0
+31
+Z41 !s108 1773143462.000000
+Z42 !s107 ..\core\defines.v|../sim/tb_soc_top.v|../peripheral/soc_top.v|../peripheral/AXI_Interconnect.v|../peripheral/uart/uart_tx.v|../peripheral/uart/uart_top.v|../peripheral/uart/uart_rx.v|../peripheral/uart/uart_baudgen.v|../peripheral/uart/uart_axi_lite.v|../peripheral/ram/sram.v|../peripheral/ram/ram.v|../core/wb_arbiter.v|../core/regfiles.v|../core/PC_control.v|../core/ls_ctrl.v|../core/Ifu.v|../core/idec.v|../core/exu_muldiv.v|../core/exu_ls.v|../core/exu_common.v|../core/exu_bjp.v|../core/disp_exu.v|../core/dff.v|../core/defines.v|../core/core.v|
+R9
+!i113 0
+R10
+R11
+R12
+vuart_rx
+!s10a 1773143030
+R2
+R40
+!i10b 1
+!s100 `gZ0R[;827_d3bJgzn]BD0
+R3
+I`cBUM`3ZfYQi6W8e7NW<31
+S1
+R0
+w1773143030
+8../peripheral/uart/uart_rx.v
+F../peripheral/uart/uart_rx.v
+!i122 47
+L0 1 281
+R6
+R7
+r1
+!s85 0
+31
+R41
+R42
+R9
+!i113 0
+R10
+R11
+R12
+vuart_top
+!s10a 1773143065
+R2
+R40
+!i10b 1
+!s100 ZId9PLgBIMd0eJQR_GGhP3
+R3
+I]gG4bAX4>T1OliB9c;AJO1
+S1
+R0
+w1773143065
+8../peripheral/uart/uart_top.v
+F../peripheral/uart/uart_top.v
+!i122 47
+L0 1 172
+R6
+R7
+r1
+!s85 0
+31
+R41
+R42
+R9
+!i113 0
+R10
+R11
+R12
+vuart_tx
+!s10a 1773143102
+R2
+R40
+!i10b 1
+!s100 @8D7OS7Tj6=M]z@e1>F[_2
+R3
+IdceSnP?53K@S9c@[FWhGA3
+S1
+R0
+w1773143102
+8../peripheral/uart/uart_tx.v
+F../peripheral/uart/uart_tx.v
+!i122 47
+L0 1 222
+R6
+R7
+r1
+!s85 0
+31
+R41
+R42
+R9
+!i113 0
+R10
+R11
+R12
+Tvoptsim
+!s110 1773215702
+V3hEfGL1[6OX^IJ7@L[gVk1
+04 10 4 work tb_soc_top fast 0
+o+acc +nospecify
+R12
 nvoptsim
 OL;O;2020.4;71

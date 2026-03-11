@@ -165,19 +165,24 @@ TSP_Exu_common Exu_common_u0( //通用加法器及其他基础指令
     .INST_BLT(INST_BLT),
     .INST_BGE(INST_BGE),
     .INST_BLTU(INST_BLTU),
-    .INST_BGEU(INST_BGEU)
+    .INST_BGEU(INST_BGEU),
+    // I-type：LOAD
+    .INST_LB(INST_LB), .INST_LH(INST_LH), .INST_LW(INST_LW), .INST_LBU(INST_LBU), .INST_LHU(INST_LHU),
+    // S-type
+    .INST_SB(INST_SB), .INST_SH(INST_SH), .INST_SW(INST_SW)
 );
 
 //─────────────────────────────────────────
 // 跳转指令执行单元例化（复用加法器）
-//─────────────────────────────────────────
+wire bjp_fire = global_fire & (RV32I_Btype | INST_JAL | INST_JALR);//新增一个单独的一拍握手许可
+
 Exu_bjp Exu_bjp_u0( //级联在Exu_common后
     .clk(clk),
     .rst_n(rst_n),
 
     //交互派遣模块
     .bjp_pc(inst_pc_o), //bjp指令对应的PC值，用于选取tag  inst_pc_o
-    .INST_BJP(RV32I_Btype | INST_JAL | INST_JALR), //bxx + jal + jalr RV32I_Btype|INST_JAL|INST_JALR
+    .INST_BJP(bjp_fire), //bxx + jal + jalr RV32I_Btype|INST_JAL|INST_JALR
 
     //交互Exu_common模块
     .branch_taken(branch_taken), //是否跳转
@@ -187,7 +192,7 @@ Exu_bjp Exu_bjp_u0( //级联在Exu_common后
     .global_pc_i(inst_pc_o),  //PC
     .BTB_update(BTB_update),       // 格式见 defines.v BTB字段布局
     .BTB_update_valid(BTB_update_valid),  // 执行阶段写回BTB
-    .pre_pc_taken_i(pre_pc_taken_i),
+//    .pre_pc_taken_i(pre_pc_taken_i),
 
     .pc_correct_o(pc_correct_o),  // 正确的下一条 PC
     .pc_redirect_o(pc_redirect_o)   // 预测错误，强制重定向
@@ -251,7 +256,7 @@ TSP_Exu_ls Exu_ls_u0(
     .ls_byte_en_o(ls_byte_en_o),  // 字节写使能掩码 (Byte Enable)
     .ls_wdata_o(ls_wdata_o),    // 对齐后的写入数据
     
-    .wb_ls_ready_i(wb_ls_ready_i),   // 访存控制模块反压
+    .ls_ctrl_ready_i(ls_ctrl_ready_i),   // 访存控制模块反压
     
     .ls_load_type_o(ls_load_type), // 0:LW, 1:LH, 2:LHU, 3:LB, 4:LBU
     .ls_rd_o(ls_rd)      //不连接，统一用common_ls_rd

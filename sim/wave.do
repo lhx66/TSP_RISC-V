@@ -1,13 +1,13 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate /tb_TSP_Core/clk
-add wave -noupdate /tb_TSP_Core/rst_n
-add wave -noupdate /tb_TSP_Core/u_TSP_Core/global_pc
-add wave -noupdate /tb_TSP_Core/u_TSP_Core/inst_if
-add wave -noupdate /tb_TSP_Core/u_TSP_Core/u_TSP_Regfiles/RV32I_regs
+add wave -noupdate /tb_soc_top/clk
+add wave -noupdate /tb_soc_top/rst_n
+add wave -noupdate /tb_soc_top/u_SoC_Top/u_TSP_Core/global_pc
+add wave -noupdate /tb_soc_top/u_SoC_Top/u_TSP_Core/inst_if
+add wave -noupdate /tb_soc_top/u_SoC_Top/u_TSP_Core/u_TSP_Regfiles/RV32I_regs
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {0 ps} 0}
-quietly wave cursor active 0
+WaveRestoreCursors {{Cursor 1} {360780 ps} 0}
+quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
@@ -22,4 +22,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {2013500 ps} {2023500 ps}
+WaveRestoreZoom {0 ps} {612220 ps}

@@ -12,9 +12,9 @@
 # //  18 U.S.C. Section 1905.
 # //
 # do modelsim_sim.do
-# tb_TSP_Core
+# tb_soc_top
 # Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
-# Start time: 12:51:55 on Mar 10,2026
+# Start time: 15:55:02 on Mar 11,2026
 # vlog -reportprogress 300 -sv -incr -v work -override_timescale 1ns/10ps -f modelsim_filelist.f -l ./log/vlog.log 
 # -- Skipping module TSP_Core
 # -- Skipping module REGs_WLWR
@@ -26,7 +26,7 @@
 # -- Skipping module TSP_Exu_common
 # -- Skipping module TSP_Exu_ls
 # -- Skipping module TSP_Exu_muldiv
-# -- Compiling module Booth_Multiplier_4xB
+# -- Skipping module Booth_Multiplier_4xB
 # -- Skipping module divfunc
 # -- Skipping module TSP_Idec
 # -- Skipping module TSP_Ifu
@@ -34,28 +34,39 @@
 # -- Skipping module PC_control
 # -- Skipping module TSP_Regfiles
 # -- Skipping module TSP_Wb_arbiter
-# -- Skipping module Iram
-# -- Skipping module tb_TSP_Core
+# -- Skipping module TSP_RAM
+# -- Skipping module TSP_Sram
+# -- Skipping module sync_fifo_fwft_with_clear
+# -- Skipping module sync_fifo_with_clear
+# -- Skipping module uart_axi_lite
+# -- Skipping module uart_baudgen
+# -- Skipping module uart_rx
+# -- Skipping module uart_top
+# -- Skipping module uart_tx
+# -- Skipping module TSP_AXI_Interconnect
+# -- Skipping module SoC_Top
+# -- Skipping module tb_soc_top
 # 
 # Top level modules:
 # 	REGs_WLNR
-# 	tb_TSP_Core
-# End time: 12:51:56 on Mar 10,2026, Elapsed time: 0:00:01
+# 	tb_soc_top
+# End time: 15:55:02 on Mar 11,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim SE-64 vopt 2020.4 Compiler 2020.10 Oct 13 2020
-# Start time: 12:51:57 on Mar 10,2026
-# vopt -reportprogress 300 "+acc" "+nospecify" work.tb_TSP_Core -o voptsim -l ./log/vopt.log 
+# Start time: 15:55:02 on Mar 11,2026
+# vopt -reportprogress 300 "+acc" "+nospecify" work.tb_soc_top -o voptsim -l ./log/vopt.log 
 # 
 # Top level modules:
-# 	tb_TSP_Core
+# 	tb_soc_top
 # 
 # Analyzing design...
-# -- Loading module tb_TSP_Core
+# -- Loading module tb_soc_top
+# -- Loading module SoC_Top
 # -- Loading module TSP_Core
 # -- Loading module PC_control
 # -- Loading module REGs_NLNR
 # -- Loading module TSP_Ifu
-# -- Loading module Iram
+# -- Loading module TSP_RAM
 # -- Loading module REGs_NLWR
 # -- Loading module REGs_WLWR
 # -- Loading module TSP_Idec
@@ -69,10 +80,16 @@
 # -- Loading module TSP_Exu_ls
 # -- Loading module ls_ctrl
 # -- Loading module TSP_Wb_arbiter
-# Incremental compilation check found 18 design-units (out of 20) may be reused.
-# Optimizing 2 design-units (inlining 0/55 module instances):
-# -- Optimizing module Booth_Multiplier_4xB(fast)
-# -- Optimizing module TSP_Exu_muldiv(fast)
+# -- Loading module TSP_AXI_Interconnect
+# -- Loading module TSP_Sram
+# -- Loading module uart_top
+# -- Loading module uart_tx
+# -- Loading module sync_fifo_with_clear
+# -- Loading module uart_rx
+# -- Loading module sync_fifo_fwft_with_clear
+# -- Loading module uart_baudgen
+# -- Loading module uart_axi_lite
+# Incremental compilation check found no design-units have changed.
 # Optimized design name is voptsim
-# End time: 12:51:59 on Mar 10,2026, Elapsed time: 0:00:02
+# End time: 15:55:02 on Mar 11,2026, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

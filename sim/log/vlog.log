@@ -1,5 +1,5 @@
 Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
-Start time: 12:51:55 on Mar 10,2026
+Start time: 15:55:02 on Mar 11,2026
 vlog -reportprogress 300 -sv -incr -v work -override_timescale 1ns/10ps -f modelsim_filelist.f -l ./log/vlog.log 
 -- Skipping module TSP_Core
 -- Skipping module REGs_WLWR
@@ -11,7 +11,7 @@ vlog -reportprogress 300 -sv -incr -v work -override_timescale 1ns/10ps -f model
 -- Skipping module TSP_Exu_common
 -- Skipping module TSP_Exu_ls
 -- Skipping module TSP_Exu_muldiv
--- Compiling module Booth_Multiplier_4xB
+-- Skipping module Booth_Multiplier_4xB
 -- Skipping module divfunc
 -- Skipping module TSP_Idec
 -- Skipping module TSP_Ifu
@@ -19,11 +19,21 @@ vlog -reportprogress 300 -sv -incr -v work -override_timescale 1ns/10ps -f model
 -- Skipping module PC_control
 -- Skipping module TSP_Regfiles
 -- Skipping module TSP_Wb_arbiter
--- Skipping module Iram
--- Skipping module tb_TSP_Core
+-- Skipping module TSP_RAM
+-- Skipping module TSP_Sram
+-- Skipping module sync_fifo_fwft_with_clear
+-- Skipping module sync_fifo_with_clear
+-- Skipping module uart_axi_lite
+-- Skipping module uart_baudgen
+-- Skipping module uart_rx
+-- Skipping module uart_top
+-- Skipping module uart_tx
+-- Skipping module TSP_AXI_Interconnect
+-- Skipping module SoC_Top
+-- Skipping module tb_soc_top
 
 Top level modules:
 	REGs_WLNR
-	tb_TSP_Core
-End time: 12:51:56 on Mar 10,2026, Elapsed time: 0:00:01
+	tb_soc_top
+End time: 15:55:02 on Mar 11,2026, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0

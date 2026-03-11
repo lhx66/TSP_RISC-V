@@ -33,7 +33,7 @@ module TSP_Exu_ls(
     output [2:0]  ls_load_type_o,// 0:LW, 1:LH, 2:LHU, 3:LB, 4:LBU
     output [`REGFILE_IDX_WIDTH-1:0] ls_rd_o,       // 【新增】传递 rd 给访存控制器
     
-    input         wb_ls_ready_i  // 访存控制模块反压 (表示请求已被接收/完成)
+    input         ls_ctrl_ready_i  // 访存控制模块反压 (表示请求已被接收/完成)
 );
 
 // -------------------------------------------------------------
@@ -52,7 +52,7 @@ always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
         ls_busy_r <= 1'b0;
     end else begin
-        if (ls_busy_r && wb_ls_ready_i) begin
+        if (ls_busy_r && ls_ctrl_ready_i) begin
             ls_busy_r <= 1'b0;
         end 
         else if (ls_fire) begin
