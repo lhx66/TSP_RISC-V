@@ -1,5 +1,5 @@
 Model Technology ModelSim SE-64 vopt 2020.4 Compiler 2020.10 Oct 13 2020
-Start time: 15:55:02 on Mar 11,2026
+Start time: 18:28:56 on Mar 11,2026
 vopt -reportprogress 300 "+acc" "+nospecify" work.tb_soc_top -o voptsim -l ./log/vopt.log 
 
 Top level modules:
@@ -13,13 +13,13 @@ Analyzing design...
 -- Loading module REGs_NLNR
 -- Loading module TSP_Ifu
 -- Loading module TSP_RAM
--- Loading module REGs_NLWR
 -- Loading module REGs_WLWR
 -- Loading module TSP_Idec
 -- Loading module TSP_Regfiles
 -- Loading module TSP_Disp_Exu
 -- Loading module TSP_Exu_common
 -- Loading module Exu_bjp
+-- Loading module REGs_NLWR
 -- Loading module TSP_Exu_muldiv
 -- Loading module Booth_Multiplier_4xB
 -- Loading module divfunc
@@ -28,14 +28,17 @@ Analyzing design...
 -- Loading module TSP_Wb_arbiter
 -- Loading module TSP_AXI_Interconnect
 -- Loading module TSP_Sram
--- Loading module uart_top
+-- Loading module uart_axi_lite_wrapper
+-- Loading module uart
 -- Loading module uart_tx
--- Loading module sync_fifo_with_clear
 -- Loading module uart_rx
--- Loading module sync_fifo_fwft_with_clear
--- Loading module uart_baudgen
--- Loading module uart_axi_lite
-Incremental compilation check found no design-units have changed.
+Incremental compilation check found 22 design-units (out of 27) may be reused.
+Optimizing 5 design-units (inlining 0/60 module instances):
+-- Optimizing module SoC_Top(fast)
+-- Optimizing module uart_rx(fast)
+-- Optimizing module uart_axi_lite_wrapper(fast)
+-- Optimizing module uart_tx(fast)
+-- Optimizing module uart(fast)
 Optimized design name is voptsim
-End time: 15:55:02 on Mar 11,2026, Elapsed time: 0:00:00
+End time: 18:28:57 on Mar 11,2026, Elapsed time: 0:00:01
 Errors: 0, Warnings: 0

@@ -1,5 +1,5 @@
 # vsim -c "+nospecify" voptsim -l ./log/vsim.log 
-# Start time: 15:55:02 on Mar 11,2026
+# Start time: 18:28:57 on Mar 11,2026
 # Loading sv_std.std
 # Loading work.tb_soc_top(fast)
 # Loading work.SoC_Top(fast)
@@ -8,13 +8,13 @@
 # Loading work.REGs_NLNR(fast)
 # Loading work.TSP_Ifu(fast)
 # Loading work.TSP_RAM(fast)
-# Loading work.REGs_NLWR(fast)
 # Loading work.REGs_WLWR(fast)
 # Loading work.TSP_Idec(fast)
 # Loading work.TSP_Regfiles(fast)
 # Loading work.TSP_Disp_Exu(fast)
 # Loading work.TSP_Exu_common(fast)
 # Loading work.Exu_bjp(fast)
+# Loading work.REGs_NLWR(fast)
 # Loading work.TSP_Exu_muldiv(fast)
 # Loading work.Booth_Multiplier_4xB(fast)
 # Loading work.divfunc(fast)
@@ -24,30 +24,27 @@
 # Loading work.TSP_AXI_Interconnect(fast)
 # Loading work.TSP_Sram(fast)
 # Loading work.TSP_RAM(fast__1)
-# Loading work.uart_top(fast)
+# Loading work.uart_axi_lite_wrapper(fast)
+# Loading work.uart(fast)
 # Loading work.uart_tx(fast)
-# Loading work.sync_fifo_with_clear(fast)
 # Loading work.uart_rx(fast)
-# Loading work.sync_fifo_fwft_with_clear(fast)
-# Loading work.uart_baudgen(fast)
-# Loading work.uart_axi_lite(fast)
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: lhx  Hostname: LAPTOP-E3CFACBD  ProcessID: 21212
-#           Attempting to use alternate WLF file "./wlfts0ayew".
+#           Attempting to use alternate WLF file "./wlftfm2j4d".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlfts0ayew
-# [Time: 12500] WRITE-BACK: Register x2 = 536870912 (0x20000000)
-# [Time: 13500] WRITE-BACK: Register x1 = 1 (0x00000001)
-# [Time: 14500] WRITE-BACK: Register x3 = -1 (0xffffffff)
-# [Time: 22500] WRITE-BACK: Register x4 = -1 (0xffffffff)
-# [Time: 25500] WRITE-BACK: Register x5 = 65535 (0x0000ffff)
-# [Time: 34500] WRITE-BACK: Register x12 = -65535 (0xffff0001)
-# [Time: 36500] WRITE-BACK: Register x12 = 28 (0x0000001c)
-# [Time: 37500] WRITE-BACK: Register x7 = 65534 (0x0000fffe)
-# [Time: 38500] WRITE-BACK: Register x9 = 40 (0x00000028)
-# [Time: 44500] WRITE-BACK: Register x13 = 27 (0x0000001b)
-# Simulation Finished!
-# ** Note: $finish    : ../sim/tb_soc_top.v(31)
-#    Time: 2100 ns  Iteration: 0  Instance: /tb_soc_top
+#           Using alternate file: ./wlftfm2j4d
+# ============================================
+#           UART Terminal Output              
+# ============================================
+# HELLO RISCV
+# 
+# 
+# ============================================
+# Simulation Finished by Timeout!
+# ============================================
+# ** Note: $finish    : ../sim/tb_soc_top.v(35)
+#    Time: 2000100 ns  Iteration: 0  Instance: /tb_soc_top
 # 1
-# Break in Module tb_soc_top at ../sim/tb_soc_top.v line 31
+# Break in Module tb_soc_top at ../sim/tb_soc_top.v line 35
+# End time: 18:29:10 on Mar 11,2026, Elapsed time: 0:00:13
+# Errors: 0, Warnings: 2

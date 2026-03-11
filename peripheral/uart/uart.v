@@ -29,7 +29,7 @@ THE SOFTWARE.
 /*
  * AXI4-Stream UART
  */
-module uart_tx #
+module uart #
 (
     parameter DATA_WIDTH = 8
 )
@@ -45,71 +45,69 @@ module uart_tx #
     output wire                   s_axis_tready,
 
     /*
+     * AXI output
+     */
+    output wire [DATA_WIDTH-1:0]  m_axis_tdata,
+    output wire                   m_axis_tvalid,
+    input  wire                   m_axis_tready,
+
+    /*
      * UART interface
      */
+    input  wire                   rxd,
     output wire                   txd,
 
     /*
      * Status
      */
-    output wire                   busy,
+    output wire                   tx_busy,
+    output wire                   rx_busy,
+    output wire                   rx_overrun_error,
+    output wire                   rx_frame_error,
 
     /*
      * Configuration
      */
     input  wire [15:0]            prescale
+
 );
 
-reg s_axis_tready_reg = 0;
+uart_tx #(
+    .DATA_WIDTH(DATA_WIDTH)
+)
+uart_tx_inst (
+    .clk(clk),
+    .rst(rst),
+    // axi input
+    .s_axis_tdata(s_axis_tdata),
+    .s_axis_tvalid(s_axis_tvalid),
+    .s_axis_tready(s_axis_tready),
+    // output
+    .txd(txd),
+    // status
+    .busy(tx_busy),
+    // configuration
+    .prescale(prescale)
+);
 
-reg txd_reg = 1;
-
-reg busy_reg = 0;
-
-reg [DATA_WIDTH:0] data_reg = 0;
-reg [18:0] prescale_reg = 0;
-reg [3:0] bit_cnt = 0;
-
-assign s_axis_tready = s_axis_tready_reg;
-assign txd = txd_reg;
-
-assign busy = busy_reg;
-
-always @(posedge clk) begin
-    if (rst) begin
-        s_axis_tready_reg <= 0;
-        txd_reg <= 1;
-        prescale_reg <= 0;
-        bit_cnt <= 0;
-        busy_reg <= 0;
-    end else begin
-        if (prescale_reg > 0) begin
-            s_axis_tready_reg <= 0;
-            prescale_reg <= prescale_reg - 1;
-        end else if (bit_cnt == 0) begin
-            s_axis_tready_reg <= 1;
-            busy_reg <= 0;
-
-            if (s_axis_tvalid) begin
-                s_axis_tready_reg <= !s_axis_tready_reg;
-                prescale_reg <= (prescale << 3)-1;
-                bit_cnt <= DATA_WIDTH+1;
-                data_reg <= {1'b1, s_axis_tdata};
-                txd_reg <= 0;
-                busy_reg <= 1;
-            end
-        end else begin
-            if (bit_cnt > 1) begin
-                bit_cnt <= bit_cnt - 1;
-                prescale_reg <= (prescale << 3)-1;
-                {data_reg, txd_reg} <= {1'b0, data_reg};
-            end else if (bit_cnt == 1) begin
-                bit_cnt <= bit_cnt - 1;
-                prescale_reg <= (prescale << 3);
-                txd_reg <= 1;
-            end
-        end
-    end
-end
+uart_rx #(
+    .DATA_WIDTH(DATA_WIDTH)
+)
+uart_rx_inst (
+    .clk(clk),
+    .rst(rst),
+    // axi output
+    .m_axis_tdata(m_axis_tdata),
+    .m_axis_tvalid(m_axis_tvalid),
+    .m_axis_tready(m_axis_tready),
+    // input
+    .rxd(rxd),
+    // status
+    .busy(rx_busy),
+    .overrun_error(rx_overrun_error),
+    .frame_error(rx_frame_error),
+    // configuration
+    .prescale(prescale)
+);
 
 endmodule

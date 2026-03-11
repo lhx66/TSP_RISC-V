@@ -1,281 +1,142 @@
-module uart_rx #(
-  parameter FIFO_DEPTH = 16
-) (
-  input  wire       clk,
-  input  wire       rst_n,
+/*
 
-  // UART configuration
-  input  wire       i_parity,
-  input  wire [1:0] i_data_bits,
-  input  wire       i_stop_bits,
-  input  wire       i_use_parity,
-  input  wire [2:0] i_threshold_value,
-  output reg        o_threshold,
+Copyright (c) 2014-2017 Alex Forencich
 
-  // Data
-  input  wire       i_fifo_clear,
-  input  wire       i_fifo_rd_en,
-  output wire [7:0] o_fifo_rd_data,
-  output wire       o_fifo_full,
-  output wire       o_fifo_empty,
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-  // Strobe generation
-  input  wire       i_rx_strb,
-  output reg        o_rx_strb_en,
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-  // UART RX
-  input  wire       i_uart_rx,
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
-  // Receive errors
-  output reg        o_parity_error,
-  output reg        o_frame_error,
-  output reg        o_overflow_error,
-  output reg        o_underflow_error
+*/
+
+// Language: Verilog 2001
+
+`timescale 1ns / 1ps
+
+/*
+ * AXI4-Stream UART
+ */
+module uart_rx #
+(
+    parameter DATA_WIDTH = 8
+)
+(
+    input  wire                   clk,
+    input  wire                   rst,
+
+    /*
+     * AXI output
+     */
+    output wire [DATA_WIDTH-1:0]  m_axis_tdata,
+    output wire                   m_axis_tvalid,
+    input  wire                   m_axis_tready,
+
+    /*
+     * UART interface
+     */
+    input  wire                   rxd,
+
+    /*
+     * Status
+     */
+    output wire                   busy,
+    output wire                   overrun_error,
+    output wire                   frame_error,
+
+    /*
+     * Configuration
+     */
+    input  wire [15:0]            prescale
+
 );
 
-  // State definitions
-  localparam [2:0] IDLE                = 3'd0;
-  localparam [2:0] RECEIVE_START_BIT   = 3'd1;
-  localparam [2:0] RECEIVE_DATA_BITS   = 3'd2;
-  localparam [2:0] SHIFT_DATA_BITS     = 3'd3;
-  localparam [2:0] RECEIVE_PARITY      = 3'd4;
-  localparam [2:0] RECEIVE_STOP_BIT0   = 3'd5;
-  localparam [2:0] RECEIVE_STOP_BIT1   = 3'd6;
+reg [DATA_WIDTH-1:0] m_axis_tdata_reg = 0;
+reg m_axis_tvalid_reg = 0;
 
-  reg [2:0] state;
+reg rxd_reg = 1;
 
-  // (* ASYNC_REG = "TRUE" *) - these are Xilinx specific attributes
-  // Some synthesis tools support them in Verilog, others don't
-  reg uart_2ff_sync_stage1;
-  reg uart_2ff_sync_stage2;
-  reg [1:0] uart_rx;
-  reg       start_bit;
+reg busy_reg = 0;
+reg overrun_error_reg = 0;
+reg frame_error_reg = 0;
 
-  wire       fifo_full;
-  reg        fifo_wr_en;
-  reg [7:0]  fifo_wr_data;
+reg [DATA_WIDTH-1:0] data_reg = 0;
+reg [18:0] prescale_reg = 0;
+reg [3:0] bit_cnt = 0;
 
-  assign o_fifo_full = fifo_full;
+assign m_axis_tdata = m_axis_tdata_reg;
+assign m_axis_tvalid = m_axis_tvalid_reg;
 
-  reg [2:0] received_bits;
-  reg [2:0] data_bits;
-  reg       calc_parity;
-  reg       parity;
-  reg       stop_bits;
-  reg [4:0] threshold_counter;
-  reg [4:0] threshold_value;
+assign busy = busy_reg;
+assign overrun_error = overrun_error_reg;
+assign frame_error = frame_error_reg;
 
-  // == OVERFLOW AND UNDERFLOW HANDLING ==
-  always @(posedge clk) begin
-    if (!rst_n) begin
-      o_overflow_error  <= 1'b0;
-      o_underflow_error <= 1'b0;
+always @(posedge clk) begin
+    if (rst) begin
+        m_axis_tdata_reg <= 0;
+        m_axis_tvalid_reg <= 0;
+        rxd_reg <= 1;
+        prescale_reg <= 0;
+        bit_cnt <= 0;
+        busy_reg <= 0;
+        overrun_error_reg <= 0;
+        frame_error_reg <= 0;
     end else begin
-      o_overflow_error  <= fifo_full & fifo_wr_en;
-      o_underflow_error <= o_fifo_empty & i_fifo_rd_en;
-    end
-  end
+        rxd_reg <= rxd;
+        overrun_error_reg <= 0;
+        frame_error_reg <= 0;
 
-  // == SAMPLE ASYNC INPUTS ==
-  always @(posedge clk) begin
-    if (!rst_n) begin
-      uart_2ff_sync_stage1 <= 1'b1;
-      uart_2ff_sync_stage2 <= 1'b1;
-    end else begin
-      uart_2ff_sync_stage1 <= i_uart_rx;
-      uart_2ff_sync_stage2 <= uart_2ff_sync_stage1;
-    end
-  end
-
-  always @(posedge clk) begin
-    if (!rst_n) begin
-      uart_rx   <= 2'b11;
-      start_bit <= 1'b0;
-    end else begin
-      start_bit <= 1'b0;
-      uart_rx   <= {uart_rx[0], uart_2ff_sync_stage2};
-      if (uart_rx == 2'b10) begin
-        start_bit <= 1'b1;
-      end
-    end
-  end
-
-  // == THRESHOLD HANDLING ==
-  always @(posedge clk) begin
-    if (!rst_n) begin
-      threshold_value <= 5'b0;
-    end else begin
-      case (i_threshold_value)
-        3'b000  : threshold_value <= 5'd1;
-        3'b001  : threshold_value <= 5'd2;
-        3'b010  : threshold_value <= 5'd4;
-        3'b011  : threshold_value <= 5'd8;
-        3'b100  : threshold_value <= 5'd10;
-        3'b101  : threshold_value <= 5'd12;
-        3'b110  : threshold_value <= 5'd14;
-        3'b111  : threshold_value <= 5'd15;
-        default : threshold_value <= 5'd1;
-      endcase
-    end
-  end
-
-  always @(posedge clk) begin
-    if (!rst_n) begin
-      threshold_counter <= 5'b0;
-    end else begin
-      if (i_fifo_clear) begin
-        threshold_counter <= 5'b0;
-      end else begin
-        if (fifo_wr_en && !i_fifo_rd_en && !fifo_full) begin
-          threshold_counter <= threshold_counter + 1'b1;
-        end else if (i_fifo_rd_en && !fifo_wr_en && !o_fifo_empty) begin
-          threshold_counter <= threshold_counter - 1'b1;
-        end
-      end
-    end
-  end
-
-  always @(posedge clk) begin
-    if (!rst_n) begin
-      o_threshold <= 1'b0;
-    end else begin
-      o_threshold <= (threshold_counter >= threshold_value);
-    end
-  end
-
-  // == RX FSM ==
-  always @(posedge clk) begin
-    if (!rst_n) begin
-      state              <= IDLE;
-      fifo_wr_data       <= 8'b0;
-      o_rx_strb_en       <= 1'b0;
-      received_bits      <= 3'b0;
-      data_bits          <= 3'b0;
-      parity             <= 1'b0;
-      stop_bits          <= 1'b0;
-      calc_parity        <= 1'b0;
-      o_parity_error     <= 1'b0;
-      o_frame_error      <= 1'b0;
-    end else begin
-      o_rx_strb_en   <= 1'b1;
-      o_parity_error <= 1'b0;
-      o_frame_error  <= 1'b0;
-      fifo_wr_en     <= 1'b0;
-
-      case (state)
-        IDLE: begin
-          state <= IDLE;
-
-          if (start_bit) begin
-            state              <= RECEIVE_START_BIT;
-            received_bits      <= 3'b0;
-            data_bits          <= 3'd4 + {1'b0, i_data_bits};
-            parity             <= i_use_parity;
-            stop_bits          <= i_stop_bits;
-            calc_parity        <= i_parity;
-            o_rx_strb_en       <= 1'b1;
-            fifo_wr_data       <= 8'b0;
-          end else begin
-            o_rx_strb_en <= 1'b0;
-          end
+        if (m_axis_tvalid && m_axis_tready) begin
+            m_axis_tvalid_reg <= 0;
         end
 
-        RECEIVE_START_BIT : begin
-          state <= RECEIVE_START_BIT;
-          if (i_rx_strb) begin
-            state <= RECEIVE_DATA_BITS;
-          end
-        end
-
-        RECEIVE_DATA_BITS: begin
-          state <= RECEIVE_DATA_BITS;
-          if (i_rx_strb && received_bits != data_bits) begin
-            state           <= RECEIVE_DATA_BITS;
-            fifo_wr_data    <= {uart_rx[1], fifo_wr_data[7:1]};
-            received_bits   <= received_bits + 1'b1;
-            calc_parity     <= calc_parity ^ uart_rx[1];
-          end else if (i_rx_strb && received_bits == data_bits) begin
-            fifo_wr_data    <= {uart_rx[1], fifo_wr_data[7:1]};
-            calc_parity     <= calc_parity ^ uart_rx[1];
-            state           <= SHIFT_DATA_BITS;
-          end
-        end
-
-        SHIFT_DATA_BITS : begin
-          state <= SHIFT_DATA_BITS;
-          case (data_bits[1:0])
-            2'b00 : fifo_wr_data <= {3'b000, fifo_wr_data[7:3]};
-            2'b01 : fifo_wr_data <= {2'b00, fifo_wr_data[7:2]};
-            2'b10 : fifo_wr_data <= {1'b0, fifo_wr_data[7:1]};
-            2'b11 : fifo_wr_data <= fifo_wr_data;
-          endcase
-
-          if (parity) begin
-            state <= RECEIVE_PARITY;
-          end else begin
-            state <= RECEIVE_STOP_BIT0;
-          end
-        end
-
-        RECEIVE_PARITY : begin
-          state <= RECEIVE_PARITY;
-          if (i_rx_strb) begin
-            if (uart_rx[1] != calc_parity) begin
-              o_parity_error <= 1'b1;
-              state          <= RECEIVE_STOP_BIT0;
+        if (prescale_reg > 0) begin
+            prescale_reg <= prescale_reg - 1;
+        end else if (bit_cnt > 0) begin
+            if (bit_cnt > DATA_WIDTH+1) begin
+                if (!rxd_reg) begin
+                    bit_cnt <= bit_cnt - 1;
+                    prescale_reg <= (prescale << 3)-1;
+                end else begin
+                    bit_cnt <= 0;
+                    prescale_reg <= 0;
+                end
+            end else if (bit_cnt > 1) begin
+                bit_cnt <= bit_cnt - 1;
+                prescale_reg <= (prescale << 3)-1;
+                data_reg <= {rxd_reg, data_reg[DATA_WIDTH-1:1]};
+            end else if (bit_cnt == 1) begin
+                bit_cnt <= bit_cnt - 1;
+                if (rxd_reg) begin
+                    m_axis_tdata_reg <= data_reg;
+                    m_axis_tvalid_reg <= 1;
+                    overrun_error_reg <= m_axis_tvalid_reg;
+                end else begin
+                    frame_error_reg <= 1;
+                end
             end
-          end
-        end
-
-        RECEIVE_STOP_BIT0 : begin
-          state <= RECEIVE_STOP_BIT0;
-          if (i_rx_strb) begin
-            if (uart_rx[1] != 1'b1) begin
-              o_frame_error <= 1'b1;
-            end else begin
-              fifo_wr_en <= 1'b1;
+        end else begin
+            busy_reg <= 0;
+            if (!rxd_reg) begin
+                prescale_reg <= (prescale << 2)-2;
+                bit_cnt <= DATA_WIDTH+2;
+                data_reg <= 0;
+                busy_reg <= 1;
             end
-
-            if (stop_bits) begin
-              state <= RECEIVE_STOP_BIT1;
-            end else begin
-              state <= IDLE;
-            end
-          end
         end
-
-        RECEIVE_STOP_BIT1 : begin
-          if (i_rx_strb) begin
-            if (uart_rx[1] != 1'b1) begin
-              o_frame_error <= 1'b1;
-            end
-            state <= IDLE;
-          end else begin
-            state <= RECEIVE_STOP_BIT1;
-          end
-        end
-
-        default : begin
-          state <= IDLE;
-        end
-      endcase
     end
-  end
-
-  sync_fifo_fwft_with_clear #(
-    .DATA_WIDTH             (8           ),
-    .DEPTH                  (FIFO_DEPTH  ),
-    .EXTRA_OUTPUT_REGISTER  (1'b0        )
-  ) fifo_tx_inst (
-    .clk         (clk               ),
-    .rst_n       (rst_n             ),
-    .i_clr       (i_fifo_clear      ),
-    .i_wr_en     (fifo_wr_en        ),
-    .i_wr_data   (fifo_wr_data      ),
-    .o_full      (fifo_full         ),
-    .i_rd_en     (i_fifo_rd_en      ),
-    .o_rd_data   (o_fifo_rd_data    ),
-    .o_empty     (o_fifo_empty      )
-  );
+end
 
 endmodule
