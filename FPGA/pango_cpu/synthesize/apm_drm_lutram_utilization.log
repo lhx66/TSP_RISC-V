@@ -1,0 +1,110 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Detailed RTL Component Info :
+-----Module Name :
+                    SoC_Top
+
+-----ROMs :
+            64 Bit    (64 x 1 bit)          ROMs := 8
+
+-----RAMs :
+            64K Bit    (8192 x 8 bit)          RAMs := 4
+            128K Bit    (16384 x 8 bit)          RAMs := 4
+
+Distributed RAM and Block RAM: Final Mapping Report
+|------------------------------------------------------------------|------------------------|-------------------|---------|
+| DPRAM Inst Name                                                  | Size (Depth x Width)   | Primitives        | Count   |
+|------------------------------------------------------------------|------------------------|-------------------|---------|
+| u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_multiplier/En_B      | 64 x 1                 |                   |         |
+|                                                                  | 64 x 1                 | GTP_ROM64X1       | 1       |
+|------------------------------------------------------------------|------------------------|-------------------|---------|
+| u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_multiplier/En_C      | 64 x 1                 |                   |         |
+|                                                                  | 64 x 1                 | GTP_ROM64X1       | 1       |
+|------------------------------------------------------------------|------------------------|-------------------|---------|
+| u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_multiplier/En_D      | 64 x 1                 |                   |         |
+|                                                                  | 64 x 1                 | GTP_ROM64X1       | 1       |
+|------------------------------------------------------------------|------------------------|-------------------|---------|
+| u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_multiplier/M_Sel_B   | 64 x 1                 |                   |         |
+|                                                                  | 64 x 1                 | GTP_ROM64X1       | 1       |
+|------------------------------------------------------------------|------------------------|-------------------|---------|
+| u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_multiplier/M_Sel_D   | 64 x 1                 |                   |         |
+|                                                                  | 64 x 1                 | GTP_ROM64X1       | 1       |
+|------------------------------------------------------------------|------------------------|-------------------|---------|
+| u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_multiplier/MnP_B     | 64 x 1                 |                   |         |
+|                                                                  | 64 x 1                 | GTP_ROM64X1       | 1       |
+|------------------------------------------------------------------|------------------------|-------------------|---------|
+| u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_multiplier/MnP_C     | 64 x 1                 |                   |         |
+|                                                                  | 64 x 1                 | GTP_ROM64X1       | 1       |
+|------------------------------------------------------------------|------------------------|-------------------|---------|
+| u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_multiplier/MnP_D     | 64 x 1                 |                   |         |
+|                                                                  | 64 x 1                 | GTP_ROM64X1       | 1       |
+|------------------------------------------------------------------|------------------------|-------------------|---------|
+
+|---------------------------------------|------------------------|-------------------|-------------------|-------------------|-------------------|
+| Inst Name                             | Size (Depth x Width)   | Write_Mode_A      | Write_Mode_B      | Ram_Mode          | Primitives        |
+|---------------------------------------|------------------------|-------------------|-------------------|-------------------|-------------------|
+| u_SRAM/u_Data_Ram/RAM                 | 8 K x 8                |                   |                   |                   |                   |
+|                   RAM_0               | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                   RAM_2               | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                   RAM_3               | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                   RAM_4               | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|---------------------------------------|------------------------|-------------------|-------------------|-------------------|-------------------|
+| u_SRAM/u_Data_Ram/RAM_1               | 8 K x 8                |                   |                   |                   |                   |
+|                   RAM_1_0             | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                   RAM_1_1             | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                   RAM_1_2             | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                   RAM_1_3             | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|---------------------------------------|------------------------|-------------------|-------------------|-------------------|-------------------|
+| u_SRAM/u_Data_Ram/RAM_2               | 8 K x 8                |                   |                   |                   |                   |
+|                   RAM_2_0             | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                   RAM_2_1             | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                   RAM_2_2             | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                   RAM_2_3             | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|---------------------------------------|------------------------|-------------------|-------------------|-------------------|-------------------|
+| u_SRAM/u_Data_Ram/RAM_3               | 8 K x 8                |                   |                   |                   |                   |
+|                   RAM_3_0             | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                   RAM_3_1             | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                   RAM_3_2             | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                   RAM_3_3             | 8 K x 2                | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|---------------------------------------|------------------------|-------------------|-------------------|-------------------|-------------------|
+| u_TSP_Core/u_TSP_Ifu/u_Iram/RAM       | 16 K x 8               |                   |                   |                   |                   |
+|                             RAM_0     | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_1     | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_2     | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_3     | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_4     | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_5     | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_6     | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_7     | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|---------------------------------------|------------------------|-------------------|-------------------|-------------------|-------------------|
+| u_TSP_Core/u_TSP_Ifu/u_Iram/RAM_1     | 16 K x 8               |                   |                   |                   |                   |
+|                             RAM_1_2   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_1_0   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_1_1   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_1_4   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_1_6   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_1_3   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_1_5   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_1_7   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|---------------------------------------|------------------------|-------------------|-------------------|-------------------|-------------------|
+| u_TSP_Core/u_TSP_Ifu/u_Iram/RAM_2     | 16 K x 8               |                   |                   |                   |                   |
+|                             RAM_2_2   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_2_3   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_2_4   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_2_5   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_2_6   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_2_7   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_2_1   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_2_0   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|---------------------------------------|------------------------|-------------------|-------------------|-------------------|-------------------|
+| u_TSP_Core/u_TSP_Ifu/u_Iram/RAM_3     | 16 K x 8               |                   |                   |                   |                   |
+|                             RAM_3_0   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_3_2   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_3_3   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_3_4   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_3_5   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_3_6   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|                             RAM_3_7   | 16 K x 1               | READ_BEFORE_WRITE | /                 | SINGLE_PORT       | GTP_DRM18K        |
+|---------------------------------------|------------------------|-------------------|-------------------|-------------------|-------------------|
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

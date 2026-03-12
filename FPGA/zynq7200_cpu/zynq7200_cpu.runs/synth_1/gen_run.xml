@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-2" LaunchTime="1773219092">
+  <File Type="PA-TCL" Name="SoC_Top.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="SoC_Top_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="SoC_Top_reports.tcl"/>
+  <File Type="RDS-RDS" Name="SoC_Top.vds"/>
+  <File Type="RDS-UTIL" Name="SoC_Top_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="SoC_Top_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="SoC_Top.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="SoC_Top_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="SoC_Top_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/source/core/defines.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/core/defines.v"/>
+        <Attr Name="ImportTime" Val="1773218008"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/peripheral/AXI_Interconnect.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/peripheral/AXI_Interconnect.v"/>
+        <Attr Name="ImportTime" Val="1773207655"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/core/Ifu.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/core/Ifu.v"/>
+        <Attr Name="ImportTime" Val="1773209260"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/core/PC_control.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/core/PC_control.v"/>
+        <Attr Name="ImportTime" Val="1773052148"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/core/core.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/core/core.v"/>
+        <Attr Name="ImportTime" Val="1773145141"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/core/dff.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/core/dff.v"/>
+        <Attr Name="ImportTime" Val="1773062349"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/core/disp_exu.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/core/disp_exu.v"/>
+        <Attr Name="ImportTime" Val="1773215025"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/core/exu_bjp.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/core/exu_bjp.v"/>
+        <Attr Name="ImportTime" Val="1773211750"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/core/exu_common.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/core/exu_common.v"/>
+        <Attr Name="ImportTime" Val="1773073664"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/core/exu_ls.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/core/exu_ls.v"/>
+        <Attr Name="ImportTime" Val="1773201435"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/core/exu_muldiv.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/core/exu_muldiv.v"/>
+        <Attr Name="ImportTime" Val="1773213463"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/core/idec.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/core/idec.v"/>
+        <Attr Name="ImportTime" Val="1773051861"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/core/ls_ctrl.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/core/ls_ctrl.v"/>
+        <Attr Name="ImportTime" Val="1773207947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/ram/ram.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/ram/ram.v"/>
+        <Attr Name="ImportTime" Val="1773218146"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/core/regfiles.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/core/regfiles.v"/>
+        <Attr Name="ImportTime" Val="1772028607"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/ram/sram.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/ram/sram.v"/>
+        <Attr Name="ImportTime" Val="1773217862"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/uart/sync_fifo_fwft_with_clear.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/uart/sync_fifo_fwft_with_clear.v"/>
+        <Attr Name="ImportTime" Val="1773143884"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/uart/sync_fifo_with_clear.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/uart/sync_fifo_with_clear.v"/>
+        <Attr Name="ImportTime" Val="1773143861"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/uart/uart_axi_lite.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/uart/uart_axi_lite.v"/>
+        <Attr Name="ImportTime" Val="1773218039"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/uart/uart_baudgen.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/uart/uart_baudgen.v"/>
+        <Attr Name="ImportTime" Val="1773142997"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/uart/uart_rx.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/uart/uart_rx.v"/>
+        <Attr Name="ImportTime" Val="1773143030"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/uart/uart_top.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/uart/uart_top.v"/>
+        <Attr Name="ImportTime" Val="1773143065"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/uart/uart_tx.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/uart/uart_tx.v"/>
+        <Attr Name="ImportTime" Val="1773216968"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/core/wb_arbiter.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/core/wb_arbiter.v"/>
+        <Attr Name="ImportTime" Val="1773155521"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/source/peripheral/soc_top.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../pango_cpu/source/peripheral/soc_top.v"/>
+        <Attr Name="ImportTime" Val="1773207543"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="SoC_Top"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/TSP_Core.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/TSP_Core.xdc"/>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

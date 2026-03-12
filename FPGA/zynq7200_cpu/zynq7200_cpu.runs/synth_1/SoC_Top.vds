@@ -1,0 +1,1365 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Mar 11 16:51:34 2026
+# Process ID: 25448
+# Current directory: E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.runs/synth_1
+# Command line: vivado.exe -log SoC_Top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SoC_Top.tcl
+# Log file: E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.runs/synth_1/SoC_Top.vds
+# Journal file: E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source SoC_Top.tcl -notrace
+WARNING: [Board 49-69] Validation failed for board file E:/Xilinx/Vivado/2018.3/data/boards/board_files/PYNQ-Z2 board file v1.0/A.0/board.xml:
+ Frequency Parameter not provided for audio_clock
+
+Command: synth_design -top SoC_Top -part xc7z020clg484-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 4640 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 433.402 ; gain = 99.949
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'SoC_Top' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/peripheral/soc_top.v:3]
+INFO: [Synth 8-6157] synthesizing module 'TSP_Core' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/core.v:3]
+INFO: [Synth 8-6157] synthesizing module 'PC_control' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/PC_control.v:4]
+INFO: [Synth 8-6157] synthesizing module 'REGs_NLNR' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/dff.v:62]
+	Parameter RW bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'REGs_NLNR' (1#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/dff.v:62]
+INFO: [Synth 8-6155] done synthesizing module 'PC_control' (2#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/PC_control.v:4]
+INFO: [Synth 8-6157] synthesizing module 'TSP_Ifu' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/Ifu.v:3]
+INFO: [Synth 8-6157] synthesizing module 'TSP_RAM' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/ram/ram.v:3]
+	Parameter RAM_DEPTH bound to: 16384 - type: integer 
+	Parameter INIT_FILE bound to: ../boot.txt - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'TSP_RAM' (3#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/ram/ram.v:3]
+WARNING: [Synth 8-350] instance 'u_Iram' of module 'TSP_RAM' requires 16 connections, but only 14 given [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/Ifu.v:119]
+INFO: [Synth 8-6157] synthesizing module 'REGs_WLWR' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/dff.v:4]
+	Parameter RW bound to: 32 - type: integer 
+	Parameter RST_VAL bound to: 0 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'REGs_WLWR' (4#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/dff.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'TSP_Ifu' (5#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/Ifu.v:3]
+INFO: [Synth 8-6157] synthesizing module 'TSP_Idec' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/idec.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'TSP_Idec' (6#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/idec.v:6]
+INFO: [Synth 8-6157] synthesizing module 'TSP_Regfiles' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/regfiles.v:3]
+WARNING: [Synth 8-3848] Net RV32I_regs[0] in module/entity TSP_Regfiles does not have driver. [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/regfiles.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'TSP_Regfiles' (7#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/regfiles.v:3]
+INFO: [Synth 8-6157] synthesizing module 'TSP_Disp_Exu' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/disp_exu.v:3]
+INFO: [Synth 8-6157] synthesizing module 'TSP_Exu_common' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_common.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'TSP_Exu_common' (8#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_common.v:3]
+INFO: [Synth 8-6157] synthesizing module 'Exu_bjp' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_bjp.v:3]
+INFO: [Synth 8-6157] synthesizing module 'REGs_NLWR' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/dff.v:42]
+	Parameter RW bound to: 1 - type: integer 
+	Parameter RST_VAL bound to: 0 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'REGs_NLWR' (9#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/dff.v:42]
+INFO: [Synth 8-6155] done synthesizing module 'Exu_bjp' (10#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_bjp.v:3]
+INFO: [Synth 8-6157] synthesizing module 'TSP_Exu_muldiv' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_muldiv.v:3]
+INFO: [Synth 8-6157] synthesizing module 'Booth_Multiplier_4xB' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_muldiv.v:159]
+	Parameter N bound to: 32 - type: integer 
+	Parameter pNumCycles bound to: 8 - type: integer 
+INFO: [Synth 8-226] default block is never used [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_muldiv.v:267]
+INFO: [Synth 8-226] default block is never used [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_muldiv.v:343]
+INFO: [Synth 8-226] default block is never used [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_muldiv.v:419]
+INFO: [Synth 8-6155] done synthesizing module 'Booth_Multiplier_4xB' (11#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_muldiv.v:159]
+INFO: [Synth 8-6157] synthesizing module 'divfunc' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_muldiv.v:573]
+	Parameter XLEN bound to: 32 - type: integer 
+	Parameter STAGE_LIST bound to: 286331153 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'divfunc' (12#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_muldiv.v:573]
+INFO: [Synth 8-6155] done synthesizing module 'TSP_Exu_muldiv' (13#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_muldiv.v:3]
+INFO: [Synth 8-6157] synthesizing module 'TSP_Exu_ls' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_ls.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'TSP_Exu_ls' (14#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/exu_ls.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'TSP_Disp_Exu' (15#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/disp_exu.v:3]
+INFO: [Synth 8-6157] synthesizing module 'ls_ctrl' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/ls_ctrl.v:3]
+	Parameter IDLE bound to: 3'b000 
+	Parameter AXI_AW_W bound to: 3'b001 
+	Parameter AXI_B bound to: 3'b010 
+	Parameter AXI_AR bound to: 3'b011 
+	Parameter AXI_R bound to: 3'b100 
+	Parameter WAIT_WB bound to: 3'b101 
+INFO: [Synth 8-6155] done synthesizing module 'ls_ctrl' (16#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/ls_ctrl.v:3]
+INFO: [Synth 8-6157] synthesizing module 'TSP_Wb_arbiter' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/wb_arbiter.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'TSP_Wb_arbiter' (17#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/wb_arbiter.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'TSP_Core' (18#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/core.v:3]
+INFO: [Synth 8-6157] synthesizing module 'TSP_AXI_Interconnect' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/peripheral/AXI_Interconnect.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'TSP_AXI_Interconnect' (19#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/peripheral/AXI_Interconnect.v:3]
+INFO: [Synth 8-6157] synthesizing module 'TSP_Sram' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/ram/sram.v:3]
+INFO: [Synth 8-6157] synthesizing module 'TSP_RAM__parameterized0' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/ram/ram.v:3]
+	Parameter RAM_DEPTH bound to: 8192 - type: integer 
+	Parameter INIT_FILE bound to: (null) - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'TSP_RAM__parameterized0' (19#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/ram/ram.v:3]
+WARNING: [Synth 8-350] instance 'u_Data_Ram' of module 'TSP_RAM' requires 16 connections, but only 11 given [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/ram/sram.v:96]
+INFO: [Synth 8-6155] done synthesizing module 'TSP_Sram' (20#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/ram/sram.v:3]
+INFO: [Synth 8-6157] synthesizing module 'uart_top' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_top.v:1]
+	Parameter CLK_FREQ_p bound to: 100000000 - type: integer 
+	Parameter UART_FIFO_DEPTH_p bound to: 16 - type: integer 
+	Parameter AXI_ADDR_BW_p bound to: 12 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_tx.v:1]
+	Parameter FIFO_DEPTH bound to: 16 - type: integer 
+	Parameter IDLE bound to: 3'b000 
+	Parameter SEND_START_BIT bound to: 3'b001 
+	Parameter SEND_DATA_BITS bound to: 3'b010 
+	Parameter SEND_PARITY bound to: 3'b011 
+	Parameter SEND_STOP_BIT0 bound to: 3'b100 
+	Parameter SEND_STOP_BIT1 bound to: 3'b101 
+INFO: [Synth 8-226] default block is never used [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_tx.v:70]
+INFO: [Synth 8-6157] synthesizing module 'sync_fifo_with_clear' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/sync_fifo_with_clear.v:2]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+	Parameter EXTRA_OUTPUT_REGISTER bound to: 1'b1 
+	Parameter ADDR_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sync_fifo_with_clear' (21#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/sync_fifo_with_clear.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (22#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_tx.v:1]
+INFO: [Synth 8-6157] synthesizing module 'uart_rx' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_rx.v:1]
+	Parameter FIFO_DEPTH bound to: 16 - type: integer 
+	Parameter IDLE bound to: 3'b000 
+	Parameter RECEIVE_START_BIT bound to: 3'b001 
+	Parameter RECEIVE_DATA_BITS bound to: 3'b010 
+	Parameter SHIFT_DATA_BITS bound to: 3'b011 
+	Parameter RECEIVE_PARITY bound to: 3'b100 
+	Parameter RECEIVE_STOP_BIT0 bound to: 3'b101 
+	Parameter RECEIVE_STOP_BIT1 bound to: 3'b110 
+INFO: [Synth 8-226] default block is never used [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_rx.v:108]
+INFO: [Synth 8-6157] synthesizing module 'sync_fifo_fwft_with_clear' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/sync_fifo_fwft_with_clear.v:3]
+	Parameter DATA_WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 16 - type: integer 
+	Parameter EXTRA_OUTPUT_REGISTER bound to: 1'b0 
+	Parameter ADDR_WIDTH bound to: 4 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element rd_ptr_next_reg was removed.  [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/sync_fifo_fwft_with_clear.v:70]
+WARNING: [Synth 8-6014] Unused sequential element wr_ptr_next_reg was removed.  [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/sync_fifo_fwft_with_clear.v:71]
+INFO: [Synth 8-6155] done synthesizing module 'sync_fifo_fwft_with_clear' (23#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/sync_fifo_fwft_with_clear.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (24#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_rx.v:1]
+INFO: [Synth 8-6157] synthesizing module 'uart_baudgen' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_baudgen.v:1]
+	Parameter CLK_FREQ bound to: 100000000 - type: integer 
+	Parameter DIVIDER_921600 bound to: 108 - type: integer 
+	Parameter DIVIDER_460800 bound to: 217 - type: integer 
+	Parameter DIVIDER_230400 bound to: 434 - type: integer 
+	Parameter DIVIDER_115200 bound to: 868 - type: integer 
+	Parameter DIVIDER_57600 bound to: 1736 - type: integer 
+	Parameter DIVIDER_38400 bound to: 2604 - type: integer 
+	Parameter DIVIDER_19200 bound to: 5208 - type: integer 
+	Parameter DIVIDER_9600 bound to: 10416 - type: integer 
+	Parameter CLOG2_DIVIDER bound to: 14 - type: integer 
+INFO: [Synth 8-226] default block is never used [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_baudgen.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'uart_baudgen' (25#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_baudgen.v:1]
+INFO: [Synth 8-6157] synthesizing module 'uart_axi_lite' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:1]
+	Parameter AXI_ADDR_BW_p bound to: 12 - type: integer 
+	Parameter RESP_OKAY bound to: 2'b00 
+	Parameter RESP_EXOKAY bound to: 2'b01 
+	Parameter RESP_SLVERR bound to: 2'b10 
+	Parameter RESP_DECERR bound to: 2'b11 
+INFO: [Synth 8-4471] merging register 's_axi_wvalid_reg' into 's_axi_awvalid_reg' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:170]
+INFO: [Synth 8-4471] merging register 's_frame_error_clear_reg' into 's_parity_error_clear_reg' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:322]
+INFO: [Synth 8-4471] merging register 's_overflow_error_clear_reg' into 's_parity_error_clear_reg' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:323]
+INFO: [Synth 8-4471] merging register 's_tx_overflow_error_clear_reg' into 's_parity_error_clear_reg' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:325]
+INFO: [Synth 8-4471] merging register 's_underflow_error_clear_reg' into 's_parity_error_clear_reg' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:326]
+INFO: [Synth 8-4471] merging register 's_axi_arready_reg' into 's_axi_awvalid_reg' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:295]
+WARNING: [Synth 8-6014] Unused sequential element s_axi_wvalid_reg was removed.  [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:170]
+WARNING: [Synth 8-6014] Unused sequential element s_axi_arready_reg was removed.  [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:295]
+WARNING: [Synth 8-6014] Unused sequential element s_frame_error_clear_reg was removed.  [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:322]
+WARNING: [Synth 8-6014] Unused sequential element s_overflow_error_clear_reg was removed.  [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:323]
+WARNING: [Synth 8-6014] Unused sequential element s_tx_overflow_error_clear_reg was removed.  [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:325]
+WARNING: [Synth 8-6014] Unused sequential element s_underflow_error_clear_reg was removed.  [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:326]
+INFO: [Synth 8-6155] done synthesizing module 'uart_axi_lite' (26#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'uart_top' (27#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_top.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SoC_Top' (28#1) [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/peripheral/soc_top.v:3]
+WARNING: [Synth 8-3331] design TSP_Wb_arbiter has unconnected port clk
+WARNING: [Synth 8-3331] design TSP_Wb_arbiter has unconnected port rst_n
+WARNING: [Synth 8-3331] design ls_ctrl has unconnected port m_axi_bresp[1]
+WARNING: [Synth 8-3331] design ls_ctrl has unconnected port m_axi_bresp[0]
+WARNING: [Synth 8-3331] design ls_ctrl has unconnected port m_axi_rresp[1]
+WARNING: [Synth 8-3331] design ls_ctrl has unconnected port m_axi_rresp[0]
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port pre_pc_taken_i
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_FENCE
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_ECALL
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_EBREAK
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_CSRRW
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_CSRRS
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_CSRRC
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_CSRRWI
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_CSRRSI
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_CSRRCI
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port wb_ls_ready_i
+WARNING: [Synth 8-3331] design TSP_Idec has unconnected port clk
+WARNING: [Synth 8-3331] design TSP_Idec has unconnected port rst_n
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 512.414 ; gain = 178.961
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 512.414 ; gain = 178.961
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 512.414 ; gain = 178.961
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/constrs_1/new/TSP_Core.xdc]
+WARNING: [Vivado 12-584] No ports matched 'debug_port'. [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/constrs_1/new/TSP_Core.xdc:6]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/constrs_1/new/TSP_Core.xdc:6]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/constrs_1/new/TSP_Core.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/constrs_1/new/TSP_Core.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/SoC_Top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/SoC_Top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 906.184 ; gain = 0.000
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 906.184 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 906.184 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 906.184 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'wready_r_reg' into 'awready_r_reg' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/core/Ifu.v:57]
+INFO: [Synth 8-5544] ROM "byte_en0" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "store_type_r1" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ls_ctrl'
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s_axi_bvalid1" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-4471] merging register 'wready_r_reg' into 'awready_r_reg' [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/ram/sram.v:38]
+WARNING: [Synth 8-6014] Unused sequential element rd_ptr_reg_rep was removed.  [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/sync_fifo_with_clear.v:39]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_tx.v:91]
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_tx'
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element rd_ptr_reg_rep was removed.  [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/sync_fifo_fwft_with_clear.v:42]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_rx.v:129]
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_rx'
+INFO: [Synth 8-5544] ROM "start_bit" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "o_rx_strb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "o_tx_strb" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3936] Found unconnected internal register 's_araddr_buf_reg' and it is trimmed from '12' to '6' bits. [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:301]
+WARNING: [Synth 8-3936] Found unconnected internal register 's_axi_wdata_buf_reg' and it is trimmed from '32' to '15' bits. [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:202]
+WARNING: [Synth 8-3936] Found unconnected internal register 's_axi_awaddr_buf_reg' and it is trimmed from '12' to '5' bits. [E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/sources_1/imports/source/uart/uart_axi_lite.v:185]
+INFO: [Synth 8-5544] ROM "s_parity_error_clear" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s_rx_fifo_rd_en" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s_axi_rresp" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                AXI_AW_W |                              101 |                              001
+                   AXI_B |                              100 |                              010
+                  AXI_AR |                              011 |                              011
+                   AXI_R |                              010 |                              100
+                 WAIT_WB |                              001 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'ls_ctrl'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+          SEND_START_BIT |                              001 |                              001
+          SEND_DATA_BITS |                              010 |                              010
+             SEND_PARITY |                              011 |                              011
+          SEND_STOP_BIT0 |                              100 |                              100
+          SEND_STOP_BIT1 |                              101 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'uart_tx'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                          0000001 |                              000
+       RECEIVE_START_BIT |                          0000010 |                              001
+       RECEIVE_DATA_BITS |                          0000100 |                              010
+         SHIFT_DATA_BITS |                          0001000 |                              011
+          RECEIVE_PARITY |                          0010000 |                              100
+       RECEIVE_STOP_BIT0 |                          0100000 |                              101
+       RECEIVE_STOP_BIT1 |                          1000000 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'uart_rx'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   7 Input     36 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 7     
+	   3 Input     32 Bit       Adders := 2     
+	   3 Input     31 Bit       Adders := 1     
+	   3 Input     30 Bit       Adders := 1     
+	   3 Input     29 Bit       Adders := 1     
+	   3 Input     28 Bit       Adders := 1     
+	   3 Input     27 Bit       Adders := 1     
+	   3 Input     26 Bit       Adders := 1     
+	   3 Input     25 Bit       Adders := 1     
+	   3 Input     24 Bit       Adders := 1     
+	   3 Input     23 Bit       Adders := 1     
+	   3 Input     22 Bit       Adders := 1     
+	   3 Input     21 Bit       Adders := 1     
+	   3 Input     20 Bit       Adders := 1     
+	   3 Input     19 Bit       Adders := 1     
+	   3 Input     18 Bit       Adders := 1     
+	   3 Input     17 Bit       Adders := 1     
+	   3 Input     16 Bit       Adders := 1     
+	   3 Input     15 Bit       Adders := 1     
+	   3 Input     14 Bit       Adders := 1     
+	   2 Input     14 Bit       Adders := 2     
+	   3 Input     13 Bit       Adders := 1     
+	   3 Input     12 Bit       Adders := 1     
+	   3 Input     11 Bit       Adders := 1     
+	   3 Input     10 Bit       Adders := 1     
+	   3 Input      9 Bit       Adders := 1     
+	   3 Input      8 Bit       Adders := 1     
+	   3 Input      7 Bit       Adders := 1     
+	   3 Input      6 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 9     
+	   3 Input      5 Bit       Adders := 1     
+	   3 Input      4 Bit       Adders := 1     
+	   3 Input      3 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 2     
+	   3 Input      2 Bit       Adders := 1     
+	   3 Input      1 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 3     
++---Registers : 
+	               68 Bit    Registers := 1     
+	               48 Bit    Registers := 2     
+	               36 Bit    Registers := 1     
+	               32 Bit    Registers := 64    
+	               15 Bit    Registers := 1     
+	               14 Bit    Registers := 3     
+	               12 Bit    Registers := 1     
+	               11 Bit    Registers := 1     
+	                8 Bit    Registers := 21    
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 15    
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 10    
+	                2 Bit    Registers := 9     
+	                1 Bit    Registers := 87    
++---RAMs : 
+	             128K Bit         RAMs := 8     
+	              64K Bit         RAMs := 8     
+	              128 Bit         RAMs := 2     
++---Muxes : 
+	   5 Input     68 Bit        Muxes := 1     
+	   4 Input     68 Bit        Muxes := 1     
+	   2 Input     68 Bit        Muxes := 2     
+	   2 Input     64 Bit        Muxes := 1     
+	   4 Input     36 Bit        Muxes := 1     
+	   2 Input     36 Bit        Muxes := 1     
+	   5 Input     36 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 41    
+	  33 Input     32 Bit        Muxes := 2     
+	   4 Input     32 Bit        Muxes := 1     
+	   6 Input     32 Bit        Muxes := 1     
+	   3 Input     32 Bit        Muxes := 1     
+	   2 Input     31 Bit        Muxes := 1     
+	   2 Input     30 Bit        Muxes := 1     
+	   2 Input     29 Bit        Muxes := 1     
+	   2 Input     28 Bit        Muxes := 1     
+	   2 Input     27 Bit        Muxes := 1     
+	   2 Input     26 Bit        Muxes := 1     
+	   2 Input     25 Bit        Muxes := 1     
+	   2 Input     24 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+	   2 Input     22 Bit        Muxes := 1     
+	   2 Input     21 Bit        Muxes := 1     
+	   2 Input     20 Bit        Muxes := 1     
+	   2 Input     19 Bit        Muxes := 1     
+	   2 Input     18 Bit        Muxes := 1     
+	   2 Input     17 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input     15 Bit        Muxes := 2     
+	   2 Input     14 Bit        Muxes := 5     
+	   8 Input     14 Bit        Muxes := 1     
+	   2 Input     13 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 3     
+	   6 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	   7 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 11    
+	   7 Input      7 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 13    
+	   3 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 4     
+	   5 Input      4 Bit        Muxes := 1     
+	   8 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 13    
+	   5 Input      3 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 3     
+	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 10    
+	   3 Input      2 Bit        Muxes := 2     
+	   4 Input      2 Bit        Muxes := 2     
+	   5 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 63    
+	  64 Input      1 Bit        Muxes := 3     
+	   5 Input      1 Bit        Muxes := 10    
+	   6 Input      1 Bit        Muxes := 22    
+	   3 Input      1 Bit        Muxes := 4     
+	   4 Input      1 Bit        Muxes := 3     
+	   7 Input      1 Bit        Muxes := 10    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module REGs_NLNR 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module PC_control 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               48 Bit    Registers := 2     
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 4     
+Module TSP_RAM 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 8     
+	                1 Bit    Registers := 4     
++---RAMs : 
+	             128K Bit         RAMs := 8     
+Module REGs_WLWR 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+Module TSP_Ifu 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+Module TSP_Regfiles 
+Detailed RTL Component Info : 
++---Muxes : 
+	  33 Input     32 Bit        Muxes := 2     
+Module TSP_Exu_common 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   3 Input     32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 2     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 13    
+	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module REGs_NLWR 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module Exu_bjp 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module Booth_Multiplier_4xB 
+Detailed RTL Component Info : 
++---Adders : 
+	   7 Input     36 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	               68 Bit    Registers := 1     
+	               36 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   5 Input     68 Bit        Muxes := 1     
+	   4 Input     68 Bit        Muxes := 1     
+	   2 Input     68 Bit        Muxes := 2     
+	   2 Input     64 Bit        Muxes := 1     
+	   4 Input     36 Bit        Muxes := 1     
+	   2 Input     36 Bit        Muxes := 1     
+	   5 Input     36 Bit        Muxes := 1     
+	   3 Input      5 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	  64 Input      1 Bit        Muxes := 3     
+	   5 Input      1 Bit        Muxes := 3     
+Module divfunc 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 4     
+	   3 Input     32 Bit       Adders := 1     
+	   3 Input     31 Bit       Adders := 1     
+	   3 Input     30 Bit       Adders := 1     
+	   3 Input     29 Bit       Adders := 1     
+	   3 Input     28 Bit       Adders := 1     
+	   3 Input     27 Bit       Adders := 1     
+	   3 Input     26 Bit       Adders := 1     
+	   3 Input     25 Bit       Adders := 1     
+	   3 Input     24 Bit       Adders := 1     
+	   3 Input     23 Bit       Adders := 1     
+	   3 Input     22 Bit       Adders := 1     
+	   3 Input     21 Bit       Adders := 1     
+	   3 Input     20 Bit       Adders := 1     
+	   3 Input     19 Bit       Adders := 1     
+	   3 Input     18 Bit       Adders := 1     
+	   3 Input     17 Bit       Adders := 1     
+	   3 Input     16 Bit       Adders := 1     
+	   3 Input     15 Bit       Adders := 1     
+	   3 Input     14 Bit       Adders := 1     
+	   3 Input     13 Bit       Adders := 1     
+	   3 Input     12 Bit       Adders := 1     
+	   3 Input     11 Bit       Adders := 1     
+	   3 Input     10 Bit       Adders := 1     
+	   3 Input      9 Bit       Adders := 1     
+	   3 Input      8 Bit       Adders := 1     
+	   3 Input      7 Bit       Adders := 1     
+	   3 Input      6 Bit       Adders := 1     
+	   3 Input      5 Bit       Adders := 1     
+	   3 Input      4 Bit       Adders := 1     
+	   3 Input      3 Bit       Adders := 1     
+	   3 Input      2 Bit       Adders := 1     
+	   3 Input      1 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 18    
+	                1 Bit    Registers := 11    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 10    
+	   2 Input     31 Bit        Muxes := 1     
+	   2 Input     30 Bit        Muxes := 1     
+	   2 Input     29 Bit        Muxes := 1     
+	   2 Input     28 Bit        Muxes := 1     
+	   2 Input     27 Bit        Muxes := 1     
+	   2 Input     26 Bit        Muxes := 1     
+	   2 Input     25 Bit        Muxes := 1     
+	   2 Input     24 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 1     
+	   2 Input     22 Bit        Muxes := 1     
+	   2 Input     21 Bit        Muxes := 1     
+	   2 Input     20 Bit        Muxes := 1     
+	   2 Input     19 Bit        Muxes := 1     
+	   2 Input     18 Bit        Muxes := 1     
+	   2 Input     17 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   2 Input     15 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 1     
+	   2 Input     13 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+Module TSP_Exu_muldiv 
+Detailed RTL Component Info : 
++---Registers : 
+	                5 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 4     
+	   2 Input      5 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
+Module TSP_Exu_ls 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
+	                5 Bit    Registers := 1     
+	                3 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module TSP_Disp_Exu 
+Detailed RTL Component Info : 
++---Registers : 
+	                5 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 7     
+Module ls_ctrl 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 4     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   6 Input     32 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   6 Input      1 Bit        Muxes := 14    
+Module TSP_Wb_arbiter 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 3     
+Module TSP_AXI_Interconnect 
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 2     
++---Muxes : 
+	   3 Input     32 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 4     
+	   4 Input      2 Bit        Muxes := 2     
+	   3 Input      1 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 6     
+	   4 Input      1 Bit        Muxes := 1     
+Module TSP_RAM__parameterized0 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 8     
+	                1 Bit    Registers := 4     
++---RAMs : 
+	              64K Bit         RAMs := 8     
+Module TSP_Sram 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module sync_fifo_with_clear 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 3     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
++---RAMs : 
+	              128 Bit         RAMs := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 3     
+Module uart_tx 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 2     
+	                1 Bit    Registers := 8     
++---Muxes : 
+	   6 Input      8 Bit        Muxes := 1     
+	   8 Input      4 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 9     
+	   2 Input      2 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 8     
+	   2 Input      1 Bit        Muxes := 2     
+Module sync_fifo_fwft_with_clear 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 3     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
++---RAMs : 
+	              128 Bit         RAMs := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 6     
+Module uart_rx 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 13    
++---Muxes : 
+	   4 Input      8 Bit        Muxes := 1     
+	   7 Input      8 Bit        Muxes := 1     
+	   7 Input      7 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 10    
+	   8 Input      4 Bit        Muxes := 1     
+	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
+	   4 Input      1 Bit        Muxes := 1     
+	   7 Input      1 Bit        Muxes := 10    
+Module uart_baudgen 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     14 Bit       Adders := 2     
++---Registers : 
+	               14 Bit    Registers := 3     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   8 Input     14 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 2     
+	   4 Input      1 Bit        Muxes := 1     
+Module uart_axi_lite 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+	               15 Bit    Registers := 1     
+	               12 Bit    Registers := 1     
+	               11 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 15    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input     15 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 9     
+	   5 Input      1 Bit        Muxes := 7     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "u_UART/uart_baudgen_inst/o_tx_strb" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3331] design TSP_Wb_arbiter has unconnected port clk
+WARNING: [Synth 8-3331] design TSP_Wb_arbiter has unconnected port rst_n
+WARNING: [Synth 8-3331] design ls_ctrl has unconnected port m_axi_bresp[1]
+WARNING: [Synth 8-3331] design ls_ctrl has unconnected port m_axi_bresp[0]
+WARNING: [Synth 8-3331] design ls_ctrl has unconnected port m_axi_rresp[1]
+WARNING: [Synth 8-3331] design ls_ctrl has unconnected port m_axi_rresp[0]
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port pre_pc_taken_i
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_FENCE
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_ECALL
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_EBREAK
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_CSRRW
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_CSRRS
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_CSRRC
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_CSRRWI
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_CSRRSI
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port INST_CSRRCI
+WARNING: [Synth 8-3331] design TSP_Disp_Exu has unconnected port wb_ls_ready_i
+WARNING: [Synth 8-3331] design TSP_Idec has unconnected port clk
+WARNING: [Synth 8-3331] design TSP_Idec has unconnected port rst_n
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[31]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[30]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[29]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[28]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[27]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[26]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[25]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[24]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[23]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[22]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[21]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[20]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[19]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[18]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[17]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_awaddr[16]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[31]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[30]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[29]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[28]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[27]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[26]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[25]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[24]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[23]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[22]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[21]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[20]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[19]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[18]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[17]
+WARNING: [Synth 8-3331] design TSP_Ifu has unconnected port s_axi_araddr[16]
+warning: Removed RAM u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte0_A_reg due to inactive write enable
+WARNING: [Synth 8-6014] Unused sequential element u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte0_A_reg was removed. 
+warning: Removed RAM u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte1_A_reg due to inactive write enable
+WARNING: [Synth 8-6014] Unused sequential element u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte1_A_reg was removed. 
+warning: Removed RAM u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte2_A_reg due to inactive write enable
+WARNING: [Synth 8-6014] Unused sequential element u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte2_A_reg was removed. 
+warning: Removed RAM u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte3_A_reg due to inactive write enable
+WARNING: [Synth 8-6014] Unused sequential element u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte3_A_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element u_SRAM/u_Data_Ram/ram_byte0_B_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element u_SRAM/u_Data_Ram/ram_byte1_B_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element u_SRAM/u_Data_Ram/ram_byte2_B_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element u_SRAM/u_Data_Ram/ram_byte3_B_reg was removed. 
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][0]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][1]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][2]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][3]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][4]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][5]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][6]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][7]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][8]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][9]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][10]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][11]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][12]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][13]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][14]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][15]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][16]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][17]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][18]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][19]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][20]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][21]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][22]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][23]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][24]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][25]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][26]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\gen_div[3].gen_ff.quotient_reg[4][27] )
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][0]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][1]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][2]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][3]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][4]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][5]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][6]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][7]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][8]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][9]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][10]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][11]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][12]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][13]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][14]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][15]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][16]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][17]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][18]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][19]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][20]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][21]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][22]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[7].gen_ff.quotient_reg[8][23]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[3].gen_ff.quotient_reg[4][27]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][0]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][1]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][2]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][3]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][4]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][5]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][6]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][7]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][8]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][9]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][10]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][11]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][12]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][13]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][14]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][15]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][16]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][17]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][18]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[11].gen_ff.quotient_reg[12][19]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][0]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][1]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][2]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][3]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][4]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][5]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][6]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][7]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][8]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][9]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][10]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][11]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][12]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][13]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][14]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[15].gen_ff.quotient_reg[16][15]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][0]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][11]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][1]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][11]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][2]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][11]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][3]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][11]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][4]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][11]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][5]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][11]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][6]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][11]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][7]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][11]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][8]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][11]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][9]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][11]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][10]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[19].gen_ff.quotient_reg[20][11]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[23].gen_ff.quotient_reg[24][0]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[23].gen_ff.quotient_reg[24][7]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[23].gen_ff.quotient_reg[24][1]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[23].gen_ff.quotient_reg[24][7]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[23].gen_ff.quotient_reg[24][2]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[23].gen_ff.quotient_reg[24][7]'
+INFO: [Synth 8-3886] merging instance 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[23].gen_ff.quotient_reg[24][3]' (FDC) to 'u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/Exu_divider/gen_div[23].gen_ff.quotient_reg[24][7]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_axi_rdata_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/\mul_op_type_r_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_TSP_Ifui_9/\u_TSP_Core/u_TSP_Ifu/u_Iram/portA_rdata_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_TSP_Ifui_8/\u_TSP_Core/u_TSP_Ifu/u_Iram/portA_rdata_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_TSP_Ifui_6/\u_TSP_Core/u_TSP_Ifu/u_Iram/portA_rdata_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_TSP_Ifui_7/\u_TSP_Core/u_TSP_Ifu/u_Iram/portA_rdata_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_ls_u0/\store_type_r_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\gen_div[3].gen_ff.quotient_reg[4][27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_rx_inst/parity_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_axi_wdata_buf_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_axi_wdata_buf_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_axi_wdata_buf_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_axi_wdata_buf_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_axi_wdata_buf_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_axi_wdata_buf_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wstrb_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wstrb_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_axi_wdata_buf_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wstrb_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wdata_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_wstrb_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_awaddr_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_awaddr_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_awaddr_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_awaddr_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_awaddr_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_awaddr_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_awaddr_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_awaddr_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_awaddr_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_ls_ctrl/m_axi_awaddr_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_clear_rx_fifo_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_interrupt_enable_reg_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_interrupt_enable_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_interrupt_enable_reg_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_interrupt_enable_reg_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_interrupt_enable_reg_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_interrupt_enable_reg_reg[8] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\u_UART/uart_axi_lite_inst/s_rx_threshold_value_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_interrupt_enable_reg_reg[9] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\u_UART/uart_axi_lite_inst/s_rx_threshold_value_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_interrupt_enable_reg_reg[10] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\u_UART/uart_axi_lite_inst/s_rx_threshold_value_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_interrupt_enable_reg_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_tx_threshold_value_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_interrupt_enable_reg_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_tx_threshold_value_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_UART/uart_axi_lite_inst/s_tx_threshold_value_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_TSP_Core/u_TSP_Disp_Exu /Exu_muldiv_u0/Exu_divider/\divisor_r_reg[27] )
+INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (u_TSP_Core/u_ls_ctrl/FSM_sequential_state_reg[2]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_TSP_Core/u_ls_ctrl/FSM_sequential_state_reg[1]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_TSP_Core/u_ls_ctrl/FSM_sequential_state_reg[0]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_rx_inst/fifo_tx_inst/rd_ptr_reg_rep[3]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_rx_inst/fifo_tx_inst/rd_ptr_reg_rep[2]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_rx_inst/fifo_tx_inst/rd_ptr_reg_rep[1]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_rx_inst/fifo_tx_inst/rd_ptr_reg_rep[0]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_rx_inst/FSM_onehot_state_reg[6]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_rx_inst/FSM_onehot_state_reg[5]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_rx_inst/FSM_onehot_state_reg[4]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_rx_inst/FSM_onehot_state_reg[3]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_rx_inst/FSM_onehot_state_reg[2]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_rx_inst/FSM_onehot_state_reg[1]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_rx_inst/FSM_onehot_state_reg[0]) is unused and will be removed from module SoC_Top.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++---------------------+------------------------+---------------+----------------+
+|Module Name          | RTL Object             | Depth x Width | Implemented As | 
++---------------------+------------------------+---------------+----------------+
+|Booth_Multiplier_4xB | En_B                   | 64x1          | LUT            | 
+|Booth_Multiplier_4xB | En_C                   | 64x1          | LUT            | 
+|Booth_Multiplier_4xB | En_D                   | 64x1          | LUT            | 
+|Booth_Multiplier_4xB | M_Sel_D                | 64x1          | LUT            | 
+|Booth_Multiplier_4xB | MnP_D                  | 64x1          | LUT            | 
+|TSP_Exu_muldiv       | Exu_multiplier/En_B    | 64x1          | LUT            | 
+|TSP_Exu_muldiv       | Exu_multiplier/En_C    | 64x1          | LUT            | 
+|TSP_Exu_muldiv       | Exu_multiplier/En_D    | 64x1          | LUT            | 
+|TSP_Exu_muldiv       | Exu_multiplier/M_Sel_D | 64x1          | LUT            | 
+|TSP_Exu_muldiv       | Exu_multiplier/MnP_D   | 64x1          | LUT            | 
++---------------------+------------------------+---------------+----------------+
+
+
+Block RAM: Preliminary Mapping  Report (see note below)
++------------+-----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object      | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+-----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|TSP_RAM:    | ram_byte0_B_reg | 16 K x 8(READ_FIRST)   | W | R |                        |   |   | Port A           | 0      | 4      | 
+|TSP_RAM:    | ram_byte1_B_reg | 16 K x 8(READ_FIRST)   | W | R |                        |   |   | Port A           | 0      | 4      | 
+|TSP_RAM:    | ram_byte2_B_reg | 16 K x 8(READ_FIRST)   | W | R |                        |   |   | Port A           | 0      | 4      | 
+|TSP_RAM:    | ram_byte3_B_reg | 16 K x 8(READ_FIRST)   | W | R |                        |   |   | Port A           | 0      | 4      | 
++------------+-----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++------------+------------------------------------------+-----------+----------------------+--------------+
+|Module Name | RTL Object                               | Inference | Size (Depth x Width) | Primitives   | 
++------------+------------------------------------------+-----------+----------------------+--------------+
+|SoC_Top     | u_UART/uart_tx_inst/fifo_tx_inst/mem_reg | Implied   | 16 x 8               | RAM32M x 2   | 
++------------+------------------------------------------+-----------+----------------------+--------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_10/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte0_B_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_10/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte0_B_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_10/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte0_B_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_10/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte0_B_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_11/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte1_B_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_11/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte1_B_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_11/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte1_B_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_11/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte1_B_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_12/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte2_B_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_12/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte2_B_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_12/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte2_B_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_12/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte2_B_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_13/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte3_B_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_13/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte3_B_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_13/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte3_B_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Ifui_13/u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte3_B_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping  Report
++------------+-----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object      | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+-----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|TSP_RAM:    | ram_byte0_B_reg | 16 K x 8(READ_FIRST)   | W | R |                        |   |   | Port A           | 0      | 4      | 
+|TSP_RAM:    | ram_byte1_B_reg | 16 K x 8(READ_FIRST)   | W | R |                        |   |   | Port A           | 0      | 4      | 
+|TSP_RAM:    | ram_byte2_B_reg | 16 K x 8(READ_FIRST)   | W | R |                        |   |   | Port A           | 0      | 4      | 
+|TSP_RAM:    | ram_byte3_B_reg | 16 K x 8(READ_FIRST)   | W | R |                        |   |   | Port A           | 0      | 4      | 
++------------+-----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping  Report
++------------+------------------------------------------+-----------+----------------------+--------------+
+|Module Name | RTL Object                               | Inference | Size (Depth x Width) | Primitives   | 
++------------+------------------------------------------+-----------+----------------------+--------------+
+|SoC_Top     | u_UART/uart_tx_inst/fifo_tx_inst/mem_reg | Implied   | 16 x 8               | RAM32M x 2   | 
++------------+------------------------------------------+-----------+----------------------+--------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_tx_inst/fifo_tx_inst/rd_ptr_reg_rep[3]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_tx_inst/fifo_tx_inst/rd_ptr_reg_rep[2]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_tx_inst/fifo_tx_inst/rd_ptr_reg_rep[1]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_tx_inst/fifo_tx_inst/rd_ptr_reg_rep[0]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_tx_inst/FSM_sequential_state_reg[2]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_tx_inst/FSM_sequential_state_reg[1]) is unused and will be removed from module SoC_Top.
+WARNING: [Synth 8-3332] Sequential element (u_UART/uart_tx_inst/FSM_sequential_state_reg[0]) is unused and will be removed from module SoC_Top.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte0_B_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte0_B_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte0_B_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte0_B_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte1_B_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte1_B_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte1_B_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte1_B_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte2_B_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte2_B_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte2_B_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte2_B_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte3_B_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte3_B_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte3_B_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance u_TSP_Core/u_TSP_Ifu/u_Iram/ram_byte3_B_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |LUT1     |     1|
+|3     |LUT3     |     3|
+|4     |LUT4     |     2|
+|5     |LUT5     |     4|
+|6     |LUT6     |    14|
+|7     |RAMB36E1 |    16|
+|8     |FDCE     |     4|
+|9     |IBUF     |    71|
+|10    |OBUF     |    42|
++------+---------+------+
+
+Report Instance Areas: 
++------+--------------+---------+------+
+|      |Instance      |Module   |Cells |
++------+--------------+---------+------+
+|1     |top           |         |   158|
+|2     |  u_TSP_Core  |TSP_Core |    44|
+|3     |    u_TSP_Ifu |TSP_Ifu  |    44|
+|4     |      u_Iram  |TSP_RAM  |    36|
++------+--------------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 906.184 ; gain = 572.730
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 85 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:34 . Memory (MB): peak = 906.184 ; gain = 178.961
+Synthesis Optimization Complete : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 906.184 ; gain = 572.730
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 906.184 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+349 Infos, 117 Warnings, 1 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:43 . Memory (MB): peak = 906.184 ; gain = 585.777
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 906.184 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.runs/synth_1/SoC_Top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file SoC_Top_utilization_synth.rpt -pb SoC_Top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Mar 11 16:52:21 2026...

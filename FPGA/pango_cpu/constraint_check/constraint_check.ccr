@@ -1,0 +1,58 @@
+##### Written on 2026/03/12 13:16:59 ###############################
+
+
+##### INFO ##################################################
+
+Current device : 
+	PGL50G-6MBG324
+
+Top Module : 
+	SoC_Top
+
+Constraint File(s) : 
+	E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/top.fdc
+
+##### SUMMARY ######################################################
+
+Found 0 error(s), 2 critical warning(s), 17 warning(s), out of 21 constraint(s)
+
+
+Inapplicable constraints(except overwritten constraints):
+********************************************
+
+
+Constraints with issues:
+********************************************
+
+
+Issues without commands:
+********************************************
+
+C: ConstraintEditor-2009: p:uart_tx is lack of PAP_IO_DRIVE, OUTPUT or INOUT PORT had better set PAP_IO_DRIVE, the optional value is {8, 4, 12, 16, 24}.
+C: ConstraintEditor-2009: p:uart_tx is lack of PAP_IO_SLEW, OUTPUT or INOUT PORT had better set PAP_IO_SLEW, the optional value is {SLOW, FAST}.
+
+Unconstrained ports:
+********************************************
+
+W: ConstraintEditor-4019: Port Bus 'ext_axi_if_araddr' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port Bus 'ext_axi_if_awaddr' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port Bus 'ext_axi_if_bresp' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port Bus 'ext_axi_if_rdata' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port Bus 'ext_axi_if_rresp' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port Bus 'ext_axi_if_wdata' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port Bus 'ext_axi_if_wstrb' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'ext_axi_if_arready' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'ext_axi_if_arvalid' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'ext_axi_if_awready' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'ext_axi_if_awvalid' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'ext_axi_if_bready' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'ext_axi_if_bvalid' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'ext_axi_if_rready' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'ext_axi_if_rvalid' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'ext_axi_if_wready' unspecified I/O constraint.
+W: ConstraintEditor-4019: Port 'ext_axi_if_wvalid' unspecified I/O constraint.
+
+Constraints with matching wildcard expressions:
+********************************************
+
+

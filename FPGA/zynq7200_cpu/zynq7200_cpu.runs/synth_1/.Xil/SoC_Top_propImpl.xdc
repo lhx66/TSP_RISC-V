@@ -1,0 +1,7 @@
+set_property SRC_FILE_INFO {cfile:E:/FPGA/TSP_RVmaster/FPGA/zynq7200_cpu/zynq7200_cpu.srcs/constrs_1/new/TSP_Core.xdc rfile:../../../zynq7200_cpu.srcs/constrs_1/new/TSP_Core.xdc id:1} [current_design]
+set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN M20 [get_ports clk]
+set_property src_info {type:XDC file:1 line:3 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN R16 [get_ports rst_n]
+set_property src_info {type:XDC file:1 line:6 export:INPUT save:INPUT read:READ} [current_design]
+set_property PACKAGE_PIN AA6 [get_ports debug_port]
