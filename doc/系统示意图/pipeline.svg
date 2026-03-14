@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="500" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="1000" height="500" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="500" y="30" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#333333">
+    TSP-RISC-V 流水线时空图
+  </text>
+
+  <!-- 时间轴标签 -->
+  <g transform="translate(150, 70)">
+    <text x="50" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">周期1</text>
+    <text x="150" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">周期2</text>
+    <text x="250" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">周期3</text>
+    <text x="350" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">周期4</text>
+    <text x="450" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">N</text>
+    <text x="550" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">N+1</text>
+    <text x="650" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">N+2</text>
+    <text x="750" y="0" font-family="Arial" font-size="14" text-anchor="middle" fill="#666">N+3</text>
+  </g>
+
+  <!-- 流水线阶段标签 -->
+  <g transform="translate(30, 100)">
+    <text x="0" y="35" font-family="Arial" font-size="14" font-weight="bold" fill="#333">IF/ID</text>
+    <text x="0" y="95" font-family="Arial" font-size="14" font-weight="bold" fill="#333">EX</text>
+    <text x="0" y="155" font-family="Arial" font-size="14" font-weight="bold" fill="#333">MEM</text>
+    <text x="0" y="215" font-family="Arial" font-size="14" font-weight="bold" fill="#333">WB</text>
+  </g>
+
+  <!-- 指令1: addi (ALU指令) - 蓝色系 -->
+  <g transform="translate(150, 110)">
+    <rect x="0" y="0" width="100" height="50" fill="#4285F4" stroke="#333" stroke-width="1.5" rx="3"/>
+    <text x="50" y="30" font-family="monospace" font-size="12" text-anchor="middle" fill="white">addi</text>
+
+    <rect x="100" y="60" width="100" height="50" fill="#4285F4" stroke="#333" stroke-width="1.5" rx="3"/>
+    <text x="150" y="90" font-family="Arial" font-size="12" text-anchor="middle" fill="white">EX</text>
+
+    <rect x="200" y="120" width="100" height="50" fill="#4285F4" stroke="#333" stroke-width="1.5" rx="3"/>
+    <text x="250" y="150" font-family="Arial" font-size="12" text-anchor="middle" fill="white">WB</text>
+  </g>
+
+  <!-- 指令2: lw (Load指令) - 绿色系，访存3个周期 -->
+  <g transform="translate(150, 110)">
+    <rect x="100" y="0" width="100" height="50" fill="#34A853" stroke="#333" stroke-width="1.5" rx="3"/>
+    <text x="150" y="30" font-family="monospace" font-size="12" text-anchor="middle" fill="white">lw</text>
+
+    <rect x="200" y="60" width="100" height="50" fill="#34A853" stroke="#333" stroke-width="1.5" rx="3"/>
+    <text x="250" y="90" font-family="Arial" font-size="12" text-anchor="middle" fill="white">EX</text>
+
+    <!-- 访存占用3个周期 -->
+    <rect x="300" y="120" width="100" height="50" fill="#34A853" stroke="#1E7E34" stroke-width="1.5" rx="3"/>
+    <text x="350" y="150" font-family="Arial" font-size="12" text-anchor="middle" fill="white">MEM</text>
+
+    <rect x="400" y="120" width="100" height="50" fill="#34A853" stroke="#1E7E34" stroke-width="1.5" rx="3"/>
+    <text x="450" y="150" font-family="Arial" font-size="12" text-anchor="middle" fill="white">MEM</text>
+
+    <rect x="500" y="120" width="100" height="50" fill="#34A853" stroke="#1E7E34" stroke-width="1.5" rx="3"/>
+    <text x="550" y="150" font-family="Arial" font-size="12" text-anchor="middle" fill="white">MEM</text>
+
+    <rect x="600" y="180" width="100" height="50" fill="#34A853" stroke="#333" stroke-width="1.5" rx="3"/>
+    <text x="650" y="210" font-family="Arial" font-size="12" text-anchor="middle" fill="white">WB</text>
+  </g>
+
+  <!-- 指令3: mul (乘法指令, 多周期) - 黄色系 -->
+  <g transform="translate(150, 110)">
+    <rect x="200" y="0" width="100" height="50" fill="#FBBC05" stroke="#333" stroke-width="1.5" rx="3"/>
+    <text x="250" y="30" font-family="monospace" font-size="12" text-anchor="middle" fill="#333">mul</text>
+
+    <!-- 乘法占用4个EX周期 -->
+    <rect x="300" y="60" width="100" height="50" fill="#FBBC05" stroke="#EA8600" stroke-width="1.5" rx="3"/>
+    <text x="350" y="90" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">EX</text>
+
+    <rect x="400" y="60" width="100" height="50" fill="#FBBC05" stroke="#EA8600" stroke-width="1.5" rx="3"/>
+    <text x="450" y="90" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">EX</text>
+
+    <rect x="500" y="60" width="100" height="50" fill="#FBBC05" stroke="#EA8600" stroke-width="1.5" rx="3"/>
+    <text x="550" y="90" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">EX</text>
+
+    <rect x="600" y="60" width="100" height="50" fill="#FBBC05" stroke="#EA8600" stroke-width="1.5" rx="3"/>
+    <text x="650" y="90" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">EX</text>
+
+    <rect x="700" y="120" width="100" height="50" fill="#FBBC05" stroke="#333" stroke-width="1.5" rx="3"/>
+    <text x="750" y="150" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">WB</text>
+  </g>
+
+  <!-- 指令4: and (普通ALU指令) - 红色系 -->
+  <g transform="translate(150, 110)">
+    <rect x="300" y="0" width="100" height="50" fill="#EA4335" stroke="#333" stroke-width="1.5" rx="3"/>
+    <text x="350" y="30" font-family="monospace" font-size="12" text-anchor="middle" fill="white">and</text>
+
+    <rect x="700" y="60" width="100" height="50" fill="#EA4335" stroke="#333" stroke-width="1.5" rx="3"/>
+    <text x="750" y="90" font-family="Arial" font-size="12" text-anchor="middle" fill="white">EX</text>
+
+    <rect x="800" y="120" width="100" height="50" fill="#EA4335" stroke="#333" stroke-width="1.5" rx="3"/>
+    <text x="850" y="150" font-family="Arial" font-size="12" text-anchor="middle" fill="white">WB</text>
+  </g>
+
+  <!-- 图例 -->
+  <g transform="translate(50, 400)">
+    <text x="0" y="0" font-family="Arial" font-size="14" font-weight="bold" fill="#333">图例：</text>
+
+    <rect x="60" y="-12" width="30" height="20" fill="#4285F4" stroke="#333" stroke-width="1"/>
+    <text x="100" y="3" font-family="Arial" font-size="12" fill="#333">单周期指令</text>
+
+    <rect x="200" y="-12" width="30" height="20" fill="#34A853" stroke="#333" stroke-width="1"/>
+    <text x="240" y="3" font-family="Arial" font-size="12" fill="#333">load指令</text>
+
+    <rect x="330" y="-12" width="30" height="20" fill="#FBBC05" stroke="#333" stroke-width="1"/>
+    <text x="370" y="3" font-family="Arial" font-size="12" fill="#333">乘除法指令</text>
+
+    <rect x="480" y="-12" width="30" height="20" fill="#EA4335" stroke="#333" stroke-width="1"/>
+    <text x="520" y="3" font-family="Arial" font-size="12" fill="#333">单周期指令</text>
+  </g>
+
+  <!-- 网格线 -->
+  <g transform="translate(150, 90)" stroke="#ddd" stroke-width="1" stroke-dasharray="3,3">
+    <line x1="100" y1="10" x2="100" y2="300"/>
+    <line x1="200" y1="10" x2="200" y2="300"/>
+    <line x1="300" y1="10" x2="300" y2="300"/>
+    <line x1="400" y1="10" x2="400" y2="300"/>
+    <line x1="500" y1="10" x2="500" y2="300"/>
+    <line x1="600" y1="10" x2="600" y2="300"/>
+    <line x1="700" y1="10" x2="700" y2="300"/>
+    <line x1="800" y1="10" x2="800" y2="300"/>
+  </g>
+</svg>

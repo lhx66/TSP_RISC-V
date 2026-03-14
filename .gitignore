@@ -1,0 +1,9 @@
+# RTL/sim 文件夹 - 只保留特定文件
+RTL/sim/*
+!RTL/sim/boot.txt
+!RTL/sim/modelsim_filelist.f
+!RTL/sim/modelsim_sim.do
+!RTL/sim/sim.bat
+
+# FPGA 文件夹 - 只保留 pango_cpu
+FPGA/zynq7200_cpu/
