@@ -3,8 +3,8 @@ project name,pango_cpu.pds
 
 Single Seed:
 Seed,State,Convergence,Setup(Slow),Setup(Fast),Hold(Slow),Hold(Fast),Recovery(Slow),Recovery(Fast),Removal(Slow),Removal(Fast),PBM-GP,PBM-PreGP,PBM-PostGP,LP,Total Placement Cpu Time,Detailed routing,Total Routing Cpu Time,Wire Length After Post-GP,Wire Length After LP,Wire Length After DP,Routing Arc Length,Worst Slack After GP Timing,Worst Slack After LP Timing,Worst Slack Before RP,Worst Slack Before DP,Worst Slack After DP,Worst Slack After Placement,Worst Slack After TA By Preroute,TNS After DP,TNS Before Route,Setup(Slow) Total Failing TNS,Setup(Slow) Total Failing Endpoints,Hold(Slow) Total Failing THS,Hold(Slow) Total Failing Endpoints,Power
-single,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-Pass Rate/Convergence Rate,0.00%,0.00%
+single,OK,OK,13.279,15.286,0.314,0.243,NA,NA,NA,NA,NA,NA,NA,0.06,4.56,0.38,9.73,NA,NA,NA,5282,NA,NA,13057,NA,NA,13057,NA,NA,0,0.000,0,0.000,0,NA
+Pass Rate/Convergence Rate,100.00%,100.00%
 
 Synthesize:
 control_set,19
