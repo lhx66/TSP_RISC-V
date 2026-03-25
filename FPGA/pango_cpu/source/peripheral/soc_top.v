@@ -101,8 +101,8 @@ sys_pll sys_pll_u0 (
     // [4] UART 串口外设 (替换为包装好的 AXI-Lite Wrapper)
     // -------------------------------------------------------------
     uart_axi_lite_wrapper #(
-        .CLK_FREQ_p  (50_000_000), // 这里写你 FPGA 板子的真实主频
-        .BAUD_RATE_p (115200)       // 这里写你想要的波特率
+        .CLK_FREQ_p  (25_000_000), // 这里写你 FPGA 板子的真实主频
+        .BAUD_RATE_p (9600)       // 这里写你想要的波特率
     ) u_UART (
         .clk             (clk),
         .rst_n           (rst_n),

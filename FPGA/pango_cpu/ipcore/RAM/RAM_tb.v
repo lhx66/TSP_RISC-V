@@ -34,7 +34,7 @@ localparam RESET_TYPE = "ASYNC" ; // @IPC enum Sync_Internally,SYNC,ASYNC
 
 localparam POWER_OPT = 0 ; // @IPC bool
 
-localparam INIT_FILE = "E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/boot.dat" ; // @IPC string
+localparam INIT_FILE = "NONE" ; // @IPC string
 
 localparam INIT_FORMAT = "HEX" ; // @IPC enum BIN,HEX
 
@@ -44,7 +44,7 @@ localparam BE_WIDTH = 4 ; // @IPC int 2,128
 
 localparam BYTE_SIZE = 8 ; // @IPC enum 8,9
 
-localparam INIT_EN = 1 ; // @IPC bool
+localparam INIT_EN = 0 ; // @IPC bool
 
 localparam CLK_EN = 0 ; // @IPC bool
 

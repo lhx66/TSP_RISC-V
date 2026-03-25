@@ -115,6 +115,7 @@ wire [`INST_MAX_WIDTH-1:0] iram_rdata;
 
 wire inst_req_i = ifu_permission;
 
+/*
 TSP_RAM #(
     .RAM_DEPTH(`IRAM_KB),   
     .INIT_FILE(`IRAM_BOOT_PATH) 
@@ -134,7 +135,26 @@ TSP_RAM #(
     .portB_addr(axi_aw_ready_cond ? s_axi_awaddr : s_axi_araddr),
     .portB_wdata(s_axi_wdata),
     .portB_rdata(s_axi_rdata)
+);*/
+
+Dual_RAM u_Iram (
+  .a_addr(next_pc_i[13:2]),                // input [9:0]
+  .a_wr_data(32'b0),          // input [31:0]
+  .a_rd_data(iram_rdata),          // output [31:0]
+  .a_wr_en(1'b0),              // input
+  .a_wr_byte_en(4'b0000),    // input [3:0]
+  .a_clk(clk),                  // input
+  .a_rst(~rst_n),                  // input
+  .b_addr(axi_aw_ready_cond ? s_axi_awaddr[13:2] : s_axi_araddr[13:2]),                // input [9:0]
+  .b_wr_data(s_axi_wdata),          // input [31:0]
+  .b_rd_data(s_axi_rdata),          // output [31:0]
+  .b_wr_en(axi_aw_ready_cond | axi_ar_ready_cond),              // input
+  .b_wr_byte_en(axi_aw_ready_cond ? s_axi_wstrb : 4'b0000),    // input [3:0]
+  .b_clk(clk),                  // input
+  .b_rst(~rst_n)                   // input
 );
+
+REGs_NLWR #(1,0) iram_ack_reg(inst_req_i,iram_ack_o,clk,rst_n);
 
 // ====================================================================
 // C. 【核心修复 1】：取指上下文对齐寄存器 (登机牌机制)

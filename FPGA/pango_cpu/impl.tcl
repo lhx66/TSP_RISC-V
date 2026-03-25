@@ -32,3 +32,41 @@ dev_map
 pnr 
 report_timing 
 gen_bit_stream 
+add_design E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/ipcore/Dual_RAM/Dual_RAM.idf
+set_arch -family Logos -device PGL50G -speedgrade -6 -package MBG324
+compile -top_module SoC_Top
+synthesize -ads -selected_syn_tool_opt 2 
+dev_map 
+pnr 
+report_timing 
+gen_bit_stream 
+set_arch -family Logos -device PGL50G -speedgrade -6 -package MBG324
+compile -top_module SoC_Top
+synthesize -ads -selected_syn_tool_opt 2 
+dev_map 
+pnr 
+report_timing 
+gen_bit_stream 
+remove_design -force E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/ipcore/Dual_RAM/Dual_RAM.idf
+add_design E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/ipcore/Dual_RAM/Dual_RAM.idf
+set_arch -family Logos -device PGL50G -speedgrade -6 -package MBG324
+compile -top_module SoC_Top
+synthesize -ads -selected_syn_tool_opt 2 
+dev_map 
+pnr 
+report_timing 
+gen_bit_stream 
+set_arch -family Logos -device PGL50G -speedgrade -6 -package MBG324
+compile -top_module SoC_Top
+synthesize -ads -selected_syn_tool_opt 2 
+dev_map 
+pnr 
+report_timing 
+gen_bit_stream 
+set_arch -family Logos -device PGL50G -speedgrade -6 -package MBG324
+compile -top_module SoC_Top
+synthesize -ads -selected_syn_tool_opt 2 
+dev_map 
+pnr 
+report_timing 
+gen_bit_stream 
