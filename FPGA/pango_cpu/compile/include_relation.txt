@@ -21,3 +21,6 @@ E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/uart/uart_axi_lite_wrapper.v|E:/FPGA/
 
 
 
+E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/ipcore/RAM/rtl/ipml_spram_v1_7_RAM.v|E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/ipcore/RAM/rtl/RAM_init_param.v|
+
+

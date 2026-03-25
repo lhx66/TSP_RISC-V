@@ -91,6 +91,7 @@ assign s_axi_rdata = rdata_latch;
 // ====================================================================
 // 例化通用 TSP_RAM 作为数据内存 (32KB)
 // ====================================================================
+/*
 TSP_RAM #(
     .RAM_DEPTH(`SRAM_KB) // 8192 字 = 32KB
 ) u_Data_Ram (
@@ -105,6 +106,17 @@ TSP_RAM #(
     
     // Port B 悬空彻底禁用
     .portB_en(1'b0), .portB_we(4'b0), .portB_addr(32'b0), .portB_wdata(32'b0)
+);*/
+
+RAM u_Data_Ram (
+  .wr_data(s_axi_wdata),          // input [31:0]
+  .addr((axi_aw_ready_cond ? s_axi_awaddr : s_axi_araddr) & 32'h0000_FFFF),                // input [11:0]
+  .wr_en(axi_aw_ready_cond | axi_ar_ready_cond),              // input
+  .wr_byte_en(axi_aw_ready_cond ? s_axi_wstrb : 4'b0000),    // input [3:0]
+  .clk(clk),                  // input
+  .rst(~rst_n),                  // input
+  .rd_data(ram_rdata_out)           // output [31:0]
 );
+
 
 endmodule

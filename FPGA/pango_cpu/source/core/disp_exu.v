@@ -47,7 +47,7 @@ module TSP_Disp_Exu( //dispatch 发射\派遣\执行
     input INST_JAL,
 `ifdef USE_RV32M
     // M-type
-    input INST_MUL,    INST_MULH, INST_MULHSU, INST_MULHU,
+    input INST_MUL,  INST_MULH, INST_MULHSU, INST_MULHU,
     input INST_DIV,    INST_DIVU, INST_REM,    INST_REMU,
 `endif
     input RV32I_Btype, //供BPU使用
@@ -74,15 +74,13 @@ module TSP_Disp_Exu( //dispatch 发射\派遣\执行
     //与访存控制模块交互
     input ls_ctrl_ready_i, //访存就绪
     output ls_req_o, 
-    output        ls_we_o,       // 1: Store写, 0: Load读
+    output         ls_we_o,       // 1: Store写, 0: Load读
     output [`REGFILE_DAT_WIDTH-1:0] ls_addr_o,
     output [3:0]  ls_byte_en_o,  // 字节写使能掩码 (Byte Enable)
     output [31:0] ls_wdata_o,    // 对齐后的写入数据
     output [`REGFILE_IDX_WIDTH-1:0] ls_rd,
     output [2:0]  ls_load_type   // 0:LW, 1:LH, 2:LHU, 3:LB, 4:LBU
 );
-
-
 // 派遣-执行模块全局执行许可
 wire global_fire = idec_valid_i & disp_exu_ready_o;
 //打拍当前PC
@@ -90,7 +88,6 @@ REGs_WLWR #(`INST_ADDR_WIDTH, 0) DECODE_PC_REG1(global_fire, next_pc_i, inst_pc_
 
 wire branch_taken;
 wire [`REGFILE_DAT_WIDTH-1:0] bjp_cal_pre_pc;
-
 // 数据旁路前推网络 (Data Forwarding)
 wire [`REGFILE_DAT_WIDTH-1:0] rs1_op_dat;
 wire [`REGFILE_DAT_WIDTH-1:0] rs2_op_dat;
@@ -171,7 +168,6 @@ TSP_Exu_common Exu_common_u0( //通用加法器及其他基础指令
     // S-type
     .INST_SB(INST_SB), .INST_SH(INST_SH), .INST_SW(INST_SW)
 );
-
 //─────────────────────────────────────────
 // 跳转指令执行单元例化（复用加法器）
 wire bjp_fire = global_fire & (RV32I_Btype | INST_JAL | INST_JALR);//新增一个单独的一拍握手许可
@@ -203,7 +199,6 @@ Exu_bjp Exu_bjp_u0( //级联在Exu_common后
 //─────────────────────────────────────────
 `ifdef USE_RV32M
 wire exu_muldiv_ready;
-
 TSP_Exu_muldiv Exu_muldiv_u0(
     .clk(clk),
     .rst_n(rst_n),
@@ -261,7 +256,6 @@ TSP_Exu_ls Exu_ls_u0(
     .ls_load_type_o(ls_load_type), // 0:LW, 1:LH, 2:LHU, 3:LB, 4:LBU
     .ls_rd_o(ls_rd)      //不连接，统一用common_ls_rd
 );
-
 //─────────────────────────────────────────
 // 计分板 (OITF) - 完美适配 Load 与 M-Type
 //─────────────────────────────────────────
@@ -270,12 +264,10 @@ reg [`REGFILE_IDX_WIDTH-1:0] moitf0, moitf1; // 值为0代表该槽位空闲
 wire is_load_inst   = INST_LB | INST_LH | INST_LW | INST_LBU | INST_LHU;
 wire is_store_inst  = INST_SB | INST_SH | INST_SW;
 wire is_muldiv_inst = RV32M_type;
-
 // Load 指令也是长指令，须进 OITF 保护！
 wire INST_LONG = is_muldiv_inst | is_load_inst; 
 
 wire moitf_wen = global_fire & INST_LONG & (rd_i != 5'd0);
-
 // 【核心修改 2】：出队解锁。乘除法写回，或者 Load 指令写回，都可以解锁！
 // (注意：这里你需要从外部的访存控制模块/仲裁器引入 ls_wb_en 和 ls_wb_rd 信号，
 //  目前假设你已经有了 ls_wb_en_i 和 ls_wb_rd_i)
@@ -284,8 +276,7 @@ wire [`REGFILE_IDX_WIDTH-1:0] clear_rd = oitf_wb_rd_i;
 
 always @(posedge clk or negedge rst_n) begin
     if(~rst_n) begin
-        moitf0 <= 5'd0;
-        moitf1 <= 5'd0;
+        moitf0 <= 5'd0; moitf1 <= 5'd0;
     end else begin
         // 1. 出队逻辑 (谁算完就精准清空谁)
         if(moitf_ren) begin
@@ -313,10 +304,9 @@ wire is_ls_inst = is_load_inst | is_store_inst;
 wire target_unit_ready = 
     is_muldiv_inst ? exu_muldiv_ready :         // 乘除指令只看 muldiv 脸色
     is_ls_inst     ? exu_ls_ready :         // 访存指令只看 ls 脸色
-                     exu_common_ready;      // 其他短指令看 common 脸色
+                     exu_common_ready;
+// 其他短指令看 common 脸色
 
 assign disp_exu_ready_o = target_unit_ready & (~short_hit_moitf);
-
-
 
 endmodule

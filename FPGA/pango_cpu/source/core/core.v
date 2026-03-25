@@ -50,23 +50,21 @@ module TSP_Core(
     ,input  wire        m_axi_ls_rvalid
     ,output wire        m_axi_ls_rready
 );
-
     // ====================================================================
     // 全局网络连线
     // ====================================================================
-    wire disp_ready;        // 反压网络：从派遣级一路传导至 PC
+    wire disp_ready;
+    // 反压网络：从派遣级一路传导至 PC
     wire flush_net;         // 冲刷网络：由 PC_control 发出，用于 Squashing
     
     wire [`INST_ADDR_WIDTH-1:0] global_pc;
     wire                        global_pc_valid;
     wire                        ifu_ready;
-    
     wire [`BTB_ENTRY_WIDTH-1:0] btb_update;
     wire                        btb_update_valid;
     wire [`INST_ADDR_WIDTH-1:0] pc_correct;
     wire                        pc_redirect;
     wire                        pre_pc_taken;
-
     // ====================================================================
     // 1. PC 控制器模块 (PC_control)
     // ====================================================================
@@ -93,7 +91,6 @@ module TSP_Core(
     wire                        inst_err_if;
     wire                        idec_ready;
     wire                        pre_pc_taken_r;
-
     TSP_Ifu u_TSP_Ifu(
         .clk             (clk),
         .rst_n           (rst_n),
@@ -108,7 +105,7 @@ module TSP_Core(
         .idec_ready_i    (idec_ready),
         .pre_pc_taken_i  (pre_pc_taken),
         .pre_pc_taken_o  (pre_pc_taken_r),
-        
+         
         // AXI4-Lite Slave 接口连线
         .s_axi_awaddr    (s_axi_if_awaddr),
         .s_axi_awvalid   (s_axi_if_awvalid),
@@ -128,7 +125,6 @@ module TSP_Core(
         .s_axi_rvalid    (s_axi_if_rvalid),
         .s_axi_rready    (s_axi_if_rready)
     );
-
     // ====================================================================
     // 3. 译码单元 (IDEC) 
     // ====================================================================
@@ -196,12 +192,10 @@ module TSP_Core(
         .INST_DIV(INST_DIV),     .INST_DIVU(INST_DIVU), .INST_REM(INST_REM),       .INST_REMU(INST_REMU)
 `endif
     );
-
     // ====================================================================
     // 4. 通用寄存器堆 (RegFile)
     // ====================================================================
     wire [`REGFILE_DAT_WIDTH-1:0] rs1_data, rs2_data;
-    
     wire                          wb_en;
     wire [`REGFILE_IDX_WIDTH-1:0] wb_rd_idx;
     wire [`REGFILE_DAT_WIDTH-1:0] wb_data;
@@ -215,7 +209,6 @@ module TSP_Core(
         .wb_reg_idx  (wb_rd_idx),
         .wb_dat      (wb_data)
     );
-
     // ====================================================================
     // 5. 跨模块交互线网声明
     // ====================================================================
@@ -248,12 +241,10 @@ module TSP_Core(
     wire [`REGFILE_IDX_WIDTH-1:0] ls_rd;
     wire [2:0]                    ls_load_type;
     wire                          ls_ctrl_ready;
-
     // ====================================================================
     // 6. 派遣与执行单元 (Disp & EXU)
     // ====================================================================
     wire [`INST_ADDR_WIDTH-1:0] disp_inst_pc;
-
     TSP_Disp_Exu u_TSP_Disp_Exu(
         .clk               (clk), 
         .rst_n             (rst_n),
@@ -265,7 +256,7 @@ module TSP_Core(
         .rs1_op            (rs1_data),
         .rs2_i             (rs2_idx), 
         .rs2_op            (rs2_data),
-        .rd_i              (rd_idx),  
+        .rd_i              (rd_idx), 
         .imm_i             (imm),
         .next_pc_i         (inst_pc_if),
         .inst_pc_o         (disp_inst_pc),     
@@ -327,7 +318,6 @@ module TSP_Core(
         .ls_rd             (ls_rd),
         .ls_load_type      (ls_load_type)
     );
-
     // ====================================================================
     // 7. 访存控制模块 & AXI Master (LSU_Ctrl)
     // ====================================================================
@@ -369,7 +359,6 @@ module TSP_Core(
         .m_axi_rvalid      (m_axi_ls_rvalid),
         .m_axi_rready      (m_axi_ls_rready)
     );
-
     // ====================================================================
     // 8. 终极三路写回仲裁器 (WB Arbiter)
     // ====================================================================
@@ -402,5 +391,4 @@ module TSP_Core(
         .wb_arbiter_rd_o   (wb_rd_idx),
         .wb_arbiter_dat    (wb_data)
     );
-
 endmodule

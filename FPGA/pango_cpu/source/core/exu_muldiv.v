@@ -119,7 +119,7 @@ wire [`REGFILE_DAT_WIDTH-1:0] quo, rem;
 
 divfunc #(
     .XLEN(`REGFILE_DAT_WIDTH),
-    .STAGE_LIST(32'h11111111)
+    .STAGE_LIST(32'hFFFFFFFF)
 ) Exu_divider(
     .clk(clk),
     .rst_n(rst_n),                  // 低电平有效复位

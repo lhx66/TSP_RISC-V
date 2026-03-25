@@ -16,7 +16,7 @@ module TSP_Idec(
     //译码结果 与派遣模块交互
     output [`REGFILE_IDX_WIDTH-1:0] rs1_o,      //源寄存器1索引
     output [`REGFILE_IDX_WIDTH-1:0] rs2_o,      //源寄存器2索引
-    output [`REGFILE_IDX_WIDTH-1:0] rd_o,       //目标寄存器索引
+    output [`REGFILE_IDX_WIDTH-1:0] rd_o,    //目标寄存器索引
     output [`REGFILE_DAT_WIDTH-1:0] imm_o,      //符号扩展后的立即数
 
     output idec_valid_o,
@@ -47,14 +47,13 @@ module TSP_Idec(
 `ifdef USE_RV32M
     // M-type
     output INST_MUL,    INST_MULH, INST_MULHSU, INST_MULHU,
-    output INST_DIV,    INST_DIVU, INST_REM,    INST_REMU,
+    output INST_DIV,    INST_DIVU, INST_REM, INST_REMU,
 `endif
     output RV32I_Btype, //供BPU使用
     output RV32M_type
 ); //instruction decoder
 
 assign inst_pc_o = next_pc_i;
-
 wire [6:0] RV32I_opcode = inst_i[6:0];
 wire [4:0] RV32I_rd     = inst_i[11:7];
 wire [2:0] RV32I_funct3 = inst_i[14:12];
@@ -66,7 +65,6 @@ wire [6:0] RV32I_funct7 = inst_i[31:25];
 // 指令格式类型（6种）
 //─────────────────────────────────────────
 wire RV32I_Rtype = (RV32I_opcode == 7'b0110011);
-
 wire RV32I_Itype = (RV32I_opcode == 7'b0010011)  // OP-IMM
                  | (RV32I_opcode == 7'b0000011)   // LOAD
                  | (RV32I_opcode == 7'b1100111)   // JALR
@@ -76,12 +74,10 @@ wire RV32I_Itype = (RV32I_opcode == 7'b0010011)  // OP-IMM
 wire RV32I_Stype = (RV32I_opcode == 7'b0100011);
 
 assign RV32I_Btype = (RV32I_opcode == 7'b1100011);
-
 wire RV32I_Utype = (RV32I_opcode == 7'b0110111)  // LUI
                  | (RV32I_opcode == 7'b0010111);  // AUIPC
 
 wire RV32I_Jtype = (RV32I_opcode == 7'b1101111);
-
 //─────────────────────────────────────────
 // 具体指令识别
 //─────────────────────────────────────────
@@ -97,7 +93,6 @@ assign INST_SRL  = RV32I_Rtype & (RV32I_funct3==3'b101) & (RV32I_funct7==7'b0000
 assign INST_SRA  = RV32I_Rtype & (RV32I_funct3==3'b101) & (RV32I_funct7==7'b0100000);
 assign INST_OR   = RV32I_Rtype & (RV32I_funct3==3'b110) & (RV32I_funct7==7'b0000000);
 assign INST_AND  = RV32I_Rtype & (RV32I_funct3==3'b111) & (RV32I_funct7==7'b0000000);
-
 // I-type：OP-IMM（opcode=0010011）
 wire RV32I_OPimm = (RV32I_opcode == 7'b0010011);
 assign INST_ADDI  = RV32I_OPimm & (RV32I_funct3==3'b000);
@@ -117,13 +112,11 @@ assign INST_LH  = RV32I_LOAD & (RV32I_funct3==3'b001);
 assign INST_LW  = RV32I_LOAD & (RV32I_funct3==3'b010);
 assign INST_LBU = RV32I_LOAD & (RV32I_funct3==3'b100);
 assign INST_LHU = RV32I_LOAD & (RV32I_funct3==3'b101);
-
 // I-type：JALR（opcode=1100111）
 assign INST_JALR = (RV32I_opcode == 7'b1100111) & (RV32I_funct3==3'b000);
 
 // I-type：FENCE（opcode=0001111）
 assign INST_FENCE = (RV32I_opcode == 7'b0001111) & (RV32I_funct3==3'b000);
-
 // I-type：SYSTEM（opcode=1110011）
 assign RV32I_SYSTEM = (RV32I_opcode == 7'b1110011);
 assign INST_ECALL  = RV32I_SYSTEM & (RV32I_funct3==3'b000) & (inst_i[31:20]==12'b000000000000);
@@ -147,27 +140,30 @@ assign INST_BLT  = RV32I_Btype & (RV32I_funct3==3'b100);
 assign INST_BGE  = RV32I_Btype & (RV32I_funct3==3'b101);
 assign INST_BLTU = RV32I_Btype & (RV32I_funct3==3'b110);
 assign INST_BGEU = RV32I_Btype & (RV32I_funct3==3'b111);
-
 // U-type
 assign INST_LUI   = (RV32I_opcode == 7'b0110111);
 assign INST_AUIPC = (RV32I_opcode == 7'b0010111);
 
 // J-type
 assign INST_JAL = RV32I_Jtype;
-
 //─────────────────────────────────────────
 // RV32M 乘除法扩展（opcode=0110011，funct7=0000001）
 //─────────────────────────────────────────
 `ifdef USE_RV32M
 assign RV32M_type = (RV32I_opcode == 7'b0110011) & (RV32I_funct7 == 7'b0000001);
-
-assign INST_MUL    = RV32M_type & (RV32I_funct3 == 3'b000); // 有符号×有符号，取低32位
+assign INST_MUL    = RV32M_type & (RV32I_funct3 == 3'b000);
+// 有符号×有符号，取低32位
 assign INST_MULH   = RV32M_type & (RV32I_funct3 == 3'b001); // 有符号×有符号，取高32位
-assign INST_MULHSU = RV32M_type & (RV32I_funct3 == 3'b010); // 有符号×无符号，取高32位
-assign INST_MULHU  = RV32M_type & (RV32I_funct3 == 3'b011); // 无符号×无符号，取高32位
-assign INST_DIV    = RV32M_type & (RV32I_funct3 == 3'b100); // 有符号除法
-assign INST_DIVU   = RV32M_type & (RV32I_funct3 == 3'b101); // 无符号除法
-assign INST_REM    = RV32M_type & (RV32I_funct3 == 3'b110); // 有符号取余
+assign INST_MULHSU = RV32M_type & (RV32I_funct3 == 3'b010);
+// 有符号×无符号，取高32位
+assign INST_MULHU  = RV32M_type & (RV32I_funct3 == 3'b011);
+// 无符号×无符号，取高32位
+assign INST_DIV    = RV32M_type & (RV32I_funct3 == 3'b100);
+// 有符号除法
+assign INST_DIVU   = RV32M_type & (RV32I_funct3 == 3'b101);
+// 无符号除法
+assign INST_REM    = RV32M_type & (RV32I_funct3 == 3'b110);
+// 有符号取余
 assign INST_REMU   = RV32M_type & (RV32I_funct3 == 3'b111); // 无符号取余
 `endif
 
@@ -179,14 +175,12 @@ wire [31:0] imm_S = {{20{inst_i[31]}}, inst_i[31:25], inst_i[11:7]};
 wire [31:0] imm_B = {{19{inst_i[31]}}, inst_i[31], inst_i[7], inst_i[30:25], inst_i[11:8], 1'b0};
 wire [31:0] imm_U = {inst_i[31:12], 12'b0};
 wire [31:0] imm_J = {{11{inst_i[31]}}, inst_i[31], inst_i[19:12], inst_i[20], inst_i[30:21], 1'b0};
-
 //─────────────────────────────────────────
 // 输出驱动
 //─────────────────────────────────────────
 assign rs1_o = RV32I_rs1;
 assign rs2_o = RV32I_rs2;
 assign rd_o  = RV32I_rd;
-
 // 立即数按格式选择（R-type 无立即数，输出0）
 assign imm_o = RV32I_Itype ? imm_I :
                RV32I_Stype ? imm_S :
@@ -194,7 +188,6 @@ assign imm_o = RV32I_Itype ? imm_I :
                RV32I_Utype ? imm_U :
                RV32I_Jtype ? imm_J :
                              {`REGFILE_DAT_WIDTH{1'b0}};
-
 assign idec_valid_o = inst_valid_i & (~flush_i);
 assign idec_ready_o = disp_ready_i;//译码模块全为组合逻辑，直接传递派遣模块
 
