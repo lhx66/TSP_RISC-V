@@ -8,8 +8,8 @@ import os
 BIN_FILE_PATH = r"E:\FPGA\TSP_RVmaster\template\TSP_RISCV_template\obj\TSP_RISCV_template.bin"
 
 # 2. 输出的 txt 文件路径
-IRAM_TXT_PATH = r"E:\FPGA\TSP_RVmaster\FPGA\pango_cpu\source\boot.txt"
-SRAM_TXT_PATH = r"E:\FPGA\TSP_RVmaster\FPGA\pango_cpu\source\sram_init.txt"
+IRAM_TXT_PATH = r"E:\FPGA\TSP_RVmaster\FPGA\pango_cpu\source\boot.dat"
+SRAM_TXT_PATH = r"E:\FPGA\TSP_RVmaster\FPGA\pango_cpu\source\sram_init.dat"
 
 # 3. 架构内存映射 (严格对应你的 CPU 物理地址)
 IRAM_BASE = 0x00000000

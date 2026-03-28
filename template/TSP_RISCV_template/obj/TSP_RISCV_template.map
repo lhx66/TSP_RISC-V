@@ -1,10 +1,14 @@
 
+Allocating common symbols
+Common symbol       size              file
+
+global_bss_array    0x14              ./src/main.o
+
 Discarded input sections
 
  .text          0x0000000000000000        0x0 ./src/main.o
  .data          0x0000000000000000        0x0 ./src/main.o
  .bss           0x0000000000000000        0x0 ./src/main.o
- .text.mod10    0x0000000000000000       0x14 ./src/main.o
  .text          0x0000000000000000        0x0 ./lib/startup/startup.o
  .data          0x0000000000000000        0x0 ./lib/startup/startup.o
  .bss           0x0000000000000000        0x0 ./lib/startup/startup.o
@@ -35,84 +39,105 @@ LOAD e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/
 LOAD e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib\libnosys.a
 END GROUP
 
-.text           0x0000000000000000      0x168
+.text           0x0000000000000000      0x640
                 0x0000000000000000                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (_text_start = .)
  *(.init)
- .init          0x0000000000000000       0x5c ./lib/startup/startup.o
+ .init          0x0000000000000000       0x7c ./lib/startup/startup.o
                 0x0000000000000000                _start
  *(.text .text.*)
- .text.delay    0x000000000000005c        0xc ./src/main.o
-                0x000000000000005c                delay
- .text.print_digit
-                0x0000000000000068       0x28 ./src/main.o
-                0x0000000000000068                print_digit
- .text.startup.main
-                0x0000000000000090       0xd8 ./src/main.o
-                0x0000000000000090                main
-                0x0000000000000168                . = ALIGN (0x4)
+ .text.uart_putc
+                0x000000000000007c       0x38 ./src/main.o
+                0x000000000000007c                uart_putc
+ .text.uart_puts
+                0x00000000000000b4       0x50 ./src/main.o
+                0x00000000000000b4                uart_puts
+ .text.uart_print_int
+                0x0000000000000104       0xdc ./src/main.o
+                0x0000000000000104                uart_print_int
+ .text.test_matrix_mul
+                0x00000000000001e0      0x2b0 ./src/main.o
+                0x00000000000001e0                test_matrix_mul
+ .text.test_primes
+                0x0000000000000490       0xdc ./src/main.o
+                0x0000000000000490                test_primes
+ .text.main     0x000000000000056c       0xd4 ./src/main.o
+                0x000000000000056c                main
+                0x0000000000000640                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (_text_end = .)
 
-.rela.dyn       0x0000000000000168        0x0
- .rela.init     0x0000000000000168        0x0 ./src/main.o
+.rodata         0x0000000000000640      0x1dc
+                0x0000000000000640                . = ALIGN (0x4)
+ *(.rodata .rodata.*)
+ .rodata        0x0000000000000640      0x1da ./src/main.o
+ *(.srodata .srodata.*)
+                0x000000000000081c                . = ALIGN (0x4)
+ *fill*         0x000000000000081a        0x2 
 
-.data           0x0000000020000000        0x0 load address 0x0000000000000168
+.rela.dyn       0x000000000000081c        0x0
+ .rela.text.main
+                0x000000000000081c        0x0 ./src/main.o
+ .rela.init     0x000000000000081c        0x0 ./src/main.o
+
+.data           0x0000000020000000        0x8 load address 0x000000000000081c
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                PROVIDE (_data_start = .)
- *(.rodata .rodata.*)
- *(.srodata .srodata.*)
  *(.sdata .sdata.*)
+ .sdata.global_init_var
+                0x0000000020000000        0x4 ./src/main.o
+                0x0000000020000000                global_init_var
+ .sdata.welcome_msg
+                0x0000000020000004        0x4 ./src/main.o
+                0x0000000020000004                welcome_msg
  *(.data .data.*)
-                0x0000000020000000                . = ALIGN (0x4)
-                0x0000000020000000                PROVIDE (_data_end = .)
-                0x0000000000000168                PROVIDE (_data_lma = LOADADDR (.data))
+                0x0000000020000008                . = ALIGN (0x4)
+                0x0000000020000008                PROVIDE (_data_end = .)
+                0x000000000000081c                PROVIDE (_data_lma = LOADADDR (.data))
 
-.bss            0x0000000020000000        0x0 load address 0x0000000000000168
-                0x0000000020000000                . = ALIGN (0x4)
-                0x0000000020000000                PROVIDE (_bss_start = .)
+.bss            0x0000000020000008       0x14 load address 0x0000000000000824
+                0x0000000020000008                . = ALIGN (0x4)
+                0x0000000020000008                PROVIDE (_bss_start = .)
  *(.sbss .sbss.*)
  *(.bss .bss.*)
  *(COMMON)
-                0x0000000020000000                . = ALIGN (0x4)
-                0x0000000020000000                PROVIDE (_bss_end = .)
+ COMMON         0x0000000020000008       0x14 ./src/main.o
+                0x0000000020000008                global_bss_array
+                0x000000002000001c                . = ALIGN (0x4)
+                0x000000002000001c                PROVIDE (_bss_end = .)
                 [!provide]                        PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
                 0x0000000020008000                PROVIDE (_sp = (ORIGIN (SRAM) + LENGTH (SRAM)))
 OUTPUT(TSP_RISCV_template.elf elf32-littleriscv)
 
-.debug_info     0x0000000000000000      0x1bd
- .debug_info    0x0000000000000000      0x197 ./src/main.o
- .debug_info    0x0000000000000197       0x26 ./lib/startup/startup.o
+.debug_info     0x0000000000000000      0x2b7
+ .debug_info    0x0000000000000000      0x291 ./src/main.o
+ .debug_info    0x0000000000000291       0x26 ./lib/startup/startup.o
 
-.debug_abbrev   0x0000000000000000      0x14f
- .debug_abbrev  0x0000000000000000      0x13b ./src/main.o
- .debug_abbrev  0x000000000000013b       0x14 ./lib/startup/startup.o
+.debug_abbrev   0x0000000000000000      0x12d
+ .debug_abbrev  0x0000000000000000      0x119 ./src/main.o
+ .debug_abbrev  0x0000000000000119       0x14 ./lib/startup/startup.o
 
-.debug_loc      0x0000000000000000       0xfb
- .debug_loc     0x0000000000000000       0xfb ./src/main.o
-
-.debug_aranges  0x0000000000000000       0x58
+.debug_aranges  0x0000000000000000       0x68
  .debug_aranges
-                0x0000000000000000       0x38 ./src/main.o
+                0x0000000000000000       0x48 ./src/main.o
  .debug_aranges
-                0x0000000000000038       0x20 ./lib/startup/startup.o
+                0x0000000000000048       0x20 ./lib/startup/startup.o
 
-.debug_ranges   0x0000000000000000       0x90
- .debug_ranges  0x0000000000000000       0x90 ./src/main.o
+.debug_ranges   0x0000000000000000       0x38
+ .debug_ranges  0x0000000000000000       0x38 ./src/main.o
 
-.debug_line     0x0000000000000000      0x484
- .debug_line    0x0000000000000000      0x3d7 ./src/main.o
- .debug_line    0x00000000000003d7       0xad ./lib/startup/startup.o
+.debug_line     0x0000000000000000      0x4e1
+ .debug_line    0x0000000000000000      0x40a ./src/main.o
+ .debug_line    0x000000000000040a       0xd7 ./lib/startup/startup.o
 
-.debug_str      0x0000000000000000      0x193
- .debug_str     0x0000000000000000      0x16e ./src/main.o
-                                        0x1ab (size before relaxing)
- .debug_str     0x000000000000016e       0x25 ./lib/startup/startup.o
+.debug_str      0x0000000000000000      0x1a6
+ .debug_str     0x0000000000000000      0x181 ./src/main.o
+ .debug_str     0x0000000000000181       0x25 ./lib/startup/startup.o
                                          0x5a (size before relaxing)
 
 .comment        0x0000000000000000       0x33
  .comment       0x0000000000000000       0x33 ./src/main.o
                                          0x34 (size before relaxing)
 
-.debug_frame    0x0000000000000000       0x64
- .debug_frame   0x0000000000000000       0x64 ./src/main.o
+.debug_frame    0x0000000000000000       0xec
+ .debug_frame   0x0000000000000000       0xec ./src/main.o

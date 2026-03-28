@@ -5,9 +5,9 @@ Setup Summary(Slow Corner):
                                                                           TNS Failing      TNS Total
  Launch Clock           Capture Clock              WNS(ns)     TNS(ns)      Endpoints      Endpoints
 ----------------------------------------------------------------------------------------------------
- sys_clk|sys_pll_u0/u_pll_e3/CLKOUT0_Inferred
-                        sys_clk|sys_pll_u0/u_pll_e3/CLKOUT0_Inferred
-                                                    13.209       0.000              0           8850
+ sys_clk|u_sys_pll/u_pll_e3/CLKOUT0_Inferred
+                        sys_clk|u_sys_pll/u_pll_e3/CLKOUT0_Inferred
+                                                     2.149       0.000              0           9226
 ====================================================================================================
 
 Hold Summary(Slow Corner):
@@ -15,9 +15,9 @@ Hold Summary(Slow Corner):
                                                                           THS Failing      THS Total
  Launch Clock           Capture Clock              WHS(ns)     THS(ns)      Endpoints      Endpoints
 ----------------------------------------------------------------------------------------------------
- sys_clk|sys_pll_u0/u_pll_e3/CLKOUT0_Inferred
-                        sys_clk|sys_pll_u0/u_pll_e3/CLKOUT0_Inferred
-                                                     0.223       0.000              0           8850
+ sys_clk|u_sys_pll/u_pll_e3/CLKOUT0_Inferred
+                        sys_clk|u_sys_pll/u_pll_e3/CLKOUT0_Inferred
+                                                     0.286       0.000              0           9226
 ====================================================================================================
 
 Recovery Summary(Slow Corner):
@@ -46,9 +46,9 @@ Setup Summary(Fast Corner):
                                                                           TNS Failing      TNS Total
  Launch Clock           Capture Clock              WNS(ns)     TNS(ns)      Endpoints      Endpoints
 ----------------------------------------------------------------------------------------------------
- sys_clk|sys_pll_u0/u_pll_e3/CLKOUT0_Inferred
-                        sys_clk|sys_pll_u0/u_pll_e3/CLKOUT0_Inferred
-                                                    21.383       0.000              0           8850
+ sys_clk|u_sys_pll/u_pll_e3/CLKOUT0_Inferred
+                        sys_clk|u_sys_pll/u_pll_e3/CLKOUT0_Inferred
+                                                     7.330       0.000              0           9226
 ====================================================================================================
 
 Hold Summary(Fast Corner):
@@ -56,9 +56,9 @@ Hold Summary(Fast Corner):
                                                                           THS Failing      THS Total
  Launch Clock           Capture Clock              WHS(ns)     THS(ns)      Endpoints      Endpoints
 ----------------------------------------------------------------------------------------------------
- sys_clk|sys_pll_u0/u_pll_e3/CLKOUT0_Inferred
-                        sys_clk|sys_pll_u0/u_pll_e3/CLKOUT0_Inferred
-                                                     0.181       0.000              0           8850
+ sys_clk|u_sys_pll/u_pll_e3/CLKOUT0_Inferred
+                        sys_clk|u_sys_pll/u_pll_e3/CLKOUT0_Inferred
+                                                     0.231       0.000              0           9226
 ====================================================================================================
 
 Recovery Summary(Fast Corner):

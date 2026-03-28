@@ -11,6 +11,7 @@ RM := rm -rf
 -include sources.mk
 -include src/subdir.mk
 -include lib/startup/subdir.mk
+-include app/coremark/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -50,7 +51,7 @@ all: TSP_RISCV_template.elf secondary-outputs
 
 # Tool invocations
 TSP_RISCV_template.elf: $(OBJS) $(USER_OBJS)
-	@	@	riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized  -g -T "E:\FPGA\TSP_RVmaster\template\TSP_RISCV_template\linker.lds" -nostartfiles -Xlinker --gc-sections -L"../" -Wl,-Map,"TSP_RISCV_template.map" --specs=nano.specs --specs=nosys.specs -o "TSP_RISCV_template.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	@	@	riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -Wunused -Wuninitialized  -g -T "E:\FPGA\TSP_RVmaster\template\TSP_RISCV_template\linker.lds" -nostartfiles -Xlinker --gc-sections -L"../" -Wl,-Map,"TSP_RISCV_template.map" --specs=nano.specs --specs=nosys.specs -o "TSP_RISCV_template.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@	@
 TSP_RISCV_template.hexAndbin: TSP_RISCV_template.elf
 	@	riscv-none-embed-objcopy -O ihex "TSP_RISCV_template.elf"  "TSP_RISCV_template.hex" && riscv-none-embed-objcopy -O binary "TSP_RISCV_template.elf"  "TSP_RISCV_template.bin"

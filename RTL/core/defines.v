@@ -9,7 +9,6 @@
 `define INST_MAX_WIDTH 32 //指令最高支持位数 ILEN
 `define RV32_INST_WIDTH 32 //RV32指令位数
 `define INST_ADDR_WIDTH 32 //指令寻址空间位数(拓展到4GB) 要求与XLEN相等
-`define IRAM_DEPTH (16*1024/4) //Iram大小(KB)
 `define REGFILE_DAT_WIDTH 32 //通用寄存器组位宽（固定32） "XLEN"
 `define REGFILE_IDX_WIDTH 5 //RISC-V规定共32个通用寄存器，索引位宽
 
@@ -38,8 +37,77 @@
 `define USE_RV32M //乘除法扩展指令集
 `define PC_RSTVAL 16'h0000 //PC复位时的启动地址
 //`define PROG_FPGA //FPGA编译下载
-`define IRAM_BOOT_PATH "../sim/boot.txt"
+`define IRAM_BOOT_PATH "../sim/boot.dat"
 `define SRAM_BOOT_PATH ""
+
+//外设相关
+//-----------------------------------------------------------------
+//                          Timer
+//-----------------------------------------------------------------
+
+`define TIMER_CTRL0    8'h8
+
+    `define TIMER_CTRL0_INTERRUPT      1
+    `define TIMER_CTRL0_INTERRUPT_DEFAULT    0
+    `define TIMER_CTRL0_INTERRUPT_B          1
+    `define TIMER_CTRL0_INTERRUPT_T          1
+    `define TIMER_CTRL0_INTERRUPT_W          1
+    `define TIMER_CTRL0_INTERRUPT_R          1:1
+
+    `define TIMER_CTRL0_ENABLE      2
+    `define TIMER_CTRL0_ENABLE_DEFAULT    0
+    `define TIMER_CTRL0_ENABLE_B          2
+    `define TIMER_CTRL0_ENABLE_T          2
+    `define TIMER_CTRL0_ENABLE_W          1
+    `define TIMER_CTRL0_ENABLE_R          2:2
+
+`define TIMER_CMP0    8'hc
+
+    `define TIMER_CMP0_VALUE_DEFAULT    0
+    `define TIMER_CMP0_VALUE_B          0
+    `define TIMER_CMP0_VALUE_T          31
+    `define TIMER_CMP0_VALUE_W          32
+    `define TIMER_CMP0_VALUE_R          31:0
+
+`define TIMER_VAL0    8'h10
+
+    `define TIMER_VAL0_CURRENT_DEFAULT    0
+    `define TIMER_VAL0_CURRENT_B          0
+    `define TIMER_VAL0_CURRENT_T          31
+    `define TIMER_VAL0_CURRENT_W          32
+    `define TIMER_VAL0_CURRENT_R          31:0
+
+`define TIMER_CTRL1    8'h14
+
+    `define TIMER_CTRL1_INTERRUPT      1
+    `define TIMER_CTRL1_INTERRUPT_DEFAULT    0
+    `define TIMER_CTRL1_INTERRUPT_B          1
+    `define TIMER_CTRL1_INTERRUPT_T          1
+    `define TIMER_CTRL1_INTERRUPT_W          1
+    `define TIMER_CTRL1_INTERRUPT_R          1:1
+
+    `define TIMER_CTRL1_ENABLE      2
+    `define TIMER_CTRL1_ENABLE_DEFAULT    0
+    `define TIMER_CTRL1_ENABLE_B          2
+    `define TIMER_CTRL1_ENABLE_T          2
+    `define TIMER_CTRL1_ENABLE_W          1
+    `define TIMER_CTRL1_ENABLE_R          2:2
+
+`define TIMER_CMP1    8'h18
+
+    `define TIMER_CMP1_VALUE_DEFAULT    0
+    `define TIMER_CMP1_VALUE_B          0
+    `define TIMER_CMP1_VALUE_T          31
+    `define TIMER_CMP1_VALUE_W          32
+    `define TIMER_CMP1_VALUE_R          31:0
+
+`define TIMER_VAL1    8'h1c
+
+    `define TIMER_VAL1_CURRENT_DEFAULT    0
+    `define TIMER_VAL1_CURRENT_B          0
+    `define TIMER_VAL1_CURRENT_T          31
+    `define TIMER_VAL1_CURRENT_W          32
+    `define TIMER_VAL1_CURRENT_R          31:0
 
 
 `endif

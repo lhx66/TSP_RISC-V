@@ -11,7 +11,7 @@ module TSP_Ifu(
     input                         ifu_permission, 
     output                        ifu_ready_o,
 
-    input                         flush_i, // 冲刷信号
+    input                         flush_i, 
 
     output [`INST_MAX_WIDTH-1:0]  inst_o,
     output                        inst_valid_o,
@@ -20,145 +20,121 @@ module TSP_Ifu(
 
     input idec_ready_i,
 
-    // 为预测状态专门加一个 1 bit 的跟随寄存器
     input  pre_pc_taken_i,
     output pre_pc_taken_o,
 
     // ==========================================
-    // 2. AXI4-Lite Slave 接口 (用于程序下载与调试)
+    // 2. AXI4-Lite Slave 接口 (用于 IRAM 的访存与烧录)
     // ==========================================
-    // --- 写地址通道 (AW) ---
-    input  wire [31:0] s_axi_awaddr,
-    input  wire        s_axi_awvalid,
-    output wire        s_axi_awready,
-    // --- 写数据通道 (W) ---
-    input  wire [31:0] s_axi_wdata,
-    input  wire [3:0]  s_axi_wstrb,
-    input  wire        s_axi_wvalid,
-    output wire        s_axi_wready,
-    // --- 写响应通道 (B) ---
-    output wire [1:0]  s_axi_bresp,
-    output wire        s_axi_bvalid,
-    input  wire        s_axi_bready,
-    // --- 读地址通道 (AR) ---
-    input  wire [31:0] s_axi_araddr,
-    input  wire        s_axi_arvalid,
-    output wire        s_axi_arready,
-    // --- 读数据通道 (R) ---
-    output wire [31:0] s_axi_rdata,
-    output wire [1:0]  s_axi_rresp,
-    output wire        s_axi_rvalid,
-    input  wire        s_axi_rready
+    input  wire [31:0] s_axi_awaddr, input  wire s_axi_awvalid, output wire s_axi_awready,
+    input  wire [31:0] s_axi_wdata,  input  wire [3:0] s_axi_wstrb, input  wire s_axi_wvalid, output wire s_axi_wready,
+    output wire [1:0]  s_axi_bresp,  output wire s_axi_bvalid,  input  wire s_axi_bready,
+    input  wire [31:0] s_axi_araddr, input  wire s_axi_arvalid, output wire s_axi_arready,
+    output wire [31:0] s_axi_rdata,  output wire [1:0] s_axi_rresp, output wire s_axi_rvalid, input  wire s_axi_rready
 );
 
 // ====================================================================
-// A. 轻量级 AXI4-Lite Slave 状态机 (控制 RAM 的 Port B)
+// A. 防弹级 AXI4-Lite 状态机 (控制 IRAM Port B)
 // ====================================================================
-reg awready_r, wready_r, bvalid_r;
-reg arready_r, rvalid_r;
+reg [1:0] r_state;
+reg [31:0] raddr_r;
+reg [31:0] rdata_latch;
 
-assign s_axi_awready = awready_r;
-assign s_axi_wready  = wready_r;
-assign s_axi_bvalid  = bvalid_r;
-assign s_axi_bresp   = 2'b00; // OKAY
+reg [1:0] w_state;
+reg [31:0] waddr_r;
+reg [31:0] wdata_r;
+reg [3:0]  wstrb_r;
 
-assign s_axi_arready = arready_r;
-assign s_axi_rvalid  = rvalid_r;
-assign s_axi_rresp   = 2'b00; // OKAY
+wire write_busy = (w_state != 0);
+wire read_busy  = (r_state != 0);
 
-wire axi_aw_ready_cond = s_axi_awvalid && s_axi_wvalid && !awready_r && !bvalid_r;
-wire axi_ar_ready_cond = s_axi_arvalid && !arready_r && !rvalid_r;
+assign s_axi_arready = (r_state == 0) && !write_busy;
+assign s_axi_rvalid  = (r_state == 3);
+assign s_axi_rdata   = rdata_latch;
+assign s_axi_rresp   = 2'b00;
 
+assign s_axi_awready = (w_state == 0) && s_axi_wvalid && !read_busy;
+assign s_axi_wready  = (w_state == 0) && s_axi_awvalid && !read_busy;
+assign s_axi_bvalid  = (w_state == 2);
+assign s_axi_bresp   = 2'b00;
+
+// 读通道
 always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
-        awready_r <= 1'b0;
-        wready_r  <= 1'b0;
-        bvalid_r  <= 1'b0;
-        arready_r <= 1'b0;
-        rvalid_r  <= 1'b0;
+        r_state <= 0; raddr_r <= 0; rdata_latch <= 0;
     end else begin
-        // --- 写逻辑 ---
-        if (axi_aw_ready_cond) begin
-            awready_r <= 1'b1;
-            wready_r  <= 1'b1;
-        end else begin
-            awready_r <= 1'b0;
-            wready_r  <= 1'b0;
-        end
+        case (r_state)
+            0: if (s_axi_arvalid && s_axi_arready) begin raddr_r <= s_axi_araddr; r_state <= 1; end
+            1: r_state <= 2; 
+            2: begin rdata_latch <= portB_rdata_out; r_state <= 3; end
+            3: if (s_axi_rready) r_state <= 0;
+        endcase
+    end
+end
 
-        if (awready_r && wready_r) begin
-            bvalid_r <= 1'b1; 
-        end else if (s_axi_bready && bvalid_r) begin
-            bvalid_r <= 1'b0; 
-        end
-
-        // --- 读逻辑 ---
-        if (axi_ar_ready_cond) begin
-            arready_r <= 1'b1;
-        end else begin
-            arready_r <= 1'b0;
-        end
-
-        if (arready_r) begin
-            rvalid_r <= 1'b1; 
-        end else if (s_axi_rready && rvalid_r) begin
-            rvalid_r <= 1'b0;
-        end
+// 写通道
+always @(posedge clk or negedge rst_n) begin
+    if (~rst_n) begin
+        w_state <= 0; waddr_r <= 0; wdata_r <= 0; wstrb_r <= 0;
+    end else begin
+        case (w_state)
+            0: if (s_axi_awvalid && s_axi_wvalid && s_axi_awready) begin
+                   waddr_r <= s_axi_awaddr; wdata_r <= s_axi_wdata; wstrb_r <= s_axi_wstrb;
+                   w_state <= 1;
+               end
+            1: w_state <= 2;
+            2: if (s_axi_bready) w_state <= 0;
+        endcase
     end
 end
 
 // ====================================================================
-// B. 例化双端口 IRAM (True Dual-Port RAM)
+// B. 例化双端口 FPGA IRAM IP
 // ====================================================================
 wire iram_ack_o;
-wire [`INST_MAX_WIDTH-1:0] iram_rdata; 
-
+wire [`INST_MAX_WIDTH-1:0] iram_rdata;
 wire inst_req_i = ifu_permission;
 
-/*
-TSP_RAM #(
-    .RAM_DEPTH(`IRAM_KB),   
-    .INIT_FILE(`IRAM_BOOT_PATH) 
-) u_Iram (
-    .clk(clk), .rst_n(rst_n),
+// 手动生成 Port A (CPU取指) 的 1 拍延迟 ACK
+reg iram_ack_r;
+always @(posedge clk or negedge rst_n) begin
+    if (~rst_n) iram_ack_r <= 1'b0;
+    else iram_ack_r <= inst_req_i;
+end
+assign iram_ack_o = iram_ack_r;
+assign inst_err_o = 1'b0; 
+
+// Port A 地址线连线 (取指只读)
+wire [13:0] portA_addr_word = next_pc_i[15:2];
+
+// Port B 地址线连线 (AXI 总线读写)
+wire is_write_cycle = (w_state == 1);
+wire [31:0] axi_b_addr_byte = is_write_cycle ? waddr_r : raddr_r;
+wire [11:0] portB_addr_word = axi_b_addr_byte[13:2];
+wire [31:0] portB_rdata_out;
+
+IRAM u_Iram (
+    // Port A：专门用于 CPU IFU 取指 (只读)
+    .a_addr(portA_addr_word),                // input [11:0]
+    .a_wr_data(32'b0),                       // input [31:0]
+    .a_rd_data(iram_rdata),                  // output [31:0]
+    .a_wr_en(1'b0),                          // input
+    .a_wr_byte_en(4'b0000),                  // input [3:0]
+    .a_clk(clk),                             // input
+    .a_rst(~rst_n),                          // input
     
-    .portA_en(inst_req_i),
-    .portA_we(4'b0000),         
-    .portA_addr(next_pc_i),
-    .portA_wdata(32'b0),
-    .portA_rdata(iram_rdata),
-    .portA_ack(iram_ack_o),
-    .portA_err(inst_err_o),
-
-    .portB_en(axi_aw_ready_cond | axi_ar_ready_cond),
-    .portB_we(axi_aw_ready_cond ? s_axi_wstrb : 4'b0000),
-    .portB_addr(axi_aw_ready_cond ? s_axi_awaddr : s_axi_araddr),
-    .portB_wdata(s_axi_wdata),
-    .portB_rdata(s_axi_rdata)
-);*/
-
-Dual_RAM u_Iram (
-  .a_addr(next_pc_i[13:2]),                // input [9:0]
-  .a_wr_data(32'b0),          // input [31:0]
-  .a_rd_data(iram_rdata),          // output [31:0]
-  .a_wr_en(1'b0),              // input
-  .a_wr_byte_en(4'b0000),    // input [3:0]
-  .a_clk(clk),                  // input
-  .a_rst(~rst_n),                  // input
-  .b_addr(axi_aw_ready_cond ? s_axi_awaddr[13:2] : s_axi_araddr[13:2]),                // input [9:0]
-  .b_wr_data(s_axi_wdata),          // input [31:0]
-  .b_rd_data(s_axi_rdata),          // output [31:0]
-  .b_wr_en(axi_aw_ready_cond | axi_ar_ready_cond),              // input
-  .b_wr_byte_en(axi_aw_ready_cond ? s_axi_wstrb : 4'b0000),    // input [3:0]
-  .b_clk(clk),                  // input
-  .b_rst(~rst_n)                   // input
+    // Port B：专门用于 AXI 下载和访存指令读取 (可读可写)
+    .b_addr(portB_addr_word),                // input [11:0]
+    .b_wr_data(wdata_r),                     // input [31:0]
+    .b_rd_data(portB_rdata_out),             // output [31:0] 
+    .b_wr_en(is_write_cycle),                // input
+    .b_wr_byte_en(is_write_cycle ? wstrb_r : 4'b0000), // input [3:0]
+    .b_clk(clk),                             // input
+    .b_rst(~rst_n)                           // input
 );
 
-REGs_NLWR #(1,0) iram_ack_reg(inst_req_i,iram_ack_o,clk,rst_n);
-
 // ====================================================================
-// C. 【核心修复 1】：取指上下文对齐寄存器 (登机牌机制)
-// 必须把发给 SRAM 的地址和预测状态延迟一拍，才能和一拍后吐出来的指令完美对齐！
+// C. 取指上下文对齐寄存器 (登机牌机制)
 // ====================================================================
 reg [`INST_ADDR_WIDTH-1:0] fetch_pc_delay_r;
 reg                        fetch_taken_delay_r;
@@ -168,7 +144,6 @@ always @(posedge clk or negedge rst_n) begin
         fetch_pc_delay_r    <= `PC_RSTVAL;
         fetch_taken_delay_r <= 1'b0;
     end else if (ifu_permission) begin 
-        // 只要向 SRAM 发起了读请求，就把这拍的 PC 和 预测状态锁存下来
         fetch_pc_delay_r    <= next_pc_i;
         fetch_taken_delay_r <= pre_pc_taken_i;
     end
@@ -178,7 +153,7 @@ end
 // D. IF Skid Buffer (取指滑板缓冲) + 幽灵气泡屏蔽
 // ====================================================================
 reg [`INST_MAX_WIDTH-1:0]  inst_buffer_r;
-reg                        use_buffer_r; 
+reg                        use_buffer_r;
 reg                        flush_r;
 reg                        pre_pc_taken_r;
 reg [`INST_ADDR_WIDTH-1:0] pc_buffer_r;
@@ -203,7 +178,6 @@ always @(posedge clk or negedge rst_n) begin
         else if (~idec_ready_i && ~use_buffer_r && iram_ack_o && ~flush_i && ~flush_r) begin
             use_buffer_r   <= 1'b1;
             inst_buffer_r  <= safe_iram_rdata;
-            // 【核心修复 2】：锁存时，必须用延迟对齐后的历史 PC 和预测结果！
             pc_buffer_r    <= fetch_pc_delay_r;
             pre_pc_taken_r <= fetch_taken_delay_r;
         end 
@@ -216,7 +190,6 @@ end
 // ====================================================================
 // E. 最终输出与 PC 透传
 // ====================================================================
-// 【核心修复 3】：旁路输出时，绝不能用实时的 next_pc_i，必须用对齐后的 fetch_pc_delay_r！
 assign inst_o         = use_buffer_r ? inst_buffer_r  : safe_iram_rdata;
 assign inst_pc_o      = use_buffer_r ? pc_buffer_r    : fetch_pc_delay_r;
 assign pre_pc_taken_o = use_buffer_r ? pre_pc_taken_r : fetch_taken_delay_r;

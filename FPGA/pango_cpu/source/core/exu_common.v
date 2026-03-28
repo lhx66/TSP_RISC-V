@@ -184,8 +184,8 @@ always @(posedge clk or negedge rst_n) begin
                             (INST_BLT  &  cmp_lt_s) |
                             (INST_BGE  & ~cmp_lt_s) |
                             (INST_BLTU &  cmp_lt_u) |
-                            (INST_BGEU & ~cmp_lt_u))|
-                            INST_JAL | INST_JALR;
+                            (INST_BGEU & ~cmp_lt_u)|
+                            INST_JAL | INST_JALR);
 
             // 数据载荷：只有发生 fire 时才更新数据，否则保持旧值也无所谓（因为上面 wb_en 已经清 0 了）
             if (exu_common_fire) begin
