@@ -89,8 +89,9 @@ TSP_RVmaster/
 - **template/TSP_RISCV_template/lib**：提供startup.S示例
 - **template/tools**：提供编译后bin文件转为txt文件的python工具
 
-在紫光pango pgl50g芯片上进行串口发送测试成功，如图：
+在紫光pango pgl50g芯片上进行串口发送测试成功，如图（串口测试软件VOFA）：
 ![串口发送](doc/系统示意图/串口测试.png)
+![串口乘除法测试](doc/系统示意图/串口测试乘除法.png)
 
 ## 帮助
 本项目借鉴蜂鸟e203(https://github.com/riscv-mcu/e203_hbirdv2)开发思路、SparrowRV(https://github.com/xiaowuzxc/SparrowRV)开发思路
