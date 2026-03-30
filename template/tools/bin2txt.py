@@ -5,7 +5,8 @@ import os
 # 用户自由配置区
 # ==========================================
 # 1. 输入的 bin 文件路径 (可以是相对或绝对路径)
-BIN_FILE_PATH = r"E:\FPGA\TSP_RVmaster\template\TSP_RISCV_template\obj\TSP_RISCV_template.bin"
+#BIN_FILE_PATH = r"E:\FPGA\TSP_RVmaster\template\TSP_RISCV_template\obj\TSP_RISCV_template.bin"
+BIN_FILE_PATH = r"E:\FPGA\TSP_RVmaster\template\TSP_RISCV_template\coremark.bin"
 
 # 2. 输出的 txt 文件路径
 IRAM_TXT_PATH = r"E:\FPGA\TSP_RVmaster\FPGA\pango_cpu\source\boot.dat"

@@ -1,17 +1,245 @@
+Archive member included to satisfy reference by file (symbol)
 
-Allocating common symbols
-Common symbol       size              file
-
-global_bss_array    0x14              ./src/main.o
+e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+                              ./app/coremark/cvt.o (__adddf3)
+e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+                              ./app/coremark/cvt.o (__divdf3)
+e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+                              ./app/coremark/cvt.o (__nedf2)
+e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+                              ./app/coremark/cvt.o (__gtdf2)
+e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+                              ./app/coremark/cvt.o (__ltdf2)
+e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+                              ./app/coremark/cvt.o (__muldf3)
+e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+                              ./app/coremark/cvt.o (__fixdfsi)
+e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+                              e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(adddf3.o) (__clzsi2)
+e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+                              e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o) (__clz_tab)
+e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib\libg_nano.a(lib_a-s_modf.o)
+                              ./app/coremark/cvt.o (modf)
+e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+                              e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib\libg_nano.a(lib_a-s_modf.o) (__subdf3)
 
 Discarded input sections
 
  .text          0x0000000000000000        0x0 ./src/main.o
  .data          0x0000000000000000        0x0 ./src/main.o
  .bss           0x0000000000000000        0x0 ./src/main.o
+ .debug_line    0x0000000000000000        0x0 ./src/main.o
+ .debug_str     0x0000000000000000       0xf9 ./src/main.o
+ .comment       0x0000000000000000       0x34 ./src/main.o
  .text          0x0000000000000000        0x0 ./lib/startup/startup.o
  .data          0x0000000000000000        0x0 ./lib/startup/startup.o
  .bss           0x0000000000000000        0x0 ./lib/startup/startup.o
+ .text          0x0000000000000000        0x0 ./bsp/uart/bsp_uart.o
+ .data          0x0000000000000000        0x0 ./bsp/uart/bsp_uart.o
+ .bss           0x0000000000000000        0x0 ./bsp/uart/bsp_uart.o
+ .text.uart_puts
+                0x0000000000000000       0x2c ./bsp/uart/bsp_uart.o
+ .text.uart_getc
+                0x0000000000000000       0x20 ./bsp/uart/bsp_uart.o
+ .text          0x0000000000000000        0x0 ./bsp/timer/bsp_timer.o
+ .data          0x0000000000000000        0x0 ./bsp/timer/bsp_timer.o
+ .bss           0x0000000000000000        0x0 ./bsp/timer/bsp_timer.o
+ .text.timer0_stop
+                0x0000000000000000       0x14 ./bsp/timer/bsp_timer.o
+ .text.timer0_set_value
+                0x0000000000000000        0xc ./bsp/timer/bsp_timer.o
+ .text.timer0_get_value
+                0x0000000000000000        0xc ./bsp/timer/bsp_timer.o
+ .text.timer0_clear_interrupt
+                0x0000000000000000        0xc ./bsp/timer/bsp_timer.o
+ .text          0x0000000000000000        0x0 ./bsp/syscalls.o
+ .data          0x0000000000000000        0x0 ./bsp/syscalls.o
+ .bss           0x0000000000000000        0x0 ./bsp/syscalls.o
+ .text._write   0x0000000000000000       0xbc ./bsp/syscalls.o
+ .debug_info    0x0000000000000000      0x9a4 ./bsp/syscalls.o
+ .debug_abbrev  0x0000000000000000      0x22a ./bsp/syscalls.o
+ .debug_loc     0x0000000000000000       0xfe ./bsp/syscalls.o
+ .debug_aranges
+                0x0000000000000000       0x20 ./bsp/syscalls.o
+ .debug_ranges  0x0000000000000000       0x10 ./bsp/syscalls.o
+ .debug_line    0x0000000000000000      0x218 ./bsp/syscalls.o
+ .debug_str     0x0000000000000000      0x57a ./bsp/syscalls.o
+ .comment       0x0000000000000000       0x34 ./bsp/syscalls.o
+ .debug_frame   0x0000000000000000       0x4c ./bsp/syscalls.o
+ .text          0x0000000000000000        0x0 ./app/coremark/core_list_join.o
+ .data          0x0000000000000000        0x0 ./app/coremark/core_list_join.o
+ .bss           0x0000000000000000        0x0 ./app/coremark/core_list_join.o
+ .text.calc_func
+                0x0000000000000000      0x11c ./app/coremark/core_list_join.o
+ .text.cmp_complex
+                0x0000000000000000      0x204 ./app/coremark/core_list_join.o
+ .text.cmp_idx  0x0000000000000000       0x5c ./app/coremark/core_list_join.o
+ .text.copy_info
+                0x0000000000000000       0x14 ./app/coremark/core_list_join.o
+ .text.core_list_insert_new
+                0x0000000000000000       0x60 ./app/coremark/core_list_join.o
+ .text.core_list_remove
+                0x0000000000000000       0x2c ./app/coremark/core_list_join.o
+ .text.core_list_undo_remove
+                0x0000000000000000       0x20 ./app/coremark/core_list_join.o
+ .text.core_list_find
+                0x0000000000000000       0x70 ./app/coremark/core_list_join.o
+ .text.core_list_reverse
+                0x0000000000000000       0x24 ./app/coremark/core_list_join.o
+ .text.core_list_mergesort
+                0x0000000000000000      0x150 ./app/coremark/core_list_join.o
+ .text          0x0000000000000000        0x0 ./app/coremark/core_main.o
+ .data          0x0000000000000000        0x0 ./app/coremark/core_main.o
+ .bss           0x0000000000000000        0x0 ./app/coremark/core_main.o
+ .text.strlen   0x0000000000000000       0x30 ./app/coremark/core_main.o
+ .text          0x0000000000000000        0x0 ./app/coremark/core_matrix.o
+ .data          0x0000000000000000        0x0 ./app/coremark/core_matrix.o
+ .bss           0x0000000000000000        0x0 ./app/coremark/core_matrix.o
+ .text.matrix_sum
+                0x0000000000000000       0x9c ./app/coremark/core_matrix.o
+ .text.matrix_mul_const
+                0x0000000000000000       0x58 ./app/coremark/core_matrix.o
+ .text.matrix_add_const
+                0x0000000000000000       0x50 ./app/coremark/core_matrix.o
+ .text.matrix_mul_vect
+                0x0000000000000000       0xb4 ./app/coremark/core_matrix.o
+ .text.matrix_mul_matrix
+                0x0000000000000000       0xec ./app/coremark/core_matrix.o
+ .text.matrix_mul_matrix_bitextract
+                0x0000000000000000      0x100 ./app/coremark/core_matrix.o
+ .text          0x0000000000000000        0x0 ./app/coremark/core_portme.o
+ .data          0x0000000000000000        0x0 ./app/coremark/core_portme.o
+ .bss           0x0000000000000000        0x0 ./app/coremark/core_portme.o
+ .text.barebones_clock
+                0x0000000000000000        0x8 ./app/coremark/core_portme.o
+ .text.start_time
+                0x0000000000000000       0x24 ./app/coremark/core_portme.o
+ .text.stop_time
+                0x0000000000000000       0x24 ./app/coremark/core_portme.o
+ .text.get_time
+                0x0000000000000000       0x18 ./app/coremark/core_portme.o
+ .text.portable_fini
+                0x0000000000000000       0x2c ./app/coremark/core_portme.o
+ .sbss.seed1_volatile
+                0x0000000000000000        0x4 ./app/coremark/core_portme.o
+ .sbss.seed2_volatile
+                0x0000000000000000        0x4 ./app/coremark/core_portme.o
+ .sbss.seed5_volatile
+                0x0000000000000000        0x4 ./app/coremark/core_portme.o
+ .sbss.start_time_val
+                0x0000000000000000        0x4 ./app/coremark/core_portme.o
+ .sbss.stop_time_val
+                0x0000000000000000        0x4 ./app/coremark/core_portme.o
+ .sdata.default_num_contexts
+                0x0000000000000000        0x4 ./app/coremark/core_portme.o
+ .sdata.seed3_volatile
+                0x0000000000000000        0x4 ./app/coremark/core_portme.o
+ .sdata.seed4_volatile
+                0x0000000000000000        0x4 ./app/coremark/core_portme.o
+ .text          0x0000000000000000        0x0 ./app/coremark/core_state.o
+ .data          0x0000000000000000        0x0 ./app/coremark/core_state.o
+ .bss           0x0000000000000000        0x0 ./app/coremark/core_state.o
+ .text          0x0000000000000000        0x0 ./app/coremark/core_util.o
+ .data          0x0000000000000000        0x0 ./app/coremark/core_util.o
+ .bss           0x0000000000000000        0x0 ./app/coremark/core_util.o
+ .text.get_seed_32
+                0x0000000000000000       0x64 ./app/coremark/core_util.o
+ .rodata.get_seed_32
+                0x0000000000000000       0x18 ./app/coremark/core_util.o
+ .text.crcu8    0x0000000000000000      0x13c ./app/coremark/core_util.o
+ .text.check_data_types
+                0x0000000000000000        0x8 ./app/coremark/core_util.o
+ .text          0x0000000000000000        0x0 ./app/coremark/cvt.o
+ .data          0x0000000000000000        0x0 ./app/coremark/cvt.o
+ .bss           0x0000000000000000        0x0 ./app/coremark/cvt.o
+ .text.cvt      0x0000000000000000      0x560 ./app/coremark/cvt.o
+ .text.ecvt     0x0000000000000000       0x14 ./app/coremark/cvt.o
+ .text.ecvtbuf  0x0000000000000000        0xc ./app/coremark/cvt.o
+ .text.fcvt     0x0000000000000000       0x14 ./app/coremark/cvt.o
+ .text.fcvtbuf  0x0000000000000000        0xc ./app/coremark/cvt.o
+ .bss.CVTBUF    0x0000000000000000       0x50 ./app/coremark/cvt.o
+ .rodata.cvt.cst8
+                0x0000000000000000       0x18 ./app/coremark/cvt.o
+ .debug_info    0x0000000000000000      0xd09 ./app/coremark/cvt.o
+ .debug_abbrev  0x0000000000000000      0x29d ./app/coremark/cvt.o
+ .debug_loc     0x0000000000000000      0x705 ./app/coremark/cvt.o
+ .debug_aranges
+                0x0000000000000000       0x40 ./app/coremark/cvt.o
+ .debug_ranges  0x0000000000000000       0x30 ./app/coremark/cvt.o
+ .debug_line    0x0000000000000000      0x849 ./app/coremark/cvt.o
+ .debug_str     0x0000000000000000      0x616 ./app/coremark/cvt.o
+ .comment       0x0000000000000000       0x34 ./app/coremark/cvt.o
+ .debug_frame   0x0000000000000000       0xa0 ./app/coremark/cvt.o
+ .text          0x0000000000000000        0x0 ./app/coremark/ee_printf.o
+ .data          0x0000000000000000        0x0 ./app/coremark/ee_printf.o
+ .bss           0x0000000000000000        0x0 ./app/coremark/ee_printf.o
+ .text.uart_send_char
+                0x0000000000000000       0x54 ./app/coremark/ee_printf.o
+ .text          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .data          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .bss           0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .text.__adddf3
+                0x0000000000000000      0x88c e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .debug_frame   0x0000000000000000       0x44 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .text          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .data          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .bss           0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .text.__divdf3
+                0x0000000000000000      0x7ac e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .rodata.__divdf3
+                0x0000000000000000       0x40 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_frame   0x0000000000000000       0x50 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .text          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .data          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .bss           0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .text.__eqdf2  0x0000000000000000       0x8c e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .debug_frame   0x0000000000000000       0x20 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .text          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .data          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .bss           0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .text.__gedf2  0x0000000000000000       0xf0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .debug_frame   0x0000000000000000       0x20 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .text          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .data          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .bss           0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .text.__ledf2  0x0000000000000000       0xfc e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .debug_frame   0x0000000000000000       0x20 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .text          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .data          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .bss           0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .text.__muldf3
+                0x0000000000000000      0x670 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .rodata.__muldf3
+                0x0000000000000000       0x40 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_frame   0x0000000000000000       0x54 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .text          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .data          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .bss           0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .text.__fixdfsi
+                0x0000000000000000       0x84 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .debug_frame   0x0000000000000000       0x20 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .text          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .data          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .bss           0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .text.__clzsi2
+                0x0000000000000000       0x94 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_frame   0x0000000000000000       0x20 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .text          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .data          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .bss           0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .rodata.__clz_tab
+                0x0000000000000000      0x100 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .text          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib\libg_nano.a(lib_a-s_modf.o)
+ .data          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib\libg_nano.a(lib_a-s_modf.o)
+ .bss           0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib\libg_nano.a(lib_a-s_modf.o)
+ .text.modf     0x0000000000000000       0xac e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib\libg_nano.a(lib_a-s_modf.o)
+ .debug_frame   0x0000000000000000       0x30 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib\libg_nano.a(lib_a-s_modf.o)
+ .text          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .data          0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .bss           0x0000000000000000        0x0 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .text.__subdf3
+                0x0000000000000000      0x884 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .debug_frame   0x0000000000000000       0x44 e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
 
 Memory Configuration
 
@@ -24,6 +252,17 @@ Linker script and memory map
 
 LOAD ./src/main.o
 LOAD ./lib/startup/startup.o
+LOAD ./bsp/uart/bsp_uart.o
+LOAD ./bsp/timer/bsp_timer.o
+LOAD ./bsp/syscalls.o
+LOAD ./app/coremark/core_list_join.o
+LOAD ./app/coremark/core_main.o
+LOAD ./app/coremark/core_matrix.o
+LOAD ./app/coremark/core_portme.o
+LOAD ./app/coremark/core_state.o
+LOAD ./app/coremark/core_util.o
+LOAD ./app/coremark/cvt.o
+LOAD ./app/coremark/ee_printf.o
 LOAD e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32im/ilp32\libgcc.a
 LOAD e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib\libg_nano.a
 LOAD e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib\libc_nano.a
@@ -39,105 +278,257 @@ LOAD e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/
 LOAD e:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib\libnosys.a
 END GROUP
 
-.text           0x0000000000000000      0x640
+.text           0x0000000000000000     0x3948
                 0x0000000000000000                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (_text_start = .)
  *(.init)
- .init          0x0000000000000000       0x7c ./lib/startup/startup.o
+ .init          0x0000000000000000       0x10 ./lib/startup/startup.o
                 0x0000000000000000                _start
  *(.text .text.*)
  .text.uart_putc
-                0x000000000000007c       0x38 ./src/main.o
-                0x000000000000007c                uart_putc
- .text.uart_puts
-                0x00000000000000b4       0x50 ./src/main.o
-                0x00000000000000b4                uart_puts
- .text.uart_print_int
-                0x0000000000000104       0xdc ./src/main.o
-                0x0000000000000104                uart_print_int
- .text.test_matrix_mul
-                0x00000000000001e0      0x2b0 ./src/main.o
-                0x00000000000001e0                test_matrix_mul
- .text.test_primes
-                0x0000000000000490       0xdc ./src/main.o
-                0x0000000000000490                test_primes
- .text.main     0x000000000000056c       0xd4 ./src/main.o
-                0x000000000000056c                main
-                0x0000000000000640                . = ALIGN (0x4)
+                0x0000000000000010       0x18 ./bsp/uart/bsp_uart.o
+                0x0000000000000010                uart_putc
+ .text.timer0_init
+                0x0000000000000028       0x24 ./bsp/timer/bsp_timer.o
+                0x0000000000000028                timer0_init
+ .text.timer0_start
+                0x000000000000004c       0x14 ./bsp/timer/bsp_timer.o
+                0x000000000000004c                timer0_start
+ .text.core_bench_list
+                0x0000000000000060      0x67c ./app/coremark/core_list_join.o
+                0x0000000000000060                core_bench_list
+ .text.core_list_init
+                0x00000000000006dc      0x26c ./app/coremark/core_list_join.o
+                0x00000000000006dc                core_list_init
+ .text.memcpy   0x0000000000000948       0xc0 ./app/coremark/core_main.o
+                0x0000000000000948                memcpy
+ .text.memset   0x0000000000000a08       0x34 ./app/coremark/core_main.o
+                0x0000000000000a08                memset
+ .text.startup.main
+                0x0000000000000a3c      0x824 ./app/coremark/core_main.o
+                0x0000000000000a3c                main
+ .text.matrix_test
+                0x0000000000001260      0x544 ./app/coremark/core_matrix.o
+                0x0000000000001260                matrix_test
+ .text.core_bench_matrix
+                0x00000000000017a4       0x3c ./app/coremark/core_matrix.o
+                0x00000000000017a4                core_bench_matrix
+ .text.core_init_matrix
+                0x00000000000017e0      0x124 ./app/coremark/core_matrix.o
+                0x00000000000017e0                core_init_matrix
+ .text.time_in_secs
+                0x0000000000001904       0x10 ./app/coremark/core_portme.o
+                0x0000000000001904                time_in_secs
+ .text.portable_init
+                0x0000000000001914       0x38 ./app/coremark/core_portme.o
+                0x0000000000001914                portable_init
+ .text.core_init_state
+                0x000000000000194c      0x1b4 ./app/coremark/core_state.o
+                0x000000000000194c                core_init_state
+ .text.core_state_transition
+                0x0000000000001b00      0x330 ./app/coremark/core_state.o
+                0x0000000000001b00                core_state_transition
+ .text.core_bench_state
+                0x0000000000001e30      0x1fc ./app/coremark/core_state.o
+                0x0000000000001e30                core_bench_state
+ .text.crcu16   0x000000000000202c      0x280 ./app/coremark/core_util.o
+                0x000000000000202c                crcu16
+ .text.crcu32   0x00000000000022ac      0x510 ./app/coremark/core_util.o
+                0x00000000000022ac                crcu32
+ .text.crc16    0x00000000000027bc      0x288 ./app/coremark/core_util.o
+                0x00000000000027bc                crc16
+ .text.number   0x0000000000002a44      0x2e8 ./app/coremark/ee_printf.o
+ .text.ee_printf
+                0x0000000000002d2c      0xc1c ./app/coremark/ee_printf.o
+                0x0000000000002d2c                ee_printf
+                0x0000000000003948                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (_text_end = .)
 
-.rodata         0x0000000000000640      0x1dc
-                0x0000000000000640                . = ALIGN (0x4)
+.rodata         0x0000000000003948      0xa20
+                0x0000000000003948                . = ALIGN (0x4)
  *(.rodata .rodata.*)
- .rodata        0x0000000000000640      0x1da ./src/main.o
+ .rodata.list_known_crc
+                0x0000000000003948        0xa ./app/coremark/core_main.o
+ *fill*         0x0000000000003952        0x2 
+ .rodata.main.str1.4
+                0x0000000000003954      0x699 ./app/coremark/core_main.o
+ *fill*         0x0000000000003fed        0x3 
+ .rodata.matrix_known_crc
+                0x0000000000003ff0        0xa ./app/coremark/core_main.o
+ *fill*         0x0000000000003ffa        0x2 
+ .rodata.state_known_crc
+                0x0000000000003ffc        0xa ./app/coremark/core_main.o
+ *fill*         0x0000000000004006        0x2 
+ .rodata.core_init_state
+                0x0000000000004008       0x14 ./app/coremark/core_state.o
+ .rodata.errpat
+                0x000000000000401c       0x10 ./app/coremark/core_state.o
+ .rodata.floatpat
+                0x000000000000402c       0x10 ./app/coremark/core_state.o
+ .rodata.intpat
+                0x000000000000403c       0x10 ./app/coremark/core_state.o
+ .rodata.scipat
+                0x000000000000404c       0x10 ./app/coremark/core_state.o
+ .rodata.str1.4
+                0x000000000000405c       0xad ./app/coremark/core_state.o
+ *fill*         0x0000000000004109        0x3 
+ .rodata.ee_printf
+                0x000000000000410c      0x204 ./app/coremark/ee_printf.o
+ .rodata.ee_printf.str1.4
+                0x0000000000004310        0x7 ./app/coremark/ee_printf.o
+ *fill*         0x0000000000004317        0x1 
+ .rodata.number.str1.4
+                0x0000000000004318       0x50 ./app/coremark/ee_printf.o
+                                         0x4d (size before relaxing)
  *(.srodata .srodata.*)
-                0x000000000000081c                . = ALIGN (0x4)
- *fill*         0x000000000000081a        0x2 
+                0x0000000000004368                . = ALIGN (0x4)
 
-.rela.dyn       0x000000000000081c        0x0
- .rela.text.main
-                0x000000000000081c        0x0 ./src/main.o
- .rela.init     0x000000000000081c        0x0 ./src/main.o
+.rela.dyn       0x0000000000004368        0x0
+ .rela.init     0x0000000000004368        0x0 ./lib/startup/startup.o
+ .rela.text.startup.main
+                0x0000000000004368        0x0 ./lib/startup/startup.o
 
-.data           0x0000000020000000        0x8 load address 0x000000000000081c
+.data           0x0000000020000000        0x0 load address 0x0000000000004368
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                PROVIDE (_data_start = .)
  *(.sdata .sdata.*)
- .sdata.global_init_var
-                0x0000000020000000        0x4 ./src/main.o
-                0x0000000020000000                global_init_var
- .sdata.welcome_msg
-                0x0000000020000004        0x4 ./src/main.o
-                0x0000000020000004                welcome_msg
  *(.data .data.*)
-                0x0000000020000008                . = ALIGN (0x4)
-                0x0000000020000008                PROVIDE (_data_end = .)
-                0x000000000000081c                PROVIDE (_data_lma = LOADADDR (.data))
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                PROVIDE (_data_end = .)
+                0x0000000000004368                PROVIDE (_data_lma = LOADADDR (.data))
 
-.bss            0x0000000020000008       0x14 load address 0x0000000000000824
-                0x0000000020000008                . = ALIGN (0x4)
-                0x0000000020000008                PROVIDE (_bss_start = .)
+.bss            0x0000000020000000        0x0 load address 0x0000000000004368
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                PROVIDE (_bss_start = .)
  *(.sbss .sbss.*)
  *(.bss .bss.*)
  *(COMMON)
- COMMON         0x0000000020000008       0x14 ./src/main.o
-                0x0000000020000008                global_bss_array
-                0x000000002000001c                . = ALIGN (0x4)
-                0x000000002000001c                PROVIDE (_bss_end = .)
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                PROVIDE (_bss_end = .)
                 [!provide]                        PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
                 0x0000000020008000                PROVIDE (_sp = (ORIGIN (SRAM) + LENGTH (SRAM)))
 OUTPUT(TSP_RISCV_template.elf elf32-littleriscv)
 
-.debug_info     0x0000000000000000      0x2b7
- .debug_info    0x0000000000000000      0x291 ./src/main.o
- .debug_info    0x0000000000000291       0x26 ./lib/startup/startup.o
+.debug_line     0x0000000000000000     0x90ee
+ .debug_line    0x0000000000000000       0x53 ./lib/startup/startup.o
+ .debug_line    0x0000000000000053      0x279 ./bsp/uart/bsp_uart.o
+ .debug_line    0x00000000000002cc      0x258 ./bsp/timer/bsp_timer.o
+ .debug_line    0x0000000000000524     0x23a1 ./app/coremark/core_list_join.o
+ .debug_line    0x00000000000028c5      0xcb5 ./app/coremark/core_main.o
+ .debug_line    0x000000000000357a     0x1097 ./app/coremark/core_matrix.o
+ .debug_line    0x0000000000004611      0x268 ./app/coremark/core_portme.o
+ .debug_line    0x0000000000004879      0xe27 ./app/coremark/core_state.o
+ .debug_line    0x00000000000056a0     0x1faa ./app/coremark/core_util.o
+ .debug_line    0x000000000000764a     0x1aa4 ./app/coremark/ee_printf.o
 
-.debug_abbrev   0x0000000000000000      0x12d
- .debug_abbrev  0x0000000000000000      0x119 ./src/main.o
- .debug_abbrev  0x0000000000000119       0x14 ./lib/startup/startup.o
+.debug_info     0x0000000000000000     0x43ba
+ .debug_info    0x0000000000000000       0x26 ./lib/startup/startup.o
+ .debug_info    0x0000000000000026      0x118 ./bsp/uart/bsp_uart.o
+ .debug_info    0x000000000000013e      0x12f ./bsp/timer/bsp_timer.o
+ .debug_info    0x000000000000026d     0x1181 ./app/coremark/core_list_join.o
+ .debug_info    0x00000000000013ee      0xd76 ./app/coremark/core_main.o
+ .debug_info    0x0000000000002164      0xbde ./app/coremark/core_matrix.o
+ .debug_info    0x0000000000002d42      0x349 ./app/coremark/core_portme.o
+ .debug_info    0x000000000000308b      0x50f ./app/coremark/core_state.o
+ .debug_info    0x000000000000359a      0x564 ./app/coremark/core_util.o
+ .debug_info    0x0000000000003afe      0x8bc ./app/coremark/ee_printf.o
 
-.debug_aranges  0x0000000000000000       0x68
+.debug_abbrev   0x0000000000000000     0x10f3
+ .debug_abbrev  0x0000000000000000       0x14 ./lib/startup/startup.o
+ .debug_abbrev  0x0000000000000014       0xe7 ./bsp/uart/bsp_uart.o
+ .debug_abbrev  0x00000000000000fb       0xad ./bsp/timer/bsp_timer.o
+ .debug_abbrev  0x00000000000001a8      0x30e ./app/coremark/core_list_join.o
+ .debug_abbrev  0x00000000000004b6      0x1b4 ./app/coremark/core_main.o
+ .debug_abbrev  0x000000000000066a      0x23f ./app/coremark/core_matrix.o
+ .debug_abbrev  0x00000000000008a9      0x199 ./app/coremark/core_portme.o
+ .debug_abbrev  0x0000000000000a42      0x233 ./app/coremark/core_state.o
+ .debug_abbrev  0x0000000000000c75      0x199 ./app/coremark/core_util.o
+ .debug_abbrev  0x0000000000000e0e      0x2e5 ./app/coremark/ee_printf.o
+
+.debug_aranges  0x0000000000000000      0x2a0
  .debug_aranges
-                0x0000000000000000       0x48 ./src/main.o
+                0x0000000000000000       0x20 ./lib/startup/startup.o
  .debug_aranges
-                0x0000000000000048       0x20 ./lib/startup/startup.o
+                0x0000000000000020       0x30 ./bsp/uart/bsp_uart.o
+ .debug_aranges
+                0x0000000000000050       0x48 ./bsp/timer/bsp_timer.o
+ .debug_aranges
+                0x0000000000000098       0x78 ./app/coremark/core_list_join.o
+ .debug_aranges
+                0x0000000000000110       0x38 ./app/coremark/core_main.o
+ .debug_aranges
+                0x0000000000000148       0x60 ./app/coremark/core_matrix.o
+ .debug_aranges
+                0x00000000000001a8       0x50 ./app/coremark/core_portme.o
+ .debug_aranges
+                0x00000000000001f8       0x30 ./app/coremark/core_state.o
+ .debug_aranges
+                0x0000000000000228       0x48 ./app/coremark/core_util.o
+ .debug_aranges
+                0x0000000000000270       0x30 ./app/coremark/ee_printf.o
 
-.debug_ranges   0x0000000000000000       0x38
- .debug_ranges  0x0000000000000000       0x38 ./src/main.o
+.debug_str      0x0000000000000000      0xada
+ .debug_str     0x0000000000000000       0x5a ./lib/startup/startup.o
+ .debug_str     0x000000000000005a      0x146 ./bsp/uart/bsp_uart.o
+                                        0x1bd (size before relaxing)
+ .debug_str     0x00000000000001a0       0x98 ./bsp/timer/bsp_timer.o
+                                        0x21b (size before relaxing)
+ .debug_str     0x0000000000000238      0x335 ./app/coremark/core_list_join.o
+                                        0x4bd (size before relaxing)
+ .debug_str     0x000000000000056d      0x18a ./app/coremark/core_main.o
+                                        0x480 (size before relaxing)
+ .debug_str     0x00000000000006f7       0xbb ./app/coremark/core_matrix.o
+                                        0x2d6 (size before relaxing)
+ .debug_str     0x00000000000007b2       0xd9 ./app/coremark/core_portme.o
+                                        0x314 (size before relaxing)
+ .debug_str     0x000000000000088b      0x127 ./app/coremark/core_state.o
+                                        0x33f (size before relaxing)
+ .debug_str     0x00000000000009b2       0x4c ./app/coremark/core_util.o
+                                        0x264 (size before relaxing)
+ .debug_str     0x00000000000009fe       0xdc ./app/coremark/ee_printf.o
+                                        0x2d6 (size before relaxing)
 
-.debug_line     0x0000000000000000      0x4e1
- .debug_line    0x0000000000000000      0x40a ./src/main.o
- .debug_line    0x000000000000040a       0xd7 ./lib/startup/startup.o
+.debug_loc      0x0000000000000000     0x71d6
+ .debug_loc     0x0000000000000000       0x1e ./bsp/uart/bsp_uart.o
+ .debug_loc     0x000000000000001e     0x244d ./app/coremark/core_list_join.o
+ .debug_loc     0x000000000000246b      0x441 ./app/coremark/core_main.o
+ .debug_loc     0x00000000000028ac     0x14e6 ./app/coremark/core_matrix.o
+ .debug_loc     0x0000000000003d92      0x121 ./app/coremark/core_portme.o
+ .debug_loc     0x0000000000003eb3      0xa4f ./app/coremark/core_state.o
+ .debug_loc     0x0000000000004902     0x1310 ./app/coremark/core_util.o
+ .debug_loc     0x0000000000005c12     0x15c4 ./app/coremark/ee_printf.o
 
-.debug_str      0x0000000000000000      0x1a6
- .debug_str     0x0000000000000000      0x181 ./src/main.o
- .debug_str     0x0000000000000181       0x25 ./lib/startup/startup.o
-                                         0x5a (size before relaxing)
+.debug_ranges   0x0000000000000000      0x9f0
+ .debug_ranges  0x0000000000000000       0x20 ./bsp/uart/bsp_uart.o
+ .debug_ranges  0x0000000000000020       0x38 ./bsp/timer/bsp_timer.o
+ .debug_ranges  0x0000000000000058      0x3b0 ./app/coremark/core_list_join.o
+ .debug_ranges  0x0000000000000408       0x28 ./app/coremark/core_main.o
+ .debug_ranges  0x0000000000000430      0x1a8 ./app/coremark/core_matrix.o
+ .debug_ranges  0x00000000000005d8       0x70 ./app/coremark/core_portme.o
+ .debug_ranges  0x0000000000000648      0x130 ./app/coremark/core_state.o
+ .debug_ranges  0x0000000000000778      0x170 ./app/coremark/core_util.o
+ .debug_ranges  0x00000000000008e8      0x108 ./app/coremark/ee_printf.o
 
 .comment        0x0000000000000000       0x33
- .comment       0x0000000000000000       0x33 ./src/main.o
+ .comment       0x0000000000000000       0x33 ./bsp/uart/bsp_uart.o
                                          0x34 (size before relaxing)
+ .comment       0x0000000000000033       0x34 ./bsp/timer/bsp_timer.o
+ .comment       0x0000000000000033       0x34 ./app/coremark/core_list_join.o
+ .comment       0x0000000000000033       0x34 ./app/coremark/core_main.o
+ .comment       0x0000000000000033       0x34 ./app/coremark/core_matrix.o
+ .comment       0x0000000000000033       0x34 ./app/coremark/core_portme.o
+ .comment       0x0000000000000033       0x34 ./app/coremark/core_state.o
+ .comment       0x0000000000000033       0x34 ./app/coremark/core_util.o
+ .comment       0x0000000000000033       0x34 ./app/coremark/ee_printf.o
 
-.debug_frame    0x0000000000000000       0xec
- .debug_frame   0x0000000000000000       0xec ./src/main.o
+.debug_frame    0x0000000000000000      0x6e0
+ .debug_frame   0x0000000000000000       0x40 ./bsp/uart/bsp_uart.o
+ .debug_frame   0x0000000000000040       0x70 ./bsp/timer/bsp_timer.o
+ .debug_frame   0x00000000000000b0      0x18c ./app/coremark/core_list_join.o
+ .debug_frame   0x000000000000023c       0x80 ./app/coremark/core_main.o
+ .debug_frame   0x00000000000002bc      0x18c ./app/coremark/core_matrix.o
+ .debug_frame   0x0000000000000448       0xb8 ./app/coremark/core_portme.o
+ .debug_frame   0x0000000000000500       0x90 ./app/coremark/core_state.o
+ .debug_frame   0x0000000000000590       0x70 ./app/coremark/core_util.o
+ .debug_frame   0x0000000000000600       0xe0 ./app/coremark/ee_printf.o

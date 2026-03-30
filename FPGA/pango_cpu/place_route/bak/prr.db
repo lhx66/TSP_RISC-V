@@ -44,7 +44,7 @@
         <row color="4294901760">
             <data>ext_axi_if_awready</data>
             <data>output</data>
-            <data>H12</data>
+            <data>F17</data>
             <data>BANK1</data>
             <data>3.3</data>
             <data>LVCMOS33</data>
@@ -64,7 +64,7 @@
         <row color="4294901760">
             <data>ext_axi_if_bresp[0]</data>
             <data>output</data>
-            <data>D18</data>
+            <data>E18</data>
             <data>BANK1</data>
             <data>3.3</data>
             <data>LVCMOS33</data>
@@ -84,7 +84,7 @@
         <row color="4294901760">
             <data>ext_axi_if_bresp[1]</data>
             <data>output</data>
-            <data>D17</data>
+            <data>E16</data>
             <data>BANK1</data>
             <data>3.3</data>
             <data>LVCMOS33</data>
@@ -104,7 +104,7 @@
         <row color="4294901760">
             <data>ext_axi_if_bvalid</data>
             <data>output</data>
-            <data>G14</data>
+            <data>D18</data>
             <data>BANK1</data>
             <data>3.3</data>
             <data>LVCMOS33</data>
@@ -124,8 +124,8 @@
         <row color="4294901760">
             <data>ext_axi_if_rdata[0]</data>
             <data>output</data>
-            <data>V12</data>
-            <data>BANK2</data>
+            <data>N1</data>
+            <data>BANK3</data>
             <data>3.3</data>
             <data>LVCMOS33</data>
             <data>8</data>
@@ -143,486 +143,6 @@
         </row>
         <row color="4294901760">
             <data>ext_axi_if_rdata[10]</data>
-            <data>output</data>
-            <data>V10</data>
-            <data>BANK2</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[11]</data>
-            <data>output</data>
-            <data>V11</data>
-            <data>BANK2</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[12]</data>
-            <data>output</data>
-            <data>U11</data>
-            <data>BANK2</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[13]</data>
-            <data>output</data>
-            <data>T8</data>
-            <data>BANK2</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[14]</data>
-            <data>output</data>
-            <data>T10</data>
-            <data>BANK2</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[15]</data>
-            <data>output</data>
-            <data>L3</data>
-            <data>BANK3</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[16]</data>
-            <data>output</data>
-            <data>K5</data>
-            <data>BANK3</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[17]</data>
-            <data>output</data>
-            <data>L16</data>
-            <data>BANK1</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[18]</data>
-            <data>output</data>
-            <data>J18</data>
-            <data>BANK1</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[19]</data>
-            <data>output</data>
-            <data>L13</data>
-            <data>BANK1</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[1]</data>
-            <data>output</data>
-            <data>M10</data>
-            <data>BANK2</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[20]</data>
-            <data>output</data>
-            <data>K15</data>
-            <data>BANK1</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[21]</data>
-            <data>output</data>
-            <data>L17</data>
-            <data>BANK1</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[22]</data>
-            <data>output</data>
-            <data>N17</data>
-            <data>BANK1</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[23]</data>
-            <data>output</data>
-            <data>L7</data>
-            <data>BANK3</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[24]</data>
-            <data>output</data>
-            <data>L15</data>
-            <data>BANK1</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[25]</data>
-            <data>output</data>
-            <data>L12</data>
-            <data>BANK1</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[26]</data>
-            <data>output</data>
-            <data>H18</data>
-            <data>BANK1</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[27]</data>
-            <data>output</data>
-            <data>L18</data>
-            <data>BANK1</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[28]</data>
-            <data>output</data>
-            <data>H17</data>
-            <data>BANK1</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[29]</data>
-            <data>output</data>
-            <data>N18</data>
-            <data>BANK1</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[2]</data>
-            <data>output</data>
-            <data>R10</data>
-            <data>BANK2</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[30]</data>
-            <data>output</data>
-            <data>N16</data>
-            <data>BANK1</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[31]</data>
-            <data>output</data>
-            <data>J16</data>
-            <data>BANK1</data>
-            <data>3.3</data>
-            <data>LVCMOS33</data>
-            <data>8</data>
-            <data>NONE</data>
-            <data>SLOW</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>NA</data>
-            <data>OFF</data>
-            <data>NO</data>
-            <data>NA</data>
-        </row>
-        <row color="4294901760">
-            <data>ext_axi_if_rdata[3]</data>
             <data>output</data>
             <data>P11</data>
             <data>BANK2</data>
@@ -642,9 +162,489 @@
             <data>NA</data>
         </row>
         <row color="4294901760">
-            <data>ext_axi_if_rdata[4]</data>
+            <data>ext_axi_if_rdata[11]</data>
+            <data>output</data>
+            <data>T10</data>
+            <data>BANK2</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[12]</data>
+            <data>output</data>
+            <data>R10</data>
+            <data>BANK2</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[13]</data>
+            <data>output</data>
+            <data>V11</data>
+            <data>BANK2</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[14]</data>
+            <data>output</data>
+            <data>M10</data>
+            <data>BANK2</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[15]</data>
             <data>output</data>
             <data>N9</data>
+            <data>BANK2</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[16]</data>
+            <data>output</data>
+            <data>H14</data>
+            <data>BANK1</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[17]</data>
+            <data>output</data>
+            <data>G18</data>
+            <data>BANK1</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[18]</data>
+            <data>output</data>
+            <data>A9</data>
+            <data>BANK0</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[19]</data>
+            <data>output</data>
+            <data>B9</data>
+            <data>BANK0</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[1]</data>
+            <data>output</data>
+            <data>V8</data>
+            <data>BANK2</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[20]</data>
+            <data>output</data>
+            <data>H13</data>
+            <data>BANK1</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[21]</data>
+            <data>output</data>
+            <data>C9</data>
+            <data>BANK0</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[22]</data>
+            <data>output</data>
+            <data>F14</data>
+            <data>BANK1</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[23]</data>
+            <data>output</data>
+            <data>D11</data>
+            <data>BANK0</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[24]</data>
+            <data>output</data>
+            <data>D9</data>
+            <data>BANK0</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[25]</data>
+            <data>output</data>
+            <data>G13</data>
+            <data>BANK1</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[26]</data>
+            <data>output</data>
+            <data>H12</data>
+            <data>BANK1</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[27]</data>
+            <data>output</data>
+            <data>G16</data>
+            <data>BANK1</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[28]</data>
+            <data>output</data>
+            <data>K12</data>
+            <data>BANK1</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[29]</data>
+            <data>output</data>
+            <data>G14</data>
+            <data>BANK1</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[2]</data>
+            <data>output</data>
+            <data>U17</data>
+            <data>BANK1</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[30]</data>
+            <data>output</data>
+            <data>K13</data>
+            <data>BANK1</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[31]</data>
+            <data>output</data>
+            <data>V12</data>
+            <data>BANK2</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[3]</data>
+            <data>output</data>
+            <data>U10</data>
+            <data>BANK2</data>
+            <data>3.3</data>
+            <data>LVCMOS33</data>
+            <data>8</data>
+            <data>NONE</data>
+            <data>SLOW</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>NA</data>
+            <data>OFF</data>
+            <data>NO</data>
+            <data>NA</data>
+        </row>
+        <row color="4294901760">
+            <data>ext_axi_if_rdata[4]</data>
+            <data>output</data>
+            <data>N8</data>
             <data>BANK2</data>
             <data>3.3</data>
             <data>LVCMOS33</data>
@@ -684,7 +684,7 @@
         <row color="4294901760">
             <data>ext_axi_if_rdata[6]</data>
             <data>output</data>
-            <data>U10</data>
+            <data>N10</data>
             <data>BANK2</data>
             <data>3.3</data>
             <data>LVCMOS33</data>
@@ -704,7 +704,7 @@
         <row color="4294901760">
             <data>ext_axi_if_rdata[7]</data>
             <data>output</data>
-            <data>T9</data>
+            <data>T8</data>
             <data>BANK2</data>
             <data>3.3</data>
             <data>LVCMOS33</data>
@@ -724,7 +724,7 @@
         <row color="4294901760">
             <data>ext_axi_if_rdata[8]</data>
             <data>output</data>
-            <data>V8</data>
+            <data>U11</data>
             <data>BANK2</data>
             <data>3.3</data>
             <data>LVCMOS33</data>
@@ -744,7 +744,7 @@
         <row color="4294901760">
             <data>ext_axi_if_rdata[9]</data>
             <data>output</data>
-            <data>N8</data>
+            <data>V10</data>
             <data>BANK2</data>
             <data>3.3</data>
             <data>LVCMOS33</data>
@@ -764,7 +764,7 @@
         <row color="4294901760">
             <data>ext_axi_if_rresp[0]</data>
             <data>output</data>
-            <data>F14</data>
+            <data>D17</data>
             <data>BANK1</data>
             <data>3.3</data>
             <data>LVCMOS33</data>
@@ -1045,27 +1045,27 @@
             <data>IOBD_240_376</data>
             <data>BANK0</data>
             <data>DIFFIO_B0_15P/GCLK15/PLL1_CLK4</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[23]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>B9</data>
             <data>IOBD_224_376</data>
             <data>BANK0</data>
             <data>DIFFIO_B0_14P/GCLK17/PLL1_CLK2</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[19]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>D9</data>
             <data>IOBD_220_376</data>
             <data>BANK0</data>
             <data>DIFFIO_B0_13P/GCLK19/PLL1_CLK0</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[24]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>B8</data>
@@ -1225,18 +1225,18 @@
             <data>IOBS_TB_225_376</data>
             <data>BANK0</data>
             <data>DIFFIO_B0_14N/GCLK16/PLL1_CLK3</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[18]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>C9</data>
             <data>IOBS_TB_221_376</data>
             <data>BANK0</data>
             <data>DIFFIO_B0_13N/GCLK18/PLL1_CLK1</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[21]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>A8</data>
@@ -1369,9 +1369,9 @@
             <data>IOBS_LR_328_141</data>
             <data>BANK1</data>
             <data>DIFFI_B1_37P</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[2]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>T17</data>
@@ -1405,9 +1405,9 @@
             <data>IOBS_LR_328_165</data>
             <data>BANK1</data>
             <data>DIFFI_B1_33P</data>
-            <data>ext_axi_if_rdata[22]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>M16</data>
@@ -1423,9 +1423,9 @@
             <data>IOBS_LR_328_173</data>
             <data>BANK1</data>
             <data>DIFFI_B1_31P</data>
-            <data>ext_axi_if_rdata[21]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>K17</data>
@@ -1441,45 +1441,45 @@
             <data>IOBS_LR_328_201</data>
             <data>BANK1</data>
             <data>DIFFI_B1_29P/XTAL_A</data>
-            <data>ext_axi_if_rdata[31]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>H17</data>
             <data>IOBS_LR_328_205</data>
             <data>BANK1</data>
             <data>DIFFI_B1_28P/GCLK5/PLL2_CLK2/PLL3_CLK2</data>
-            <data>ext_axi_if_rdata[28]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>L15</data>
             <data>IOBS_LR_328_209</data>
             <data>BANK1</data>
             <data>DIFFI_B1_27P/GCLK7/PLL2_CLK0/PLL3_CLK0</data>
-            <data>ext_axi_if_rdata[24]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>K15</data>
             <data>IOBS_LR_328_213</data>
             <data>BANK1</data>
             <data>DIFFI_B1_26P/GCLK9/PLL1_CLK10/PLL4_CLK2/PLL5_CLK2</data>
-            <data>ext_axi_if_rdata[20]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>L12</data>
             <data>IOBS_LR_328_217</data>
             <data>BANK1</data>
             <data>DIFFI_B1_25P/GCLK11/PLL1_CLK8/PLL4_CLK0/PLL5_CLK0</data>
-            <data>ext_axi_if_rdata[25]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>J13</data>
@@ -1495,9 +1495,9 @@
             <data>IOBS_LR_328_233</data>
             <data>BANK1</data>
             <data>DIFFI_B1_23P</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[27]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>H15</data>
@@ -1513,43 +1513,43 @@
             <data>IOBS_LR_328_241</data>
             <data>BANK1</data>
             <data>DIFFI_B1_21P</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[20]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>F17</data>
             <data>IOBS_LR_328_245</data>
             <data>BANK1</data>
             <data>DIFFI_B1_20P</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_awready</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>K12</data>
             <data>IOBS_LR_328_257</data>
             <data>BANK1</data>
             <data>DIFFI_B1_19P</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[28]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>E16</data>
             <data>IOBS_LR_328_261</data>
             <data>BANK1</data>
             <data>DIFFI_B1_18P</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_bresp[1]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>H12</data>
             <data>IOBS_LR_328_265</data>
             <data>BANK1</data>
             <data>DIFFI_B1_17P</data>
-            <data>ext_axi_if_awready</data>
+            <data>ext_axi_if_rdata[26]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -1558,7 +1558,7 @@
             <data>IOBS_LR_328_269</data>
             <data>BANK1</data>
             <data>DIFFI_B1_16P</data>
-            <data>ext_axi_if_bresp[1]</data>
+            <data>ext_axi_if_rresp[0]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -1567,7 +1567,7 @@
             <data>IOBS_LR_328_273</data>
             <data>BANK1</data>
             <data>DIFFI_B1_15P</data>
-            <data>ext_axi_if_rresp[0]</data>
+            <data>ext_axi_if_rdata[22]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -1639,9 +1639,9 @@
             <data>IOBS_LR_328_148</data>
             <data>BANK1</data>
             <data>DIFFI_B1_35N</data>
-            <data>ext_axi_if_rdata[30]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>P18</data>
@@ -1657,9 +1657,9 @@
             <data>IOBS_LR_328_164</data>
             <data>BANK1</data>
             <data>DIFFI_B1_33N</data>
-            <data>ext_axi_if_rdata[29]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>M18</data>
@@ -1675,9 +1675,9 @@
             <data>IOBS_LR_328_172</data>
             <data>BANK1</data>
             <data>DIFFI_B1_31N</data>
-            <data>ext_axi_if_rdata[27]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>K18</data>
@@ -1693,27 +1693,27 @@
             <data>IOBS_LR_328_200</data>
             <data>BANK1</data>
             <data>DIFFI_B1_29N/XTAL_B</data>
-            <data>ext_axi_if_rdata[18]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>H18</data>
             <data>IOBS_LR_328_204</data>
             <data>BANK1</data>
             <data>DIFFI_B1_28N/GCLK4/PLL2_CLK3/PLL3_CLK3</data>
-            <data>ext_axi_if_rdata[26]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>L16</data>
             <data>IOBS_LR_328_208</data>
             <data>BANK1</data>
             <data>DIFFI_B1_27N/GCLK6/PLL2_CLK1/PLL3_CLK1</data>
-            <data>ext_axi_if_rdata[17]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>K16</data>
@@ -1729,9 +1729,9 @@
             <data>IOBS_LR_328_216</data>
             <data>BANK1</data>
             <data>DIFFI_B1_25N/GCLK10/PLL1_CLK9/PLL4_CLK1/PLL5_CLK1</data>
-            <data>ext_axi_if_rdata[19]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>K14</data>
@@ -1747,9 +1747,9 @@
             <data>IOBS_LR_328_232</data>
             <data>BANK1</data>
             <data>DIFFI_B1_23N</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[17]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>H16</data>
@@ -1765,9 +1765,9 @@
             <data>IOBS_LR_328_240</data>
             <data>BANK1</data>
             <data>DIFFI_B1_21N</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[16]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>F18</data>
@@ -1783,34 +1783,34 @@
             <data>IOBS_LR_328_256</data>
             <data>BANK1</data>
             <data>DIFFI_B1_19N</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[30]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>E18</data>
             <data>IOBS_LR_328_260</data>
             <data>BANK1</data>
             <data>DIFFI_B1_18N</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_bresp[0]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>G13</data>
             <data>IOBS_LR_328_264</data>
             <data>BANK1</data>
             <data>DIFFI_B1_17N</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[25]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>D18</data>
             <data>IOBS_LR_328_268</data>
             <data>BANK1</data>
             <data>DIFFI_B1_16N</data>
-            <data>ext_axi_if_bresp[0]</data>
+            <data>ext_axi_if_bvalid</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -1819,7 +1819,7 @@
             <data>IOBS_LR_328_272</data>
             <data>BANK1</data>
             <data>DIFFI_B1_15N</data>
-            <data>ext_axi_if_bvalid</data>
+            <data>ext_axi_if_rdata[29]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -1963,16 +1963,16 @@
             <data>IOBD_197_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_31P</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[6]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>M10</data>
             <data>IOBD_185_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_29P</data>
-            <data>ext_axi_if_rdata[1]</data>
+            <data>ext_axi_if_rdata[14]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -1981,7 +1981,7 @@
             <data>IOBD_181_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_28P</data>
-            <data>ext_axi_if_rdata[12]</data>
+            <data>ext_axi_if_rdata[8]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -1990,7 +1990,7 @@
             <data>IOBD_169_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_27P/GCLK3/PLL4_CLK11/PLL5_CLK11</data>
-            <data>ext_axi_if_rdata[2]</data>
+            <data>ext_axi_if_rdata[12]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -1999,7 +1999,7 @@
             <data>IOBD_165_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_26P/GCLK1/PLL4_CLK9/PLL5_CLK9/D13</data>
-            <data>ext_axi_if_rdata[6]</data>
+            <data>ext_axi_if_rdata[3]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -2017,9 +2017,9 @@
             <data>IOBD_157_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_24P/GCLK29/PLL4_CLK5/PLL5_CLK5</data>
-            <data>ext_axi_if_rdata[7]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>M8</data>
@@ -2197,7 +2197,7 @@
             <data>IOBS_TB_200_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_32N</data>
-            <data>ext_axi_if_rdata[0]</data>
+            <data>ext_axi_if_rdata[31]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -2206,7 +2206,7 @@
             <data>IOBS_TB_196_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_31N</data>
-            <data>ext_axi_if_rdata[3]</data>
+            <data>ext_axi_if_rdata[10]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -2215,7 +2215,7 @@
             <data>IOBS_TB_184_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_29N</data>
-            <data>ext_axi_if_rdata[4]</data>
+            <data>ext_axi_if_rdata[15]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -2224,7 +2224,7 @@
             <data>IOBS_TB_180_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_28N</data>
-            <data>ext_axi_if_rdata[11]</data>
+            <data>ext_axi_if_rdata[13]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -2233,7 +2233,7 @@
             <data>IOBS_TB_168_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_27N/GCLK2/PLL4_CLK10/PLL5_CLK10</data>
-            <data>ext_axi_if_rdata[14]</data>
+            <data>ext_axi_if_rdata[11]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -2242,7 +2242,7 @@
             <data>IOBS_TB_164_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_26N/GCLK0/PLL4_CLK8/PLL5_CLK8/ECCLK</data>
-            <data>ext_axi_if_rdata[10]</data>
+            <data>ext_axi_if_rdata[9]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -2251,7 +2251,7 @@
             <data>IOBS_TB_160_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_25N/GCLK30/PLL4_CLK6/PLL5_CLK6/D15</data>
-            <data>ext_axi_if_rdata[13]</data>
+            <data>ext_axi_if_rdata[7]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -2269,7 +2269,7 @@
             <data>IOBS_TB_152_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_23N</data>
-            <data>ext_axi_if_rdata[9]</data>
+            <data>ext_axi_if_rdata[4]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -2377,7 +2377,7 @@
             <data>IOBR_TB_148_0</data>
             <data>BANK2</data>
             <data>DIFFIO_B2_22N/VREF_B2</data>
-            <data>ext_axi_if_rdata[8]</data>
+            <data>ext_axi_if_rdata[1]</data>
             <data>output</data>
             <data>NO</data>
         </row>
@@ -2548,9 +2548,9 @@
             <data>IOBS_LR_0_228</data>
             <data>BANK3</data>
             <data>DIFFI_B3_24P</data>
-            <data>ext_axi_if_rdata[23]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>G3</data>
@@ -2683,9 +2683,9 @@
             <data>IOBS_LR_0_161</data>
             <data>BANK3</data>
             <data>DIFFI_B3_34N</data>
-            <data></data>
-            <data></data>
-            <data></data>
+            <data>ext_axi_if_rdata[0]</data>
+            <data>output</data>
+            <data>NO</data>
         </row>
         <row>
             <data>M1</data>
@@ -2719,9 +2719,9 @@
             <data>IOBS_LR_0_177</data>
             <data>BANK3</data>
             <data>DIFFI_B3_30N</data>
-            <data>ext_axi_if_rdata[15]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>J1</data>
@@ -2755,9 +2755,9 @@
             <data>IOBS_LR_0_213</data>
             <data>BANK3</data>
             <data>DIFFI_B3_26N/GCLK22/PLL1_CLK14/PLL4_CLK6/PLL5_CLK6</data>
-            <data>ext_axi_if_rdata[16]</data>
-            <data>output</data>
-            <data>NO</data>
+            <data></data>
+            <data></data>
+            <data></data>
         </row>
         <row>
             <data>H3</data>
@@ -2916,50 +2916,50 @@
         </row>
         <row>
             <data>Use of CLMA</data>
-            <data>700</data>
+            <data>727</data>
             <data>6450</data>
-            <data>11</data>
+            <data>12</data>
             <row>
                 <data>  FF</data>
-                <data>1267</data>
+                <data>1432</data>
                 <data>38700</data>
                 <data>4</data>
             </row>
             <row>
                 <data>  LUT</data>
-                <data>1918</data>
+                <data>2161</data>
                 <data>25800</data>
-                <data>8</data>
+                <data>9</data>
             </row>
             <row>
                 <data>  LUT-FF pairs</data>
-                <data>487</data>
+                <data>489</data>
                 <data>25800</data>
                 <data>2</data>
             </row>
         </row>
         <row>
             <data>Use of CLMS</data>
-            <data>442</data>
+            <data>444</data>
             <data>4250</data>
             <data>11</data>
             <row>
                 <data>  FF</data>
-                <data>856</data>
+                <data>912</data>
                 <data>25500</data>
                 <data>4</data>
             </row>
             <row>
                 <data>  LUT</data>
-                <data>1187</data>
+                <data>1278</data>
                 <data>17000</data>
-                <data>7</data>
+                <data>8</data>
             </row>
             <row>
                 <data>  LUT-FF pairs</data>
-                <data>240</data>
+                <data>370</data>
                 <data>17000</data>
-                <data>2</data>
+                <data>3</data>
             </row>
             <row>
                 <data>  Distributed RAM</data>
@@ -3000,9 +3000,9 @@
         </row>
         <row>
             <data>Use of HARD0N1</data>
-            <data>320</data>
+            <data>341</data>
             <data>6672</data>
-            <data>5</data>
+            <data>6</data>
         </row>
         <row>
             <data>Use of IO</data>
@@ -3011,9 +3011,9 @@
             <data>21</data>
             <row>
                 <data>  IOBD</data>
-                <data>7</data>
+                <data>10</data>
                 <data>53</data>
-                <data>14</data>
+                <data>19</data>
             </row>
             <row>
                 <data>  IOBR_LR</data>
@@ -3029,15 +3029,15 @@
             </row>
             <row>
                 <data>  IOBS_LR</data>
-                <data>25</data>
+                <data>20</data>
                 <data>107</data>
-                <data>24</data>
+                <data>19</data>
             </row>
             <row>
                 <data>  IOBS_TB</data>
-                <data>9</data>
+                <data>11</data>
                 <data>46</data>
-                <data>20</data>
+                <data>24</data>
             </row>
         </row>
         <row>
@@ -3207,8 +3207,8 @@
         </column_headers>
         <row>
             <data>SoC_Top</data>
-            <data>3103</data>
-            <data>2123</data>
+            <data>3426</data>
+            <data>2344</data>
             <data>0</data>
             <data>0</data>
             <data>48</data>
@@ -3231,8 +3231,8 @@
             <data>1</data>
             <row>
                 <data>u_Interconnect</data>
-                <data>29</data>
-                <data>10</data>
+                <data>45</data>
+                <data>12</data>
                 <data>0</data>
                 <data>0</data>
                 <data>0</data>
@@ -3256,7 +3256,7 @@
             </row>
             <row>
                 <data>u_SRAM</data>
-                <data>92</data>
+                <data>90</data>
                 <data>108</data>
                 <data>0</data>
                 <data>0</data>
@@ -3331,8 +3331,8 @@
             </row>
             <row>
                 <data>u_TSP_Core</data>
-                <data>2879</data>
-                <data>1918</data>
+                <data>3033</data>
+                <data>1929</data>
                 <data>0</data>
                 <data>0</data>
                 <data>32</data>
@@ -3380,8 +3380,8 @@
                 </row>
                 <row>
                     <data>u_TSP_Disp_Exu</data>
-                    <data>2225</data>
-                    <data>466</data>
+                    <data>2263</data>
+                    <data>467</data>
                     <data>0</data>
                     <data>0</data>
                     <data>0</data>
@@ -3454,7 +3454,7 @@
                     </row>
                     <row>
                         <data>Exu_common_u0</data>
-                        <data>934</data>
+                        <data>962</data>
                         <data>71</data>
                         <data>0</data>
                         <data>0</data>
@@ -3479,8 +3479,8 @@
                     </row>
                     <row>
                         <data>Exu_ls_u0</data>
-                        <data>42</data>
-                        <data>63</data>
+                        <data>51</data>
+                        <data>64</data>
                         <data>0</data>
                         <data>0</data>
                         <data>0</data>
@@ -3580,7 +3580,7 @@
                 </row>
                 <row>
                     <data>u_TSP_Idec</data>
-                    <data>68</data>
+                    <data>58</data>
                     <data>0</data>
                     <data>0</data>
                     <data>0</data>
@@ -3605,8 +3605,8 @@
                 </row>
                 <row>
                     <data>u_TSP_Ifu</data>
-                    <data>235</data>
-                    <data>209</data>
+                    <data>341</data>
+                    <data>217</data>
                     <data>0</data>
                     <data>0</data>
                     <data>32</data>
@@ -3629,8 +3629,8 @@
                     <data>0</data>
                     <row>
                         <data>u_Iram</data>
-                        <data>32</data>
-                        <data>9</data>
+                        <data>44</data>
+                        <data>13</data>
                         <data>0</data>
                         <data>0</data>
                         <data>32</data>
@@ -3653,8 +3653,8 @@
                         <data>0</data>
                         <row>
                             <data>U_ipml_dpram_IRAM</data>
-                            <data>32</data>
-                            <data>9</data>
+                            <data>44</data>
+                            <data>13</data>
                             <data>0</data>
                             <data>0</data>
                             <data>32</data>
@@ -4254,7 +4254,7 @@
                     </row>
                     <row>
                         <data>x1_31[23].RV32I_reg_i</data>
-                        <data>0</data>
+                        <data>39</data>
                         <data>32</data>
                         <data>0</data>
                         <data>0</data>
@@ -4279,7 +4279,7 @@
                     </row>
                     <row>
                         <data>x1_31[24].RV32I_reg_i</data>
-                        <data>48</data>
+                        <data>9</data>
                         <data>32</data>
                         <data>0</data>
                         <data>0</data>
@@ -4505,8 +4505,8 @@
                 </row>
                 <row>
                     <data>u_ls_ctrl</data>
-                    <data>117</data>
-                    <data>122</data>
+                    <data>137</data>
+                    <data>124</data>
                     <data>0</data>
                     <data>0</data>
                     <data>0</data>
@@ -4530,8 +4530,33 @@
                 </row>
             </row>
             <row>
+                <data>u_Timer</data>
+                <data>157</data>
+                <data>208</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+                <data>0</data>
+            </row>
+            <row>
                 <data>u_UART</data>
-                <data>103</data>
+                <data>101</data>
                 <data>87</data>
                 <data>0</data>
                 <data>0</data>
@@ -4667,10 +4692,10 @@
             <data>RAM(GB)</data>
         </column_headers>
         <row>
-            <data>0h:1m:0s</data>
-            <data>0h:1m:6s</data>
-            <data>0h:1m:4s</data>
-            <data>975</data>
+            <data>0h:1m:10s</data>
+            <data>0h:1m:17s</data>
+            <data>0h:1m:15s</data>
+            <data>1,000</data>
             <data>WINDOWS 10 x86_64</data>
             <data>11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz</data>
             <data>16</data>
@@ -4740,6 +4765,9 @@
         </row>
         <row>
             <data message="4">Process macros using &quot;Greedy&quot;.</data>
+        </row>
+        <row>
+            <data message="6">Place-2025: The VCCIO 1.2 in BANK BANK0 is incompatible.</data>
         </row>
     </table>
     <general_container id="pnr_settings">
@@ -5025,7 +5053,7 @@
                     <data>clkbufg_0/gopclkbufg</data>
                     <data>USCM_84_108</data>
                     <data>ntclkbufg_0</data>
-                    <data>2134</data>
+                    <data>2325</data>
                     <data>0</data>
                     <data>u_sys_pll/u_pll_e3/goppll</data>
                     <data>CLKOUT0</data>
@@ -5073,10 +5101,10 @@
                     <data>u_sys_pll/u_pll_e3/goppll</data>
                     <data>PLL_158_55</data>
                     <data>CLKIN2</data>
-                    <data>ntR1244</data>
+                    <data>ntR1159</data>
                     <data> - </data>
                     <data> - </data>
-                    <data>GND_263</data>
+                    <data>GND_285</data>
                     <data>Z</data>
                     <data>HARD0N1_156_57</data>
                 </row>
@@ -5085,7 +5113,7 @@
                     <data>PLL_158_55</data>
                     <data>CLKOUT0</data>
                     <data>clk</data>
-                    <data>2134</data>
+                    <data>2325</data>
                     <data>0</data>
                     <data> ... </data>
                     <data> ... </data>

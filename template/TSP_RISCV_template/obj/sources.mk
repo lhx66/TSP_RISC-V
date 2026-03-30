@@ -24,6 +24,10 @@ C_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 app/coremark \
+bsp \
+bsp/timer \
+bsp/uart \
+. \
 lib/startup \
 src \
 

@@ -18,8 +18,6 @@ module SoC_Top(
     output wire [31:0] ext_axi_if_rdata,  output wire [1:0]  ext_axi_if_rresp, output wire ext_axi_if_rvalid, input  wire ext_axi_if_rready
 );
 
-
-
     // ====================================================================
     // AXI4-Lite 总线线网声明 (Bus Wires)
     // ====================================================================
@@ -44,35 +42,26 @@ module SoC_Top(
     wire [31:0] m2_axi_araddr;  wire        m2_axi_arvalid; wire        m2_axi_arready;
     wire [31:0] m2_axi_rdata;   wire [1:0]  m2_axi_rresp;   wire        m2_axi_rvalid;  wire        m2_axi_rready;
 
-    // Slave 3: Interconnect 到 IRAM (新增的访存通道)
+    // Slave 3: Interconnect 到 IRAM
     wire [31:0] m3_axi_awaddr;  wire        m3_axi_awvalid; wire        m3_axi_awready;
     wire [31:0] m3_axi_wdata;   wire [3:0]  m3_axi_wstrb;   wire        m3_axi_wvalid;  wire        m3_axi_wready;
     wire [1:0]  m3_axi_bresp;   wire        m3_axi_bvalid;  wire        m3_axi_bready;
     wire [31:0] m3_axi_araddr;  wire        m3_axi_arvalid; wire        m3_axi_arready;
     wire [31:0] m3_axi_rdata;   wire [1:0]  m3_axi_rresp;   wire        m3_axi_rvalid;  wire        m3_axi_rready;
 
+    // Slave 4: Interconnect 到 Timer (新增)
+    wire [31:0] m4_axi_awaddr;  wire        m4_axi_awvalid; wire        m4_axi_awready;
+    wire [31:0] m4_axi_wdata;   wire [3:0]  m4_axi_wstrb;   wire        m4_axi_wvalid;  wire        m4_axi_wready;
+    wire [1:0]  m4_axi_bresp;   wire        m4_axi_bvalid;  wire        m4_axi_bready;
+    wire [31:0] m4_axi_araddr;  wire        m4_axi_arvalid; wire        m4_axi_arready;
+    wire [31:0] m4_axi_rdata;   wire [1:0]  m4_axi_rresp;   wire        m4_axi_rvalid;  wire        m4_axi_rready;
+
+    // 内部中断信号
+    wire timer_intr;
 
     // 【调试修改】：强制设为 0，屏蔽悬空引脚的干扰，把总线 100% 交给内部 CPU
     wire sel_ext_w = 1'b0; 
     wire sel_ext_r = 1'b0;
-    /*// ====================================================================
-    // 新增简易 AXI 仲裁器 (MUX)，优先调度外部下载器 / LSU m3 通道
-    // ====================================================================
-    reg sel_ext_w, sel_ext_r;
-    
-    // 写通道优先级判断
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) sel_ext_w <= 1'b0;
-        else if (ext_axi_if_awvalid) sel_ext_w <= 1'b1;
-        else if (m3_axi_awvalid) sel_ext_w <= 1'b0;
-    end
-    
-    // 读通道优先级判断
-    always @(posedge clk or negedge rst_n) begin
-        if (!rst_n) sel_ext_r <= 1'b0;
-        else if (ext_axi_if_arvalid) sel_ext_r <= 1'b1;
-        else if (m3_axi_arvalid) sel_ext_r <= 1'b0;
-    end*/
 
     // 写地址通道多路选择
     wire [31:0] core_s_axi_awaddr  = sel_ext_w ? ext_axi_if_awaddr  : m3_axi_awaddr;
@@ -116,7 +105,6 @@ module SoC_Top(
 
     // -------------------------------------------------------------
     // [1] CPU 核心 (TSP_Core) 
-    // 注意：这里的 s_axi_if 全部接入了上述的 core_s_axi_*
     // -------------------------------------------------------------
     TSP_Core u_TSP_Core (
         .clk              (clk),
@@ -132,11 +120,13 @@ module SoC_Top(
         ,.m_axi_ls_bresp  (ls_axi_bresp),      .m_axi_ls_bvalid (ls_axi_bvalid),      .m_axi_ls_bready (ls_axi_bready)
         ,.m_axi_ls_araddr (ls_axi_araddr),     .m_axi_ls_arvalid(ls_axi_arvalid),     .m_axi_ls_arready(ls_axi_arready)
         ,.m_axi_ls_rdata  (ls_axi_rdata),      .m_axi_ls_rresp  (ls_axi_rresp),       .m_axi_ls_rvalid (ls_axi_rvalid),     .m_axi_ls_rready (ls_axi_rready)
+        
+        // 预留给内部中断引脚的连线 (根据你实际 CPU 中断信号名修改)
+        // .ext_int          (timer_intr)  
     );
 
     // -------------------------------------------------------------
     // [2] 地址分发器 (AXI Interconnect)
-    // 已经将 M3 IRAM 通道扩展了进来
     // -------------------------------------------------------------
     TSP_AXI_Interconnect u_Interconnect (
         .clk(clk), .rst_n(rst_n),
@@ -160,12 +150,19 @@ module SoC_Top(
         .m2_axi_araddr(m2_axi_araddr), .m2_axi_arvalid(m2_axi_arvalid), .m2_axi_arready(m2_axi_arready),
         .m2_axi_rdata (m2_axi_rdata),  .m2_axi_rresp  (m2_axi_rresp),   .m2_axi_rvalid (m2_axi_rvalid), .m2_axi_rready (m2_axi_rready),
         
-        // M3: IRAM (供访存指令读取)
+        // M3: IRAM 
         .m3_axi_awaddr(m3_axi_awaddr), .m3_axi_awvalid(m3_axi_awvalid), .m3_axi_awready(m3_axi_awready),
         .m3_axi_wdata (m3_axi_wdata),  .m3_axi_wstrb  (m3_axi_wstrb),   .m3_axi_wvalid (m3_axi_wvalid), .m3_axi_wready (m3_axi_wready),
         .m3_axi_bresp (m3_axi_bresp),  .m3_axi_bvalid (m3_axi_bvalid),  .m3_axi_bready (m3_axi_bready),
         .m3_axi_araddr(m3_axi_araddr), .m3_axi_arvalid(m3_axi_arvalid), .m3_axi_arready(m3_axi_arready),
-        .m3_axi_rdata (m3_axi_rdata),  .m3_axi_rresp  (m3_axi_rresp),   .m3_axi_rvalid (m3_axi_rvalid), .m3_axi_rready (m3_axi_rready)
+        .m3_axi_rdata (m3_axi_rdata),  .m3_axi_rresp  (m3_axi_rresp),   .m3_axi_rvalid (m3_axi_rvalid), .m3_axi_rready (m3_axi_rready),
+
+        // M4: Timer (新增)
+        .m4_axi_awaddr(m4_axi_awaddr), .m4_axi_awvalid(m4_axi_awvalid), .m4_axi_awready(m4_axi_awready),
+        .m4_axi_wdata (m4_axi_wdata),  .m4_axi_wstrb  (m4_axi_wstrb),   .m4_axi_wvalid (m4_axi_wvalid), .m4_axi_wready (m4_axi_wready),
+        .m4_axi_bresp (m4_axi_bresp),  .m4_axi_bvalid (m4_axi_bvalid),  .m4_axi_bready (m4_axi_bready),
+        .m4_axi_araddr(m4_axi_araddr), .m4_axi_arvalid(m4_axi_arvalid), .m4_axi_arready(m4_axi_arready),
+        .m4_axi_rdata (m4_axi_rdata),  .m4_axi_rresp  (m4_axi_rresp),   .m4_axi_rvalid (m4_axi_rvalid), .m4_axi_rready (m4_axi_rready)
     );
 
     // -------------------------------------------------------------
@@ -184,32 +181,36 @@ module SoC_Top(
     // [4] UART 串口外设 
     // -------------------------------------------------------------
     uart_axi_lite_wrapper #(
-        .CLK_FREQ_p  (100_000_000), // 这里写你 FPGA 板子的真实主频
-        .BAUD_RATE_p (115200)       // 这里写你想要的波特率
+        .CLK_FREQ_p  (100_000_000), 
+        .BAUD_RATE_p (115200)       
     ) u_UART (
         .clk             (clk),
         .rst_n           (rst_n),
-        
-        .s_axi_awaddr    (m2_axi_awaddr),
-        .s_axi_awvalid   (m2_axi_awvalid),
-        .s_axi_awready   (m2_axi_awready),
-        .s_axi_wdata     (m2_axi_wdata),
-        .s_axi_wstrb     (m2_axi_wstrb),
-        .s_axi_wvalid    (m2_axi_wvalid),
-        .s_axi_wready    (m2_axi_wready),
-        .s_axi_bresp     (m2_axi_bresp),
-        .s_axi_bvalid    (m2_axi_bvalid),
-        .s_axi_bready    (m2_axi_bready),
-        .s_axi_araddr    (m2_axi_araddr),
-        .s_axi_arvalid   (m2_axi_arvalid),
-        .s_axi_arready   (m2_axi_arready),
-        .s_axi_rdata     (m2_axi_rdata),
-        .s_axi_rresp     (m2_axi_rresp),
-        .s_axi_rvalid    (m2_axi_rvalid),
-        .s_axi_rready    (m2_axi_rready),
-        
+        .s_axi_awaddr    (m2_axi_awaddr), .s_axi_awvalid   (m2_axi_awvalid), .s_axi_awready   (m2_axi_awready),
+        .s_axi_wdata     (m2_axi_wdata),  .s_axi_wstrb     (m2_axi_wstrb),   .s_axi_wvalid    (m2_axi_wvalid), .s_axi_wready    (m2_axi_wready),
+        .s_axi_bresp     (m2_axi_bresp),  .s_axi_bvalid    (m2_axi_bvalid),  .s_axi_bready    (m2_axi_bready),
+        .s_axi_araddr    (m2_axi_araddr), .s_axi_arvalid   (m2_axi_arvalid), .s_axi_arready   (m2_axi_arready),
+        .s_axi_rdata     (m2_axi_rdata),  .s_axi_rresp     (m2_axi_rresp),   .s_axi_rvalid    (m2_axi_rvalid), .s_axi_rready    (m2_axi_rready),
         .rxd             (uart_rx),
         .txd             (uart_tx)
+    );
+
+    // -------------------------------------------------------------
+    // [5] Timer 定时器外设 (新增)
+    // -------------------------------------------------------------
+    timer u_Timer (
+        .clk_i           (clk),
+        .rst_i           (~rst_n), // 注意：timer IP 内部复位是高有效，需取反！
+        
+        // AXI4-Lite 连接
+        .cfg_awaddr_i    (m4_axi_awaddr), .cfg_awvalid_i   (m4_axi_awvalid), .cfg_awready_o   (m4_axi_awready),
+        .cfg_wdata_i     (m4_axi_wdata),  .cfg_wstrb_i     (m4_axi_wstrb),   .cfg_wvalid_i    (m4_axi_wvalid), .cfg_wready_o    (m4_axi_wready),
+        .cfg_bresp_o     (m4_axi_bresp),  .cfg_bvalid_o    (m4_axi_bvalid),  .cfg_bready_i    (m4_axi_bready),
+        .cfg_araddr_i    (m4_axi_araddr), .cfg_arvalid_i   (m4_axi_arvalid), .cfg_arready_o   (m4_axi_arready),
+        .cfg_rdata_o     (m4_axi_rdata),  .cfg_rresp_o     (m4_axi_rresp),   .cfg_rvalid_o    (m4_axi_rvalid), .cfg_rready_i    (m4_axi_rready),
+        
+        // 中断信号输出
+        .intr_o          (timer_intr)
     );
 
 endmodule

@@ -55,7 +55,7 @@ always @(posedge clk or negedge rst_n) begin
         if (ls_busy_r && ls_ctrl_ready_i) begin
             ls_busy_r <= 1'b0;
         end 
-        else if (ls_fire) begin
+        if (ls_fire) begin
             ls_busy_r <= 1'b1;
         end
     end

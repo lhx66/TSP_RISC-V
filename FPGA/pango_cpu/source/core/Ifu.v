@@ -110,7 +110,7 @@ wire [13:0] portA_addr_word = next_pc_i[15:2];
 // Port B 地址线连线 (AXI 总线读写)
 wire is_write_cycle = (w_state == 1);
 wire [31:0] axi_b_addr_byte = is_write_cycle ? waddr_r : raddr_r;
-wire [11:0] portB_addr_word = axi_b_addr_byte[13:2];
+wire [13:0] portB_addr_word = axi_b_addr_byte[15:2];
 wire [31:0] portB_rdata_out;
 
 IRAM u_Iram (

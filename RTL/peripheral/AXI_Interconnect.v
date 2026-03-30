@@ -29,20 +29,29 @@ module TSP_AXI_Interconnect(
     output wire [31:0] m3_axi_wdata,  output wire [3:0] m3_axi_wstrb, output wire m3_axi_wvalid, input  wire m3_axi_wready,
     input  wire [1:0]  m3_axi_bresp,  input  wire m3_axi_bvalid,  output wire m3_axi_bready,
     output wire [31:0] m3_axi_araddr, output wire m3_axi_arvalid, input  wire m3_axi_arready,
-    input  wire [31:0] m3_axi_rdata,  input  wire [1:0] m3_axi_rresp, input  wire m3_axi_rvalid, output wire m3_axi_rready
+    input  wire [31:0] m3_axi_rdata,  input  wire [1:0] m3_axi_rresp, input  wire m3_axi_rvalid, output wire m3_axi_rready,
+
+    // Slave 4: Timer (如 0x6000_0000, 取决于 defines.v 中的 TIMER_ADDR)
+    output wire [31:0] m4_axi_awaddr, output wire m4_axi_awvalid, input  wire m4_axi_awready,
+    output wire [31:0] m4_axi_wdata,  output wire [3:0] m4_axi_wstrb, output wire m4_axi_wvalid, input  wire m4_axi_wready,
+    input  wire [1:0]  m4_axi_bresp,  input  wire m4_axi_bvalid,  output wire m4_axi_bready,
+    output wire [31:0] m4_axi_araddr, output wire m4_axi_arvalid, input  wire m4_axi_arready,
+    input  wire [31:0] m4_axi_rdata,  input  wire [1:0] m4_axi_rresp, input  wire m4_axi_rvalid, output wire m4_axi_rready
 );
 
 wire aw_is_m1 = (s_axi_awaddr[31:28] == `SRAM_ADDR);
 wire aw_is_m2 = (s_axi_awaddr[31:28] == `UART_ADDR);
-wire aw_is_m3 = (s_axi_awaddr[31:28] == 4'h0); 
+wire aw_is_m3 = (s_axi_awaddr[31:28] == `IRAM_ADDR); 
+wire aw_is_m4 = (s_axi_awaddr[31:28] == `TIMER_ADDR); // 新增 Timer 地址匹配
 
 wire ar_is_m1 = (s_axi_araddr[31:28] == `SRAM_ADDR);
 wire ar_is_m2 = (s_axi_araddr[31:28] == `UART_ADDR);
-wire ar_is_m3 = (s_axi_araddr[31:28] == 4'h0); 
+wire ar_is_m3 = (s_axi_araddr[31:28] == `IRAM_ADDR); 
+wire ar_is_m4 = (s_axi_araddr[31:28] == `TIMER_ADDR); // 新增 Timer 地址匹配
 
-// 注意我们扩展了 3 bit
-wire [2:0] decoded_w_target = aw_is_m1 ? 3'd1 : (aw_is_m2 ? 3'd2 : (aw_is_m3 ? 3'd3 : 3'd4));
-wire [2:0] decoded_r_target = ar_is_m1 ? 3'd1 : (ar_is_m2 ? 3'd2 : (ar_is_m3 ? 3'd3 : 3'd4));
+// 注意我们扩展了 3 bit，3'd5 作为 default 错误地址
+wire [2:0] decoded_w_target = aw_is_m1 ? 3'd1 : (aw_is_m2 ? 3'd2 : (aw_is_m3 ? 3'd3 : (aw_is_m4 ? 3'd4 : 3'd5)));
+wire [2:0] decoded_r_target = ar_is_m1 ? 3'd1 : (ar_is_m2 ? 3'd2 : (ar_is_m3 ? 3'd3 : (ar_is_m4 ? 3'd4 : 3'd5)));
 
 reg [2:0] w_target, r_target;
 always @(posedge clk or negedge rst_n) begin
@@ -61,67 +70,80 @@ wire [2:0] current_w_target = (w_target == 3'd0 && s_axi_awvalid) ? decoded_w_ta
 wire [2:0] current_r_target = (r_target == 3'd0 && s_axi_arvalid) ? decoded_r_target : r_target;
 
 // 数据线广播
-assign m1_axi_awaddr = s_axi_awaddr; assign m2_axi_awaddr = s_axi_awaddr; assign m3_axi_awaddr = s_axi_awaddr;
-assign m1_axi_wdata  = s_axi_wdata;  assign m2_axi_wdata  = s_axi_wdata;  assign m3_axi_wdata  = s_axi_wdata;
-assign m1_axi_wstrb  = s_axi_wstrb;  assign m2_axi_wstrb  = s_axi_wstrb;  assign m3_axi_wstrb  = s_axi_wstrb;
-assign m1_axi_araddr = s_axi_araddr; assign m2_axi_araddr = s_axi_araddr; assign m3_axi_araddr = s_axi_araddr;
+assign m1_axi_awaddr = s_axi_awaddr; assign m2_axi_awaddr = s_axi_awaddr; assign m3_axi_awaddr = s_axi_awaddr; assign m4_axi_awaddr = s_axi_awaddr;
+assign m1_axi_wdata  = s_axi_wdata;  assign m2_axi_wdata  = s_axi_wdata;  assign m3_axi_wdata  = s_axi_wdata;  assign m4_axi_wdata  = s_axi_wdata;
+assign m1_axi_wstrb  = s_axi_wstrb;  assign m2_axi_wstrb  = s_axi_wstrb;  assign m3_axi_wstrb  = s_axi_wstrb;  assign m4_axi_wstrb  = s_axi_wstrb;
+assign m1_axi_araddr = s_axi_araddr; assign m2_axi_araddr = s_axi_araddr; assign m3_axi_araddr = s_axi_araddr; assign m4_axi_araddr = s_axi_araddr;
 
 // 信号路由
 assign m1_axi_awvalid = s_axi_awvalid & (current_w_target == 3'd1) & (w_target == 3'd0);
 assign m2_axi_awvalid = s_axi_awvalid & (current_w_target == 3'd2) & (w_target == 3'd0);
 assign m3_axi_awvalid = s_axi_awvalid & (current_w_target == 3'd3) & (w_target == 3'd0);
+assign m4_axi_awvalid = s_axi_awvalid & (current_w_target == 3'd4) & (w_target == 3'd0);
 
 assign m1_axi_wvalid  = s_axi_wvalid  & (current_w_target == 3'd1);
 assign m2_axi_wvalid  = s_axi_wvalid  & (current_w_target == 3'd2);
 assign m3_axi_wvalid  = s_axi_wvalid  & (current_w_target == 3'd3);
+assign m4_axi_wvalid  = s_axi_wvalid  & (current_w_target == 3'd4);
 
 assign m1_axi_bready  = s_axi_bready  & (current_w_target == 3'd1);
 assign m2_axi_bready  = s_axi_bready  & (current_w_target == 3'd2);
 assign m3_axi_bready  = s_axi_bready  & (current_w_target == 3'd3);
+assign m4_axi_bready  = s_axi_bready  & (current_w_target == 3'd4);
 
 assign m1_axi_arvalid = s_axi_arvalid & (current_r_target == 3'd1) & (r_target == 3'd0);
 assign m2_axi_arvalid = s_axi_arvalid & (current_r_target == 3'd2) & (r_target == 3'd0);
 assign m3_axi_arvalid = s_axi_arvalid & (current_r_target == 3'd3) & (r_target == 3'd0);
+assign m4_axi_arvalid = s_axi_arvalid & (current_r_target == 3'd4) & (r_target == 3'd0);
 
 assign m1_axi_rready  = s_axi_rready  & (current_r_target == 3'd1);
 assign m2_axi_rready  = s_axi_rready  & (current_r_target == 3'd2);
 assign m3_axi_rready  = s_axi_rready  & (current_r_target == 3'd3);
+assign m4_axi_rready  = s_axi_rready  & (current_r_target == 3'd4);
 
 // 写汇聚
 assign s_axi_awready = (w_target == 3'd0) ? (
                            (decoded_w_target == 3'd1) ? m1_axi_awready : 
                            (decoded_w_target == 3'd2) ? m2_axi_awready : 
-                           (decoded_w_target == 3'd3) ? m3_axi_awready : 1'b1
+                           (decoded_w_target == 3'd3) ? m3_axi_awready : 
+                           (decoded_w_target == 3'd4) ? m4_axi_awready : 1'b1
                        ) : 1'b0;
 
 assign s_axi_wready  = (current_w_target == 3'd1) ? m1_axi_wready : 
                        (current_w_target == 3'd2) ? m2_axi_wready : 
-                       (current_w_target == 3'd3) ? m3_axi_wready : 1'b1;
+                       (current_w_target == 3'd3) ? m3_axi_wready : 
+                       (current_w_target == 3'd4) ? m4_axi_wready : 1'b1;
 
 assign s_axi_bvalid  = (current_w_target == 3'd1) ? m1_axi_bvalid : 
                        (current_w_target == 3'd2) ? m2_axi_bvalid : 
-                       (current_w_target == 3'd3) ? m3_axi_bvalid : 1'b1;
+                       (current_w_target == 3'd3) ? m3_axi_bvalid : 
+                       (current_w_target == 3'd4) ? m4_axi_bvalid : 1'b1;
 
 assign s_axi_bresp   = (current_w_target == 3'd1) ? m1_axi_bresp : 
                        (current_w_target == 3'd2) ? m2_axi_bresp : 
-                       (current_w_target == 3'd3) ? m3_axi_bresp : 2'b11;
+                       (current_w_target == 3'd3) ? m3_axi_bresp : 
+                       (current_w_target == 3'd4) ? m4_axi_bresp : 2'b11;
 
 // 读汇聚
 assign s_axi_arready = (r_target == 3'd0) ? (
                            (decoded_r_target == 3'd1) ? m1_axi_arready : 
                            (decoded_r_target == 3'd2) ? m2_axi_arready : 
-                           (decoded_r_target == 3'd3) ? m3_axi_arready : 1'b1
+                           (decoded_r_target == 3'd3) ? m3_axi_arready : 
+                           (decoded_r_target == 3'd4) ? m4_axi_arready : 1'b1
                        ) : 1'b0;
 
 assign s_axi_rvalid  = (current_r_target == 3'd1) ? m1_axi_rvalid : 
                        (current_r_target == 3'd2) ? m2_axi_rvalid : 
-                       (current_r_target == 3'd3) ? m3_axi_rvalid : 1'b1;
+                       (current_r_target == 3'd3) ? m3_axi_rvalid : 
+                       (current_r_target == 3'd4) ? m4_axi_rvalid : 1'b1;
 
 assign s_axi_rdata   = (current_r_target == 3'd1) ? m1_axi_rdata : 
                        (current_r_target == 3'd2) ? m2_axi_rdata : 
-                       (current_r_target == 3'd3) ? m3_axi_rdata : 32'h0;
+                       (current_r_target == 3'd3) ? m3_axi_rdata : 
+                       (current_r_target == 3'd4) ? m4_axi_rdata : 32'h0;
 
 assign s_axi_rresp   = (current_r_target == 3'd1) ? m1_axi_rresp : 
                        (current_r_target == 3'd2) ? m2_axi_rresp : 
-                       (current_r_target == 3'd3) ? m3_axi_rresp : 2'b11;
+                       (current_r_target == 3'd3) ? m3_axi_rresp : 
+                       (current_r_target == 3'd4) ? m4_axi_rresp : 2'b11;
 endmodule

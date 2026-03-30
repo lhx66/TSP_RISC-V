@@ -20,6 +20,7 @@ E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/ram/sram.v|E:/FPGA/TSP_RVmaster/FPGA/
 E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/uart/uart_axi_lite_wrapper.v|E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/core/defines.v|
 
 
+E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/timer/timer.v|E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/core/defines.v|
 
 E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/ipcore/IRAM/rtl/ipml_dpram_v1_8_IRAM.v|E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/ipcore/IRAM/rtl/IRAM_init_param.v|
 

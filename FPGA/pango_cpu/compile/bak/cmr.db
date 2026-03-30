@@ -94,6 +94,10 @@
             <data>Verilog</data>
         </row>
         <row>
+            <data>E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/timer/timer.v</data>
+            <data>Verilog</data>
+        </row>
+        <row>
             <data>E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/ipcore/sys_pll/sys_pll.idf</data>
             <data>IP</data>
         </row>
@@ -120,7 +124,7 @@
             <data>0h:0m:3s</data>
             <data>0h:0m:3s</data>
             <data>0h:0m:7s</data>
-            <data>172</data>
+            <data>173</data>
             <data>WINDOWS 10 x86_64</data>
             <data>11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz</data>
             <data>16</data>
@@ -382,6 +386,18 @@
         </row>
         <row>
             <data message="4">Verilog-0002: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/uart/uart_tx.v(line number: 32)] Analyzing module uart_tx (library work)</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0001: Analyzing file E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/timer/timer.v</data>
+        </row>
+        <row>
+            <data message="4">Found Verilog include file E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/core/defines.v</data>
+        </row>
+        <row>
+            <data message="5">Public-4030: File 'E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/core/defines.v' has been added. It is skipped.</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0002: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/timer/timer.v(line number: 40)] Analyzing module timer (library work)</data>
         </row>
         <row>
             <data message="4">Verilog-0001: Analyzing file E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/ipcore/sys_pll/sys_pll.v</data>
@@ -825,7 +841,7 @@
             <data message="5">Verilog-2021: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/ipcore/sys_pll/sys_pll.v(line number: 137)] Net dyn_duty4 in sys_pll(original module sys_pll) does not have a driver, tie it to 0</data>
         </row>
         <row>
-            <data message="4">Verilog-0004: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/peripheral/soc_top.v(line number: 126)] Elaborating instance u_TSP_Core</data>
+            <data message="4">Verilog-0004: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/peripheral/soc_top.v(line number: 116)] Elaborating instance u_TSP_Core</data>
         </row>
         <row>
             <data message="4">Verilog-0003: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/core/core.v(line number: 3)] Elaborating module TSP_Core</data>
@@ -1078,9 +1094,6 @@
         </row>
         <row>
             <data message="5">Verilog-2020: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/ipcore/IRAM/rtl/ipml_dpram_v1_8_IRAM.v(line number: 645)] Net DB_bus[35] in ipml_dpram_v1_8_IRAM(original module ipml_dpram_v1_8_IRAM) does not have a driver, tie it to 0</data>
-        </row>
-        <row>
-            <data message="5">Verilog-2019: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/core/Ifu.v(line number: 116)] Width mismatch between port b_addr and signal bound to it for instantiated module IRAM</data>
         </row>
         <row>
             <data message="4">Verilog-0004: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/core/core.v(line number: 155)] Elaborating instance u_TSP_Idec</data>
@@ -1520,13 +1533,13 @@
             <data message="4">Verilog-0003: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/core/wb_arbiter.v(line number: 3)] Elaborating module TSP_Wb_arbiter</data>
         </row>
         <row>
-            <data message="4">Verilog-0004: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/peripheral/soc_top.v(line number: 146)] Elaborating instance u_Interconnect</data>
+            <data message="4">Verilog-0004: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/peripheral/soc_top.v(line number: 138)] Elaborating instance u_Interconnect</data>
         </row>
         <row>
             <data message="4">Verilog-0003: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/peripheral/AXI_Interconnect.v(line number: 3)] Elaborating module TSP_AXI_Interconnect</data>
         </row>
         <row>
-            <data message="4">Verilog-0004: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/peripheral/soc_top.v(line number: 179)] Elaborating instance u_SRAM</data>
+            <data message="4">Verilog-0004: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/peripheral/soc_top.v(line number: 178)] Elaborating instance u_SRAM</data>
         </row>
         <row>
             <data message="4">Verilog-0003: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/ram/sram.v(line number: 3)] Elaborating module TSP_Sram</data>
@@ -1724,7 +1737,7 @@
             <data message="5">Verilog-2019: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/ram/sram.v(line number: 127)] Width mismatch between port b_addr and signal bound to it for instantiated module SRAM</data>
         </row>
         <row>
-            <data message="4">Verilog-0004: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/peripheral/soc_top.v(line number: 194)] Elaborating instance u_UART</data>
+            <data message="4">Verilog-0004: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/peripheral/soc_top.v(line number: 193)] Elaborating instance u_UART</data>
         </row>
         <row>
             <data message="4">Verilog-0003: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/uart/uart_axi_lite_wrapper.v(line number: 3)] Elaborating module uart_axi_lite_wrapper</data>
@@ -1765,19 +1778,25 @@
     DATA_WIDTH = 32'b00000000000000000000000000001000</data>
         </row>
         <row>
+            <data message="4">Verilog-0004: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/peripheral/soc_top.v(line number: 208)] Elaborating instance u_Timer</data>
+        </row>
+        <row>
+            <data message="4">Verilog-0003: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/timer/timer.v(line number: 40)] Elaborating module timer</data>
+        </row>
+        <row>
             <data message="5">Sdm-2003: [E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/source/core/regfiles.v(line number: 20)] The net 'RV32I_regs[0]' in SoC_Top.u_TSP_Core.u_TSP_Regfiles is un-driven.</data>
-        </row>
-        <row>
-            <data message="4">FSM r_state_fsm[1:0] inferred.</data>
-        </row>
-        <row>
-            <data message="4">FSM w_state_fsm[1:0] inferred.</data>
         </row>
         <row>
             <data message="4">FSM r_target_fsm[2:0] inferred.</data>
         </row>
         <row>
             <data message="4">FSM w_target_fsm[2:0] inferred.</data>
+        </row>
+        <row>
+            <data message="4">FSM r_state_fsm[1:0] inferred.</data>
+        </row>
+        <row>
+            <data message="4">FSM w_state_fsm[1:0] inferred.</data>
         </row>
         <row>
             <data message="4">FSM w_state_fsm[1:0] inferred.</data>
@@ -1790,6 +1809,12 @@
         </row>
         <row>
             <data message="4">FSM state_fsm[1:0] inferred.</data>
+        </row>
+        <row>
+            <data message="5">Loop was found during constant probe.</data>
+        </row>
+        <row>
+            <data message="5">Loop was found during constant probe.</data>
         </row>
         <row>
             <data message="5">Loop was found during constant probe.</data>
@@ -1855,10 +1880,16 @@
             <data message="4">Constant propagation done on N112_1 (bmsWIDEMUX).</data>
         </row>
         <row>
-            <data message="4">Constant propagation done on N123 (bmsWIDEMUX).</data>
+            <data message="4">Constant propagation done on N155 (bmsWIDEMUX).</data>
         </row>
         <row>
-            <data message="4">Constant propagation done on N163 (bmsWIDEMUX).</data>
+            <data message="4">Constant propagation done on N207 (bmsWIDEMUX).</data>
+        </row>
+        <row>
+            <data message="5">Loop was found during constant probe.</data>
+        </row>
+        <row>
+            <data message="5">Loop was found during constant probe.</data>
         </row>
         <row>
             <data message="5">Loop was found during constant probe.</data>

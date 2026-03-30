@@ -14,8 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#include <coremark.h>
+#include "coremark.h"
 #include <stdarg.h>
+#include "../../bsp/uart/bsp_uart.h"  // 记得在文件顶部或这里加上头文件引入
 
 #define ZEROPAD   (1 << 0) /* Pad with zero */
 #define SIGN      (1 << 1) /* Unsigned/signed long */
@@ -659,29 +660,19 @@ ee_vsprintf(char *buf, const char *fmt, va_list args)
     return str - buf;
 }
 
-void
-uart_send_char(char c)
+void uart_send_char(char c)
 {
-#error "You must implement the method uart_send_char to use this file!\n";
-    /*	Output of a char to a UART usually follows the following model:
-            Wait until UART is ready
-            Write char to UART
-            Wait until UART is done
-
-            Or in code:
-            while (*UART_CONTROL_ADDRESS != UART_READY);
-            *UART_DATA_ADDRESS = c;
-            while (*UART_CONTROL_ADDRESS != UART_READY);
-
-            Check the UART sample code on your platform or the board
-       documentation.
-    */
+    // 自动回车补齐，防止串口调试助手里文字黏在一起
+    if (c == '\n') {
+        uart_putc('\r');
+    }
+    // 调用 BSP 里的硬件发送函数
+    uart_putc(c);
 }
 
-int
-ee_printf(const char *fmt, ...)
+int ee_printf(const char *fmt, ...)
 {
-    char    buf[1024], *p;
+    char    buf[128], *p;
     va_list args;
     int     n = 0;
 

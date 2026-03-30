@@ -2103,7 +2103,7 @@
             <data>u_sys_pll/u_pll_e3</data>
             <data>clkbufg_0</data>
             <data>ntclkbufg_0</data>
-            <data>2219</data>
+            <data>2440</data>
         </row>
     </table>
     <table id="device_map_reset_signal" title="Reset Signal" column_number="3">
@@ -2113,9 +2113,9 @@
             <data>Fanout</data>
         </column_headers>
         <row>
-            <data>u_UART/rst_1</data>
-            <data>u_Interconnect/N26_1</data>
-            <data>2156</data>
+            <data>u_UART/rst_1_rnmt</data>
+            <data>N81_0</data>
+            <data>2373</data>
         </row>
         <row>
             <data>_$$_GND_$$_</data>
@@ -2152,52 +2152,62 @@
         <row>
             <data>ntclkbufg_0</data>
             <data>clkbufg_0</data>
-            <data>2219</data>
+            <data>2440</data>
         </row>
         <row>
-            <data>u_UART/rst_1</data>
-            <data>u_Interconnect/N26_1</data>
-            <data>2156</data>
+            <data>u_UART/rst_1_rnmt</data>
+            <data>N81_0</data>
+            <data>2373</data>
         </row>
         <row>
             <data>u_TSP_Core/rs2_idx [3]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N141[23]</data>
-            <data>272</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N140[23]</data>
+            <data>271</data>
         </row>
         <row>
             <data>u_TSP_Core/rs1_idx [4]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N141[19]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N140[19]</data>
             <data>266</data>
         </row>
         <row>
             <data>u_TSP_Core/rs1_idx [3]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N141[18]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N140[18]</data>
             <data>266</data>
         </row>
         <row>
             <data>u_TSP_Core/rs2_idx [4]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N141[24]</data>
-            <data>265</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N140[24]</data>
+            <data>266</data>
         </row>
         <row>
             <data>u_TSP_Core/inst_if [14]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N141[14]</data>
-            <data>242</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N140[14]</data>
+            <data>241</data>
         </row>
         <row>
             <data>u_TSP_Core/inst_if [12]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N141[12]</data>
-            <data>176</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N140[12]</data>
+            <data>178</data>
         </row>
         <row>
             <data>u_TSP_Core/rs2_idx [2]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N141[22]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N140[22]</data>
             <data>148</data>
         </row>
         <row>
             <data>u_TSP_Core/rs1_idx [2]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N141[17]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N140[17]</data>
             <data>138</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Ifu/u_Iram/U_ipml_dpram_IRAM/a_addr_bus_rd_ce [3]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/u_Iram/U_ipml_dpram_IRAM/a_addr_bus_rd_ce[3]</data>
+            <data>132</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Ifu/u_Iram/U_ipml_dpram_IRAM/b_addr_bus_rd_sel [2]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/u_Iram/U_ipml_dpram_IRAM/N969[2]</data>
+            <data>128</data>
         </row>
         <row>
             <data>u_TSP_Core/u_TSP_Ifu/u_Iram/U_ipml_dpram_IRAM/a_addr_bus_rd_ce [2]</data>
@@ -2205,29 +2215,39 @@
             <data>128</data>
         </row>
         <row>
-            <data>u_TSP_Core/u_TSP_Ifu/u_Iram/U_ipml_dpram_IRAM/a_addr_bus_rd_ce [3]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/u_Iram/U_ipml_dpram_IRAM/a_addr_bus_rd_ce[3]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/u_Iram/U_ipml_dpram_IRAM/b_addr_bus_rd_sel [3]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/u_Iram/U_ipml_dpram_IRAM/N969[3]</data>
             <data>128</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/inst_if [13]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N141[13]</data>
-            <data>120</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N191</data>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/N24_1</data>
-            <data>117</data>
         </row>
         <row>
             <data>u_TSP_Core/INST_LUI</data>
             <data>u_TSP_Core/u_TSP_Idec/N330_2</data>
+            <data>120</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/inst_if [13]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N140[13]</data>
+            <data>119</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Idec/RV32I_OPimm</data>
+            <data>u_TSP_Core/u_TSP_Idec/N322_2</data>
+            <data>118</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N197</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/N24_1</data>
             <data>112</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Idec/RV32I_Rtype</data>
+            <data>u_TSP_Core/u_TSP_Idec/N320</data>
+            <data>110</data>
         </row>
         <row>
             <data>u_TSP_Core/u_TSP_Ifu/use_buffer_r</data>
             <data>u_TSP_Core/u_TSP_Ifu/use_buffer_r</data>
-            <data>105</data>
+            <data>106</data>
         </row>
         <row>
             <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N18</data>
@@ -2235,49 +2255,34 @@
             <data>101</data>
         </row>
         <row>
-            <data>u_TSP_Core/u_TSP_Idec/RV32I_OPimm_cpy</data>
-            <data>u_TSP_Core/u_TSP_Idec/N322_2_cpy</data>
-            <data>96</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/u_TSP_Idec/RV32I_Rtype</data>
-            <data>u_TSP_Core/u_TSP_Idec/N320</data>
-            <data>87</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/shamt [3]</data>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N48[3]</data>
-            <data>86</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/rs2_idx [1]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N141[21]</data>
-            <data>79</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/shamt [2]</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N48[2]</data>
+            <data>99</data>
         </row>
         <row>
             <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/shamt [1]</data>
             <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N48[1]</data>
-            <data>76</data>
+            <data>94</data>
         </row>
         <row>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/shamt [2]</data>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N48[2]_3</data>
-            <data>76</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/shamt [3]</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N48[3]</data>
+            <data>93</data>
         </row>
         <row>
             <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/shamt [4]</data>
             <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N48[4]</data>
-            <data>75</data>
+            <data>84</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/rs2_idx [1]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N140[21]</data>
+            <data>79</data>
         </row>
         <row>
             <data>u_TSP_Core/rs1_idx [1]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N141[16]</data>
-            <data>73</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N129</data>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N129</data>
-            <data>70</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N140[16]</data>
+            <data>74</data>
         </row>
         <row>
             <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_multiplier/N74</data>
@@ -2286,7 +2291,12 @@
         </row>
         <row>
             <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/exu_common_fire</data>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N132</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N138</data>
+            <data>70</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N129</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N129</data>
             <data>70</data>
         </row>
         <row>
@@ -2295,8 +2305,8 @@
             <data>67</data>
         </row>
         <row>
-            <data>u_TSP_Core/u_TSP_Ifu/N270</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N270</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N269</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N269</data>
             <data>65</data>
         </row>
         <row>
@@ -2305,13 +2315,8 @@
             <data>64</data>
         </row>
         <row>
-            <data>u_SRAM/u_Data_Ram/U_ipml_dpram_SRAM/a_addr_bus_rd_sel [1]</data>
-            <data>u_SRAM/u_Data_Ram/U_ipml_dpram_SRAM/N411[1]</data>
-            <data>64</data>
-        </row>
-        <row>
-            <data>u_SRAM/u_Data_Ram/U_ipml_dpram_SRAM/a_addr_bus_rd_sel [2]</data>
-            <data>u_SRAM/u_Data_Ram/U_ipml_dpram_SRAM/N411[2]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/u_Iram/U_ipml_dpram_IRAM/b_addr_bus_rd_sel [1]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/u_Iram/U_ipml_dpram_IRAM/N969[1]</data>
             <data>64</data>
         </row>
         <row>
@@ -2320,54 +2325,79 @@
             <data>64</data>
         </row>
         <row>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_ls_u0/ls_fire</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_ls_u0/N9_5</data>
+            <data>64</data>
+        </row>
+        <row>
+            <data>u_SRAM/u_Data_Ram/U_ipml_dpram_SRAM/a_addr_bus_rd_sel [2]</data>
+            <data>u_SRAM/u_Data_Ram/U_ipml_dpram_SRAM/N411[2]</data>
+            <data>64</data>
+        </row>
+        <row>
+            <data>u_SRAM/u_Data_Ram/U_ipml_dpram_SRAM/a_addr_bus_rd_sel [1]</data>
+            <data>u_SRAM/u_Data_Ram/U_ipml_dpram_SRAM/N411[1]</data>
+            <data>64</data>
+        </row>
+        <row>
             <data>u_TSP_Core/u_TSP_Disp_Exu/rs1_forward_match</data>
             <data>u_TSP_Core/u_TSP_Disp_Exu/N7</data>
             <data>63</data>
         </row>
         <row>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_ls_u0/ls_fire</data>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_ls_u0/N9_3</data>
-            <data>63</data>
-        </row>
-        <row>
             <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_multiplier/sign_p</data>
             <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_multiplier/sign_p</data>
             <data>63</data>
         </row>
         <row>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/_N2292</data>
+            <data>u_TSP_Core/u_TSP_Wb_arbiter/_N4178</data>
             <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_121_8</data>
             <data>57</data>
         </row>
         <row>
-            <data>u_TSP_Core/u_ls_ctrl/N317</data>
-            <data>u_TSP_Core/u_ls_ctrl/N317</data>
+            <data>u_TSP_Core/u_TSP_Ifu/is_write_cycle</data>
+            <data>u_TSP_Core/u_TSP_Ifu/w_state_reg[1]</data>
+            <data>57</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_ls_ctrl/N365</data>
+            <data>u_TSP_Core/u_ls_ctrl/N365</data>
+            <data>56</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/_N3632</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_ls_u0/N67_40</data>
             <data>55</data>
         </row>
         <row>
-            <data>u_TSP_Core/inst_if [31]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N141[31]</data>
+            <data>u_TSP_Core/_N3616</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_ls_u0/N67_24</data>
             <data>54</data>
         </row>
         <row>
-            <data>u_TSP_Core/u_TSP_Ifu/is_write_cycle</data>
-            <data>u_TSP_Core/u_TSP_Ifu/w_state_reg[1]</data>
-            <data>51</data>
+            <data>u_TSP_Core/inst_if [31]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N140[31]</data>
+            <data>53</data>
         </row>
         <row>
-            <data>u_TSP_Core/u_TSP_Ifu/N237</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N237</data>
-            <data>50</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/_N12447</data>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N201_33[1]_3</data>
-            <data>50</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N236</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N236</data>
+            <data>53</data>
         </row>
         <row>
             <data>u_SRAM/N73</data>
             <data>u_SRAM/N73</data>
             <data>50</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/shamt [0]</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N48[0]</data>
+            <data>50</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/_N13903</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N207_33[1]_3</data>
+            <data>48</data>
         </row>
         <row>
             <data>u_TSP_Core/u_PC_control/N87</data>
@@ -2380,48 +2410,73 @@
             <data>48</data>
         </row>
         <row>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/_N2272</data>
+            <data>u_TSP_Core/u_TSP_Wb_arbiter/_N4158</data>
             <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_101_1</data>
             <data>48</data>
         </row>
         <row>
-            <data>u_TSP_Core/rs2_idx [0]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N141[20]</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/rs1_op_dat [31]</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/N14_97[31]</data>
             <data>47</data>
         </row>
         <row>
-            <data>u_TSP_Core/_N9687</data>
-            <data>u_TSP_Core/u_TSP_Idec/imm_o_1_or[17]_5</data>
-            <data>42</data>
+            <data>u_TSP_Core/rs2_idx [0]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N140[20]</data>
+            <data>47</data>
         </row>
         <row>
             <data>u_TSP_Core/u_TSP_Idec/N346</data>
             <data>u_TSP_Core/u_TSP_Idec/N346</data>
-            <data>42</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/rs1_idx [0]</data>
-            <data>u_TSP_Core/u_TSP_Ifu/N141[15]</data>
-            <data>42</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_multiplier/is_busy</data>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_multiplier/is_busy</data>
-            <data>42</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/is_busy</data>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/is_busy</data>
-            <data>42</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/u_TSP_Idec/N344</data>
-            <data>u_TSP_Core/u_TSP_Idec/N344</data>
-            <data>38</data>
+            <data>44</data>
         </row>
         <row>
             <data>u_TSP_Core/INST_AUIPC</data>
             <data>u_TSP_Core/u_TSP_Idec/N331_2</data>
+            <data>44</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/rs1_idx [0]</data>
+            <data>u_TSP_Core/u_TSP_Ifu/N140[15]</data>
+            <data>42</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/is_busy</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/is_busy</data>
+            <data>42</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/rs2_op_dat [0]</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/N15_97[0]</data>
+            <data>42</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_multiplier/is_busy</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_multiplier/is_busy</data>
+            <data>42</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/is_sra</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/N45_2</data>
+            <data>41</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_ls_ctrl/_N3810</data>
+            <data>u_TSP_Core/u_ls_ctrl/N339_16</data>
+            <data>41</data>
+        </row>
+        <row>
+            <data>m4_axi_araddr[2]</data>
+            <data>u_TSP_Core/u_ls_ctrl/m_axi_araddr[2]</data>
+            <data>38</data>
+        </row>
+        <row>
+            <data>m4_axi_araddr[4]</data>
+            <data>u_TSP_Core/u_ls_ctrl/m_axi_araddr[4]</data>
+            <data>38</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Idec/N344</data>
+            <data>u_TSP_Core/u_TSP_Idec/N344</data>
             <data>38</data>
         </row>
         <row>
@@ -2440,38 +2495,28 @@
             <data>37</data>
         </row>
         <row>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N47</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N47_5</data>
+            <data>37</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/global_pc [10]</data>
+            <data>u_TSP_Core/u_PC_control/global_pc_o[10]</data>
+            <data>36</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/global_pc [9]</data>
+            <data>u_TSP_Core/u_PC_control/global_pc_o[9]</data>
+            <data>36</data>
+        </row>
+        <row>
             <data>u_TSP_Core/global_pc [8]</data>
             <data>u_TSP_Core/u_PC_control/global_pc_o[8]</data>
             <data>36</data>
         </row>
         <row>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/bjp_fire</data>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/N25</data>
-            <data>36</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/global_pc [6]</data>
-            <data>u_TSP_Core/u_PC_control/global_pc_o[6]</data>
-            <data>36</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/global_pc [5]</data>
-            <data>u_TSP_Core/u_PC_control/global_pc_o[5]</data>
-            <data>36</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/global_pc [4]</data>
-            <data>u_TSP_Core/u_PC_control/global_pc_o[4]</data>
-            <data>36</data>
-        </row>
-        <row>
             <data>u_TSP_Core/global_pc [3]</data>
             <data>u_TSP_Core/u_PC_control/global_pc_o[3]</data>
-            <data>36</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/is_sra</data>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/N45_2</data>
             <data>36</data>
         </row>
         <row>
@@ -2485,13 +2530,13 @@
             <data>36</data>
         </row>
         <row>
-            <data>u_TSP_Core/global_pc [10]</data>
-            <data>u_TSP_Core/u_PC_control/global_pc_o[10]</data>
+            <data>u_TSP_Core/global_pc [5]</data>
+            <data>u_TSP_Core/u_PC_control/global_pc_o[5]</data>
             <data>36</data>
         </row>
         <row>
-            <data>u_TSP_Core/global_pc [9]</data>
-            <data>u_TSP_Core/u_PC_control/global_pc_o[9]</data>
+            <data>u_TSP_Core/global_pc [6]</data>
+            <data>u_TSP_Core/u_PC_control/global_pc_o[6]</data>
             <data>36</data>
         </row>
         <row>
@@ -2500,8 +2545,23 @@
             <data>36</data>
         </row>
         <row>
-            <data>u_TSP_Core/wb_data [0]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[0]</data>
+            <data>u_TSP_Core/global_pc [4]</data>
+            <data>u_TSP_Core/u_PC_control/global_pc_o[4]</data>
+            <data>36</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/flush_net</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_bjp_u0/N19</data>
+            <data>35</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/N5</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/N5</data>
+            <data>35</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/bjp_fire</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/N25</data>
             <data>35</data>
         </row>
         <row>
@@ -2510,53 +2570,28 @@
             <data>35</data>
         </row>
         <row>
+            <data>u_TSP_Core/wb_data [0]</data>
+            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[0]</data>
+            <data>35</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/imm [0]</data>
+            <data>u_TSP_Core/u_TSP_Idec/imm_o_1_or[0]_1</data>
+            <data>35</data>
+        </row>
+        <row>
             <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_multiplier/prod [0]</data>
             <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_multiplier/prod[0]</data>
             <data>35</data>
         </row>
         <row>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/N5</data>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/N5</data>
+            <data>u_Timer/N2</data>
+            <data>u_Timer/N2_5</data>
             <data>35</data>
         </row>
         <row>
-            <data>u_TSP_Core/flush_net</data>
-            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_bjp_u0/N19</data>
-            <data>35</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_data [29]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[29]</data>
-            <data>34</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_data [28]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[28]</data>
-            <data>34</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_data [27]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[27]</data>
-            <data>34</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_data [26]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[26]</data>
-            <data>34</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_data [25]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[25]</data>
-            <data>34</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_data [24]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[24]</data>
-            <data>34</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_data [6]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[6]</data>
+            <data>u_TSP_Core/wb_data [23]</data>
+            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[23]</data>
             <data>34</data>
         </row>
         <row>
@@ -2565,53 +2600,13 @@
             <data>34</data>
         </row>
         <row>
-            <data>u_TSP_Core/INST_ADD</data>
-            <data>u_TSP_Core/u_TSP_Idec/N32_2</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/_N10805</data>
+            <data>u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/N149_5</data>
             <data>34</data>
         </row>
         <row>
-            <data>u_TSP_Core/wb_data [5]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[5]</data>
-            <data>34</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_data [22]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[22]</data>
-            <data>34</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_data [21]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[21]</data>
-            <data>34</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_data [7]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[7]</data>
-            <data>34</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_data [9]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[9]_1</data>
-            <data>34</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_data [10]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[10]_1</data>
-            <data>34</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_rd_idx [2]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N3_6[2]</data>
-            <data>34</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_data [20]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[20]</data>
-            <data>34</data>
-        </row>
-        <row>
-            <data>u_TSP_Core/wb_data [11]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[11]_1</data>
+            <data>u_TSP_Core/wb_data [31]</data>
+            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[31]</data>
             <data>34</data>
         </row>
         <row>
@@ -2620,33 +2615,38 @@
             <data>34</data>
         </row>
         <row>
-            <data>u_TSP_Core/wb_data [19]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[19]</data>
+            <data>u_TSP_Core/wb_rd_idx [4]</data>
+            <data>u_TSP_Core/u_TSP_Wb_arbiter/N3_6[4]</data>
             <data>34</data>
         </row>
         <row>
-            <data>u_TSP_Core/wb_data [23]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[23]</data>
+            <data>u_TSP_Core/wb_rd_idx [3]</data>
+            <data>u_TSP_Core/u_TSP_Wb_arbiter/N3_6[3]</data>
             <data>34</data>
         </row>
         <row>
-            <data>u_TSP_Core/wb_data [4]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[4]</data>
+            <data>u_TSP_Core/INST_ADD</data>
+            <data>u_TSP_Core/u_TSP_Idec/N32_2</data>
             <data>34</data>
         </row>
         <row>
-            <data>u_TSP_Core/wb_data [3]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[3]</data>
+            <data>u_TSP_Core/wb_data [28]</data>
+            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[28]</data>
             <data>34</data>
         </row>
         <row>
-            <data>u_TSP_Core/wb_data [18]</data>
-            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[18]</data>
+            <data>u_TSP_Core/wb_data [1]</data>
+            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[1]</data>
             <data>34</data>
         </row>
         <row>
             <data>u_TSP_Core/wb_data [2]</data>
             <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[2]</data>
+            <data>34</data>
+        </row>
+        <row>
+            <data>u_TSP_Core/wb_data [3]</data>
+            <data>u_TSP_Core/u_TSP_Wb_arbiter/N5_128[3]</data>
             <data>34</data>
         </row>
     </table>
@@ -2671,15 +2671,15 @@
         </row>
         <row>
             <data>FF</data>
-            <data>2123</data>
+            <data>2344</data>
             <data>64200</data>
             <data>4</data>
         </row>
         <row>
             <data>LUT</data>
-            <data>3103</data>
+            <data>3426</data>
             <data>42800</data>
-            <data>8</data>
+            <data>9</data>
         </row>
         <row>
             <data>Distributed RAM</data>
@@ -2801,10 +2801,10 @@
             <data>RAM(GB)</data>
         </column_headers>
         <row>
-            <data>0h:0m:4s</data>
             <data>0h:0m:5s</data>
-            <data>0h:0m:6s</data>
-            <data>300</data>
+            <data>0h:0m:5s</data>
+            <data>0h:0m:7s</data>
+            <data>307</data>
             <data>WINDOWS 10 x86_64</data>
             <data>11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz</data>
             <data>16</data>
@@ -2867,6 +2867,12 @@
             <data message="4">The instance clkbufg_0(GTP_CLKBUFG) has been inserted on the net clk in design, driver pin CLKOUT0(instance u_sys_pll/u_pll_e3) -&gt; load pin CLK(instance u_Interconnect/r_target_reg[0]).</data>
         </row>
         <row>
+            <data message="4">Infer CARRY group, base inst: u_Timer/N161_1_0/gateop, insts:32.</data>
+        </row>
+        <row>
+            <data message="4">Infer CARRY group, base inst: u_Timer/N170_1_0/gateop, insts:32.</data>
+        </row>
+        <row>
             <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_PC_control/N0.eq_0/gateop, insts:9.</data>
         </row>
         <row>
@@ -2900,13 +2906,22 @@
             <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_multiplier/N64_1_1/gateop, insts:63.</data>
         </row>
         <row>
-            <data message="4">Infer CARRY group, base inst: u_UART/u_uart_core/uart_rx_inst/N196_3.fsub_1/gateop, insts:19.</data>
-        </row>
-        <row>
             <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N5_1_0/gateop, insts:32.</data>
         </row>
         <row>
             <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N9_1_0/gateop, insts:32.</data>
+        </row>
+        <row>
+            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N34.lt_0/gateop, insts:16.</data>
+        </row>
+        <row>
+            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N41_3.fsub_0/gateop, insts:33.</data>
+        </row>
+        <row>
+            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N45_1.fsub_1/gateop, insts:5.</data>
+        </row>
+        <row>
+            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N79_1_0/gateop, insts:32.</data>
         </row>
         <row>
             <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/N65.eq_0/gateop, insts:3.</data>
@@ -2933,7 +2948,7 @@
             <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/N101.eq_0/gateop, insts:3.</data>
         </row>
         <row>
-            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N34.lt_0/gateop, insts:16.</data>
+            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N85_1_1/gateop, insts:31.</data>
         </row>
         <row>
             <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_bjp_u0/N10_1_0/gateop, insts:30.</data>
@@ -2942,28 +2957,19 @@
             <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N33_0/gateop, insts:33.</data>
         </row>
         <row>
-            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N41_3.fsub_0/gateop, insts:33.</data>
+            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N126.eq_0/gateop, insts:16.</data>
         </row>
         <row>
-            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N120.eq_0/gateop, insts:16.</data>
+            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N127.slt_0/gateop, insts:16.</data>
         </row>
         <row>
-            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N121.slt_0/gateop, insts:16.</data>
+            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N128.lt_0/gateop, insts:16.</data>
         </row>
         <row>
-            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N122.lt_0/gateop, insts:16.</data>
+            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N134_1_0/gateop, insts:30.</data>
         </row>
         <row>
-            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_common_u0/N128_1_0/gateop, insts:30.</data>
-        </row>
-        <row>
-            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N45_1.fsub_1/gateop, insts:5.</data>
-        </row>
-        <row>
-            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N79_1_0/gateop, insts:32.</data>
-        </row>
-        <row>
-            <data message="4">Infer CARRY group, base inst: u_TSP_Core/u_TSP_Disp_Exu/Exu_muldiv_u0/u_divider/N85_1_1/gateop, insts:31.</data>
+            <data message="4">Infer CARRY group, base inst: u_UART/u_uart_core/uart_rx_inst/N196_3.fsub_1/gateop, insts:19.</data>
         </row>
         <row>
             <data message="5">Public-4010: Pcf file E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/device_map/SoC_Top.pcf has been covered.</data>

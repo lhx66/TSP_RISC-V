@@ -115,9 +115,19 @@ generate
     end
 endgenerate
 
+// 【修复 1】：逻辑左移/右移路径 (纯无符号)
 wire [`REGFILE_DAT_WIDTH-1:0] shift_in  = is_sll ? rs1_rev : rs1_op;
-wire [`REGFILE_DAT_WIDTH-1:0] shift_raw = is_sra ? ($signed(rs1_op) >>> shamt)
-                                                  : (shift_in >> shamt);
+wire [`REGFILE_DAT_WIDTH-1:0] srl_res   = shift_in >> shamt;
+
+// 【修复 2】：算术右移路径 (掩码修正法，绝对免疫 Verilog 语法陷阱)
+// 动态生成一个掩码，比如右移 2 位，掩码就是 32'hC000_0000
+wire [`REGFILE_DAT_WIDTH-1:0] sra_mask  = ~(32'hFFFFFFFF >> shamt);
+// 如果最高位是1，就用掩码把高位强行置1，否则正常补0
+wire [`REGFILE_DAT_WIDTH-1:0] sra_res   = rs1_op[31] ? ((rs1_op >> shamt) | sra_mask) 
+                                                     : (rs1_op >> shamt);
+
+// 【修复 3】：极其安全的选择器，不再混用有符号/无符号
+wire [`REGFILE_DAT_WIDTH-1:0] shift_raw = is_sra ? sra_res : srl_res;
 
 wire [`REGFILE_DAT_WIDTH-1:0] sll_rev;
 generate

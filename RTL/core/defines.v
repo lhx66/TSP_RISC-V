@@ -12,16 +12,17 @@
 `define REGFILE_DAT_WIDTH 32 //通用寄存器组位宽（固定32） "XLEN"
 `define REGFILE_IDX_WIDTH 5 //RISC-V规定共32个通用寄存器，索引位宽
 
-`define IRAM_ADDR 16'h0000 // 0x0000_0000 寻址空间定义
+`define IRAM_ADDR 4'h0 // 0x0000_0000 寻址空间定义
 `define SRAM_ADDR 4'h2 // 0x2000_0000
 `define UART_ADDR 4'h4 // 0x4000_0000
+`define TIMER_ADDR 4'h6 // 0x6000_0000
 
 `define IRAM_KB (64*1024/4)
 `define SRAM_KB (32*1024/4)
 
 //BPU/BTB 相关（全相联，2-entry LRU）
 `define BTB_ENTRIES      2   //BTB条目数
-`define BTB_TAG_PC_HIGH  18  //tag取PC的高位边界
+`define BTB_TAG_PC_HIGH  31  //tag取PC的高位边界
 `define BTB_TAG_PC_LOW   2   //tag取PC的低位边界（[1:0]为字节偏移）
 // 派生宽度（文本替换展开为合法表达式，无需额外逻辑）
 `define BTB_TAG_WIDTH    (`BTB_TAG_PC_HIGH - `BTB_TAG_PC_LOW + 1) //tag位宽=17

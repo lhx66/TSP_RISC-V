@@ -70,10 +70,25 @@ wire is_iram = (ls_addr_i[31:28] == 4'h0);
 // 合法 AXI 寻址空间：IRAM(0x0), SRAM(0x2), UART(0x4)
 wire is_axi_mem = (ls_addr_i[31:28] == `SRAM_ADDR) || 
                   (ls_addr_i[31:28] == `UART_ADDR) || 
+                  (ls_addr_i[31:28] == `TIMER_ADDR) ||  // <=== 加上这一行！
                   is_iram;
 
 // 写保护：如果试图在 IRAM 区域执行 Store 写入操作，直接拦截！
 wire write_protect = is_iram & ls_we_i;
+
+// ====================================================================
+// 【终极防线】：AXI WDATA 写数据通道对齐器
+// AXI 协议严格要求：数据必须根据 wstrb 放置在对应的字节通道上！
+// ====================================================================
+wire [31:0] aligned_wdata;
+assign aligned_wdata = 
+    (ls_byte_en_i == 4'b0001) ? {24'b0, ls_wdata_i[7:0]} :
+    (ls_byte_en_i == 4'b0010) ? {16'b0, ls_wdata_i[7:0], 8'b0} :
+    (ls_byte_en_i == 4'b0100) ? {8'b0,  ls_wdata_i[7:0], 16'b0} :
+    (ls_byte_en_i == 4'b1000) ? {ls_wdata_i[7:0], 24'b0} :
+    (ls_byte_en_i == 4'b0011) ? {16'b0, ls_wdata_i[15:0]} :
+    (ls_byte_en_i == 4'b1100) ? {ls_wdata_i[15:0], 16'b0} :
+    ls_wdata_i; // 对于 4'b1111 (sw) 保留原样
 
 always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
@@ -104,22 +119,23 @@ always @(posedge clk or negedge rst_n) begin
                     if (is_axi_mem && !write_protect) begin
                         if (ls_we_i) begin 
                             state         <= AXI_AW_W;
-                            m_axi_awaddr  <= ls_addr_i;
-                            m_axi_wdata   <= ls_wdata_i;
+                            m_axi_awaddr  <= {ls_addr_i[31:2], 2'b00};
+                            m_axi_wdata   <= aligned_wdata;
                             m_axi_wstrb   <= ls_byte_en_i;
                             m_axi_awvalid <= 1'b1;
                             m_axi_wvalid  <= 1'b1;
                         end else begin     
                             state         <= AXI_AR;
-                            m_axi_araddr  <= ls_addr_i;
+                            m_axi_araddr  <= {ls_addr_i[31:2], 2'b00};
                             m_axi_arvalid <= 1'b1;
                         end
                     end else begin
-                        // 触发写保护，或者非法内存地址，假装执行完毕
+                        /// 触发写保护，或者非法内存地址，必须假装执行一拍！
                         if (ls_we_i) begin
-                            state <= IDLE; // 拦截野指针写入，停在 IDLE 准备假握手放行
+                            // 【修复】：强行跳过 AXI，直接去 WAIT_WB 清空流水线，防止死锁
+                            state <= WAIT_WB; 
                         end else begin
-                            axi_read_data_r <= 32'b0; // 非法读取返回 0
+                            axi_read_data_r <= 32'b0;
                             state           <= WAIT_WB;
                         end
                     end

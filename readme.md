@@ -83,7 +83,7 @@ TSP_RVmaster/
 - **/RTL/sim/sim.bat**：modelsim仿真快速启动脚本
 - **/RTL/sim/tb_soc_top.v**：顶层soc testbench
 
-## IDE交叉编译
+## IDE图形化开发
 基于MRS(MounRiver Studio)V1.92作为开发工具。下载链接：https://www.mounriver.com/download
 - **template/TSP_RISCV_template/src**：提供lds链接文件及TSP_RISCV_template.wvproj示例工程
 - **template/TSP_RISCV_template/lib**：提供startup.S示例
