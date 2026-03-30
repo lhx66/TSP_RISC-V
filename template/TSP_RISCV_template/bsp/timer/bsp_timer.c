@@ -2,47 +2,47 @@
 
 #include "../bsp_map.h"
 
-// ³õÊ¼»¯ Timer0
-// cmp_value: ¶¨Ê±Æ÷±È½ÏãĞÖµ (´ïµ½¸ÃÖµ´¥·¢ÖĞ¶Ï)
-// enable_interrupt: ÊÇ·ñ¿ªÆôÓ²¼şÖĞ¶ÏĞÅºÅ
+// åˆå§‹åŒ– Timer0
+// cmp_value: å®šæ—¶å™¨æ¯”è¾ƒé˜ˆå€¼ (è¾¾åˆ°è¯¥å€¼è§¦å‘ä¸­æ–­)
+// enable_interrupt: æ˜¯å¦å¼€å¯ç¡¬ä»¶ä¸­æ–­ä¿¡å·
 void timer0_init(uint32_t cmp_value, bool enable_interrupt) {
-    // 1. ÏÈ¹Ø±Õ¶¨Ê±Æ÷£¬·ÀÖ¹ÅäÖÃÊ±ÂÒÅÜ
+    // 1. å…ˆå…³é—­å®šæ—¶å™¨ï¼Œé˜²æ­¢é…ç½®æ—¶ä¹±è·‘
     TIMER_CTRL0 = 0;
 
-    // 2. ÇåÁãµ±Ç°¼ÆÊıÖµ
+    // 2. æ¸…é›¶å½“å‰è®¡æ•°å€¼
     TIMER_VAL0 = 0;
 
-    // 3. ÉèÖÃ±È½ÏÖµ
+    // 3. è®¾ç½®æ¯”è¾ƒå€¼
     TIMER_CMP0 = cmp_value;
 
-    // 4. ÅäÖÃÖĞ¶Ï
+    // 4. é…ç½®ä¸­æ–­
     if (enable_interrupt) {
         TIMER_CTRL0 |= TIMER_CTRL_INT_EN;
     }
 }
 
-// Æô¶¯ Timer0
+// å¯åŠ¨ Timer0
 void timer0_start(void) {
     TIMER_CTRL0 |= TIMER_CTRL_EN;
 }
 
-// Í£Ö¹ Timer0
+// åœæ­¢ Timer0
 void timer0_stop(void) {
     TIMER_CTRL0 &= ~TIMER_CTRL_EN;
 }
 
-// Ç¿ÖÆĞŞ¸Äµ±Ç°¼ÆÊıÖµ
+// å¼ºåˆ¶ä¿®æ”¹å½“å‰è®¡æ•°å€¼
 void timer0_set_value(uint32_t val) {
     TIMER_VAL0 = val;
 }
 
-// »ñÈ¡µ±Ç°¼ÆÊıÖµ (¿ÉÓÃÓÚ¾«È·¶¨Ê±»ò²â¾à)
+// è·å–å½“å‰è®¡æ•°å€¼ (å¯ç”¨äºç²¾ç¡®å®šæ—¶æˆ–æµ‹è·)
 uint32_t timer0_get_value(void) {
     return TIMER_VAL0;
 }
 
-// Çå³ıÖĞ¶Ï (Í¨³£ÔÚ trap_handler ÖĞµ÷ÓÃ)
-// ¸ù¾İ¸Ã IP µÄÌØĞÔ£¬Í¨³£ÇåÁãµ±Ç°¼ÆÊıÖµ»òÖØĞÂÉèÖÃ×´Ì¬¼´¿ÉÇå³ıÖĞ¶Ï±êÖ¾
+// æ¸…é™¤ä¸­æ–­ (é€šå¸¸åœ¨ trap_handler ä¸­è°ƒç”¨)
+// æ ¹æ®è¯¥ IP çš„ç‰¹æ€§ï¼Œé€šå¸¸æ¸…é›¶å½“å‰è®¡æ•°å€¼æˆ–é‡æ–°è®¾ç½®çŠ¶æ€å³å¯æ¸…é™¤ä¸­æ–­æ ‡å¿—
 void timer0_clear_interrupt(void) {
     TIMER_VAL0 = 0;
 }

@@ -18,7 +18,7 @@ ARCH_FLAGS = -march=rv32im -mabi=ilp32 -mstrict-align
 
 # 3. 编译选项：优化等级 O2，独立段以便链接器回收垃圾代码，增加 CoreMark 必需的宏定义
 CFLAGS = $(ARCH_FLAGS) -O2 -g -Wall -mcmodel=medany \
-         -ffunction-sections -fdata-sections \
+         -ffunction-sections -fdata-sections -fno-builtin \
          -DITERATIONS=10 -DCOMPILER_FLAGS=\"GCC_RV32IM\" \
          -I./app/coremark -I./bsp/timer -I./bsp/uart -I./bsp
 

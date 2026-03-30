@@ -3,20 +3,20 @@ project name,pango_cpu.pds
 
 Single Seed:
 Seed,State,Convergence,Setup(Slow),Setup(Fast),Hold(Slow),Hold(Fast),Recovery(Slow),Recovery(Fast),Removal(Slow),Removal(Fast),PBM-GP,PBM-PreGP,PBM-PostGP,LP,Total Placement Cpu Time,Detailed routing,Total Routing Cpu Time,Wire Length After Post-GP,Wire Length After LP,Wire Length After DP,Routing Arc Length,Worst Slack After GP Timing,Worst Slack After LP Timing,Worst Slack Before RP,Worst Slack Before DP,Worst Slack After DP,Worst Slack After Placement,Worst Slack After TA By Preroute,TNS After DP,TNS Before Route,Setup(Slow) Total Failing TNS,Setup(Slow) Total Failing Endpoints,Hold(Slow) Total Failing THS,Hold(Slow) Total Failing Endpoints,Power
-single,OK,OK,1.770,7.053,0.266,0.208,NA,NA,NA,NA,NA,NA,NA,0.45,15.05,25.16,38.94,NA,NA,NA,85545,NA,NA,330,NA,NA,3106,NA,NA,0,0.000,0,0.000,0,NA
+single,OK,OK,2.071,7.003,0.314,0.242,NA,NA,NA,NA,NA,NA,NA,0.33,13.64,17.00,24.05,NA,NA,NA,86485,NA,NA,723,NA,NA,3175,NA,NA,0,0.000,0,0.000,0,NA
 Pass Rate/Convergence Rate,100.00%,100.00%
 
 Synthesize:
-control_set,86
+control_set,88
 Synthesize Performance Summary:
 slack category,Synthesize Setup WNS,Synthesize Setup TNS,Synthesize Recovery WNS,Synthesize Recovery TNS
-slack value,1.306,0.000,NA,NA
-Synthesize Process Cpu Time,0h:0m:24s
+slack value,1.941,0.000,NA,NA
+Synthesize Process Cpu Time,0h:0m:20s
 
 Device Map:
 Device Map Resource Usage Summary:
 Logic Utilization,LUT,FF,DRM,APM,Distributed RAM,HSSTHP,USCM,HCKB,RCKB
-Used,3426,2344,48,0,0,NA,1,NA,0
+Used,3491,2354,48,0,0,NA,1,NA,0
 Available,42800,64200,134,84,17000,NA,30,NA,24
 Utilization(%),9%,4%,36%,0%,0%,NA,4%,NA,0%
 Device Map Process Cpu Time,0h:0m:5s

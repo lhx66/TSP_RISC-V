@@ -81,7 +81,8 @@ always @(posedge clk or negedge rst_n) begin
         ls_addr_r <= 32'd0;
     end else if (ls_fire) begin
         rs2_data_r   <= rs2_op;
-        rd_r         <= rd_i;      // 锁存 rd_i
+        // 【终极修复】：如果是 Store，强行把 rd 指向 x0 寄存器，物理免疫一切越权写入！
+        rd_r         <= is_store ? 5'd0 : rd_i;
         is_store_r   <= is_store;
         
         store_type_r <= (INST_SW) ? 3'd2 :

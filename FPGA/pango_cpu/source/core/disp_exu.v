@@ -15,6 +15,7 @@ module TSP_Disp_Exu( //dispatch 发射\派遣\执行
     input [`REGFILE_DAT_WIDTH-1:0] rs2_op,
     input [`REGFILE_IDX_WIDTH-1:0] rd_i,       //目标寄存器索引
     input [`REGFILE_DAT_WIDTH-1:0] imm_i,      //符号扩展后的立即数
+  
     input [`INST_ADDR_WIDTH-1:0] next_pc_i,    //指示待派遣的指令PC
     output [`INST_ADDR_WIDTH-1:0] inst_pc_o,   //指示本级流水后的指令PC  
     
@@ -79,7 +80,7 @@ module TSP_Disp_Exu( //dispatch 发射\派遣\执行
     //与访存控制模块交互
     input ls_ctrl_ready_i, //访存就绪
     output ls_req_o, 
-    output         ls_we_o,       // 1: Store写, 0: Load读
+    output ls_we_o,       // 1: Store写, 0: Load读
     output [`REGFILE_DAT_WIDTH-1:0] ls_addr_o,
     output [3:0]  ls_byte_en_o,  // 字节写使能掩码 (Byte Enable)
     output [31:0] ls_wdata_o,    // 对齐后的写入数据
@@ -146,17 +147,16 @@ TSP_Exu_common Exu_common_u0( //通用加法器及其他基础指令
 );
 
 //─────────────────────────────────────────
-// 跳转指令执行单元例化（复用加法器）
+// 跳转指令执行单元例化
 //─────────────────────────────────────────
 wire bjp_fire = global_fire & (RV32I_Btype | INST_JAL | INST_JALR);
-
-Exu_bjp Exu_bjp_u0( //级联在Exu_common后
+Exu_bjp Exu_bjp_u0( 
     .clk(clk),
     .rst_n(rst_n),
 
     .bjp_pc(next_pc_i), 
     .INST_BJP(bjp_fire), 
-    .INST_JALR(INST_JALR), // 将JALR识别传入，用于纠正幽灵跳
+    .INST_JALR(INST_JALR),
 
     .branch_taken(branch_taken), 
     .bjp_cal_pre_pc(bjp_cal_pre_pc), 
@@ -199,7 +199,7 @@ wire exu_muldiv_ready = 1'b1;
 `endif
 
 //─────────────────────────────────────────
-// Load-Store指令处理（复用common中加法器）
+// Load-Store指令处理
 //─────────────────────────────────────────
 wire exu_ls_ready;
 TSP_Exu_ls Exu_ls_u0(
@@ -221,7 +221,7 @@ TSP_Exu_ls Exu_ls_u0(
     .ls_we_o(ls_we_o),       
     .ls_addr_o(ls_addr_o),
     .ls_byte_en_o(ls_byte_en_o),  
-    .ls_wdata_o(ls_wdata_o),    
+    .ls_wdata_o(ls_wdata_o),  
     
     .ls_ctrl_ready_i(ls_ctrl_ready_i),   
     
@@ -229,14 +229,12 @@ TSP_Exu_ls Exu_ls_u0(
     .ls_rd_o(ls_rd)      
 );
 
-//─────────────────────────────────────────
-// 完美的 OITF 计分板与反压系统 (无组合环路版)
-//─────────────────────────────────────────
-// 1. 精确的指令分类判定
+// ====================================================================
+// 完美的深度可调 OITF 计分板与反压系统 (Priority Allocation)
+// ====================================================================
 wire is_load_inst   = INST_LB | INST_LH | INST_LW | INST_LBU | INST_LHU;
 wire is_store_inst  = INST_SB | INST_SH | INST_SW;
 wire is_ls_inst     = is_load_inst | is_store_inst;
-
 `ifdef USE_RV32M
     wire is_muldiv_inst = INST_MUL | INST_MULH | INST_MULHSU | INST_MULHU | 
                           INST_DIV | INST_DIVU | INST_REM | INST_REMU;
@@ -254,70 +252,91 @@ always @(posedge clk or negedge rst_n) begin
     else branch_in_flight <= 1'b0;
 end
 
-reg [`REGFILE_IDX_WIDTH-1:0] moitf0, moitf1; 
-reg [`REGFILE_IDX_WIDTH-1:0] next_moitf0, next_moitf1;
+// OITF 核心存储器阵列 (基于 OITF_DEPTH 宏展开)
+reg [`REGFILE_IDX_WIDTH-1:0] moitf [0:`OITF_DEPTH-1]; 
+reg [`REGFILE_IDX_WIDTH-1:0] next_moitf [0:`OITF_DEPTH-1];
 
-// ====================================================================
-// 【终极修复 1】：彻底剪断组合逻辑环路！
-// 提前计算槽位是否可用，完全不依赖 global_fire，防止产生死锁振荡！
-// ====================================================================
-wire slot0_avail = (moitf0 == 5'd0) || (oitf_wb_en_i && (moitf0 == oitf_wb_rd_i));
-wire slot1_avail = (moitf1 == 5'd0) || (oitf_wb_en_i && (moitf1 == oitf_wb_rd_i));
+// OITF 探测雷达向量
+reg [`OITF_DEPTH-1:0] slot_avail_vec;
+reg [`OITF_DEPTH-1:0] rs1_hit_vec;
+reg [`OITF_DEPTH-1:0] rs2_hit_vec;
+reg [`OITF_DEPTH-1:0] rd_hit_vec;
 
-// 判断满载，必须只用“当前是否可用”进行判断
-wire oitf_full = !(slot0_avail || slot1_avail);
+// 遍历所有的槽位，进行依赖和空闲探测
+integer j;
+always @(*) begin
+    for (j = 0; j < `OITF_DEPTH; j = j + 1) begin
+        // 【终极物理安全气囊】：
+        // 只有当前寄存器真正变为 0 时，该槽位才算空闲。绝不允许依赖 oitf_wb_en！
+        // 彻底杜绝一条指令出去的瞬间，另一条指令钻进来产生的死锁冲突！
+        slot_avail_vec[j] = (moitf[j] == 5'd0);
+        
+        rs1_hit_vec[j]    = (rs1_i == moitf[j]) && (moitf[j] != 5'd0);
+        rs2_hit_vec[j]    = (rs2_i == moitf[j]) && (moitf[j] != 5'd0);
+        rd_hit_vec[j]     = (rd_i  == moitf[j]) && (moitf[j] != 5'd0);
+    end
+end
+
+// 满载与反压计算 (利用向量的按位或进行规约)
+wire oitf_full = ~(|slot_avail_vec);
 wire oitf_stall = INST_LONG & oitf_full;
 
-// 依赖检测 (RAW & WAW)
-wire rs1_hit_moitf0 = (rs1_i == moitf0) && (moitf0 != 5'd0);
-wire rs1_hit_moitf1 = (rs1_i == moitf1) && (moitf1 != 5'd0);
-wire rs2_hit_moitf0 = (rs2_i == moitf0) && (moitf0 != 5'd0);
-wire rs2_hit_moitf1 = (rs2_i == moitf1) && (moitf1 != 5'd0);
-wire rd_hit_moitf0  = (rd_i  == moitf0) && (moitf0 != 5'd0);
-wire rd_hit_moitf1  = (rd_i  == moitf1) && (moitf1 != 5'd0);
-
-wire dep_hit_moitf = rs1_hit_moitf0 | rs1_hit_moitf1 | 
-                     rs2_hit_moitf0 | rs2_hit_moitf1 |
-                     rd_hit_moitf0  | rd_hit_moitf1; 
+// 依赖检测拦截 (RAW & WAW)
+wire dep_hit_moitf = (|rs1_hit_vec) | (|rs2_hit_vec) | (|rd_hit_vec); 
 
 wire target_unit_ready = 
     is_muldiv_inst ? exu_muldiv_ready :         
     is_ls_inst     ? exu_ls_ready :             
-                     exu_common_ready;          
+                     exu_common_ready;
 
 // ==========================================
-// 最终握手许可输出 (提前计算，绝不振荡)
+// 最终握手许可输出
 // ==========================================
 assign disp_exu_ready_o = target_unit_ready & (~dep_hit_moitf) & (~oitf_stall) & (~branch_in_flight);
 
 // ====================================================================
-// 【终极修复 2】：安全的 OITF 状态更新逻辑
+// 深度的优先级编码分配逻辑 (Priority Allocation)
 // ====================================================================
+integer k;
+reg allocated;
 always @(*) begin
-    next_moitf0 = moitf0;
-    next_moitf1 = moitf1;
-    
+    // 默认保持原有数据
+    for (k = 0; k < `OITF_DEPTH; k = k + 1) begin
+        next_moitf[k] = moitf[k];
+    end
+
     // 1. 先处理出队释放逻辑 (Clear)
-    if (oitf_wb_en_i) begin
-        if (moitf0 == oitf_wb_rd_i) next_moitf0 = 5'd0;
-        if (moitf1 == oitf_wb_rd_i) next_moitf1 = 5'd0;
+    if (oitf_wb_en_i && (oitf_wb_rd_i != 5'd0)) begin
+        for (k = 0; k < `OITF_DEPTH; k = k + 1) begin
+            if (moitf[k] == oitf_wb_rd_i) begin
+                next_moitf[k] = 5'd0;
+            end
+        end
     end
     
-    // 2. 再处理入队分配逻辑 (Allocate)
-    // 此时 global_fire 的判断已经绝对稳定，不会再回头改变 disp_exu_ready_o
+    // 2. 再处理入队分配逻辑 (Allocate / Priority Encoder)
+    allocated = 1'b0; // 防止一条指令分身占多个坑
     if (global_fire & INST_LONG & (rd_i != 5'd0)) begin
-        if (slot0_avail)      next_moitf0 = rd_i;
-        else if (slot1_avail) next_moitf1 = rd_i;
+        for (k = 0; k < `OITF_DEPTH; k = k + 1) begin
+            // 按从头到尾的顺序，自动寻找第一个物理空闲的坑位
+            if (slot_avail_vec[k] && !allocated) begin
+                next_moitf[k] = rd_i;
+                allocated = 1'b1;
+            end
+        end
     end
 end
 
+integer idx;
 always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
-        moitf0 <= 5'd0; 
-        moitf1 <= 5'd0;
+        for (idx = 0; idx < `OITF_DEPTH; idx = idx + 1) begin
+            moitf[idx] <= 5'd0;
+        end
     end else begin
-        moitf0 <= next_moitf0;
-        moitf1 <= next_moitf1;
+        for (idx = 0; idx < `OITF_DEPTH; idx = idx + 1) begin
+            moitf[idx] <= next_moitf[idx];
+        end
     end
 end
 

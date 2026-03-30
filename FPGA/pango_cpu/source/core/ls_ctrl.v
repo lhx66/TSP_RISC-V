@@ -162,7 +162,9 @@ always @(posedge clk or negedge rst_n) begin
             AXI_B: begin
                 if (m_axi_bvalid) begin
                     m_axi_bready <= 1'b0;
-                    state        <= IDLE;
+                    // 【终极修复】：Store 完成后也去 WAIT_WB 报个到，正常退役！
+                    // 此时 rd 是 x0，所以绝不会破坏寄存器。
+                    state        <= WAIT_WB;
                 end
             end
 

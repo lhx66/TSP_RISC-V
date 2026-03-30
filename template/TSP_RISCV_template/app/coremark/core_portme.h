@@ -5,17 +5,17 @@
 #include <stddef.h>
 
 /* ==========================================
-   ÒıÈëÎÒÃÇ¸Õ¸ÕĞ´µÄ BSP Çı¶¯
+   å¼•å…¥æˆ‘ä»¬åˆšåˆšå†™çš„ BSP é©±åŠ¨
    ========================================== */
 #include "../../bsp/timer/bsp_timer.h"
 #include "../../bsp/uart/bsp_uart.h"
 
-/* Configuration : HAS_FLOAT (¹Ø±Õ¸¡µã£¬´¿ÕûÊı²âÊÔ) */
+/* Configuration : HAS_FLOAT (å…³é—­æµ®ç‚¹ï¼Œçº¯æ•´æ•°æµ‹è¯•) */
 #ifndef HAS_FLOAT
 #define HAS_FLOAT 0
 #endif
 
-/* Configuration : HAS_TIME_H & USE_CLOCK (Âã»úÃ»ÓĞÏµÍ³Ê±¼ä) */
+/* Configuration : HAS_TIME_H & USE_CLOCK (è£¸æœºæ²¡æœ‰ç³»ç»Ÿæ—¶é—´) */
 #ifndef HAS_TIME_H
 #define HAS_TIME_H 0
 #endif
@@ -23,7 +23,7 @@
 #define USE_CLOCK 0
 #endif
 
-/* Configuration : HAS_STDIO & HAS_PRINTF (Ê¹ÓÃ×Ô´øµÄ ee_printf) */
+/* Configuration : HAS_STDIO & HAS_PRINTF (ä½¿ç”¨è‡ªå¸¦çš„ ee_printf) */
 #ifndef HAS_STDIO
 #define HAS_STDIO 0
 #endif
@@ -46,7 +46,7 @@
 #define MEM_LOCATION "SRAM"
 #endif
 
-/* Data Types : RISC-V 32-bit ¼Ü¹¹±ê×¼ÀàĞÍ */
+/* Data Types : RISC-V 32-bit æ¶æ„æ ‡å‡†ç±»å‹ */
 typedef signed short   ee_s16;
 typedef unsigned short ee_u16;
 typedef signed int     ee_s32;
@@ -60,13 +60,13 @@ typedef size_t         ee_size_t;
 #define align_mem(x) (void *)(4 + (((ee_ptr_int)(x)-1) & ~3))
 //#define align_mem(x) (void *)(8 + (((ee_ptr_int)(x)-1) & ~7))
 
-/* Configuration : CORE_TICKS (¼ÆÊ±Æ÷ÀàĞÍ) */
+/* Configuration : CORE_TICKS (è®¡æ—¶å™¨ç±»å‹) */
 #define CORETIMETYPE ee_u32
 typedef ee_u32 CORE_TICKS;
 
 /* ==========================================
-   ¼«ÆäÖØÒª£º¶¨ÒåÄãµÄ¶¨Ê±Æ÷ 1 ÃëÖÓÌø¶àÉÙ´Î
-   (ÉèÖÃ CPU Ö÷ÆµÊÇ £º50MHz = :50,000,000)
+   æå…¶é‡è¦ï¼šå®šä¹‰ä½ çš„å®šæ—¶å™¨ 1 ç§’é’Ÿè·³å¤šå°‘æ¬¡
+   (è®¾ç½® CPU ä¸»é¢‘æ˜¯ ï¼š50MHz = :50,000,000)
    ========================================== */
 #define EE_TICKS_PER_SEC 50000000
 

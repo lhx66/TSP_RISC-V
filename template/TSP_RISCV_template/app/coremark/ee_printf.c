@@ -16,7 +16,7 @@ limitations under the License.
 
 #include "coremark.h"
 #include <stdarg.h>
-#include "../../bsp/uart/bsp_uart.h"  // ¼ÇµÃÔÚÎÄ¼ş¶¥²¿»òÕâÀï¼ÓÉÏÍ·ÎÄ¼şÒıÈë
+#include "../../bsp/uart/bsp_uart.h"  // è®°å¾—åœ¨æ–‡ä»¶é¡¶éƒ¨æˆ–è¿™é‡ŒåŠ ä¸Šå¤´æ–‡ä»¶å¼•å…¥
 
 #define ZEROPAD   (1 << 0) /* Pad with zero */
 #define SIGN      (1 << 1) /* Unsigned/signed long */
@@ -662,11 +662,11 @@ ee_vsprintf(char *buf, const char *fmt, va_list args)
 
 void uart_send_char(char c)
 {
-    // ×Ô¶¯»Ø³µ²¹Æë£¬·ÀÖ¹´®¿Úµ÷ÊÔÖúÊÖÀïÎÄ×Öğ¤ÔÚÒ»Æğ
+    // è‡ªåŠ¨å›è½¦è¡¥é½ï¼Œé˜²æ­¢ä¸²å£è°ƒè¯•åŠ©æ‰‹é‡Œæ–‡å­—é»åœ¨ä¸€èµ·
     if (c == '\n') {
         uart_putc('\r');
     }
-    // µ÷ÓÃ BSP ÀïµÄÓ²¼ş·¢ËÍº¯Êı
+    // è°ƒç”¨ BSP é‡Œçš„ç¡¬ä»¶å‘é€å‡½æ•°
     uart_putc(c);
 }
 

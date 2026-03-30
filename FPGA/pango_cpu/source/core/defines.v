@@ -33,6 +33,9 @@
 //   [BTB_ENTRY_WIDTH-2 : BTB_TARGET_WIDTH] : tag = PC[BTB_TAG_PC_HIGH:BTB_TAG_PC_LOW]
 //   [BTB_TARGET_WIDTH-1 : 0]               : 目标字地址（字节地址需左移2位拼接）
 
+//OITF相关
+`define OITF_DEPTH 4 
+
 //编译相关
 //`define USE_RAM_IPcore
 `define USE_RV32M //乘除法扩展指令集

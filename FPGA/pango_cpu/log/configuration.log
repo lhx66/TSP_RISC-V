@@ -8331,3 +8331,1533 @@ Cable index 0:USB Cable II/fffffffffffffffe
 [Debug] [2026-3-30 12:45:08] Log::Print : The done bit is 1
 [Debug] [2026-3-30 12:45:08] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
 [Info] [2026-3-30 12:45:12] /***************************End Configration***************************/
+[Info] [2026-3-30 13:02:23] /***************************Start Configuration***************************/
+[Info] [2026-3-30 13:02:23] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 13:02:23] Version: 146967
+[Info] [2026-3-30 13:02:24] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 13:02:24] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 13:02:28] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 13:02:28] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 13:02:28] Client Local Address:113.54.214.158
+[Debug] [2026-3-30 13:02:28] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 13:02:28] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 13:02:28] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 13:02:28] Finish.
+[Info] [2026-3-30 13:02:28] Connect server succeeded
+[Debug] [2026-3-30 13:02:28] Send RPC:1
+[Debug] [2026-3-30 13:02:28] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 13:02:28] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 13:02:29] Send RPC:2
+[Debug] [2026-3-30 13:02:29] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 13:02:29] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 13:02:29] Send RPC:3
+[Debug] [2026-3-30 13:02:29] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 13:02:29] End to send initialize chain cmd.
+[Debug] [2026-3-30 13:02:29] COMMAND[check version information] execute successfully, takes 0.4 secs.
+[Debug] [2026-3-30 13:02:29] Log::Print : COMMAND[check version information] execute successfully, takes 0.4 secs.
+[Debug] [2026-3-30 13:02:30] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 13:02:30] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 13:02:30] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 13:02:30] begin the exec of open cable cmd...
+[Debug] [2026-3-30 13:02:30] Begin to deal with chain from server...
+[Debug] [2026-3-30 13:02:30] Begin to set user chain...
+[Debug] [2026-3-30 13:02:30] End to set user chain.
+[Debug] [2026-3-30 13:02:30] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:02:30] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:02:30] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 13:02:30] Log::Print : PGL50G
+[Debug] [2026-3-30 13:02:30] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 13:02:32] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 13:02:32] begin to get device info from CFG file...
+[Debug] [2026-3-30 13:02:32] end to get device info from CFG file...
+[Debug] [2026-3-30 13:02:32] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:02:32] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:02:32] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:02:32] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:02:32] End to deal wiht chain from server.
+[Debug] [2026-3-30 13:02:32] end the exec of open cable cmd.
+[Debug] [2026-3-30 13:02:32] COMMAND[Open config cable] execute successfully, takes 3.0 secs.
+[Debug] [2026-3-30 13:02:32] Log::Print : COMMAND[Open config cable] execute successfully, takes 3.0 secs.
+[Debug] [2026-3-30 13:02:34] Begin to send programming cmd...
+[Debug] [2026-3-30 13:02:34] Send RPC:4
+[Debug] [2026-3-30 13:02:34] Begin to send program data.
+[Debug] [2026-3-30 13:02:34] End to send program data.
+[Debug] [2026-3-30 13:02:34] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 13:02:35] The value of Progress is 6
+[Debug] [2026-3-30 13:02:35] The value of Progress is 10
+[Debug] [2026-3-30 13:02:35] The value of Progress is 15
+[Debug] [2026-3-30 13:02:35] The value of Progress is 20
+[Debug] [2026-3-30 13:02:35] The value of Progress is 25
+[Debug] [2026-3-30 13:02:35] The value of Progress is 30
+[Debug] [2026-3-30 13:02:35] The value of Progress is 35
+[Debug] [2026-3-30 13:02:35] The value of Progress is 40
+[Debug] [2026-3-30 13:02:35] The value of Progress is 45
+[Debug] [2026-3-30 13:02:35] The value of Progress is 50
+[Debug] [2026-3-30 13:02:35] The value of Progress is 55
+[Debug] [2026-3-30 13:02:36] The value of Progress is 60
+[Debug] [2026-3-30 13:02:36] The value of Progress is 65
+[Debug] [2026-3-30 13:02:36] The value of Progress is 70
+[Debug] [2026-3-30 13:02:36] The value of Progress is 75
+[Debug] [2026-3-30 13:02:36] The value of Progress is 80
+[Debug] [2026-3-30 13:02:36] The value of Progress is 85
+[Debug] [2026-3-30 13:02:36] The value of Progress is 90
+[Debug] [2026-3-30 13:02:36] The value of Progress is 95
+[Debug] [2026-3-30 13:02:36] The value of Progress is 100
+[Debug] [2026-3-30 13:02:36] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 13:02:36] End to send programming cmd.
+[Debug] [2026-3-30 13:02:36] Log::Print : The done bit is 1
+[Debug] [2026-3-30 13:02:36] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 13:03:08] /***************************End Configration***************************/
+[Info] [2026-3-30 13:17:19] /***************************Start Configuration***************************/
+[Info] [2026-3-30 13:17:19] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 13:17:19] Version: 146967
+[Info] [2026-3-30 13:17:20] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 13:17:20] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 13:17:22] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 13:17:22] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 13:17:22] Client Local Address:113.54.214.158
+[Debug] [2026-3-30 13:17:22] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 13:17:22] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 13:17:22] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 13:17:22] Finish.
+[Info] [2026-3-30 13:17:22] Connect server succeeded
+[Debug] [2026-3-30 13:17:22] Send RPC:1
+[Debug] [2026-3-30 13:17:22] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 13:17:22] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 13:17:23] Send RPC:2
+[Debug] [2026-3-30 13:17:23] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 13:17:23] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 13:17:23] Send RPC:3
+[Debug] [2026-3-30 13:17:23] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 13:17:23] End to send initialize chain cmd.
+[Debug] [2026-3-30 13:17:23] COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 13:17:23] Log::Print : COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 13:17:24] COMMAND[get_cable_paras] execute successfully, takes 1.2 secs.
+[Debug] [2026-3-30 13:17:24] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 13:17:24] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.2 secs.
+[Debug] [2026-3-30 13:17:24] begin the exec of open cable cmd...
+[Debug] [2026-3-30 13:17:24] Begin to deal with chain from server...
+[Debug] [2026-3-30 13:17:24] Begin to set user chain...
+[Debug] [2026-3-30 13:17:24] End to set user chain.
+[Debug] [2026-3-30 13:17:24] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:17:24] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:17:24] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 13:17:24] Log::Print : PGL50G
+[Debug] [2026-3-30 13:17:24] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 13:17:25] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 13:17:25] begin to get device info from CFG file...
+[Debug] [2026-3-30 13:17:25] end to get device info from CFG file...
+[Debug] [2026-3-30 13:17:25] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:17:25] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:17:25] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:17:25] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:17:25] End to deal wiht chain from server.
+[Debug] [2026-3-30 13:17:25] end the exec of open cable cmd.
+[Debug] [2026-3-30 13:17:25] COMMAND[Open config cable] execute successfully, takes 2.4 secs.
+[Debug] [2026-3-30 13:17:25] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.4 secs.
+[Debug] [2026-3-30 13:17:26] Begin to send programming cmd...
+[Debug] [2026-3-30 13:17:26] Send RPC:4
+[Debug] [2026-3-30 13:17:26] Begin to send program data.
+[Debug] [2026-3-30 13:17:26] End to send program data.
+[Debug] [2026-3-30 13:17:26] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 13:17:26] The value of Progress is 6
+[Debug] [2026-3-30 13:17:26] The value of Progress is 10
+[Debug] [2026-3-30 13:17:26] The value of Progress is 15
+[Debug] [2026-3-30 13:17:26] The value of Progress is 20
+[Debug] [2026-3-30 13:17:26] The value of Progress is 25
+[Debug] [2026-3-30 13:17:27] The value of Progress is 30
+[Debug] [2026-3-30 13:17:27] The value of Progress is 35
+[Debug] [2026-3-30 13:17:27] The value of Progress is 40
+[Debug] [2026-3-30 13:17:27] The value of Progress is 45
+[Debug] [2026-3-30 13:17:27] The value of Progress is 50
+[Debug] [2026-3-30 13:17:27] The value of Progress is 55
+[Debug] [2026-3-30 13:17:27] The value of Progress is 60
+[Debug] [2026-3-30 13:17:27] The value of Progress is 65
+[Debug] [2026-3-30 13:17:27] The value of Progress is 70
+[Debug] [2026-3-30 13:17:27] The value of Progress is 75
+[Debug] [2026-3-30 13:17:27] The value of Progress is 80
+[Debug] [2026-3-30 13:17:27] The value of Progress is 85
+[Debug] [2026-3-30 13:17:28] The value of Progress is 90
+[Debug] [2026-3-30 13:17:28] The value of Progress is 95
+[Debug] [2026-3-30 13:17:28] The value of Progress is 100
+[Debug] [2026-3-30 13:17:28] COMMAND[Program] execute successfully, takes 1.9 secs.
+[Debug] [2026-3-30 13:17:28] End to send programming cmd.
+[Debug] [2026-3-30 13:17:28] Log::Print : The done bit is 1
+[Debug] [2026-3-30 13:17:28] Log::Print : COMMAND[Program] execute successfully, takes 1.9 secs.
+[Info] [2026-3-30 13:17:29] /***************************End Configration***************************/
+[Info] [2026-3-30 13:30:23] /***************************Start Configuration***************************/
+[Info] [2026-3-30 13:30:23] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 13:30:23] Version: 146967
+[Info] [2026-3-30 13:30:24] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 13:30:24] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 13:30:31] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 13:30:31] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 13:30:31] Client Local Address:113.54.214.158
+[Debug] [2026-3-30 13:30:31] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 13:30:31] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 13:30:32] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 13:30:32] Finish.
+[Info] [2026-3-30 13:30:32] Connect server succeeded
+[Debug] [2026-3-30 13:30:32] Send RPC:1
+[Debug] [2026-3-30 13:30:32] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 13:30:32] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 13:30:32] Send RPC:2
+[Debug] [2026-3-30 13:30:32] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 13:30:32] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 13:30:32] Send RPC:3
+[Debug] [2026-3-30 13:30:32] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 13:30:32] End to send initialize chain cmd.
+[Debug] [2026-3-30 13:30:32] COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 13:30:32] Log::Print : COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 13:30:33] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 13:30:33] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 13:30:33] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 13:30:34] begin the exec of open cable cmd...
+[Debug] [2026-3-30 13:30:34] Begin to deal with chain from server...
+[Debug] [2026-3-30 13:30:34] Begin to set user chain...
+[Debug] [2026-3-30 13:30:34] End to set user chain.
+[Debug] [2026-3-30 13:30:34] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:30:34] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:30:34] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 13:30:34] Log::Print : PGL50G
+[Debug] [2026-3-30 13:30:34] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 13:30:35] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 13:30:35] begin to get device info from CFG file...
+[Debug] [2026-3-30 13:30:35] end to get device info from CFG file...
+[Debug] [2026-3-30 13:30:35] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:30:35] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:30:35] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:30:35] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:30:35] End to deal wiht chain from server.
+[Debug] [2026-3-30 13:30:35] end the exec of open cable cmd.
+[Debug] [2026-3-30 13:30:35] COMMAND[Open config cable] execute successfully, takes 2.6 secs.
+[Debug] [2026-3-30 13:30:35] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.6 secs.
+[Debug] [2026-3-30 13:30:36] Begin to send programming cmd...
+[Debug] [2026-3-30 13:30:36] Send RPC:4
+[Debug] [2026-3-30 13:30:36] Begin to send program data.
+[Debug] [2026-3-30 13:30:36] End to send program data.
+[Debug] [2026-3-30 13:30:36] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 13:30:36] The value of Progress is 6
+[Debug] [2026-3-30 13:30:36] The value of Progress is 10
+[Debug] [2026-3-30 13:30:36] The value of Progress is 15
+[Debug] [2026-3-30 13:30:36] The value of Progress is 20
+[Debug] [2026-3-30 13:30:36] The value of Progress is 25
+[Debug] [2026-3-30 13:30:36] The value of Progress is 30
+[Debug] [2026-3-30 13:30:36] The value of Progress is 35
+[Debug] [2026-3-30 13:30:37] The value of Progress is 40
+[Debug] [2026-3-30 13:30:37] The value of Progress is 45
+[Debug] [2026-3-30 13:30:37] The value of Progress is 50
+[Debug] [2026-3-30 13:30:37] The value of Progress is 55
+[Debug] [2026-3-30 13:30:37] The value of Progress is 60
+[Debug] [2026-3-30 13:30:37] The value of Progress is 65
+[Debug] [2026-3-30 13:30:37] The value of Progress is 70
+[Debug] [2026-3-30 13:30:37] The value of Progress is 75
+[Debug] [2026-3-30 13:30:37] The value of Progress is 80
+[Debug] [2026-3-30 13:30:37] The value of Progress is 85
+[Debug] [2026-3-30 13:30:37] The value of Progress is 90
+[Debug] [2026-3-30 13:30:38] The value of Progress is 95
+[Debug] [2026-3-30 13:30:38] The value of Progress is 100
+[Debug] [2026-3-30 13:30:38] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 13:30:38] End to send programming cmd.
+[Debug] [2026-3-30 13:30:38] Log::Print : The done bit is 1
+[Debug] [2026-3-30 13:30:38] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 13:30:38] /***************************End Configration***************************/
+[Info] [2026-3-30 13:44:51] /***************************Start Configuration***************************/
+[Info] [2026-3-30 13:44:51] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 13:44:51] Version: 146967
+[Info] [2026-3-30 13:44:52] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 13:44:52] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 13:44:57] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 13:44:57] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 13:44:57] Client Local Address:113.54.214.158
+[Debug] [2026-3-30 13:44:57] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 13:44:57] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 13:44:57] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 13:44:57] Finish.
+[Info] [2026-3-30 13:44:57] Connect server succeeded
+[Debug] [2026-3-30 13:44:57] Send RPC:1
+[Debug] [2026-3-30 13:44:57] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 13:44:57] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 13:44:58] Send RPC:2
+[Debug] [2026-3-30 13:44:58] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 13:44:58] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 13:44:58] Send RPC:3
+[Debug] [2026-3-30 13:44:58] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 13:44:58] End to send initialize chain cmd.
+[Debug] [2026-3-30 13:44:58] COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 13:44:58] Log::Print : COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 13:44:59] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 13:44:59] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 13:44:59] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 13:44:59] begin the exec of open cable cmd...
+[Debug] [2026-3-30 13:44:59] Begin to deal with chain from server...
+[Debug] [2026-3-30 13:44:59] Begin to set user chain...
+[Debug] [2026-3-30 13:44:59] End to set user chain.
+[Debug] [2026-3-30 13:44:59] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:44:59] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:44:59] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 13:44:59] Log::Print : PGL50G
+[Debug] [2026-3-30 13:44:59] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 13:45:00] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 13:45:00] begin to get device info from CFG file...
+[Debug] [2026-3-30 13:45:00] end to get device info from CFG file...
+[Debug] [2026-3-30 13:45:00] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:45:00] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:45:00] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:45:00] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:45:00] End to deal wiht chain from server.
+[Debug] [2026-3-30 13:45:00] end the exec of open cable cmd.
+[Debug] [2026-3-30 13:45:00] COMMAND[Open config cable] execute successfully, takes 2.4 secs.
+[Debug] [2026-3-30 13:45:00] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.4 secs.
+[Debug] [2026-3-30 13:45:01] Begin to send programming cmd...
+[Debug] [2026-3-30 13:45:01] Send RPC:4
+[Debug] [2026-3-30 13:45:01] Begin to send program data.
+[Debug] [2026-3-30 13:45:01] End to send program data.
+[Debug] [2026-3-30 13:45:01] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 13:45:01] The value of Progress is 6
+[Debug] [2026-3-30 13:45:01] The value of Progress is 10
+[Debug] [2026-3-30 13:45:01] The value of Progress is 15
+[Debug] [2026-3-30 13:45:02] The value of Progress is 20
+[Debug] [2026-3-30 13:45:02] The value of Progress is 25
+[Debug] [2026-3-30 13:45:02] The value of Progress is 30
+[Debug] [2026-3-30 13:45:02] The value of Progress is 35
+[Debug] [2026-3-30 13:45:02] The value of Progress is 40
+[Debug] [2026-3-30 13:45:02] The value of Progress is 45
+[Debug] [2026-3-30 13:45:02] The value of Progress is 50
+[Debug] [2026-3-30 13:45:02] The value of Progress is 55
+[Debug] [2026-3-30 13:45:02] The value of Progress is 60
+[Debug] [2026-3-30 13:45:02] The value of Progress is 65
+[Debug] [2026-3-30 13:45:02] The value of Progress is 70
+[Debug] [2026-3-30 13:45:02] The value of Progress is 75
+[Debug] [2026-3-30 13:45:03] The value of Progress is 80
+[Debug] [2026-3-30 13:45:03] The value of Progress is 85
+[Debug] [2026-3-30 13:45:03] The value of Progress is 90
+[Debug] [2026-3-30 13:45:03] The value of Progress is 95
+[Debug] [2026-3-30 13:45:03] The value of Progress is 100
+[Debug] [2026-3-30 13:45:03] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 13:45:03] End to send programming cmd.
+[Debug] [2026-3-30 13:45:03] Log::Print : The done bit is 1
+[Debug] [2026-3-30 13:45:03] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 13:45:04] /***************************End Configration***************************/
+[Info] [2026-3-30 13:59:26] /***************************Start Configuration***************************/
+[Info] [2026-3-30 13:59:26] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 13:59:26] Version: 146967
+[Info] [2026-3-30 13:59:27] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 13:59:27] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 13:59:29] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 13:59:29] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 13:59:29] Client Local Address:113.54.214.158
+[Debug] [2026-3-30 13:59:29] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 13:59:29] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 13:59:29] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 13:59:29] Finish.
+[Info] [2026-3-30 13:59:29] Connect server succeeded
+[Debug] [2026-3-30 13:59:29] Send RPC:1
+[Debug] [2026-3-30 13:59:29] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 13:59:29] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 13:59:30] Send RPC:2
+[Debug] [2026-3-30 13:59:30] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 13:59:30] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 13:59:30] Send RPC:3
+[Debug] [2026-3-30 13:59:30] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 13:59:30] End to send initialize chain cmd.
+[Debug] [2026-3-30 13:59:30] COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 13:59:30] Log::Print : COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 13:59:31] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 13:59:31] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 13:59:31] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 13:59:31] begin the exec of open cable cmd...
+[Debug] [2026-3-30 13:59:31] Begin to deal with chain from server...
+[Debug] [2026-3-30 13:59:31] Begin to set user chain...
+[Debug] [2026-3-30 13:59:31] End to set user chain.
+[Debug] [2026-3-30 13:59:31] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:59:31] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:59:31] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 13:59:31] Log::Print : PGL50G
+[Debug] [2026-3-30 13:59:31] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 13:59:32] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 13:59:32] begin to get device info from CFG file...
+[Debug] [2026-3-30 13:59:32] end to get device info from CFG file...
+[Debug] [2026-3-30 13:59:32] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:59:32] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:59:32] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 13:59:32] End to update graphic item and tree item ...
+[Debug] [2026-3-30 13:59:32] End to deal wiht chain from server.
+[Debug] [2026-3-30 13:59:32] end the exec of open cable cmd.
+[Debug] [2026-3-30 13:59:32] COMMAND[Open config cable] execute successfully, takes 2.6 secs.
+[Debug] [2026-3-30 13:59:32] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.6 secs.
+[Debug] [2026-3-30 13:59:33] Begin to send programming cmd...
+[Debug] [2026-3-30 13:59:33] Send RPC:4
+[Debug] [2026-3-30 13:59:33] Begin to send program data.
+[Debug] [2026-3-30 13:59:33] End to send program data.
+[Debug] [2026-3-30 13:59:33] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 13:59:33] The value of Progress is 6
+[Debug] [2026-3-30 13:59:34] The value of Progress is 10
+[Debug] [2026-3-30 13:59:34] The value of Progress is 15
+[Debug] [2026-3-30 13:59:34] The value of Progress is 20
+[Debug] [2026-3-30 13:59:34] The value of Progress is 25
+[Debug] [2026-3-30 13:59:34] The value of Progress is 30
+[Debug] [2026-3-30 13:59:34] The value of Progress is 35
+[Debug] [2026-3-30 13:59:34] The value of Progress is 40
+[Debug] [2026-3-30 13:59:34] The value of Progress is 45
+[Debug] [2026-3-30 13:59:34] The value of Progress is 50
+[Debug] [2026-3-30 13:59:34] The value of Progress is 55
+[Debug] [2026-3-30 13:59:34] The value of Progress is 60
+[Debug] [2026-3-30 13:59:34] The value of Progress is 65
+[Debug] [2026-3-30 13:59:35] The value of Progress is 70
+[Debug] [2026-3-30 13:59:35] The value of Progress is 75
+[Debug] [2026-3-30 13:59:35] The value of Progress is 80
+[Debug] [2026-3-30 13:59:35] The value of Progress is 85
+[Debug] [2026-3-30 13:59:35] The value of Progress is 90
+[Debug] [2026-3-30 13:59:35] The value of Progress is 95
+[Debug] [2026-3-30 13:59:35] The value of Progress is 100
+[Debug] [2026-3-30 13:59:35] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 13:59:35] End to send programming cmd.
+[Debug] [2026-3-30 13:59:35] Log::Print : The done bit is 1
+[Debug] [2026-3-30 13:59:35] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 13:59:36] /***************************End Configration***************************/
+[Info] [2026-3-30 14:08:43] /***************************Start Configuration***************************/
+[Info] [2026-3-30 14:08:43] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 14:08:43] Version: 146967
+[Info] [2026-3-30 14:08:44] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 14:08:44] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 14:08:46] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 14:08:46] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 14:08:46] Client Local Address:113.54.214.158
+[Debug] [2026-3-30 14:08:46] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 14:08:46] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 14:08:46] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 14:08:46] Finish.
+[Info] [2026-3-30 14:08:46] Connect server succeeded
+[Debug] [2026-3-30 14:08:46] Send RPC:1
+[Debug] [2026-3-30 14:08:46] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 14:08:46] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 14:08:46] Send RPC:2
+[Debug] [2026-3-30 14:08:46] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 14:08:46] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 14:08:46] Send RPC:3
+[Debug] [2026-3-30 14:08:46] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 14:08:46] End to send initialize chain cmd.
+[Debug] [2026-3-30 14:08:46] COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 14:08:46] Log::Print : COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 14:08:48] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 14:08:48] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 14:08:48] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 14:08:48] begin the exec of open cable cmd...
+[Debug] [2026-3-30 14:08:48] Begin to deal with chain from server...
+[Debug] [2026-3-30 14:08:48] Begin to set user chain...
+[Debug] [2026-3-30 14:08:48] End to set user chain.
+[Debug] [2026-3-30 14:08:48] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 14:08:48] End to update graphic item and tree item ...
+[Debug] [2026-3-30 14:08:48] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 14:08:48] Log::Print : PGL50G
+[Debug] [2026-3-30 14:08:48] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 14:08:49] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 14:08:49] begin to get device info from CFG file...
+[Debug] [2026-3-30 14:08:49] end to get device info from CFG file...
+[Debug] [2026-3-30 14:08:49] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 14:08:49] End to update graphic item and tree item ...
+[Debug] [2026-3-30 14:08:49] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 14:08:49] End to update graphic item and tree item ...
+[Debug] [2026-3-30 14:08:49] End to deal wiht chain from server.
+[Debug] [2026-3-30 14:08:49] end the exec of open cable cmd.
+[Debug] [2026-3-30 14:08:49] COMMAND[Open config cable] execute successfully, takes 2.5 secs.
+[Debug] [2026-3-30 14:08:49] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.5 secs.
+[Debug] [2026-3-30 14:08:50] Begin to send programming cmd...
+[Debug] [2026-3-30 14:08:50] Send RPC:4
+[Debug] [2026-3-30 14:08:50] Begin to send program data.
+[Debug] [2026-3-30 14:08:50] End to send program data.
+[Debug] [2026-3-30 14:08:50] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 14:08:50] The value of Progress is 6
+[Debug] [2026-3-30 14:08:50] The value of Progress is 10
+[Debug] [2026-3-30 14:08:50] The value of Progress is 15
+[Debug] [2026-3-30 14:08:50] The value of Progress is 20
+[Debug] [2026-3-30 14:08:51] The value of Progress is 25
+[Debug] [2026-3-30 14:08:51] The value of Progress is 30
+[Debug] [2026-3-30 14:08:51] The value of Progress is 35
+[Debug] [2026-3-30 14:08:51] The value of Progress is 40
+[Debug] [2026-3-30 14:08:51] The value of Progress is 45
+[Debug] [2026-3-30 14:08:51] The value of Progress is 50
+[Debug] [2026-3-30 14:08:51] The value of Progress is 55
+[Debug] [2026-3-30 14:08:51] The value of Progress is 60
+[Debug] [2026-3-30 14:08:51] The value of Progress is 65
+[Debug] [2026-3-30 14:08:51] The value of Progress is 70
+[Debug] [2026-3-30 14:08:51] The value of Progress is 75
+[Debug] [2026-3-30 14:08:52] The value of Progress is 80
+[Debug] [2026-3-30 14:08:52] The value of Progress is 85
+[Debug] [2026-3-30 14:08:52] The value of Progress is 90
+[Debug] [2026-3-30 14:08:52] The value of Progress is 95
+[Debug] [2026-3-30 14:08:52] The value of Progress is 100
+[Debug] [2026-3-30 14:08:52] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 14:08:52] End to send programming cmd.
+[Debug] [2026-3-30 14:08:52] Log::Print : The done bit is 1
+[Debug] [2026-3-30 14:08:52] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 14:08:56] /***************************End Configration***************************/
+[Info] [2026-3-30 16:29:29] /***************************Start Configuration***************************/
+[Info] [2026-3-30 16:29:29] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 16:29:29] Version: 146967
+[Info] [2026-3-30 16:29:30] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 16:29:30] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 16:29:32] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 16:29:32] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 16:29:32] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 16:29:32] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 16:29:32] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 16:29:33] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 16:29:33] Finish.
+[Info] [2026-3-30 16:29:33] Connect server succeeded
+[Debug] [2026-3-30 16:29:33] Send RPC:1
+[Debug] [2026-3-30 16:29:33] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 16:29:33] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 16:29:33] Send RPC:2
+[Debug] [2026-3-30 16:29:33] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 16:29:33] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 16:29:33] Send RPC:3
+[Debug] [2026-3-30 16:29:33] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 16:29:33] End to send initialize chain cmd.
+[Debug] [2026-3-30 16:29:33] COMMAND[check version information] execute successfully, takes 0.4 secs.
+[Debug] [2026-3-30 16:29:33] Log::Print : COMMAND[check version information] execute successfully, takes 0.4 secs.
+[Debug] [2026-3-30 16:29:34] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 16:29:34] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 16:29:34] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 16:29:35] begin the exec of open cable cmd...
+[Debug] [2026-3-30 16:29:35] Begin to deal with chain from server...
+[Debug] [2026-3-30 16:29:35] Begin to set user chain...
+[Debug] [2026-3-30 16:29:35] End to set user chain.
+[Debug] [2026-3-30 16:29:35] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 16:29:35] End to update graphic item and tree item ...
+[Debug] [2026-3-30 16:29:35] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 16:29:35] Log::Print : PGL50G
+[Debug] [2026-3-30 16:29:35] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 16:29:36] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 16:29:36] begin to get device info from CFG file...
+[Debug] [2026-3-30 16:29:36] end to get device info from CFG file...
+[Debug] [2026-3-30 16:29:36] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 16:29:36] End to update graphic item and tree item ...
+[Debug] [2026-3-30 16:29:36] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 16:29:36] End to update graphic item and tree item ...
+[Debug] [2026-3-30 16:29:36] End to deal wiht chain from server.
+[Debug] [2026-3-30 16:29:36] end the exec of open cable cmd.
+[Debug] [2026-3-30 16:29:36] COMMAND[Open config cable] execute successfully, takes 2.7 secs.
+[Debug] [2026-3-30 16:29:36] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.7 secs.
+[Debug] [2026-3-30 16:29:37] Begin to send programming cmd...
+[Debug] [2026-3-30 16:29:37] Send RPC:4
+[Debug] [2026-3-30 16:29:37] Begin to send program data.
+[Debug] [2026-3-30 16:29:37] End to send program data.
+[Debug] [2026-3-30 16:29:37] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 16:29:37] The value of Progress is 6
+[Debug] [2026-3-30 16:29:37] The value of Progress is 10
+[Debug] [2026-3-30 16:29:37] The value of Progress is 15
+[Debug] [2026-3-30 16:29:37] The value of Progress is 20
+[Debug] [2026-3-30 16:29:37] The value of Progress is 25
+[Debug] [2026-3-30 16:29:37] The value of Progress is 30
+[Debug] [2026-3-30 16:29:37] The value of Progress is 35
+[Debug] [2026-3-30 16:29:38] The value of Progress is 40
+[Debug] [2026-3-30 16:29:38] The value of Progress is 45
+[Debug] [2026-3-30 16:29:38] The value of Progress is 50
+[Debug] [2026-3-30 16:29:38] The value of Progress is 55
+[Debug] [2026-3-30 16:29:38] The value of Progress is 60
+[Debug] [2026-3-30 16:29:38] The value of Progress is 65
+[Debug] [2026-3-30 16:29:38] The value of Progress is 70
+[Debug] [2026-3-30 16:29:38] The value of Progress is 75
+[Debug] [2026-3-30 16:29:38] The value of Progress is 80
+[Debug] [2026-3-30 16:29:38] The value of Progress is 85
+[Debug] [2026-3-30 16:29:38] The value of Progress is 90
+[Debug] [2026-3-30 16:29:39] The value of Progress is 95
+[Debug] [2026-3-30 16:29:39] The value of Progress is 100
+[Debug] [2026-3-30 16:29:39] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 16:29:39] End to send programming cmd.
+[Debug] [2026-3-30 16:29:39] Log::Print : The done bit is 1
+[Debug] [2026-3-30 16:29:39] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 16:29:39] /***************************End Configration***************************/
+[Info] [2026-3-30 16:57:46] /***************************Start Configuration***************************/
+[Info] [2026-3-30 16:57:46] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 16:57:46] Version: 146967
+[Info] [2026-3-30 16:57:47] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 16:57:47] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 16:57:50] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 16:57:50] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 16:57:50] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 16:57:50] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 16:57:50] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 16:57:50] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 16:57:50] Finish.
+[Info] [2026-3-30 16:57:50] Connect server succeeded
+[Debug] [2026-3-30 16:57:50] Send RPC:1
+[Debug] [2026-3-30 16:57:50] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 16:57:50] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 16:57:51] Send RPC:2
+[Debug] [2026-3-30 16:57:51] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 16:57:51] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 16:57:51] Send RPC:3
+[Debug] [2026-3-30 16:57:51] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 16:57:51] End to send initialize chain cmd.
+[Debug] [2026-3-30 16:57:51] COMMAND[check version information] execute successfully, takes 0.4 secs.
+[Debug] [2026-3-30 16:57:51] Log::Print : COMMAND[check version information] execute successfully, takes 0.4 secs.
+[Debug] [2026-3-30 16:57:52] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 16:57:52] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 16:57:52] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 16:57:52] begin the exec of open cable cmd...
+[Debug] [2026-3-30 16:57:52] Begin to deal with chain from server...
+[Debug] [2026-3-30 16:57:52] Begin to set user chain...
+[Debug] [2026-3-30 16:57:52] End to set user chain.
+[Debug] [2026-3-30 16:57:52] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 16:57:52] End to update graphic item and tree item ...
+[Debug] [2026-3-30 16:57:52] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 16:57:52] Log::Print : PGL50G
+[Debug] [2026-3-30 16:57:52] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 16:57:53] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 16:57:53] begin to get device info from CFG file...
+[Debug] [2026-3-30 16:57:53] end to get device info from CFG file...
+[Debug] [2026-3-30 16:57:53] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 16:57:53] End to update graphic item and tree item ...
+[Debug] [2026-3-30 16:57:53] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 16:57:53] End to update graphic item and tree item ...
+[Debug] [2026-3-30 16:57:53] End to deal wiht chain from server.
+[Debug] [2026-3-30 16:57:53] end the exec of open cable cmd.
+[Debug] [2026-3-30 16:57:53] COMMAND[Open config cable] execute successfully, takes 2.5 secs.
+[Debug] [2026-3-30 16:57:53] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.5 secs.
+[Debug] [2026-3-30 16:57:54] Begin to send programming cmd...
+[Debug] [2026-3-30 16:57:54] Send RPC:4
+[Debug] [2026-3-30 16:57:54] Begin to send program data.
+[Debug] [2026-3-30 16:57:54] End to send program data.
+[Debug] [2026-3-30 16:57:54] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 16:57:55] The value of Progress is 6
+[Debug] [2026-3-30 16:57:55] The value of Progress is 10
+[Debug] [2026-3-30 16:57:55] The value of Progress is 15
+[Debug] [2026-3-30 16:57:55] The value of Progress is 20
+[Debug] [2026-3-30 16:57:55] The value of Progress is 25
+[Debug] [2026-3-30 16:57:55] The value of Progress is 30
+[Debug] [2026-3-30 16:57:55] The value of Progress is 35
+[Debug] [2026-3-30 16:57:55] The value of Progress is 40
+[Debug] [2026-3-30 16:57:55] The value of Progress is 45
+[Debug] [2026-3-30 16:57:55] The value of Progress is 50
+[Debug] [2026-3-30 16:57:55] The value of Progress is 55
+[Debug] [2026-3-30 16:57:55] The value of Progress is 60
+[Debug] [2026-3-30 16:57:56] The value of Progress is 65
+[Debug] [2026-3-30 16:57:56] The value of Progress is 70
+[Debug] [2026-3-30 16:57:56] The value of Progress is 75
+[Debug] [2026-3-30 16:57:56] The value of Progress is 80
+[Debug] [2026-3-30 16:57:56] The value of Progress is 85
+[Debug] [2026-3-30 16:57:56] The value of Progress is 90
+[Debug] [2026-3-30 16:57:56] The value of Progress is 95
+[Debug] [2026-3-30 16:57:56] The value of Progress is 100
+[Debug] [2026-3-30 16:57:56] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 16:57:56] End to send programming cmd.
+[Debug] [2026-3-30 16:57:56] Log::Print : The done bit is 1
+[Debug] [2026-3-30 16:57:56] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 16:57:57] /***************************End Configration***************************/
+[Info] [2026-3-30 17:11:17] /***************************Start Configuration***************************/
+[Info] [2026-3-30 17:11:17] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 17:11:17] Version: 146967
+[Info] [2026-3-30 17:11:18] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 17:11:18] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 17:11:19] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 17:11:19] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 17:11:19] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 17:11:19] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 17:11:19] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 17:11:20] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 17:11:20] Finish.
+[Info] [2026-3-30 17:11:20] Connect server succeeded
+[Debug] [2026-3-30 17:11:20] Send RPC:1
+[Debug] [2026-3-30 17:11:20] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 17:11:20] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 17:11:20] Send RPC:2
+[Debug] [2026-3-30 17:11:20] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 17:11:20] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 17:11:20] Send RPC:3
+[Debug] [2026-3-30 17:11:20] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 17:11:20] End to send initialize chain cmd.
+[Debug] [2026-3-30 17:11:20] COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 17:11:20] Log::Print : COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 17:11:21] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 17:11:21] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 17:11:21] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 17:11:22] begin the exec of open cable cmd...
+[Debug] [2026-3-30 17:11:22] Begin to deal with chain from server...
+[Debug] [2026-3-30 17:11:22] Begin to set user chain...
+[Debug] [2026-3-30 17:11:22] End to set user chain.
+[Debug] [2026-3-30 17:11:22] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 17:11:22] End to update graphic item and tree item ...
+[Debug] [2026-3-30 17:11:22] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 17:11:22] Log::Print : PGL50G
+[Debug] [2026-3-30 17:11:22] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 17:11:23] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 17:11:23] begin to get device info from CFG file...
+[Debug] [2026-3-30 17:11:23] end to get device info from CFG file...
+[Debug] [2026-3-30 17:11:23] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 17:11:23] End to update graphic item and tree item ...
+[Debug] [2026-3-30 17:11:23] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 17:11:23] End to update graphic item and tree item ...
+[Debug] [2026-3-30 17:11:23] End to deal wiht chain from server.
+[Debug] [2026-3-30 17:11:23] end the exec of open cable cmd.
+[Debug] [2026-3-30 17:11:23] COMMAND[Open config cable] execute successfully, takes 2.5 secs.
+[Debug] [2026-3-30 17:11:23] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.5 secs.
+[Debug] [2026-3-30 17:11:24] Begin to send programming cmd...
+[Debug] [2026-3-30 17:11:24] Send RPC:4
+[Debug] [2026-3-30 17:11:24] Begin to send program data.
+[Debug] [2026-3-30 17:11:24] End to send program data.
+[Debug] [2026-3-30 17:11:24] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 17:11:24] The value of Progress is 6
+[Debug] [2026-3-30 17:11:24] The value of Progress is 10
+[Debug] [2026-3-30 17:11:24] The value of Progress is 15
+[Debug] [2026-3-30 17:11:24] The value of Progress is 20
+[Debug] [2026-3-30 17:11:24] The value of Progress is 25
+[Debug] [2026-3-30 17:11:24] The value of Progress is 30
+[Debug] [2026-3-30 17:11:24] The value of Progress is 35
+[Debug] [2026-3-30 17:11:24] The value of Progress is 40
+[Debug] [2026-3-30 17:11:25] The value of Progress is 45
+[Debug] [2026-3-30 17:11:25] The value of Progress is 50
+[Debug] [2026-3-30 17:11:25] The value of Progress is 55
+[Debug] [2026-3-30 17:11:25] The value of Progress is 60
+[Debug] [2026-3-30 17:11:25] The value of Progress is 65
+[Debug] [2026-3-30 17:11:25] The value of Progress is 70
+[Debug] [2026-3-30 17:11:25] The value of Progress is 75
+[Debug] [2026-3-30 17:11:25] The value of Progress is 80
+[Debug] [2026-3-30 17:11:25] The value of Progress is 85
+[Debug] [2026-3-30 17:11:25] The value of Progress is 90
+[Debug] [2026-3-30 17:11:25] The value of Progress is 95
+[Debug] [2026-3-30 17:11:26] The value of Progress is 100
+[Debug] [2026-3-30 17:11:26] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 17:11:26] End to send programming cmd.
+[Debug] [2026-3-30 17:11:26] Log::Print : The done bit is 1
+[Debug] [2026-3-30 17:11:26] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 17:11:26] /***************************End Configration***************************/
+[Info] [2026-3-30 17:22:34] /***************************Start Configuration***************************/
+[Info] [2026-3-30 17:22:34] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 17:22:34] Version: 146967
+[Info] [2026-3-30 17:22:35] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 17:22:35] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 17:22:43] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 17:22:43] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 17:22:43] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 17:22:43] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 17:22:43] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 17:22:44] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 17:22:44] Finish.
+[Info] [2026-3-30 17:22:44] Connect server succeeded
+[Debug] [2026-3-30 17:22:44] Send RPC:1
+[Debug] [2026-3-30 17:22:44] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 17:22:44] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 17:22:44] Send RPC:2
+[Debug] [2026-3-30 17:22:44] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 17:22:44] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 17:22:44] Send RPC:3
+[Debug] [2026-3-30 17:22:44] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 17:22:44] End to send initialize chain cmd.
+[Debug] [2026-3-30 17:22:44] COMMAND[check version information] execute successfully, takes 0.4 secs.
+[Debug] [2026-3-30 17:22:44] Log::Print : COMMAND[check version information] execute successfully, takes 0.4 secs.
+[Debug] [2026-3-30 17:22:45] COMMAND[get_cable_paras] execute successfully, takes 1.2 secs.
+[Debug] [2026-3-30 17:22:45] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 17:22:45] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.2 secs.
+[Debug] [2026-3-30 17:22:46] begin the exec of open cable cmd...
+[Debug] [2026-3-30 17:22:46] Begin to deal with chain from server...
+[Debug] [2026-3-30 17:22:46] Begin to set user chain...
+[Debug] [2026-3-30 17:22:46] End to set user chain.
+[Debug] [2026-3-30 17:22:46] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 17:22:46] End to update graphic item and tree item ...
+[Debug] [2026-3-30 17:22:46] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 17:22:46] Log::Print : PGL50G
+[Debug] [2026-3-30 17:22:46] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 17:22:47] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 17:22:47] begin to get device info from CFG file...
+[Debug] [2026-3-30 17:22:47] end to get device info from CFG file...
+[Debug] [2026-3-30 17:22:47] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 17:22:47] End to update graphic item and tree item ...
+[Debug] [2026-3-30 17:22:47] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 17:22:47] End to update graphic item and tree item ...
+[Debug] [2026-3-30 17:22:47] End to deal wiht chain from server.
+[Debug] [2026-3-30 17:22:47] end the exec of open cable cmd.
+[Debug] [2026-3-30 17:22:47] COMMAND[Open config cable] execute successfully, takes 3.0 secs.
+[Debug] [2026-3-30 17:22:47] Log::Print : COMMAND[Open config cable] execute successfully, takes 3.0 secs.
+[Debug] [2026-3-30 17:22:48] Begin to send programming cmd...
+[Debug] [2026-3-30 17:22:48] Send RPC:4
+[Debug] [2026-3-30 17:22:48] Begin to send program data.
+[Debug] [2026-3-30 17:22:48] End to send program data.
+[Debug] [2026-3-30 17:22:48] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 17:22:48] The value of Progress is 6
+[Debug] [2026-3-30 17:22:48] The value of Progress is 10
+[Debug] [2026-3-30 17:22:49] The value of Progress is 15
+[Debug] [2026-3-30 17:22:49] The value of Progress is 20
+[Debug] [2026-3-30 17:22:49] The value of Progress is 25
+[Debug] [2026-3-30 17:22:49] The value of Progress is 30
+[Debug] [2026-3-30 17:22:49] The value of Progress is 35
+[Debug] [2026-3-30 17:22:49] The value of Progress is 40
+[Debug] [2026-3-30 17:22:49] The value of Progress is 45
+[Debug] [2026-3-30 17:22:49] The value of Progress is 50
+[Debug] [2026-3-30 17:22:49] The value of Progress is 55
+[Debug] [2026-3-30 17:22:49] The value of Progress is 60
+[Debug] [2026-3-30 17:22:49] The value of Progress is 65
+[Debug] [2026-3-30 17:22:49] The value of Progress is 70
+[Debug] [2026-3-30 17:22:50] The value of Progress is 75
+[Debug] [2026-3-30 17:22:50] The value of Progress is 80
+[Debug] [2026-3-30 17:22:50] The value of Progress is 85
+[Debug] [2026-3-30 17:22:50] The value of Progress is 90
+[Debug] [2026-3-30 17:22:50] The value of Progress is 95
+[Debug] [2026-3-30 17:22:50] The value of Progress is 100
+[Debug] [2026-3-30 17:22:50] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 17:22:50] End to send programming cmd.
+[Debug] [2026-3-30 17:22:50] Log::Print : The done bit is 1
+[Debug] [2026-3-30 17:22:50] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 17:22:50] /***************************End Configration***************************/
+[Info] [2026-3-30 20:08:16] /***************************Start Configuration***************************/
+[Info] [2026-3-30 20:08:16] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 20:08:16] Version: 146967
+[Info] [2026-3-30 20:08:17] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 20:08:17] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 20:08:19] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 20:08:19] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 20:08:19] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 20:08:19] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 20:08:19] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 20:08:19] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 20:08:19] Finish.
+[Info] [2026-3-30 20:08:19] Connect server succeeded
+[Debug] [2026-3-30 20:08:19] Send RPC:1
+[Debug] [2026-3-30 20:08:19] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 20:08:19] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 20:08:20] Send RPC:2
+[Debug] [2026-3-30 20:08:20] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 20:08:20] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 20:08:20] Send RPC:3
+[Debug] [2026-3-30 20:08:20] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 20:08:20] End to send initialize chain cmd.
+[Debug] [2026-3-30 20:08:20] COMMAND[check version information] execute successfully, takes 0.2 secs.
+[Debug] [2026-3-30 20:08:20] Log::Print : COMMAND[check version information] execute successfully, takes 0.2 secs.
+[Debug] [2026-3-30 20:08:21] COMMAND[get_cable_paras] execute successfully, takes 1.0 secs.
+[Debug] [2026-3-30 20:08:21] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 20:08:21] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.0 secs.
+[Error] [2026-3-30 20:08:21] fail to exec Open config cable cmd...
+[Error] [2026-3-30 20:08:21] MsgOut: JtagServer-0006: Fail to open PANGO USB CABLE II cable.
+[Error] [2026-3-30 20:08:21] MsgOut: JtagServer-0306: No devices detected while scanning the JTAG chain, failed detecting JTAG device chain.
+[Warn] [2026-3-30 20:08:21] MsgOut: Please check the device power, cable connection situation and whether put the chip in the right way or not.
+   If these do not work, try to restart the software.
+[Error] [2026-3-30 20:08:21] MsgOut: Configuration-0008: The command 'Open config cable' execute fail.
+[Info] [2026-3-30 20:08:24] /***************************End Configration***************************/
+[Info] [2026-3-30 20:08:26] /***************************Start Configuration***************************/
+[Info] [2026-3-30 20:08:26] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 20:08:26] Version: 146967
+[Info] [2026-3-30 20:08:27] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 20:08:27] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 20:08:29] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 20:08:29] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 20:08:29] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 20:08:29] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 20:08:29] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 20:08:30] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 20:08:30] Finish.
+[Info] [2026-3-30 20:08:30] Connect server succeeded
+[Debug] [2026-3-30 20:08:30] Send RPC:1
+[Debug] [2026-3-30 20:08:30] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 20:08:30] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 20:08:30] Send RPC:2
+[Debug] [2026-3-30 20:08:30] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 20:08:30] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 20:08:30] Send RPC:3
+[Debug] [2026-3-30 20:08:30] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 20:08:30] End to send initialize chain cmd.
+[Debug] [2026-3-30 20:08:30] COMMAND[check version information] execute successfully, takes 0.1 secs.
+[Debug] [2026-3-30 20:08:30] Log::Print : COMMAND[check version information] execute successfully, takes 0.1 secs.
+[Debug] [2026-3-30 20:08:31] COMMAND[get_cable_paras] execute successfully, takes 1.0 secs.
+[Debug] [2026-3-30 20:08:31] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 20:08:31] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.0 secs.
+[Error] [2026-3-30 20:08:31] fail to exec Open config cable cmd...
+[Error] [2026-3-30 20:08:31] MsgOut: JtagServer-0006: Fail to open PANGO USB CABLE II cable.
+[Error] [2026-3-30 20:08:31] MsgOut: JtagServer-0306: No devices detected while scanning the JTAG chain, failed detecting JTAG device chain.
+[Warn] [2026-3-30 20:08:31] MsgOut: Please check the device power, cable connection situation and whether put the chip in the right way or not.
+   If these do not work, try to restart the software.
+[Error] [2026-3-30 20:08:31] MsgOut: Configuration-0008: The command 'Open config cable' execute fail.
+[Info] [2026-3-30 20:08:32] /***************************End Configration***************************/
+[Info] [2026-3-30 20:08:42] /***************************Start Configuration***************************/
+[Info] [2026-3-30 20:08:42] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 20:08:42] Version: 146967
+[Info] [2026-3-30 20:08:43] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 20:08:43] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 20:08:44] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 20:08:44] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 20:08:44] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 20:08:44] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 20:08:44] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 20:08:44] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 20:08:44] Finish.
+[Info] [2026-3-30 20:08:44] Connect server succeeded
+[Debug] [2026-3-30 20:08:44] Send RPC:1
+[Debug] [2026-3-30 20:08:44] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 20:08:44] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 20:08:45] Send RPC:2
+[Debug] [2026-3-30 20:08:45] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 20:08:45] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 20:08:45] Send RPC:3
+[Debug] [2026-3-30 20:08:45] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 20:08:45] End to send initialize chain cmd.
+[Debug] [2026-3-30 20:08:45] COMMAND[check version information] execute successfully, takes 0.2 secs.
+[Debug] [2026-3-30 20:08:45] Log::Print : COMMAND[check version information] execute successfully, takes 0.2 secs.
+[Debug] [2026-3-30 20:08:46] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 20:08:46] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 20:08:46] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 20:08:46] begin the exec of open cable cmd...
+[Debug] [2026-3-30 20:08:46] Begin to deal with chain from server...
+[Debug] [2026-3-30 20:08:46] Begin to set user chain...
+[Debug] [2026-3-30 20:08:46] End to set user chain.
+[Debug] [2026-3-30 20:08:46] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 20:08:46] End to update graphic item and tree item ...
+[Debug] [2026-3-30 20:08:46] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 20:08:46] Log::Print : PGL50G
+[Debug] [2026-3-30 20:08:46] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 20:08:48] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 20:08:48] begin to get device info from CFG file...
+[Debug] [2026-3-30 20:08:48] end to get device info from CFG file...
+[Debug] [2026-3-30 20:08:48] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 20:08:48] End to update graphic item and tree item ...
+[Debug] [2026-3-30 20:08:48] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 20:08:48] End to update graphic item and tree item ...
+[Debug] [2026-3-30 20:08:48] End to deal wiht chain from server.
+[Debug] [2026-3-30 20:08:48] end the exec of open cable cmd.
+[Debug] [2026-3-30 20:08:48] COMMAND[Open config cable] execute successfully, takes 2.9 secs.
+[Debug] [2026-3-30 20:08:48] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.9 secs.
+[Debug] [2026-3-30 20:08:49] Begin to send programming cmd...
+[Debug] [2026-3-30 20:08:49] Send RPC:4
+[Debug] [2026-3-30 20:08:49] Begin to send program data.
+[Debug] [2026-3-30 20:08:49] End to send program data.
+[Debug] [2026-3-30 20:08:49] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 20:08:49] The value of Progress is 6
+[Debug] [2026-3-30 20:08:49] The value of Progress is 10
+[Debug] [2026-3-30 20:08:49] The value of Progress is 15
+[Debug] [2026-3-30 20:08:49] The value of Progress is 20
+[Debug] [2026-3-30 20:08:49] The value of Progress is 25
+[Debug] [2026-3-30 20:08:49] The value of Progress is 30
+[Debug] [2026-3-30 20:08:49] The value of Progress is 35
+[Debug] [2026-3-30 20:08:50] The value of Progress is 40
+[Debug] [2026-3-30 20:08:50] The value of Progress is 45
+[Debug] [2026-3-30 20:08:50] The value of Progress is 50
+[Debug] [2026-3-30 20:08:50] The value of Progress is 55
+[Debug] [2026-3-30 20:08:50] The value of Progress is 60
+[Debug] [2026-3-30 20:08:50] The value of Progress is 65
+[Debug] [2026-3-30 20:08:50] The value of Progress is 70
+[Debug] [2026-3-30 20:08:50] The value of Progress is 75
+[Debug] [2026-3-30 20:08:50] The value of Progress is 80
+[Debug] [2026-3-30 20:08:50] The value of Progress is 85
+[Debug] [2026-3-30 20:08:50] The value of Progress is 90
+[Debug] [2026-3-30 20:08:51] The value of Progress is 95
+[Debug] [2026-3-30 20:08:51] The value of Progress is 100
+[Debug] [2026-3-30 20:08:51] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 20:08:51] End to send programming cmd.
+[Debug] [2026-3-30 20:08:51] Log::Print : The done bit is 1
+[Debug] [2026-3-30 20:08:51] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 20:08:51] /***************************End Configration***************************/
+[Info] [2026-3-30 20:23:59] /***************************Start Configuration***************************/
+[Info] [2026-3-30 20:23:59] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 20:23:59] Version: 146967
+[Info] [2026-3-30 20:24:01] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 20:24:01] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 20:24:02] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 20:24:02] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 20:24:02] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 20:24:02] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 20:24:02] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 20:24:03] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 20:24:03] Finish.
+[Info] [2026-3-30 20:24:03] Connect server succeeded
+[Debug] [2026-3-30 20:24:03] Send RPC:1
+[Debug] [2026-3-30 20:24:03] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 20:24:03] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 20:24:03] Send RPC:2
+[Debug] [2026-3-30 20:24:03] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 20:24:03] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 20:24:03] Send RPC:3
+[Debug] [2026-3-30 20:24:03] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 20:24:03] End to send initialize chain cmd.
+[Debug] [2026-3-30 20:24:03] COMMAND[check version information] execute successfully, takes 0.4 secs.
+[Debug] [2026-3-30 20:24:03] Log::Print : COMMAND[check version information] execute successfully, takes 0.4 secs.
+[Debug] [2026-3-30 20:24:04] COMMAND[get_cable_paras] execute successfully, takes 1.2 secs.
+[Debug] [2026-3-30 20:24:04] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 20:24:04] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.2 secs.
+[Debug] [2026-3-30 20:24:05] begin the exec of open cable cmd...
+[Debug] [2026-3-30 20:24:05] Begin to deal with chain from server...
+[Debug] [2026-3-30 20:24:05] Begin to set user chain...
+[Debug] [2026-3-30 20:24:05] End to set user chain.
+[Debug] [2026-3-30 20:24:05] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 20:24:05] End to update graphic item and tree item ...
+[Debug] [2026-3-30 20:24:05] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 20:24:05] Log::Print : PGL50G
+[Debug] [2026-3-30 20:24:05] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 20:24:06] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 20:24:06] begin to get device info from CFG file...
+[Debug] [2026-3-30 20:24:06] end to get device info from CFG file...
+[Debug] [2026-3-30 20:24:06] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 20:24:06] End to update graphic item and tree item ...
+[Debug] [2026-3-30 20:24:06] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 20:24:06] End to update graphic item and tree item ...
+[Debug] [2026-3-30 20:24:06] End to deal wiht chain from server.
+[Debug] [2026-3-30 20:24:06] end the exec of open cable cmd.
+[Debug] [2026-3-30 20:24:06] COMMAND[Open config cable] execute successfully, takes 2.7 secs.
+[Debug] [2026-3-30 20:24:06] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.7 secs.
+[Debug] [2026-3-30 20:24:07] Begin to send programming cmd...
+[Debug] [2026-3-30 20:24:07] Send RPC:4
+[Debug] [2026-3-30 20:24:07] Begin to send program data.
+[Debug] [2026-3-30 20:24:07] End to send program data.
+[Debug] [2026-3-30 20:24:07] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 20:24:07] The value of Progress is 6
+[Debug] [2026-3-30 20:24:07] The value of Progress is 10
+[Debug] [2026-3-30 20:24:07] The value of Progress is 15
+[Debug] [2026-3-30 20:24:07] The value of Progress is 20
+[Debug] [2026-3-30 20:24:07] The value of Progress is 25
+[Debug] [2026-3-30 20:24:07] The value of Progress is 30
+[Debug] [2026-3-30 20:24:08] The value of Progress is 35
+[Debug] [2026-3-30 20:24:08] The value of Progress is 40
+[Debug] [2026-3-30 20:24:08] The value of Progress is 45
+[Debug] [2026-3-30 20:24:08] The value of Progress is 50
+[Debug] [2026-3-30 20:24:08] The value of Progress is 55
+[Debug] [2026-3-30 20:24:08] The value of Progress is 60
+[Debug] [2026-3-30 20:24:08] The value of Progress is 65
+[Debug] [2026-3-30 20:24:08] The value of Progress is 70
+[Debug] [2026-3-30 20:24:08] The value of Progress is 75
+[Debug] [2026-3-30 20:24:08] The value of Progress is 80
+[Debug] [2026-3-30 20:24:08] The value of Progress is 85
+[Debug] [2026-3-30 20:24:09] The value of Progress is 90
+[Debug] [2026-3-30 20:24:09] The value of Progress is 95
+[Debug] [2026-3-30 20:24:09] The value of Progress is 100
+[Debug] [2026-3-30 20:24:09] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 20:24:09] End to send programming cmd.
+[Debug] [2026-3-30 20:24:09] Log::Print : The done bit is 1
+[Debug] [2026-3-30 20:24:09] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 20:24:09] /***************************End Configration***************************/
+[Info] [2026-3-30 20:45:48] /***************************Start Configuration***************************/
+[Info] [2026-3-30 20:45:48] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 20:45:48] Version: 146967
+[Info] [2026-3-30 20:45:49] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 20:45:49] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 20:45:53] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 20:45:53] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 20:45:53] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 20:45:53] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 20:45:54] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 20:45:54] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 20:45:54] Finish.
+[Info] [2026-3-30 20:45:54] Connect server succeeded
+[Debug] [2026-3-30 20:45:54] Send RPC:1
+[Debug] [2026-3-30 20:45:54] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 20:45:54] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 20:45:54] Send RPC:2
+[Debug] [2026-3-30 20:45:54] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 20:45:54] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 20:45:54] Send RPC:3
+[Debug] [2026-3-30 20:45:54] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 20:45:54] End to send initialize chain cmd.
+[Debug] [2026-3-30 20:45:54] COMMAND[check version information] execute successfully, takes 0.4 secs.
+[Debug] [2026-3-30 20:45:54] Log::Print : COMMAND[check version information] execute successfully, takes 0.4 secs.
+[Debug] [2026-3-30 20:45:55] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 20:45:55] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 20:45:55] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 20:45:56] begin the exec of open cable cmd...
+[Debug] [2026-3-30 20:45:56] Begin to deal with chain from server...
+[Debug] [2026-3-30 20:45:56] Begin to set user chain...
+[Debug] [2026-3-30 20:45:56] End to set user chain.
+[Debug] [2026-3-30 20:45:56] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 20:45:56] End to update graphic item and tree item ...
+[Debug] [2026-3-30 20:45:56] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 20:45:56] Log::Print : PGL50G
+[Debug] [2026-3-30 20:45:56] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 20:45:57] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 20:45:57] begin to get device info from CFG file...
+[Debug] [2026-3-30 20:45:57] end to get device info from CFG file...
+[Debug] [2026-3-30 20:45:57] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 20:45:57] End to update graphic item and tree item ...
+[Debug] [2026-3-30 20:45:57] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 20:45:57] End to update graphic item and tree item ...
+[Debug] [2026-3-30 20:45:57] End to deal wiht chain from server.
+[Debug] [2026-3-30 20:45:57] end the exec of open cable cmd.
+[Debug] [2026-3-30 20:45:57] COMMAND[Open config cable] execute successfully, takes 2.5 secs.
+[Debug] [2026-3-30 20:45:57] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.5 secs.
+[Debug] [2026-3-30 20:45:58] Begin to send programming cmd...
+[Debug] [2026-3-30 20:45:58] Send RPC:4
+[Debug] [2026-3-30 20:45:58] Begin to send program data.
+[Debug] [2026-3-30 20:45:58] End to send program data.
+[Debug] [2026-3-30 20:45:58] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 20:45:58] The value of Progress is 6
+[Debug] [2026-3-30 20:45:58] The value of Progress is 10
+[Debug] [2026-3-30 20:45:58] The value of Progress is 15
+[Debug] [2026-3-30 20:45:58] The value of Progress is 20
+[Debug] [2026-3-30 20:45:58] The value of Progress is 25
+[Debug] [2026-3-30 20:45:59] The value of Progress is 30
+[Debug] [2026-3-30 20:45:59] The value of Progress is 35
+[Debug] [2026-3-30 20:45:59] The value of Progress is 40
+[Debug] [2026-3-30 20:45:59] The value of Progress is 45
+[Debug] [2026-3-30 20:45:59] The value of Progress is 50
+[Debug] [2026-3-30 20:45:59] The value of Progress is 55
+[Debug] [2026-3-30 20:45:59] The value of Progress is 60
+[Debug] [2026-3-30 20:45:59] The value of Progress is 65
+[Debug] [2026-3-30 20:45:59] The value of Progress is 70
+[Debug] [2026-3-30 20:45:59] The value of Progress is 75
+[Debug] [2026-3-30 20:45:59] The value of Progress is 80
+[Debug] [2026-3-30 20:45:59] The value of Progress is 85
+[Debug] [2026-3-30 20:46:00] The value of Progress is 90
+[Debug] [2026-3-30 20:46:00] The value of Progress is 95
+[Debug] [2026-3-30 20:46:00] The value of Progress is 100
+[Debug] [2026-3-30 20:46:00] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 20:46:00] End to send programming cmd.
+[Debug] [2026-3-30 20:46:00] Log::Print : The done bit is 1
+[Debug] [2026-3-30 20:46:00] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 20:46:01] /***************************End Configration***************************/
+[Info] [2026-3-30 21:06:11] /***************************Start Configuration***************************/
+[Info] [2026-3-30 21:06:11] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 21:06:11] Version: 146967
+[Info] [2026-3-30 21:06:12] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 21:06:12] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 21:06:15] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 21:06:15] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 21:06:15] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 21:06:15] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 21:06:15] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 21:06:16] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 21:06:16] Finish.
+[Info] [2026-3-30 21:06:16] Connect server succeeded
+[Debug] [2026-3-30 21:06:16] Send RPC:1
+[Debug] [2026-3-30 21:06:16] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 21:06:16] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 21:06:16] Send RPC:2
+[Debug] [2026-3-30 21:06:16] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 21:06:16] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 21:06:16] Send RPC:3
+[Debug] [2026-3-30 21:06:16] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 21:06:16] End to send initialize chain cmd.
+[Debug] [2026-3-30 21:06:16] COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 21:06:16] Log::Print : COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 21:06:17] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 21:06:17] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 21:06:17] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 21:06:17] begin the exec of open cable cmd...
+[Debug] [2026-3-30 21:06:17] Begin to deal with chain from server...
+[Debug] [2026-3-30 21:06:17] Begin to set user chain...
+[Debug] [2026-3-30 21:06:17] End to set user chain.
+[Debug] [2026-3-30 21:06:17] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 21:06:17] End to update graphic item and tree item ...
+[Debug] [2026-3-30 21:06:18] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 21:06:18] Log::Print : PGL50G
+[Debug] [2026-3-30 21:06:18] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 21:06:18] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 21:06:18] begin to get device info from CFG file...
+[Debug] [2026-3-30 21:06:18] end to get device info from CFG file...
+[Debug] [2026-3-30 21:06:18] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 21:06:18] End to update graphic item and tree item ...
+[Debug] [2026-3-30 21:06:18] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 21:06:18] End to update graphic item and tree item ...
+[Debug] [2026-3-30 21:06:18] End to deal wiht chain from server.
+[Debug] [2026-3-30 21:06:18] end the exec of open cable cmd.
+[Debug] [2026-3-30 21:06:18] COMMAND[Open config cable] execute successfully, takes 2.5 secs.
+[Debug] [2026-3-30 21:06:18] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.5 secs.
+[Debug] [2026-3-30 21:06:20] Begin to send programming cmd...
+[Debug] [2026-3-30 21:06:20] Send RPC:4
+[Debug] [2026-3-30 21:06:20] Begin to send program data.
+[Debug] [2026-3-30 21:06:20] End to send program data.
+[Debug] [2026-3-30 21:06:20] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 21:06:20] The value of Progress is 6
+[Debug] [2026-3-30 21:06:20] The value of Progress is 10
+[Debug] [2026-3-30 21:06:20] The value of Progress is 15
+[Debug] [2026-3-30 21:06:20] The value of Progress is 20
+[Debug] [2026-3-30 21:06:20] The value of Progress is 25
+[Debug] [2026-3-30 21:06:20] The value of Progress is 30
+[Debug] [2026-3-30 21:06:21] The value of Progress is 35
+[Debug] [2026-3-30 21:06:21] The value of Progress is 40
+[Debug] [2026-3-30 21:06:21] The value of Progress is 45
+[Debug] [2026-3-30 21:06:21] The value of Progress is 50
+[Debug] [2026-3-30 21:06:21] The value of Progress is 55
+[Debug] [2026-3-30 21:06:21] The value of Progress is 60
+[Debug] [2026-3-30 21:06:21] The value of Progress is 65
+[Debug] [2026-3-30 21:06:21] The value of Progress is 70
+[Debug] [2026-3-30 21:06:21] The value of Progress is 75
+[Debug] [2026-3-30 21:06:21] The value of Progress is 80
+[Debug] [2026-3-30 21:06:21] The value of Progress is 85
+[Debug] [2026-3-30 21:06:21] The value of Progress is 90
+[Debug] [2026-3-30 21:06:22] The value of Progress is 95
+[Debug] [2026-3-30 21:06:22] The value of Progress is 100
+[Debug] [2026-3-30 21:06:22] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 21:06:22] End to send programming cmd.
+[Debug] [2026-3-30 21:06:22] Log::Print : The done bit is 1
+[Debug] [2026-3-30 21:06:22] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 21:06:24] /***************************End Configration***************************/
+[Info] [2026-3-30 21:42:53] /***************************Start Configuration***************************/
+[Info] [2026-3-30 21:42:53] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 21:42:53] Version: 146967
+[Info] [2026-3-30 21:42:54] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 21:42:54] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 21:42:56] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 21:42:56] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 21:42:56] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 21:42:56] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 21:42:56] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 21:42:56] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 21:42:56] Finish.
+[Info] [2026-3-30 21:42:56] Connect server succeeded
+[Debug] [2026-3-30 21:42:56] Send RPC:1
+[Debug] [2026-3-30 21:42:56] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 21:42:56] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 21:42:57] Send RPC:2
+[Debug] [2026-3-30 21:42:57] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 21:42:57] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 21:42:57] Send RPC:3
+[Debug] [2026-3-30 21:42:57] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 21:42:57] End to send initialize chain cmd.
+[Debug] [2026-3-30 21:42:57] COMMAND[check version information] execute successfully, takes 0.4 secs.
+[Debug] [2026-3-30 21:42:57] Log::Print : COMMAND[check version information] execute successfully, takes 0.4 secs.
+[Debug] [2026-3-30 21:42:58] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 21:42:58] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 21:42:58] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 21:42:58] begin the exec of open cable cmd...
+[Debug] [2026-3-30 21:42:58] Begin to deal with chain from server...
+[Debug] [2026-3-30 21:42:58] Begin to set user chain...
+[Debug] [2026-3-30 21:42:58] End to set user chain.
+[Debug] [2026-3-30 21:42:58] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 21:42:58] End to update graphic item and tree item ...
+[Debug] [2026-3-30 21:42:58] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 21:42:58] Log::Print : PGL50G
+[Debug] [2026-3-30 21:42:58] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 21:42:59] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 21:42:59] begin to get device info from CFG file...
+[Debug] [2026-3-30 21:42:59] end to get device info from CFG file...
+[Debug] [2026-3-30 21:42:59] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 21:42:59] End to update graphic item and tree item ...
+[Debug] [2026-3-30 21:42:59] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 21:42:59] End to update graphic item and tree item ...
+[Debug] [2026-3-30 21:42:59] End to deal wiht chain from server.
+[Debug] [2026-3-30 21:42:59] end the exec of open cable cmd.
+[Debug] [2026-3-30 21:42:59] COMMAND[Open config cable] execute successfully, takes 2.5 secs.
+[Debug] [2026-3-30 21:42:59] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.5 secs.
+[Debug] [2026-3-30 21:43:00] Begin to send programming cmd...
+[Debug] [2026-3-30 21:43:00] Send RPC:4
+[Debug] [2026-3-30 21:43:00] Begin to send program data.
+[Debug] [2026-3-30 21:43:00] End to send program data.
+[Debug] [2026-3-30 21:43:00] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 21:43:00] The value of Progress is 6
+[Debug] [2026-3-30 21:43:00] The value of Progress is 10
+[Debug] [2026-3-30 21:43:01] The value of Progress is 15
+[Debug] [2026-3-30 21:43:01] The value of Progress is 20
+[Debug] [2026-3-30 21:43:01] The value of Progress is 25
+[Debug] [2026-3-30 21:43:01] The value of Progress is 30
+[Debug] [2026-3-30 21:43:01] The value of Progress is 35
+[Debug] [2026-3-30 21:43:01] The value of Progress is 40
+[Debug] [2026-3-30 21:43:01] The value of Progress is 45
+[Debug] [2026-3-30 21:43:01] The value of Progress is 50
+[Debug] [2026-3-30 21:43:01] The value of Progress is 55
+[Debug] [2026-3-30 21:43:01] The value of Progress is 60
+[Debug] [2026-3-30 21:43:01] The value of Progress is 65
+[Debug] [2026-3-30 21:43:02] The value of Progress is 70
+[Debug] [2026-3-30 21:43:02] The value of Progress is 75
+[Debug] [2026-3-30 21:43:02] The value of Progress is 80
+[Debug] [2026-3-30 21:43:02] The value of Progress is 85
+[Debug] [2026-3-30 21:43:02] The value of Progress is 90
+[Debug] [2026-3-30 21:43:02] The value of Progress is 95
+[Debug] [2026-3-30 21:43:02] The value of Progress is 100
+[Debug] [2026-3-30 21:43:02] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 21:43:02] End to send programming cmd.
+[Debug] [2026-3-30 21:43:02] Log::Print : The done bit is 1
+[Debug] [2026-3-30 21:43:02] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 21:43:04] /***************************End Configration***************************/
+[Info] [2026-3-30 21:57:19] /***************************Start Configuration***************************/
+[Info] [2026-3-30 21:57:19] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 21:57:19] Version: 146967
+[Info] [2026-3-30 21:57:20] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 21:57:20] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 21:57:21] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 21:57:21] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 21:57:21] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 21:57:21] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 21:57:21] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 21:57:22] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 21:57:22] Finish.
+[Info] [2026-3-30 21:57:22] Connect server succeeded
+[Debug] [2026-3-30 21:57:22] Send RPC:1
+[Debug] [2026-3-30 21:57:22] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 21:57:22] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 21:57:22] Send RPC:2
+[Debug] [2026-3-30 21:57:22] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 21:57:22] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 21:57:22] Send RPC:3
+[Debug] [2026-3-30 21:57:22] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 21:57:22] End to send initialize chain cmd.
+[Debug] [2026-3-30 21:57:22] COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 21:57:22] Log::Print : COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 21:57:23] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 21:57:23] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 21:57:23] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Error] [2026-3-30 21:57:23] fail to exec Open config cable cmd...
+[Error] [2026-3-30 21:57:23] MsgOut: JtagServer-0006: Fail to open PANGO USB CABLE II cable.
+[Error] [2026-3-30 21:57:23] MsgOut: JtagServer-0306: No devices detected while scanning the JTAG chain, failed detecting JTAG device chain.
+[Warn] [2026-3-30 21:57:23] MsgOut: Please check the device power, cable connection situation and whether put the chip in the right way or not.
+   If these do not work, try to restart the software.
+[Error] [2026-3-30 21:57:23] MsgOut: Configuration-0008: The command 'Open config cable' execute fail.
+[Info] [2026-3-30 21:57:45] /***************************End Configration***************************/
+[Info] [2026-3-30 21:57:47] /***************************Start Configuration***************************/
+[Info] [2026-3-30 21:57:47] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 21:57:47] Version: 146967
+[Info] [2026-3-30 21:57:48] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 21:57:48] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 21:57:50] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 21:57:50] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 21:57:50] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 21:57:50] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 21:57:50] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 21:57:51] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 21:57:51] Finish.
+[Info] [2026-3-30 21:57:51] Connect server succeeded
+[Debug] [2026-3-30 21:57:51] Send RPC:1
+[Debug] [2026-3-30 21:57:51] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 21:57:51] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 21:57:51] Send RPC:2
+[Debug] [2026-3-30 21:57:51] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 21:57:51] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 21:57:51] Send RPC:3
+[Debug] [2026-3-30 21:57:51] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 21:57:51] End to send initialize chain cmd.
+[Debug] [2026-3-30 21:57:51] COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 21:57:51] Log::Print : COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 21:57:52] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 21:57:52] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 21:57:52] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 21:57:52] begin the exec of open cable cmd...
+[Debug] [2026-3-30 21:57:52] Begin to deal with chain from server...
+[Debug] [2026-3-30 21:57:52] Begin to set user chain...
+[Debug] [2026-3-30 21:57:52] End to set user chain.
+[Debug] [2026-3-30 21:57:52] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 21:57:52] End to update graphic item and tree item ...
+[Debug] [2026-3-30 21:57:52] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 21:57:52] Log::Print : PGL50G
+[Debug] [2026-3-30 21:57:52] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 21:57:53] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 21:57:53] begin to get device info from CFG file...
+[Debug] [2026-3-30 21:57:53] end to get device info from CFG file...
+[Debug] [2026-3-30 21:57:53] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 21:57:53] End to update graphic item and tree item ...
+[Debug] [2026-3-30 21:57:53] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 21:57:53] End to update graphic item and tree item ...
+[Debug] [2026-3-30 21:57:53] End to deal wiht chain from server.
+[Debug] [2026-3-30 21:57:53] end the exec of open cable cmd.
+[Debug] [2026-3-30 21:57:53] COMMAND[Open config cable] execute successfully, takes 2.6 secs.
+[Debug] [2026-3-30 21:57:53] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.6 secs.
+[Debug] [2026-3-30 21:57:55] Begin to send programming cmd...
+[Debug] [2026-3-30 21:57:55] Send RPC:4
+[Debug] [2026-3-30 21:57:55] Begin to send program data.
+[Debug] [2026-3-30 21:57:55] End to send program data.
+[Debug] [2026-3-30 21:57:55] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 21:57:55] The value of Progress is 6
+[Debug] [2026-3-30 21:57:55] The value of Progress is 10
+[Debug] [2026-3-30 21:57:55] The value of Progress is 15
+[Debug] [2026-3-30 21:57:55] The value of Progress is 20
+[Debug] [2026-3-30 21:57:55] The value of Progress is 25
+[Debug] [2026-3-30 21:57:55] The value of Progress is 30
+[Debug] [2026-3-30 21:57:55] The value of Progress is 35
+[Debug] [2026-3-30 21:57:56] The value of Progress is 40
+[Debug] [2026-3-30 21:57:56] The value of Progress is 45
+[Debug] [2026-3-30 21:57:56] The value of Progress is 50
+[Debug] [2026-3-30 21:57:56] The value of Progress is 55
+[Debug] [2026-3-30 21:57:56] The value of Progress is 60
+[Debug] [2026-3-30 21:57:56] The value of Progress is 65
+[Debug] [2026-3-30 21:57:56] The value of Progress is 70
+[Debug] [2026-3-30 21:57:56] The value of Progress is 75
+[Debug] [2026-3-30 21:57:56] The value of Progress is 80
+[Debug] [2026-3-30 21:57:56] The value of Progress is 85
+[Debug] [2026-3-30 21:57:56] The value of Progress is 90
+[Debug] [2026-3-30 21:57:56] The value of Progress is 95
+[Debug] [2026-3-30 21:57:57] The value of Progress is 100
+[Debug] [2026-3-30 21:57:57] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 21:57:57] End to send programming cmd.
+[Debug] [2026-3-30 21:57:57] Log::Print : The done bit is 1
+[Debug] [2026-3-30 21:57:57] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 21:57:57] /***************************End Configration***************************/
+[Info] [2026-3-30 22:12:39] /***************************Start Configuration***************************/
+[Info] [2026-3-30 22:12:39] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 22:12:39] Version: 146967
+[Info] [2026-3-30 22:12:40] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 22:12:40] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 22:12:42] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 22:12:42] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 22:12:42] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 22:12:42] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 22:12:43] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 22:12:43] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 22:12:43] Finish.
+[Info] [2026-3-30 22:12:43] Connect server succeeded
+[Debug] [2026-3-30 22:12:43] Send RPC:1
+[Debug] [2026-3-30 22:12:43] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 22:12:43] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 22:12:43] Send RPC:2
+[Debug] [2026-3-30 22:12:43] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 22:12:43] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 22:12:43] Send RPC:3
+[Debug] [2026-3-30 22:12:43] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 22:12:43] End to send initialize chain cmd.
+[Debug] [2026-3-30 22:12:43] COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 22:12:43] Log::Print : COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 22:12:44] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 22:12:44] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 22:12:44] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 22:12:45] begin the exec of open cable cmd...
+[Debug] [2026-3-30 22:12:45] Begin to deal with chain from server...
+[Debug] [2026-3-30 22:12:45] Begin to set user chain...
+[Debug] [2026-3-30 22:12:45] End to set user chain.
+[Debug] [2026-3-30 22:12:45] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 22:12:45] End to update graphic item and tree item ...
+[Debug] [2026-3-30 22:12:45] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 22:12:45] Log::Print : PGL50G
+[Debug] [2026-3-30 22:12:45] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 22:12:46] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 22:12:46] begin to get device info from CFG file...
+[Debug] [2026-3-30 22:12:46] end to get device info from CFG file...
+[Debug] [2026-3-30 22:12:46] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 22:12:46] End to update graphic item and tree item ...
+[Debug] [2026-3-30 22:12:46] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 22:12:46] End to update graphic item and tree item ...
+[Debug] [2026-3-30 22:12:46] End to deal wiht chain from server.
+[Debug] [2026-3-30 22:12:46] end the exec of open cable cmd.
+[Debug] [2026-3-30 22:12:46] COMMAND[Open config cable] execute successfully, takes 2.6 secs.
+[Debug] [2026-3-30 22:12:46] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.6 secs.
+[Debug] [2026-3-30 22:12:47] Begin to send programming cmd...
+[Debug] [2026-3-30 22:12:47] Send RPC:4
+[Debug] [2026-3-30 22:12:47] Begin to send program data.
+[Debug] [2026-3-30 22:12:47] End to send program data.
+[Debug] [2026-3-30 22:12:47] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 22:12:47] The value of Progress is 6
+[Debug] [2026-3-30 22:12:47] The value of Progress is 10
+[Debug] [2026-3-30 22:12:47] The value of Progress is 15
+[Debug] [2026-3-30 22:12:47] The value of Progress is 20
+[Debug] [2026-3-30 22:12:47] The value of Progress is 25
+[Debug] [2026-3-30 22:12:47] The value of Progress is 30
+[Debug] [2026-3-30 22:12:48] The value of Progress is 35
+[Debug] [2026-3-30 22:12:48] The value of Progress is 40
+[Debug] [2026-3-30 22:12:48] The value of Progress is 45
+[Debug] [2026-3-30 22:12:48] The value of Progress is 50
+[Debug] [2026-3-30 22:12:48] The value of Progress is 55
+[Debug] [2026-3-30 22:12:48] The value of Progress is 60
+[Debug] [2026-3-30 22:12:48] The value of Progress is 65
+[Debug] [2026-3-30 22:12:48] The value of Progress is 70
+[Debug] [2026-3-30 22:12:48] The value of Progress is 75
+[Debug] [2026-3-30 22:12:48] The value of Progress is 80
+[Debug] [2026-3-30 22:12:48] The value of Progress is 85
+[Debug] [2026-3-30 22:12:49] The value of Progress is 90
+[Debug] [2026-3-30 22:12:49] The value of Progress is 95
+[Debug] [2026-3-30 22:12:49] The value of Progress is 100
+[Debug] [2026-3-30 22:12:49] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 22:12:49] End to send programming cmd.
+[Debug] [2026-3-30 22:12:49] Log::Print : The done bit is 1
+[Debug] [2026-3-30 22:12:49] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 22:12:49] /***************************End Configration***************************/
+[Info] [2026-3-30 22:26:20] /***************************Start Configuration***************************/
+[Info] [2026-3-30 22:26:20] Path: E:/pango/PDS_2022.2-SP6.4/bin
+[Info] [2026-3-30 22:26:20] Version: 146967
+[Info] [2026-3-30 22:26:21] Current Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 22:26:21] PDS Dir Path: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu
+[Info] [2026-3-30 22:26:24] Configuration is not connect with server. connect first then scan chain.
+[Debug] [2026-3-30 22:26:24] Client Local host name:LAPTOP-E3CFACBD
+[Debug] [2026-3-30 22:26:24] Client Local Address:113.54.169.6
+[Debug] [2026-3-30 22:26:24] Server Address:127.0.0.1, Port:65420
+[Debug] [2026-3-30 22:26:24] Log::Print : Connecting to server[127.0.0.1 : 65420].
+[Info] [2026-3-30 22:26:25] Connect OK, Server: 127.0.0.1  Port: 65420
+[Debug] [2026-3-30 22:26:25] Finish.
+[Info] [2026-3-30 22:26:25] Connect server succeeded
+[Debug] [2026-3-30 22:26:25] Send RPC:1
+[Debug] [2026-3-30 22:26:25] Send cmd [check version information:40004] OK
+[Debug] [2026-3-30 22:26:25] Log::Print : Connect to server[127.0.0.1 : 65420] successfully.
+[Debug] [2026-3-30 22:26:25] Send RPC:2
+[Debug] [2026-3-30 22:26:25] Send cmd [get_cable_paras:40010] OK
+[Debug] [2026-3-30 22:26:25] Begin to send initialize chain cmd...
+[Debug] [2026-3-30 22:26:25] Send RPC:3
+[Debug] [2026-3-30 22:26:25] Send cmd [Open config cable:20001] OK
+[Debug] [2026-3-30 22:26:25] End to send initialize chain cmd.
+[Debug] [2026-3-30 22:26:25] COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 22:26:25] Log::Print : COMMAND[check version information] execute successfully, takes 0.3 secs.
+[Debug] [2026-3-30 22:26:26] COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 22:26:26] Log::Print : The cable List : 
+Cable index 0:USB Cable II/fffffffffffffffe 
+
+[Debug] [2026-3-30 22:26:26] Log::Print : COMMAND[get_cable_paras] execute successfully, takes 1.1 secs.
+[Debug] [2026-3-30 22:26:27] begin the exec of open cable cmd...
+[Debug] [2026-3-30 22:26:27] Begin to deal with chain from server...
+[Debug] [2026-3-30 22:26:27] Begin to set user chain...
+[Debug] [2026-3-30 22:26:27] End to set user chain.
+[Debug] [2026-3-30 22:26:27] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 22:26:27] End to update graphic item and tree item ...
+[Debug] [2026-3-30 22:26:27] Log::Print : PANGO USB CABLE II cable driver: D2XX DLL
+[Debug] [2026-3-30 22:26:27] Log::Print : PGL50G
+[Debug] [2026-3-30 22:26:27] Log::Print : This device configure situation (done bit): 1
+[Info] [2026-3-30 22:26:27] set OpenLastPath: E:/FPGA/TSP_RVmaster/FPGA/pango_cpu/generate_bitstream/SoC_Top.sbit
+[Debug] [2026-3-30 22:26:27] begin to get device info from CFG file...
+[Debug] [2026-3-30 22:26:27] end to get device info from CFG file...
+[Debug] [2026-3-30 22:26:27] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 22:26:27] End to update graphic item and tree item ...
+[Debug] [2026-3-30 22:26:27] Begin to update graphic item and tree item ...
+[Debug] [2026-3-30 22:26:27] End to update graphic item and tree item ...
+[Debug] [2026-3-30 22:26:27] End to deal wiht chain from server.
+[Debug] [2026-3-30 22:26:27] end the exec of open cable cmd.
+[Debug] [2026-3-30 22:26:27] COMMAND[Open config cable] execute successfully, takes 2.3 secs.
+[Debug] [2026-3-30 22:26:27] Log::Print : COMMAND[Open config cable] execute successfully, takes 2.3 secs.
+[Debug] [2026-3-30 22:26:28] Begin to send programming cmd...
+[Debug] [2026-3-30 22:26:28] Send RPC:4
+[Debug] [2026-3-30 22:26:28] Begin to send program data.
+[Debug] [2026-3-30 22:26:28] End to send program data.
+[Debug] [2026-3-30 22:26:28] Send cmd [Program:20002] OK
+[Debug] [2026-3-30 22:26:29] The value of Progress is 6
+[Debug] [2026-3-30 22:26:29] The value of Progress is 10
+[Debug] [2026-3-30 22:26:29] The value of Progress is 15
+[Debug] [2026-3-30 22:26:29] The value of Progress is 20
+[Debug] [2026-3-30 22:26:29] The value of Progress is 25
+[Debug] [2026-3-30 22:26:29] The value of Progress is 30
+[Debug] [2026-3-30 22:26:29] The value of Progress is 35
+[Debug] [2026-3-30 22:26:29] The value of Progress is 40
+[Debug] [2026-3-30 22:26:29] The value of Progress is 45
+[Debug] [2026-3-30 22:26:29] The value of Progress is 50
+[Debug] [2026-3-30 22:26:29] The value of Progress is 55
+[Debug] [2026-3-30 22:26:29] The value of Progress is 60
+[Debug] [2026-3-30 22:26:30] The value of Progress is 65
+[Debug] [2026-3-30 22:26:30] The value of Progress is 70
+[Debug] [2026-3-30 22:26:30] The value of Progress is 75
+[Debug] [2026-3-30 22:26:30] The value of Progress is 80
+[Debug] [2026-3-30 22:26:30] The value of Progress is 85
+[Debug] [2026-3-30 22:26:30] The value of Progress is 90
+[Debug] [2026-3-30 22:26:30] The value of Progress is 95
+[Debug] [2026-3-30 22:26:30] The value of Progress is 100
+[Debug] [2026-3-30 22:26:30] COMMAND[Program] execute successfully, takes 2.0 secs.
+[Debug] [2026-3-30 22:26:30] End to send programming cmd.
+[Debug] [2026-3-30 22:26:30] Log::Print : The done bit is 1
+[Debug] [2026-3-30 22:26:30] Log::Print : COMMAND[Program] execute successfully, takes 2.0 secs.
+[Info] [2026-3-30 22:26:31] /***************************End Configration***************************/
