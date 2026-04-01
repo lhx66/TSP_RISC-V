@@ -1,0 +1,35 @@
+# Simple Makefile for malloc test
+CROSS_COMPILE ?= riscv-none-elf-
+CC = $(CROSS_COMPILE)gcc
+OBJCOPY = $(CROSS_COMPILE)objcopy
+
+ARCH_FLAGS = -march=rv32im -mabi=ilp32
+
+CFLAGS = $(ARCH_FLAGS) -O2 -g -Wall \
+         -ffunction-sections -fdata-sections \
+         -fno-builtin -fno-common \
+         -mstrict-align \
+         -I.
+
+LDFLAGS = $(ARCH_FLAGS) -T ../../linker.lds -nostartfiles \
+          -Wl,--gc-sections
+
+SRC = test_malloc.c \
+      ../../bsp/timer/bsp_timer.c \
+      ../../bsp/uart/bsp_uart.c \
+      ../../bsp/syscalls.c \
+      ../../lib/startup/startup.S
+
+all: test_malloc.elf test_malloc.bin
+
+test_malloc.elf: $(SRC)
+	$(CC) $(LDFLAGS) -o $@ $(SRC)
+	@echo "Test malloc binary created!"
+
+test_malloc.bin: test_malloc.elf
+	$(OBJCOPY) -O binary $< $@
+	@echo "Binary size:"
+	@ls -lh test_malloc.bin
+
+clean:
+	rm -f *.o *.elf *.bin

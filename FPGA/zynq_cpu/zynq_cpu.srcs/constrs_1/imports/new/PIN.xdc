@@ -1,0 +1,10 @@
+create_clock -period 20.000 -name sys_clk [get_ports sys_clk]
+
+set_property IOSTANDARD LVCMOS33 [get_ports sys_clk]
+set_property PACKAGE_PIN M19 [get_ports sys_clk]
+#set_property IOSTANDARD LVCMOS33 [get_ports rx]
+#set_property IOSTANDARD LVCMOS33 [get_ports tx]
+set_property IOSTANDARD LVCMOS33 [get_ports rst_n]
+#set_property PACKAGE_PIN M17 [get_ports rx]
+#set_property PACKAGE_PIN L17 [get_ports tx]
+set_property PACKAGE_PIN K21 [get_ports rst_n]

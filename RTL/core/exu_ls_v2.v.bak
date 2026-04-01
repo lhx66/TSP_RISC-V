@@ -1,0 +1,232 @@
+`include "defines.v"
+
+module TSP_Exu_ls(
+    input clk,
+    input rst_n,
+
+    // ==========================================
+    // 1. 译码信息 (来自 Cycle 1 派遣级)
+    // ==========================================
+    input idec_valid_i,
+    output exu_ls_ready_o,       // 输出反压：告诉 Dispatch 模块 LSU 是否空闲
+
+    input INST_LB, INST_LH, INST_LW, INST_LBU, INST_LHU,
+    input INST_SB, INST_SH, INST_SW,
+
+    input  [`REGFILE_DAT_WIDTH-1:0] rs2_op, // Store 写入的数据
+    input  [`REGFILE_IDX_WIDTH-1:0] rd_i,   // Load 写入的目标寄存器索引
+
+    // ==========================================
+    // 2. 加法器地址输入 (来自 Cycle 2 Exu_common)
+    // ==========================================
+    input  [`REGFILE_DAT_WIDTH-1:0] ls_addr_i,
+
+    // ==========================================
+    // 3. 访存控制模块接口 (去往 TSP_Lsu_Ctrl)
+    // ==========================================
+    output        ls_req_o,      // 访存请求有效 (读或写)
+    output        ls_we_o,       // 1:Store写, 0:Load读
+    output [`REGFILE_DAT_WIDTH-1:0] ls_addr_o,     // 输出物理地址给访存控制器
+    output [3:0]  ls_byte_en_o,  // 字节写使能掩码
+    output [31:0] ls_wdata_o,    // 写入数据
+
+    output [2:0]  ls_load_type_o,// 0:LW, 1:LH, 2:LHU, 3:LB, 4:LBU
+    output [`REGFILE_IDX_WIDTH-1:0] ls_rd_o,
+
+    input         ls_ctrl_ready_i  // 访存控制模块反压
+);
+
+// ============================================================
+// 状态机定义
+// ============================================================
+localparam IDLE  = 2'd0;
+localparam BUSY1 = 2'd1;  // 第1次访问
+localparam BUSY2 = 2'd2;  // 第2次访问（仅非对齐LW/SW需要）
+
+// ============================================================
+// 第 1 步：指令类型判断
+// ============================================================
+wire is_load  = INST_LB | INST_LH | INST_LW | INST_LBU | INST_LHU;
+wire is_store = INST_SB | INST_SH | INST_SW;
+wire is_ls    = is_load | is_store;
+
+// ============================================================
+// 第 2 步：地址对齐检测
+// ============================================================
+wire [1:0] addr_align = ls_addr_i[1:0];
+
+// 对齐检测
+wire aligned_lw  = (INST_LW | INST_SW)  & (addr_align == 2'b00);
+wire aligned_lh  = (INST_LH | INST_LHU | INST_SH) & (addr_align[0] == 1'b0);
+wire aligned_lb  = INST_LB | INST_LBU | INST_SB;  // 字节访问总是对齐的
+
+wire is_aligned = aligned_lw | aligned_lh | aligned_lb;
+
+// ============================================================
+// 第 3 步：状态机
+// ============================================================
+reg [1:0]  state_r;
+reg [31:0] ls_addr_r;
+reg [31:0] rs2_data_r;
+reg [2:0]  load_type_r;
+reg [2:0]  store_type_r;
+reg [`REGFILE_IDX_WIDTH-1:0] rd_r;
+reg        is_load_r;
+reg        is_store_r;
+
+always @(posedge clk or negedge rst_n) begin
+    if (~rst_n) begin
+        state_r      <= IDLE;
+        ls_addr_r    <= 32'd0;
+        rs2_data_r   <= 32'd0;
+        load_type_r  <= 3'd0;
+        store_type_r <= 3'd0;
+        rd_r         <= 5'd0;
+        is_load_r    <= 1'b0;
+        is_store_r   <= 1'b0;
+    end else begin
+        case (state_r)
+            IDLE: begin
+                if (idec_valid_i & is_ls) begin
+                    ls_addr_r    <= ls_addr_i;
+                    rs2_data_r   <= rs2_op;
+                    rd_r         <= is_store ? 5'd0 : rd_i;
+                    is_load_r    <= is_load;
+                    is_store_r   <= is_store;
+
+                    load_type_r  <= (INST_LW)  ? 3'd0 :
+                                    (INST_LH)  ? 3'd1 :
+                                    (INST_LHU) ? 3'd2 :
+                                    (INST_LB)  ? 3'd3 : 3'd4;
+
+                    store_type_r <= (INST_SW) ? 3'd2 :
+                                    (INST_SH) ? 3'd1 : 3'd0;
+
+                    state_r <= BUSY1;
+                end
+            end
+
+            BUSY1: begin
+                if (ls_ctrl_ready_i) begin
+                    if (is_aligned) begin
+                        state_r <= IDLE;  // 对齐访问，1个周期完成
+                    end else if (INST_LW | INST_SW) begin
+                        state_r <= BUSY2; // 非对齐LW/SW，需要第2个周期
+                    end else begin
+                        state_r <= IDLE;  // 非对齐LH/SH，2个周期完成
+                    end
+                end
+            end
+
+            BUSY2: begin
+                if (ls_ctrl_ready_i) begin
+                    state_r <= IDLE; // 第2个周期完成
+                end
+            end
+
+            default: state_r <= IDLE;
+        endcase
+    end
+end
+
+assign exu_ls_ready_o = (state_r == IDLE);
+
+// ============================================================
+// 第 4 步：生成访存请求
+// ============================================================
+wire [31:0] aligned_addr1 = {ls_addr_r[31:2], 2'b00};           // 第1个对齐字
+wire [31:0] aligned_addr2 = {ls_addr_r[31:2] + 1'b1, 2'b00};   // 第2个对齐字（+4字节）
+wire [1:0]  byte_offset   = ls_addr_r[1:0];
+
+// 选择当前周期的地址
+wire [31:0] current_addr = (state_r == BUSY2) ? aligned_addr2 : aligned_addr1;
+
+// ============================================================
+// 第 5 步：生成字节使能和写入数据（Store）
+// ============================================================
+reg [3:0]  byte_en;
+reg [31:0] wdata;
+
+always @(*) begin
+    byte_en = 4'b0000;
+    wdata   = 32'd0;
+
+    if (state_r != IDLE && is_store_r) begin
+        case (store_type_r)
+            3'd0: begin // SB
+                byte_en = 4'b0001 << byte_offset;
+                wdata   = {4{rs2_data_r[7:0]}};
+            end
+
+            3'd1: begin // SH
+                if (byte_offset == 2'b00) begin
+                    byte_en = 4'b0011;
+                    wdata   = {2{rs2_data_r[15:0]}};
+                end else if (byte_offset == 2'b10) begin
+                    byte_en = 4'b1100;
+                    wdata   = {2{rs2_data_r[15:0]}};
+                end else if (byte_offset == 2'b01) begin
+                    byte_en = 4'b0110;
+                    wdata   = {2{rs2_data_r[15:0]}};
+                end else begin // byte_offset == 2'b11
+                    if (state_r == BUSY1) begin
+                        byte_en = 4'b1000;
+                        wdata   = {4{rs2_data_r[7:0]}};
+                    end else begin // BUSY2
+                        byte_en = 4'b0001;
+                        wdata   = {4{rs2_data_r[15:8]}};
+                    end
+                end
+            end
+
+            3'd2: begin // SW
+                case (byte_offset)
+                    2'b00: begin // 对齐
+                        byte_en = 4'b1111;
+                        wdata   = rs2_data_r;
+                    end
+                    2'b01: begin
+                        if (state_r == BUSY1) begin
+                            byte_en = 4'b1110;
+                            wdata   = rs2_data_r << 8;
+                        end else begin // BUSY2
+                            byte_en = 4'b0001;
+                            wdata   = rs2_data_r >> 24;
+                        end
+                    end
+                    2'b10: begin
+                        if (state_r == BUSY1) begin
+                            byte_en = 4'b1100;
+                            wdata   = rs2_data_r << 16;
+                        end else begin // BUSY2
+                            byte_en = 4'b0011;
+                            wdata   = rs2_data_r >> 16;
+                        end
+                    end
+                    2'b11: begin
+                        if (state_r == BUSY1) begin
+                            byte_en = 4'b1000;
+                            wdata   = rs2_data_r << 24;
+                        end else begin // BUSY2
+                            byte_en = 4'b0111;
+                            wdata   = rs2_data_r >> 8;
+                        end
+                    end
+                endcase
+            end
+        endcase
+    end
+end
+
+// ============================================================
+// 第 6 步：输出信号
+// ============================================================
+assign ls_req_o       = (state_r != IDLE);
+assign ls_we_o        = is_store_r;
+assign ls_addr_o      = current_addr;
+assign ls_byte_en_o   = byte_en;
+assign ls_wdata_o     = wdata;
+assign ls_load_type_o = load_type_r;
+assign ls_rd_o        = rd_r;
+
+endmodule

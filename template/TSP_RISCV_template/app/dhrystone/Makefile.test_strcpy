@@ -1,0 +1,35 @@
+# Makefile for strcpy test
+CROSS_COMPILE ?= riscv-none-elf-
+CC = $(CROSS_COMPILE)gcc
+OBJCOPY = $(CROSS_COMPILE)objcopy
+
+ARCH_FLAGS = -march=rv32im -mabi=ilp32
+
+CFLAGS = $(ARCH_FLAGS) -O2 -g -Wall \
+         -ffunction-sections -fdata-sections \
+         -fno-builtin -fno-common \
+         -mstrict-align \
+         -I.
+
+LDFLAGS = $(ARCH_FLAGS) -T ../../linker.lds -nostartfiles \
+          -Wl,--gc-sections
+
+SRC = test_strcpy.c \
+      ../../bsp/timer/bsp_timer.c \
+      ../../bsp/uart/bsp_uart.c \
+      ../../bsp/syscalls.c \
+      ../../lib/startup/startup.S
+
+all: test_strcpy.elf test_strcpy.bin
+
+test_strcpy.elf: $(SRC)
+	$(CC) $(LDFLAGS) -o $@ $(SRC)
+	@echo "Test strcpy binary created!"
+
+test_strcpy.bin: test_strcpy.elf
+	$(OBJCOPY) -O binary $< $@
+	@echo "Binary size:"
+	@ls -lh test_strcpy.bin
+
+clean:
+	rm -f *.o *.elf *.bin

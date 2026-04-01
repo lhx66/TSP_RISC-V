@@ -1,0 +1,39 @@
+# Simple Makefile for Dhrystone in the original directory
+
+CROSS_COMPILE ?= riscv-none-elf-
+CC      = $(CROSS_COMPILE)gcc
+OBJCOPY = $(CROSS_COMPILE)objcopy
+
+ARCH_FLAGS = -march=rv32im -mabi=ilp32
+
+CFLAGS = $(ARCH_FLAGS) -O3 -g -Wall \
+         -ffunction-sections -fdata-sections \
+         -fno-builtin -fno-common \
+         -DTIME -DNOENUM -DWITH_MAIN \
+         -DDHRY_ITERS=1000 \
+         -I.
+
+LDFLAGS = $(ARCH_FLAGS) -T ../../linker.lds -nostartfiles \
+          -Wl,--gc-sections
+
+SRC = dhry_1.c dhry_2.c strcmp.S dhrystone_portme.c \
+      ../../bsp/timer/bsp_timer.c \
+      ../../bsp/uart/bsp_uart.c \
+      ../../bsp/syscalls.c \
+      ../../lib/startup/startup.S
+
+OBJ = $(SRC:.c=.o)
+OBJ := $(patsubst ../../%,./%,$(OBJ))
+
+TARGET = dhrystone
+
+all: $(TARGET).elf $(TARGET).bin
+
+$(TARGET).elf: $(OBJ)
+	$(CC) $(LDFLAGS) -o $@ $(OBJ)
+
+$(TARGET).bin: $(TARGET).elf
+	$(OBJCOPY) -O binary $< $@
+
+clean:
+	rm -f *.o *.elf *.bin *.dump $(TARGET)

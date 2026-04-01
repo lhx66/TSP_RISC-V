@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(make clean:*)",
+      "Bash(make)",
+      "Bash(find . -name \"*.o\" -delete)",
+      "Bash(rm -f coremark.elf coremark.bin coremark.dump coremark.map)",
+      "Bash(python check_instructions.py)",
+      "Bash(cd:*)",
+      "Bash(make -B)",
+      "Bash(riscv-none-elf-gcc -march=rv32im -mabi=ilp32 -O3 -g -Wall -ffunction-sections -fdata-sections -fno-builtin -fno-common -DTIME -DNOENUM -DDHRY_ITERS=1000 -I. -c ../../bsp/uart/bsp_uart.c -o ../../bsp/uart/bsp_uart.o)",
+      "Bash(riscv-none-elf-gcc -march=rv32im -mabi=ilp32 -O3 -g -Wall -ffunction-sections -fdata-sections -fno-builtin -fno-common -DTIME -DNOENUM -DDHRY_ITERS=1000 -I. -c ../../bsp/syscalls.c -o ../../bsp/syscalls.o)",
+      "Bash(riscv-none-elf-gcc -march=rv32im -mabi=ilp32 -O3 -g -Wall -ffunction-sections -fdata-sections -fno-builtin -fno-common -DTIME -DNOENUM -DDHRY_ITERS=1000 -I. -c ../../lib/startup/startup.S -o ../../lib/startup/startup.o)",
+      "Bash(riscv-none-elf-gcc -march=rv32im -mabi=ilp32 -T ../../linker.lds -nostartfiles -Wl,--gc-sections -o dhrystone.elf dhry_1.o dhry_2.o dhrystone_portme.o ../../bsp/timer/bsp_timer.o ../../bsp/uart/bsp_uart.o ../../bsp/syscalls.o ../../lib/startup/startup.o)",
+      "Bash(rm -f dhrystone_portme.o)",
+      "Bash(riscv-none-elf-gcc -march=rv32im -mabi=ilp32 -O3 -g -Wall -ffunction-sections -fdata-sections -fno-builtin -fno-common -DTIME -DNOENUM -DDHRY_ITERS=1000 -I. -c dhrystone_portme.c -o dhrystone_portme.o)"
+    ]
+  }
+}

@@ -1,0 +1,866 @@
+Archive member included to satisfy reference by file (symbol)
+
+D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+                              app/coremark/cvt.o (__adddf3)
+D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+                              app/coremark/cvt.o (__divdf3)
+D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+                              app/coremark/cvt.o (__nedf2)
+D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+                              app/coremark/cvt.o (__gtdf2)
+D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+                              app/coremark/cvt.o (__ltdf2)
+D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+                              app/coremark/cvt.o (__muldf3)
+D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+                              app/coremark/cvt.o (__fixdfsi)
+D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+                              D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o) (__clzsi2)
+D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+                              D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o) (__clz_tab)
+D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_modf.o)
+                              app/coremark/cvt.o (modf)
+D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_fpclassify.o)
+                              D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_modf.o) (__fpclassifyd)
+D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+                              D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_modf.o) (__subdf3)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 app/coremark/core_list_join.o
+ .data          0x00000000        0x0 app/coremark/core_list_join.o
+ .bss           0x00000000        0x0 app/coremark/core_list_join.o
+ .text.copy_info
+                0x00000000        0xc app/coremark/core_list_join.o
+ .text.core_list_insert_new
+                0x00000000       0x48 app/coremark/core_list_join.o
+ .text.core_list_remove
+                0x00000000       0x28 app/coremark/core_list_join.o
+ .text.core_list_undo_remove
+                0x00000000       0x20 app/coremark/core_list_join.o
+ .text.core_list_find
+                0x00000000       0x4c app/coremark/core_list_join.o
+ .text.core_list_reverse
+                0x00000000       0x24 app/coremark/core_list_join.o
+ .text          0x00000000        0x0 app/coremark/core_main.o
+ .data          0x00000000        0x0 app/coremark/core_main.o
+ .bss           0x00000000        0x0 app/coremark/core_main.o
+ .rodata.str1.4
+                0x00000000       0x16 app/coremark/core_main.o
+ .data.mem_name
+                0x00000000        0xc app/coremark/core_main.o
+ .text          0x00000000        0x0 app/coremark/core_matrix.o
+ .data          0x00000000        0x0 app/coremark/core_matrix.o
+ .bss           0x00000000        0x0 app/coremark/core_matrix.o
+ .text.matrix_sum
+                0x00000000       0x80 app/coremark/core_matrix.o
+ .text.matrix_mul_const
+                0x00000000       0x4c app/coremark/core_matrix.o
+ .text.matrix_add_const
+                0x00000000       0x38 app/coremark/core_matrix.o
+ .text          0x00000000        0x0 app/coremark/core_portme.o
+ .data          0x00000000        0x0 app/coremark/core_portme.o
+ .bss           0x00000000        0x0 app/coremark/core_portme.o
+ .text.barebones_clock
+                0x00000000        0x8 app/coremark/core_portme.o
+ .text.memcpy   0x00000000       0x28 app/coremark/core_portme.o
+ .text.memset   0x00000000       0x1c app/coremark/core_portme.o
+ .text.strlen   0x00000000       0x40 app/coremark/core_portme.o
+ .text          0x00000000        0x0 app/coremark/core_state.o
+ .data          0x00000000        0x0 app/coremark/core_state.o
+ .bss           0x00000000        0x0 app/coremark/core_state.o
+ .text          0x00000000        0x0 app/coremark/core_util.o
+ .data          0x00000000        0x0 app/coremark/core_util.o
+ .bss           0x00000000        0x0 app/coremark/core_util.o
+ .text.crcu8    0x00000000      0x130 app/coremark/core_util.o
+ .text          0x00000000        0x0 app/coremark/cvt.o
+ .data          0x00000000        0x0 app/coremark/cvt.o
+ .bss           0x00000000        0x0 app/coremark/cvt.o
+ .text.cvt      0x00000000      0x498 app/coremark/cvt.o
+ .text.ecvt     0x00000000       0x14 app/coremark/cvt.o
+ .text.ecvtbuf  0x00000000        0xc app/coremark/cvt.o
+ .text.fcvt     0x00000000       0x14 app/coremark/cvt.o
+ .text.fcvtbuf  0x00000000        0xc app/coremark/cvt.o
+ .bss.CVTBUF    0x00000000       0x50 app/coremark/cvt.o
+ .srodata.cst8  0x00000000       0x18 app/coremark/cvt.o
+ .debug_info    0x00000000      0x5a8 app/coremark/cvt.o
+ .debug_abbrev  0x00000000      0x13d app/coremark/cvt.o
+ .debug_loclists
+                0x00000000      0x687 app/coremark/cvt.o
+ .debug_aranges
+                0x00000000       0x40 app/coremark/cvt.o
+ .debug_rnglists
+                0x00000000       0x2c app/coremark/cvt.o
+ .debug_line    0x00000000      0x726 app/coremark/cvt.o
+ .debug_str     0x00000000      0x1f7 app/coremark/cvt.o
+ .debug_line_str
+                0x00000000       0x9c app/coremark/cvt.o
+ .comment       0x00000000       0x34 app/coremark/cvt.o
+ .note.GNU-stack
+                0x00000000        0x0 app/coremark/cvt.o
+ .debug_frame   0x00000000       0xcc app/coremark/cvt.o
+ .riscv.attributes
+                0x00000000       0x2a app/coremark/cvt.o
+ .text          0x00000000        0x0 app/coremark/ee_printf.o
+ .data          0x00000000        0x0 app/coremark/ee_printf.o
+ .bss           0x00000000        0x0 app/coremark/ee_printf.o
+ .text.uart_send_char
+                0x00000000       0x40 app/coremark/ee_printf.o
+ .text          0x00000000        0x0 bsp/timer/bsp_timer.o
+ .data          0x00000000        0x0 bsp/timer/bsp_timer.o
+ .bss           0x00000000        0x0 bsp/timer/bsp_timer.o
+ .text.timer0_set_value
+                0x00000000        0xc bsp/timer/bsp_timer.o
+ .text.timer0_clear_interrupt
+                0x00000000        0xc bsp/timer/bsp_timer.o
+ .text          0x00000000        0x0 bsp/uart/bsp_uart.o
+ .data          0x00000000        0x0 bsp/uart/bsp_uart.o
+ .bss           0x00000000        0x0 bsp/uart/bsp_uart.o
+ .text.uart_puts
+                0x00000000       0x34 bsp/uart/bsp_uart.o
+ .text.uart_getc
+                0x00000000       0x24 bsp/uart/bsp_uart.o
+ .text          0x00000000        0x0 bsp/syscalls.o
+ .data          0x00000000        0x0 bsp/syscalls.o
+ .bss           0x00000000        0x0 bsp/syscalls.o
+ .text._write   0x00000000       0x9c bsp/syscalls.o
+ .debug_info    0x00000000      0x11e bsp/syscalls.o
+ .debug_abbrev  0x00000000       0xcb bsp/syscalls.o
+ .debug_loclists
+                0x00000000       0xdd bsp/syscalls.o
+ .debug_aranges
+                0x00000000       0x20 bsp/syscalls.o
+ .debug_rnglists
+                0x00000000       0x14 bsp/syscalls.o
+ .debug_line    0x00000000      0x14a bsp/syscalls.o
+ .debug_str     0x00000000      0x184 bsp/syscalls.o
+ .debug_line_str
+                0x00000000       0x67 bsp/syscalls.o
+ .comment       0x00000000       0x34 bsp/syscalls.o
+ .note.GNU-stack
+                0x00000000        0x0 bsp/syscalls.o
+ .debug_frame   0x00000000       0x3c bsp/syscalls.o
+ .riscv.attributes
+                0x00000000       0x2a bsp/syscalls.o
+ .text          0x00000000        0x0 lib/startup/startup.o
+ .data          0x00000000        0x0 lib/startup/startup.o
+ .bss           0x00000000        0x0 lib/startup/startup.o
+ .text          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .data          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .bss           0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .text.__adddf3
+                0x00000000      0xb5c D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .debug_info    0x00000000      0x562 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .debug_abbrev  0x00000000      0x195 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .debug_loclists
+                0x00000000     0x2223 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .debug_aranges
+                0x00000000       0x20 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .debug_rnglists
+                0x00000000      0x3ad D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .debug_line    0x00000000     0x2935 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .debug_str     0x00000000      0x2c3 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .debug_line_str
+                0x00000000      0x23f D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .comment       0x00000000       0x34 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .note.GNU-stack
+                0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .debug_frame   0x00000000       0x58 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .riscv.attributes
+                0x00000000       0x2a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(adddf3.o)
+ .text          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .data          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .bss           0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .text.__divdf3
+                0x00000000      0x908 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .rodata.__divdf3
+                0x00000000       0x40 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_info    0x00000000      0x79a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_abbrev  0x00000000      0x182 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_loclists
+                0x00000000     0x199d D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_aranges
+                0x00000000       0x20 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_rnglists
+                0x00000000      0x1b1 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_line    0x00000000     0x19eb D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_str     0x00000000      0x385 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_line_str
+                0x00000000      0x249 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .comment       0x00000000       0x34 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .note.GNU-stack
+                0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_frame   0x00000000       0x90 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .riscv.attributes
+                0x00000000       0x2a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .text          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .data          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .bss           0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .text.__eqdf2  0x00000000       0x90 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .debug_info    0x00000000      0x250 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .debug_abbrev  0x00000000      0x170 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .debug_loclists
+                0x00000000       0xda D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .debug_aranges
+                0x00000000       0x20 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .debug_rnglists
+                0x00000000       0x35 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .debug_line    0x00000000      0x263 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .debug_str     0x00000000      0x1d5 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .debug_line_str
+                0x00000000      0x24b D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .comment       0x00000000       0x34 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .note.GNU-stack
+                0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .debug_frame   0x00000000       0x20 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .riscv.attributes
+                0x00000000       0x2a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(eqdf2.o)
+ .text          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .data          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .bss           0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .text.__gedf2  0x00000000      0x110 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .debug_info    0x00000000      0x25e D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .debug_abbrev  0x00000000      0x172 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .debug_loclists
+                0x00000000      0x1d3 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .debug_aranges
+                0x00000000       0x20 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .debug_rnglists
+                0x00000000       0x52 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .debug_line    0x00000000      0x428 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .debug_str     0x00000000      0x1f9 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .debug_line_str
+                0x00000000      0x24b D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .comment       0x00000000       0x34 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .note.GNU-stack
+                0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .debug_frame   0x00000000       0x20 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .riscv.attributes
+                0x00000000       0x2a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(gedf2.o)
+ .text          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .data          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .bss           0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .text.__ledf2  0x00000000      0x118 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .debug_info    0x00000000      0x25e D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .debug_abbrev  0x00000000      0x172 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .debug_loclists
+                0x00000000      0x1d9 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .debug_aranges
+                0x00000000       0x20 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .debug_rnglists
+                0x00000000       0x4a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .debug_line    0x00000000      0x43a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .debug_str     0x00000000      0x1f9 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .debug_line_str
+                0x00000000      0x24b D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .comment       0x00000000       0x34 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .note.GNU-stack
+                0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .debug_frame   0x00000000       0x20 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .riscv.attributes
+                0x00000000       0x2a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(ledf2.o)
+ .text          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .data          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .bss           0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .text.__muldf3
+                0x00000000      0x7b4 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_info    0x00000000      0x7ab D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_abbrev  0x00000000      0x194 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_loclists
+                0x00000000     0x11c1 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_aranges
+                0x00000000       0x20 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_rnglists
+                0x00000000      0x1b3 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_line    0x00000000     0x14e3 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_str     0x00000000      0x3dd D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_line_str
+                0x00000000      0x249 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .comment       0x00000000       0x34 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .note.GNU-stack
+                0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_frame   0x00000000       0x54 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .riscv.attributes
+                0x00000000       0x2a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .text          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .data          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .bss           0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .text.__fixdfsi
+                0x00000000       0x80 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .debug_info    0x00000000      0x1e7 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .debug_abbrev  0x00000000      0x159 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .debug_loclists
+                0x00000000      0x135 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .debug_aranges
+                0x00000000       0x20 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .debug_rnglists
+                0x00000000       0x2c D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .debug_line    0x00000000      0x29b D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .debug_str     0x00000000      0x1d0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .debug_line_str
+                0x00000000      0x24b D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .comment       0x00000000       0x34 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .note.GNU-stack
+                0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .debug_frame   0x00000000       0x20 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .riscv.attributes
+                0x00000000       0x2a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(fixdfsi.o)
+ .text          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .data          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .bss           0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .text.__clzsi2
+                0x00000000       0x88 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_info    0x00000000      0x168 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_abbrev  0x00000000       0xd9 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_loclists
+                0x00000000       0xe3 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_aranges
+                0x00000000       0x20 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_rnglists
+                0x00000000       0x2a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_line    0x00000000      0x15f D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_str     0x00000000      0x1f3 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_line_str
+                0x00000000      0x232 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .comment       0x00000000       0x34 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .note.GNU-stack
+                0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_frame   0x00000000       0x20 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .riscv.attributes
+                0x00000000       0x2a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .text          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .data          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .bss           0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .rodata.__clz_tab
+                0x00000000      0x100 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .debug_info    0x00000000       0xf2 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .debug_abbrev  0x00000000       0x76 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .debug_aranges
+                0x00000000       0x18 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .debug_line    0x00000000       0x49 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .debug_str     0x00000000      0x1d6 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .debug_line_str
+                0x00000000      0x232 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .comment       0x00000000       0x34 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .note.GNU-stack
+                0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .riscv.attributes
+                0x00000000       0x2a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .text          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_modf.o)
+ .data          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_modf.o)
+ .bss           0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_modf.o)
+ .text.modf     0x00000000      0x174 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_modf.o)
+ .comment       0x00000000       0x34 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_modf.o)
+ .note.GNU-stack
+                0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_modf.o)
+ .riscv.attributes
+                0x00000000       0x2a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_modf.o)
+ .text          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_fpclassify.o)
+ .data          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_fpclassify.o)
+ .bss           0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_fpclassify.o)
+ .text.__fpclassifyd
+                0x00000000       0x68 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_fpclassify.o)
+ .comment       0x00000000       0x34 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_fpclassify.o)
+ .note.GNU-stack
+                0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_fpclassify.o)
+ .riscv.attributes
+                0x00000000       0x2a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a(libm_a-s_fpclassify.o)
+ .text          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .data          0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .bss           0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .text.__subdf3
+                0x00000000      0xb54 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .debug_info    0x00000000      0x562 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .debug_abbrev  0x00000000      0x195 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .debug_loclists
+                0x00000000     0x2260 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .debug_aranges
+                0x00000000       0x20 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .debug_rnglists
+                0x00000000      0x3a7 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .debug_line    0x00000000     0x29a6 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .debug_str     0x00000000      0x2c3 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .debug_line_str
+                0x00000000      0x23f D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .comment       0x00000000       0x34 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .note.GNU-stack
+                0x00000000        0x0 D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .debug_frame   0x00000000       0x4c D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+ .riscv.attributes
+                0x00000000       0x2a D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a(subdf3.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+IRAM             0x00000000         0x00010000         xr
+SRAM             0x20000000         0x00008000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD app/coremark/core_list_join.o
+LOAD app/coremark/core_main.o
+LOAD app/coremark/core_matrix.o
+LOAD app/coremark/core_portme.o
+LOAD app/coremark/core_state.o
+LOAD app/coremark/core_util.o
+LOAD app/coremark/cvt.o
+LOAD app/coremark/ee_printf.o
+LOAD bsp/timer/bsp_timer.o
+LOAD bsp/uart/bsp_uart.o
+LOAD bsp/syscalls.o
+LOAD lib/startup/startup.o
+LOAD D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a
+START GROUP
+LOAD D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libc.a
+LOAD D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/../../../../riscv-none-elf/lib/rv32im/ilp32\libgloss.a
+END GROUP
+LOAD D:/xpack-riscv-none-elf-gcc-15.2.0-1/bin/../lib/gcc/riscv-none-elf/15.2.0/rv32im/ilp32\libgcc.a
+
+.text           0x00000000     0x383c
+                0x00000000                        . = ALIGN (0x4)
+                [!provide]                        PROVIDE (_text_start = .)
+ *(.init)
+ .init          0x00000000       0x60 lib/startup/startup.o
+                0x00000000                _start
+ *(.text .text.*)
+ .text.cmp_idx  0x00000060       0x54 app/coremark/core_list_join.o
+                0x00000060                cmp_idx
+ .text.calc_func
+                0x000000b4      0x140 app/coremark/core_list_join.o
+                0x000000b4                calc_func
+ .text.cmp_complex
+                0x000001f4       0x50 app/coremark/core_list_join.o
+                0x000001f4                cmp_complex
+ .text.core_list_mergesort
+                0x00000244      0x1f4 app/coremark/core_list_join.o
+                0x00000244                core_list_mergesort
+ .text.core_bench_list
+                0x00000438      0x314 app/coremark/core_list_join.o
+                0x00000438                core_bench_list
+ .text.core_list_init
+                0x0000074c      0x2b8 app/coremark/core_list_join.o
+                0x0000074c                core_list_init
+ .text.iterate  0x00000a04       0x98 app/coremark/core_main.o
+                0x00000a04                iterate
+ .text.startup.main
+                0x00000a9c      0x934 app/coremark/core_main.o
+                0x00000a9c                main
+ .text.core_init_matrix
+                0x000013d0      0x124 app/coremark/core_matrix.o
+                0x000013d0                core_init_matrix
+ .text.matrix_mul_vect
+                0x000014f4       0x58 app/coremark/core_matrix.o
+                0x000014f4                matrix_mul_vect
+ .text.matrix_mul_matrix
+                0x0000154c       0xa0 app/coremark/core_matrix.o
+                0x0000154c                matrix_mul_matrix
+ .text.matrix_mul_matrix_bitextract
+                0x000015ec       0xb4 app/coremark/core_matrix.o
+                0x000015ec                matrix_mul_matrix_bitextract
+ .text.matrix_test
+                0x000016a0      0x420 app/coremark/core_matrix.o
+                0x000016a0                matrix_test
+ .text.core_bench_matrix
+                0x00001ac0       0x84 app/coremark/core_matrix.o
+                0x00001ac0                core_bench_matrix
+ .text.start_time
+                0x00001b44       0x24 app/coremark/core_portme.o
+                0x00001b44                start_time
+ .text.stop_time
+                0x00001b68       0x24 app/coremark/core_portme.o
+                0x00001b68                stop_time
+ .text.get_time
+                0x00001b8c       0x18 app/coremark/core_portme.o
+                0x00001b8c                get_time
+ .text.time_in_secs
+                0x00001ba4       0x14 app/coremark/core_portme.o
+                0x00001ba4                time_in_secs
+ .text.portable_init
+                0x00001bb8       0xec app/coremark/core_portme.o
+                0x00001bb8                portable_init
+ .text.portable_fini
+                0x00001ca4       0x28 app/coremark/core_portme.o
+                0x00001ca4                portable_fini
+ .text.portable_malloc
+                0x00001ccc       0x20 app/coremark/core_portme.o
+                0x00001ccc                portable_malloc
+ .text.portable_free
+                0x00001cec        0xc app/coremark/core_portme.o
+                0x00001cec                portable_free
+ .text.core_init_state
+                0x00001cf8      0x17c app/coremark/core_state.o
+                0x00001cf8                core_init_state
+ .text.core_state_transition
+                0x00001e74      0x2e8 app/coremark/core_state.o
+                0x00001e74                core_state_transition
+ .text.core_bench_state
+                0x0000215c      0x1b0 app/coremark/core_state.o
+                0x0000215c                core_bench_state
+ .text.get_seed_32
+                0x0000230c       0x64 app/coremark/core_util.o
+                0x0000230c                get_seed_32
+ .text.crcu16   0x00002370      0x228 app/coremark/core_util.o
+                0x00002370                crcu16
+ .text.crcu32   0x00002598      0x420 app/coremark/core_util.o
+                0x00002598                crcu32
+ .text.crc16    0x000029b8      0x22c app/coremark/core_util.o
+                0x000029b8                crc16
+ .text.check_data_types
+                0x00002be4        0x8 app/coremark/core_util.o
+                0x00002be4                check_data_types
+ .text.number   0x00002bec      0x2fc app/coremark/ee_printf.o
+ .text.ee_printf
+                0x00002ee8      0x8d4 app/coremark/ee_printf.o
+                0x00002ee8                ee_printf
+ .text.timer0_init
+                0x000037bc       0x2c bsp/timer/bsp_timer.o
+                0x000037bc                timer0_init
+ .text.timer0_start
+                0x000037e8       0x14 bsp/timer/bsp_timer.o
+                0x000037e8                timer0_start
+ .text.timer0_stop
+                0x000037fc       0x14 bsp/timer/bsp_timer.o
+                0x000037fc                timer0_stop
+ .text.timer0_get_value
+                0x00003810        0xc bsp/timer/bsp_timer.o
+                0x00003810                timer0_get_value
+ .text.uart_putc
+                0x0000381c       0x20 bsp/uart/bsp_uart.o
+                0x0000381c                uart_putc
+                0x0000383c                        . = ALIGN (0x4)
+                [!provide]                        PROVIDE (_text_end = .)
+
+.rodata         0x0000383c      0xe30
+                0x0000383c                        . = ALIGN (0x4)
+ *(.rodata .rodata.*)
+ .rodata.core_list_mergesort.str1.4
+                0x0000383c      0x9af app/coremark/core_list_join.o
+                                 0x9d (size before relaxing)
+ .rodata.core_list_init.str1.4
+                0x000041eb        0x0 app/coremark/core_list_join.o
+                                0x163 (size before relaxing)
+ .rodata.main.str1.4
+                0x000041eb        0x0 app/coremark/core_main.o
+                                0x625 (size before relaxing)
+ *fill*         0x000041eb        0x1 
+ .rodata.state_known_crc
+                0x000041ec        0xa app/coremark/core_main.o
+ *fill*         0x000041f6        0x2 
+ .rodata.matrix_known_crc
+                0x000041f8        0xa app/coremark/core_main.o
+ *fill*         0x00004202        0x2 
+ .rodata.list_known_crc
+                0x00004204        0xa app/coremark/core_main.o
+ .rodata.core_bench_matrix.str1.4
+                0x0000420e        0x0 app/coremark/core_matrix.o
+                                  0x2 (size before relaxing)
+ .rodata.portable_init.str1.4
+                0x0000420e        0x0 app/coremark/core_portme.o
+                                 0x78 (size before relaxing)
+ .rodata.str1.4
+                0x0000420e        0x0 app/coremark/core_state.o
+                                 0xad (size before relaxing)
+ *fill*         0x0000420e        0x2 
+ .rodata.errpat
+                0x00004210       0x10 app/coremark/core_state.o
+ .rodata.scipat
+                0x00004220       0x10 app/coremark/core_state.o
+ .rodata.floatpat
+                0x00004230       0x10 app/coremark/core_state.o
+ .rodata.intpat
+                0x00004240       0x10 app/coremark/core_state.o
+ .rodata.get_seed_32
+                0x00004250       0x18 app/coremark/core_util.o
+ .rodata        0x00004268      0x200 app/coremark/core_util.o
+ .rodata.number.str1.4
+                0x00004468        0x0 app/coremark/ee_printf.o
+                                 0x4d (size before relaxing)
+ .rodata.ee_printf.str1.4
+                0x00004468        0x0 app/coremark/ee_printf.o
+                                  0x7 (size before relaxing)
+ .rodata.ee_printf
+                0x00004468      0x204 app/coremark/ee_printf.o
+ *(.srodata .srodata.*)
+                0x0000466c                        . = ALIGN (0x4)
+
+.rela.dyn       0x0000466c        0x0
+ .rela.init     0x0000466c        0x0 app/coremark/core_list_join.o
+
+.data           0x20000000        0xc load address 0x0000466c
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        PROVIDE (_data_start = .)
+ *(.sdata .sdata.*)
+ .sdata.default_num_contexts
+                0x20000000        0x4 app/coremark/core_portme.o
+                0x20000000                default_num_contexts
+ .sdata.seed4_volatile
+                0x20000004        0x4 app/coremark/core_portme.o
+                0x20000004                seed4_volatile
+ .sdata.seed3_volatile
+                0x20000008        0x4 app/coremark/core_portme.o
+                0x20000008                seed3_volatile
+ *(.data .data.*)
+                0x2000000c                        . = ALIGN (0x4)
+                0x2000000c                        PROVIDE (_data_end = .)
+                0x0000466c                        PROVIDE (_data_lma = LOADADDR (.data))
+
+.bss            0x20000010      0x8f0 load address 0x00004678
+                0x20000010                        . = ALIGN (0x4)
+                0x20000010                        PROVIDE (_bss_start = .)
+ *(.sbss .sbss.*)
+ .sbss.boot_count.0
+                0x20000010        0x4 app/coremark/core_portme.o
+ .sbss.heap_offset
+                0x20000014        0x4 app/coremark/core_portme.o
+ .sbss.stop_time_val
+                0x20000018        0x4 app/coremark/core_portme.o
+ .sbss.start_time_val
+                0x2000001c        0x4 app/coremark/core_portme.o
+ .sbss.seed5_volatile
+                0x20000020        0x4 app/coremark/core_portme.o
+                0x20000020                seed5_volatile
+ .sbss.seed2_volatile
+                0x20000024        0x4 app/coremark/core_portme.o
+                0x20000024                seed2_volatile
+ .sbss.seed1_volatile
+                0x20000028        0x4 app/coremark/core_portme.o
+                0x20000028                seed1_volatile
+ *(.bss .bss.*)
+ *fill*         0x2000002c        0x4 
+ .bss.my_heap   0x20000030      0x8d0 app/coremark/core_portme.o
+ *(COMMON)
+                0x20000900                        . = ALIGN (0x4)
+                0x20000900                        PROVIDE (_bss_end = .)
+                [!provide]                        PROVIDE (end = .)
+                [!provide]                        PROVIDE (_end = .)
+                [!provide]                        PROVIDE (_sp = (ORIGIN (SRAM) + LENGTH (SRAM)))
+OUTPUT(coremark.elf elf32-littleriscv)
+
+.debug_info     0x00000000     0x4221
+ .debug_info    0x00000000     0x1008 app/coremark/core_list_join.o
+ .debug_info    0x00001008      0xc65 app/coremark/core_main.o
+ .debug_info    0x00001c6d      0xc0b app/coremark/core_matrix.o
+ .debug_info    0x00002878      0x607 app/coremark/core_portme.o
+ .debug_info    0x00002e7f      0x4bc app/coremark/core_state.o
+ .debug_info    0x0000333b      0x50b app/coremark/core_util.o
+ .debug_info    0x00003846      0x76e app/coremark/ee_printf.o
+ .debug_info    0x00003fb4      0x127 bsp/timer/bsp_timer.o
+ .debug_info    0x000040db      0x122 bsp/uart/bsp_uart.o
+ .debug_info    0x000041fd       0x24 lib/startup/startup.o
+
+.debug_abbrev   0x00000000     0x13e0
+ .debug_abbrev  0x00000000      0x35e app/coremark/core_list_join.o
+ .debug_abbrev  0x0000035e      0x200 app/coremark/core_main.o
+ .debug_abbrev  0x0000055e      0x2bb app/coremark/core_matrix.o
+ .debug_abbrev  0x00000819      0x292 app/coremark/core_portme.o
+ .debug_abbrev  0x00000aab      0x251 app/coremark/core_state.o
+ .debug_abbrev  0x00000cfc      0x203 app/coremark/core_util.o
+ .debug_abbrev  0x00000eff      0x32a app/coremark/ee_printf.o
+ .debug_abbrev  0x00001229       0xb6 bsp/timer/bsp_timer.o
+ .debug_abbrev  0x000012df       0xed bsp/uart/bsp_uart.o
+ .debug_abbrev  0x000013cc       0x14 lib/startup/startup.o
+
+.debug_loclists
+                0x00000000     0x440a
+ .debug_loclists
+                0x00000000     0x113b app/coremark/core_list_join.o
+ .debug_loclists
+                0x0000113b      0x5c1 app/coremark/core_main.o
+ .debug_loclists
+                0x000016fc      0xe73 app/coremark/core_matrix.o
+ .debug_loclists
+                0x0000256f      0x264 app/coremark/core_portme.o
+ .debug_loclists
+                0x000027d3      0x6f0 app/coremark/core_state.o
+ .debug_loclists
+                0x00002ec3      0x3c4 app/coremark/core_util.o
+ .debug_loclists
+                0x00003287     0x1163 app/coremark/ee_printf.o
+ .debug_loclists
+                0x000043ea       0x20 bsp/uart/bsp_uart.o
+
+.debug_aranges  0x00000000      0x2b8
+ .debug_aranges
+                0x00000000       0x78 app/coremark/core_list_join.o
+ .debug_aranges
+                0x00000078       0x28 app/coremark/core_main.o
+ .debug_aranges
+                0x000000a0       0x60 app/coremark/core_matrix.o
+ .debug_aranges
+                0x00000100       0x78 app/coremark/core_portme.o
+ .debug_aranges
+                0x00000178       0x30 app/coremark/core_state.o
+ .debug_aranges
+                0x000001a8       0x48 app/coremark/core_util.o
+ .debug_aranges
+                0x000001f0       0x30 app/coremark/ee_printf.o
+ .debug_aranges
+                0x00000220       0x48 bsp/timer/bsp_timer.o
+ .debug_aranges
+                0x00000268       0x30 bsp/uart/bsp_uart.o
+ .debug_aranges
+                0x00000298       0x20 lib/startup/startup.o
+
+.debug_rnglists
+                0x00000000      0x437
+ .debug_rnglists
+                0x00000000      0x11d app/coremark/core_list_join.o
+ .debug_rnglists
+                0x0000011d       0x32 app/coremark/core_main.o
+ .debug_rnglists
+                0x0000014f       0xb3 app/coremark/core_matrix.o
+ .debug_rnglists
+                0x00000202       0x6e app/coremark/core_portme.o
+ .debug_rnglists
+                0x00000270       0x79 app/coremark/core_state.o
+ .debug_rnglists
+                0x000002e9       0x6f app/coremark/core_util.o
+ .debug_rnglists
+                0x00000358       0x8f app/coremark/ee_printf.o
+ .debug_rnglists
+                0x000003e7       0x31 bsp/timer/bsp_timer.o
+ .debug_rnglists
+                0x00000418       0x1f bsp/uart/bsp_uart.o
+
+.debug_line     0x00000000     0x6b80
+ .debug_line    0x00000000     0x1604 app/coremark/core_list_join.o
+ .debug_line    0x00001604      0xe0f app/coremark/core_main.o
+ .debug_line    0x00002413     0x128e app/coremark/core_matrix.o
+ .debug_line    0x000036a1      0x512 app/coremark/core_portme.o
+ .debug_line    0x00003bb3      0xe0e app/coremark/core_state.o
+ .debug_line    0x000049c1      0x551 app/coremark/core_util.o
+ .debug_line    0x00004f12     0x18d7 app/coremark/ee_printf.o
+ .debug_line    0x000067e9      0x17c bsp/timer/bsp_timer.o
+ .debug_line    0x00006965      0x16d bsp/uart/bsp_uart.o
+ .debug_line    0x00006ad2       0xae lib/startup/startup.o
+
+.debug_str      0x00000000      0xa10
+ .debug_str     0x00000000      0xa10 app/coremark/core_list_join.o
+                                0x4c8 (size before relaxing)
+ .debug_str     0x00000a10        0x0 app/coremark/core_main.o
+                                0x453 (size before relaxing)
+ .debug_str     0x00000a10        0x0 app/coremark/core_matrix.o
+                                0x294 (size before relaxing)
+ .debug_str     0x00000a10        0x0 app/coremark/core_portme.o
+                                0x377 (size before relaxing)
+ .debug_str     0x00000a10        0x0 app/coremark/core_state.o
+                                0x2ef (size before relaxing)
+ .debug_str     0x00000a10        0x0 app/coremark/core_util.o
+                                0x23c (size before relaxing)
+ .debug_str     0x00000a10        0x0 app/coremark/ee_printf.o
+                                0x268 (size before relaxing)
+ .debug_str     0x00000a10        0x0 bsp/timer/bsp_timer.o
+                                0x1f0 (size before relaxing)
+ .debug_str     0x00000a10        0x0 bsp/uart/bsp_uart.o
+                                0x194 (size before relaxing)
+ .debug_str     0x00000a10        0x0 lib/startup/startup.o
+                                 0x55 (size before relaxing)
+
+.debug_line_str
+                0x00000000      0x29e
+ .debug_line_str
+                0x00000000      0x29e app/coremark/core_list_join.o
+                                 0x88 (size before relaxing)
+ .debug_line_str
+                0x0000029e        0x0 app/coremark/core_main.o
+                                 0xd2 (size before relaxing)
+ .debug_line_str
+                0x0000029e        0x0 app/coremark/core_matrix.o
+                                 0x82 (size before relaxing)
+ .debug_line_str
+                0x0000029e        0x0 app/coremark/core_portme.o
+                                0x19e (size before relaxing)
+ .debug_line_str
+                0x0000029e        0x0 app/coremark/core_state.o
+                                 0x80 (size before relaxing)
+ .debug_line_str
+                0x0000029e        0x0 app/coremark/core_util.o
+                                 0x73 (size before relaxing)
+ .debug_line_str
+                0x0000029e        0x0 app/coremark/ee_printf.o
+                                 0xf7 (size before relaxing)
+ .debug_line_str
+                0x0000029e        0x0 bsp/timer/bsp_timer.o
+                                 0xfe (size before relaxing)
+ .debug_line_str
+                0x0000029e        0x0 bsp/uart/bsp_uart.o
+                                 0xfa (size before relaxing)
+ .debug_line_str
+                0x0000029e        0x0 lib/startup/startup.o
+                                 0x49 (size before relaxing)
+
+.comment        0x00000000       0x33
+ .comment       0x00000000       0x33 app/coremark/core_list_join.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 app/coremark/core_main.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 app/coremark/core_matrix.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 app/coremark/core_portme.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 app/coremark/core_state.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 app/coremark/core_util.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 app/coremark/ee_printf.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 bsp/timer/bsp_timer.o
+                                 0x34 (size before relaxing)
+ .comment       0x00000033        0x0 bsp/uart/bsp_uart.o
+                                 0x34 (size before relaxing)
+
+.note.GNU-stack
+                0x00000000        0x0
+ .note.GNU-stack
+                0x00000000        0x0 app/coremark/core_list_join.o
+ .note.GNU-stack
+                0x00000000        0x0 app/coremark/core_main.o
+ .note.GNU-stack
+                0x00000000        0x0 app/coremark/core_matrix.o
+ .note.GNU-stack
+                0x00000000        0x0 app/coremark/core_portme.o
+ .note.GNU-stack
+                0x00000000        0x0 app/coremark/core_state.o
+ .note.GNU-stack
+                0x00000000        0x0 app/coremark/core_util.o
+ .note.GNU-stack
+                0x00000000        0x0 app/coremark/ee_printf.o
+ .note.GNU-stack
+                0x00000000        0x0 bsp/timer/bsp_timer.o
+ .note.GNU-stack
+                0x00000000        0x0 bsp/uart/bsp_uart.o
+
+.riscv.attributes
+                0x00000000       0x2a
+ .riscv.attributes
+                0x00000000       0x2a app/coremark/core_list_join.o
+ .riscv.attributes
+                0x0000002a       0x2a app/coremark/core_main.o
+ .riscv.attributes
+                0x00000054       0x2a app/coremark/core_matrix.o
+ .riscv.attributes
+                0x0000007e       0x2a app/coremark/core_portme.o
+ .riscv.attributes
+                0x000000a8       0x2a app/coremark/core_state.o
+ .riscv.attributes
+                0x000000d2       0x2a app/coremark/core_util.o
+ .riscv.attributes
+                0x000000fc       0x2a app/coremark/ee_printf.o
+ .riscv.attributes
+                0x00000126       0x2a bsp/timer/bsp_timer.o
+ .riscv.attributes
+                0x00000150       0x2a bsp/uart/bsp_uart.o
+ .riscv.attributes
+                0x0000017a       0x28 lib/startup/startup.o
+
+.debug_frame    0x00000000      0x724
+ .debug_frame   0x00000000      0x1b8 app/coremark/core_list_join.o
+ .debug_frame   0x000001b8       0xa8 app/coremark/core_main.o
+ .debug_frame   0x00000260      0x128 app/coremark/core_matrix.o
+ .debug_frame   0x00000388      0x10c app/coremark/core_portme.o
+ .debug_frame   0x00000494       0xa0 app/coremark/core_state.o
+ .debug_frame   0x00000534       0x70 app/coremark/core_util.o
+ .debug_frame   0x000005a4       0xd0 app/coremark/ee_printf.o
+ .debug_frame   0x00000674       0x70 bsp/timer/bsp_timer.o
+ .debug_frame   0x000006e4       0x40 bsp/uart/bsp_uart.o
