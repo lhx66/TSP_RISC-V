@@ -21,8 +21,8 @@
 `define SRAM_KB (32*1024/4)
 
 //BPU/BTB 相关（全相联，2-entry LRU）
-`define BTB_ENTRIES      16   //BTB条目数
-`define BTB_TAG_PC_HIGH  18  //tag取PC的高位边界
+`define BTB_ENTRIES      2   //BTB条目数
+`define BTB_TAG_PC_HIGH  31  //tag取PC的高位边界
 `define BTB_TAG_PC_LOW   2   //tag取PC的低位边界（[1:0]为字节偏移）
 // 派生宽度（文本替换展开为合法表达式，无需额外逻辑）
 `define BTB_TAG_WIDTH    (`BTB_TAG_PC_HIGH - `BTB_TAG_PC_LOW + 1) //tag位宽=17
@@ -34,7 +34,7 @@
 //   [BTB_TARGET_WIDTH-1 : 0]               : 目标字地址（字节地址需左移2位拼接）
 
 //OITF相关
-`define OITF_DEPTH 8 
+`define OITF_DEPTH 4 
 
 //编译相关
 //`define USE_RAM_IPcore

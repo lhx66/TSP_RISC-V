@@ -48,3 +48,10 @@ Goal: reuse the Pango dual-port IRAM/SRAM simulation models in RTL, verify and c
 - The existing `template/tools/bin2txt.py` was also invoked directly to generate `RTL/sim/programs/coremark.txt` from the same binary. It is a 4,042-word, `$readmemh`-compatible instruction text image.
 - This verifies source replacement, RV32IM compilation, linking, and binary-to-hex conversion. It does not claim a CoreMark score: the current direct-IRAM architecture requires an explicit SRAM initialization/download mechanism for CoreMark's initialized/readonly data before an on-hardware benchmark result is valid.
 - Version control milestone: the complete verified workspace snapshot is committed and pushed on branch `v2.5.0` as `491c0d1` (`v0.1.0: integrate Pango RAM RTL and CoreMark build flow`); the historical commit message is retained, but the release branch is `v2.5.0`.
+
+## Pango FPGA RTL synchronization (2026-07-22)
+
+- The Pango project file `FPGA/pango_cpu/pango_cpu.pds` was checked directly. It compiles the RTL below `FPGA/pango_cpu/source` plus its own generated PLL, IRAM, and SRAM IP sources.
+- The Pango copies of `defines.v`, `exu_ls.v`, `Ifu.v`, `PC_control.v`, `AXI_Interconnect.v`, `soc_top.v`, `ram/sram.v`, `uart_axi_lite_wrapper.v`, and `timer.v` are synchronized with their corresponding verified `RTL` sources. This includes the two-entry BTB configuration, unaligned DTCM LSU path, IRAM address decode, and the default-disabled `ENABLE_EXT_IRAM_LOADER` parameter.
+- The FPGA-only `ipcore/sys_pll` and generated `ipcore/{IRAM,SRAM}` files remain Pango project inputs; the ModelSim-only `RTL/peripheral/sys_pll_sim.v` and `GTP_DRM18K_model.v` are not used for FPGA synthesis. UART and timer retain their FPGA-directory-relative include path as the only textual difference from `RTL`.
+- Verification after synchronization: a forced ModelSim recompilation of the complete `RTL/sim/tb_script/modelsim_filelist.f` completed with 0 errors and 0 warnings; `sim.bat` passed the unaligned-access regression; and `sim_soc.bat +PROGRAM=../programs/sim_smoke.hex +EXPECT_UART=50` passed the whole-SoC IRAM-load/UART check (`0x50`, `P`).

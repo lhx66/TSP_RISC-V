@@ -1,6 +1,6 @@
 `include "defines.v"
 
-//PC计数器 包含BPU (支持参数化任意深度 BTB)
+//PC计数器 包含BPU
 module PC_control(
     input clk,
     input rst_n,
@@ -22,51 +22,32 @@ module PC_control(
     output flush
 );
 
-// =========================================
-// BTB 存储单元
-// =========================================
+// BTB 条目格式、字段位置由 defines.v 中宏定义确定
 reg [`BTB_ENTRY_WIDTH-1:0] BTBuffer [0:`BTB_ENTRIES-1];
-
-// =========================================
-// 替换策略指针：Round-Robin (轮询FIFO)
-// 根据 BTB_ENTRIES 自动计算指针位宽
-// =========================================
-localparam PTR_WIDTH = $clog2(`BTB_ENTRIES) > 0 ? $clog2(`BTB_ENTRIES) : 1;
-reg [PTR_WIDTH-1:0] replace_ptr;
+reg                         lru; // 0: entry0 为 LRU，1: entry1 为 LRU
 
 //─────────────────────────────────────────
-// BTB 命中检测（用当前 PC 并行查表）
+// BTB 命中检测（用当前 PC 查表）
 //─────────────────────────────────────────
-reg [`BTB_ENTRIES-1:0] BTB_hit;
-reg pre_pc_taken_comb;
-reg [`INST_ADDR_WIDTH-1:0] pre_pc_comb;
+wire [`BTB_ENTRIES-1:0] BTB_hit;
+assign BTB_hit[0] = (global_pc_o[`BTB_TAG_PC_HIGH:`BTB_TAG_PC_LOW]
+                     == BTBuffer[0][`BTB_ENTRY_WIDTH-2:`BTB_TARGET_WIDTH]);
+assign BTB_hit[1] = (global_pc_o[`BTB_TAG_PC_HIGH:`BTB_TAG_PC_LOW]
+                     == BTBuffer[1][`BTB_ENTRY_WIDTH-2:`BTB_TARGET_WIDTH]);
 
-integer i;
-always @(*) begin
-    // 默认值：不跳转，目标地址为0
-    pre_pc_taken_comb = 1'b0;
-    pre_pc_comb = 32'b0;
-    BTB_hit = {`BTB_ENTRIES{1'b0}};
+//─────────────────────────────────────────
+// 分支预测输出
+//─────────────────────────────────────────
+wire [`INST_ADDR_WIDTH-1:0] pre_pc;
+assign pre_pc_taken = (BTB_hit[0] & BTBuffer[0][`BTB_ENTRY_WIDTH-1]) |
+                      (BTB_hit[1] & BTBuffer[1][`BTB_ENTRY_WIDTH-1]); //1:跳转 0：不跳转
 
-    // 展开为全相联的并行比较器
-    for (i = 0; i < `BTB_ENTRIES; i = i + 1) begin
-        BTB_hit[i] = (global_pc_o[`BTB_TAG_PC_HIGH:`BTB_TAG_PC_LOW]
-                     == BTBuffer[i][`BTB_ENTRY_WIDTH-2:`BTB_TARGET_WIDTH]);
-        
-        // 如果命中，提取预测方向和目标地址
-        if (BTB_hit[i]) begin
-            pre_pc_taken_comb = BTBuffer[i][`BTB_ENTRY_WIDTH-1];
-            pre_pc_comb = {BTBuffer[i][`BTB_TARGET_WIDTH-1:0], 2'b00};
-        end
-    end
-end
-
-wire [`INST_ADDR_WIDTH-1:0] pre_pc = pre_pc_comb;
-assign pre_pc_taken = pre_pc_taken_comb;
+assign pre_pc       = BTB_hit[0] ? {BTBuffer[0][`BTB_TARGET_WIDTH-1:0], 2'b00} :
+                                    {BTBuffer[1][`BTB_TARGET_WIDTH-1:0], 2'b00} ; // 未命中时值不使用
 
 
 //─────────────────────────────────────────
-// PC 更新逻辑
+// PC 更新
 //─────────────────────────────────────────
 always @(posedge clk or negedge rst_n) begin
     if (~rst_n)
@@ -81,54 +62,38 @@ always @(posedge clk or negedge rst_n) begin
     end
 end
 
+// 复位结束后 PC 立即有效（异步复位，rst_n 拉高时 PC 已持有 PC_RSTVAL）
 assign global_pc_valid_o = rst_n;
-
 
 //─────────────────────────────────────────
 // BTB 更新（执行阶段反馈真实跳转结果）
+// BTB_update 格式与 BTBuffer 条目相同
 //─────────────────────────────────────────
-reg [`BTB_ENTRIES-1:0] btb_upd_hit;
-reg upd_hit_any;
+wire btb_upd_hit0 = (BTB_update[`BTB_ENTRY_WIDTH-2:`BTB_TARGET_WIDTH]
+                     == BTBuffer[0][`BTB_ENTRY_WIDTH-2:`BTB_TARGET_WIDTH]);
+wire btb_upd_hit1 = (BTB_update[`BTB_ENTRY_WIDTH-2:`BTB_TARGET_WIDTH]
+                     == BTBuffer[1][`BTB_ENTRY_WIDTH-2:`BTB_TARGET_WIDTH]);
 
-integer j;
-always @(*) begin
-    upd_hit_any = 1'b0;
-    btb_upd_hit = {`BTB_ENTRIES{1'b0}};
-    // 检查即将写入的 Tag 是否已经存在于 BTB 中
-    for (j = 0; j < `BTB_ENTRIES; j = j + 1) begin
-        btb_upd_hit[j] = (BTB_update[`BTB_ENTRY_WIDTH-2:`BTB_TARGET_WIDTH]
-                         == BTBuffer[j][`BTB_ENTRY_WIDTH-2:`BTB_TARGET_WIDTH]);
-        if (btb_upd_hit[j]) begin
-            upd_hit_any = 1'b1;
-        end
-    end
-end
-
-integer k;
 always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
-        // 复位清空整个 BTB
-        for (k = 0; k < `BTB_ENTRIES; k = k + 1) begin
-            BTBuffer[k] <= {`BTB_ENTRY_WIDTH{1'b0}};
-        end
-        replace_ptr <= 0;
+        BTBuffer[0] <= {`BTB_ENTRY_WIDTH{1'b0}};
+        BTBuffer[1] <= {`BTB_ENTRY_WIDTH{1'b0}};
+        lru         <= 1'b0;
     end else if (BTB_update_valid) begin
-        if (upd_hit_any) begin
-            // 1. 如果命中，说明此分支指令以前来过，只需更新历史状态，不移动替换指针
-            for (k = 0; k < `BTB_ENTRIES; k = k + 1) begin
-                if (btb_upd_hit[k]) begin
-                    BTBuffer[k] <= BTB_update;
-                end
-            end
+        if (btb_upd_hit0) begin
+            BTBuffer[0] <= BTB_update;
+            lru         <= 1'b1;
+        end else if (btb_upd_hit1) begin
+            BTBuffer[1] <= BTB_update;
+            lru         <= 1'b0;
         end else begin
-            // 2. 如果未命中，说明是一个新的分支指令，覆盖当前指针位置的旧记录
-            BTBuffer[replace_ptr] <= BTB_update;
-            
-            // 指针轮询递增
-            if (replace_ptr == `BTB_ENTRIES - 1)
-                replace_ptr <= 0;
-            else
-                replace_ptr <= replace_ptr + 1;
+            if (~lru) begin
+                BTBuffer[0] <= BTB_update;
+                lru         <= 1'b1;
+            end else begin
+                BTBuffer[1] <= BTB_update;
+                lru         <= 1'b0;
+            end
         end
     end
 end

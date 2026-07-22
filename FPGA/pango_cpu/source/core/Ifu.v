@@ -44,6 +44,7 @@ reg [1:0] w_state;
 reg [31:0] waddr_r;
 reg [31:0] wdata_r;
 reg [3:0]  wstrb_r;
+wire [31:0] portB_rdata_out;
 
 wire write_busy = (w_state != 0);
 wire read_busy  = (r_state != 0);
@@ -111,7 +112,6 @@ wire [13:0] portA_addr_word = next_pc_i[15:2];
 wire is_write_cycle = (w_state == 1);
 wire [31:0] axi_b_addr_byte = is_write_cycle ? waddr_r : raddr_r;
 wire [13:0] portB_addr_word = axi_b_addr_byte[15:2];
-wire [31:0] portB_rdata_out;
 
 IRAM u_Iram (
     // Port A：专门用于 CPU IFU 取指 (只读)

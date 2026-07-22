@@ -47,6 +47,7 @@ module TSP_Sram(
     reg [1:0] state;
     reg [12:0] b_addr_reg; // 13位字地址
     reg [31:0] axi_rdata_reg;
+    wire [31:0] b_rd_data;
 
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
@@ -118,7 +119,6 @@ module TSP_Sram(
     wire [12:0] a_addr = cpu_addr_i[14:2]; 
     wire [31:0] a_rd_data;
     wire [12:0] b_addr = b_addr_wire;
-    wire [31:0] b_rd_data;
 
     assign cpu_rdata_o = a_rd_data;
 

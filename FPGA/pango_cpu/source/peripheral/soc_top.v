@@ -1,6 +1,8 @@
 `include "../core/defines.v"
 
-module SoC_Top(
+module SoC_Top #(
+    parameter ENABLE_EXT_IRAM_LOADER = 1'b0
+)(
     input  wire sys_clk,
     input  wire rst_n,
 
@@ -71,8 +73,8 @@ module SoC_Top(
     wire timer_intr;
 
     // 【调试修改】：强制设为 0，屏蔽悬空引脚的干扰，把总线 100% 交给内部 CPU
-    wire sel_ext_w = 1'b0; 
-    wire sel_ext_r = 1'b0;
+    wire sel_ext_w = ENABLE_EXT_IRAM_LOADER;
+    wire sel_ext_r = ENABLE_EXT_IRAM_LOADER;
 
     // 写地址通道多路选择
     wire [31:0] core_s_axi_awaddr  = sel_ext_w ? ext_axi_if_awaddr  : m3_axi_awaddr;

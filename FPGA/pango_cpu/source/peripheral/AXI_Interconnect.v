@@ -41,12 +41,12 @@ module TSP_AXI_Interconnect(
 
 wire aw_is_m1 = (s_axi_awaddr[31:28] == `SRAM_ADDR);
 wire aw_is_m2 = (s_axi_awaddr[31:28] == `UART_ADDR);
-wire aw_is_m3 = (s_axi_awaddr[31:28] == 4'h0); 
+wire aw_is_m3 = (s_axi_awaddr[31:28] == `IRAM_ADDR); 
 wire aw_is_m4 = (s_axi_awaddr[31:28] == `TIMER_ADDR); // 新增 Timer 地址匹配
 
 wire ar_is_m1 = (s_axi_araddr[31:28] == `SRAM_ADDR);
 wire ar_is_m2 = (s_axi_araddr[31:28] == `UART_ADDR);
-wire ar_is_m3 = (s_axi_araddr[31:28] == 4'h0); 
+wire ar_is_m3 = (s_axi_araddr[31:28] == `IRAM_ADDR); 
 wire ar_is_m4 = (s_axi_araddr[31:28] == `TIMER_ADDR); // 新增 Timer 地址匹配
 
 // 注意我们扩展了 3 bit，3'd5 作为 default 错误地址
