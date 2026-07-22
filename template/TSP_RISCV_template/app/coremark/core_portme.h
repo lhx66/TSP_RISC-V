@@ -5,7 +5,9 @@
 #include <stddef.h>
 
 // 强行指定只跑 10 圈！绝不允许它进入后台自动校准！
-#define ITERATIONS 1000
+#ifndef ITERATIONS
+#define ITERATIONS 0
+#endif
 
 #ifndef TOTAL_DATA_SIZE
 #define TOTAL_DATA_SIZE 2016 

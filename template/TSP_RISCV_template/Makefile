@@ -8,7 +8,13 @@ OBJDUMP = $(CROSS_COMPILE)objdump
 APP ?= coremark
 TARGET = $(APP)
 ARCH_FLAGS = -march=rv32im -mabi=ilp32
-CFLAGS = $(ARCH_FLAGS) -O2 -g -Wall -ffunction-sections -fdata-sections \
+COREMARK_OPT_LEVEL ?= -O3
+ifeq ($(APP),coremark)
+OPT_LEVEL ?= $(COREMARK_OPT_LEVEL)
+else
+OPT_LEVEL ?= -O2
+endif
+CFLAGS = $(ARCH_FLAGS) $(OPT_LEVEL) -g -Wall -ffunction-sections -fdata-sections \
          -fno-builtin -fno-common -mstrict-align -fno-align-functions \
          -fno-align-labels -fno-align-loops -mno-relax \
          -I./bsp/timer -I./bsp/uart -I./bsp
@@ -16,7 +22,8 @@ LDFLAGS = $(ARCH_FLAGS) -T linker.lds -nostartfiles -Wl,--gc-sections \
           -Wl,-Map=$(TARGET).map
 
 ifeq ($(APP),coremark)
-CFLAGS += -DITERATIONS=1000 -DCOMPILER_FLAGS=\"GCC_RV32IM\" -I./app/coremark
+COREMARK_ITERATIONS ?= 0
+CFLAGS += -DITERATIONS=$(COREMARK_ITERATIONS) -DCOMPILER_FLAGS=\"$(OPT_LEVEL)\" -I./app/coremark
 C_SRCS = \
     app/coremark/core_list_join.c \
     app/coremark/core_main.c \

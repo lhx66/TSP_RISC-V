@@ -16,9 +16,12 @@ where riscv-none-elf-gcc >nul 2>&1 || (
     echo [ERROR] riscv-none-elf-gcc was not found on PATH.
     exit /b 1
 )
-where python >nul 2>&1 || (
-    echo [ERROR] python was not found on PATH.
-    exit /b 1
+if not defined PYTHON (
+    where python >nul 2>&1 || (
+        echo [ERROR] python was not found on PATH. Set PYTHON to a Python executable.
+        exit /b 1
+    )
+    set "PYTHON=python"
 )
 
 echo [BUILD] application: %APP%
@@ -31,5 +34,5 @@ if not exist "%PROJECT_DIR%\%APP%.bin" (
     exit /b 1
 )
 
-python "%SCRIPT_DIR%\bin2txt.py" --bin "%PROJECT_DIR%\%APP%.bin" --iram-out "%HEX_FILE%" || exit /b 1
+"%PYTHON%" "%SCRIPT_DIR%\bin2txt.py" --bin "%PROJECT_DIR%\%APP%.bin" --iram-out "%HEX_FILE%" || exit /b 1
 echo [DONE] simulation image: %HEX_FILE%
