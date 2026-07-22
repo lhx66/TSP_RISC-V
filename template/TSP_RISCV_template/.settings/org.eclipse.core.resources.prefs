@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+encoding//app/coremark/core_main.c=UTF-8
+encoding//lib/startup/startup.S=UTF-8
+encoding/linker.lds=UTF-8

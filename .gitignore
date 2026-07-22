@@ -1,0 +1,31 @@
+# ModelSim generated state
+RTL/sim/log/
+RTL/sim/work/
+RTL/sim/tb_script/log/
+RTL/sim/tb_script/work/
+RTL/sim/tb_script/work*/
+RTL/sim/tb_script/transcript
+RTL/sim/tb_script/modelsim.ini
+
+# Bare-metal build products
+template/TSP_RISCV_template/**/*.o
+template/TSP_RISCV_template/*.elf
+template/TSP_RISCV_template/*.bin
+template/TSP_RISCV_template/*.dump
+template/TSP_RISCV_template/*.map
+template/TSP_RISCV_template/obj/
+
+# Pango implementation products and logs (the source and ipcore trees are tracked)
+FPGA/pango_cpu/compile/
+FPGA/pango_cpu/constraint_check/
+FPGA/pango_cpu/device_map/
+FPGA/pango_cpu/generate_bitstream/
+FPGA/pango_cpu/place_route/
+FPGA/pango_cpu/report_timing/
+FPGA/pango_cpu/synthesize/
+FPGA/pango_cpu/log/
+FPGA/pango_cpu/logbackup/
+FPGA/pango_cpu/cfg_verify_result.sbit
+
+# Unused board target
+FPGA/zynq7200_cpu/

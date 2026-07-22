@@ -1,0 +1,14 @@
+
+MCU=TSP_RISCV_template
+Mcu Type=
+Address=
+Target Path=
+Erase All=
+Program=
+Verify=
+Reset=
+Vendor=
+Link=WCH-Link
+Toolchain=
+Series=
+Description=
