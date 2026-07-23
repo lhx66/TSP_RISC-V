@@ -24,7 +24,8 @@ LDFLAGS = $(ARCH_FLAGS) -T linker.lds -nostartfiles -Wl,--gc-sections \
 ifeq ($(APP),coremark)
 COREMARK_ITERATIONS ?= 0
 COREMARK_STATE_INIT_DIAG ?= 0
-CFLAGS += -DITERATIONS=$(COREMARK_ITERATIONS) -DCOREMARK_STATE_INIT_DIAG=$(COREMARK_STATE_INIT_DIAG) -DCOMPILER_FLAGS=\"$(OPT_LEVEL)\" -I./app/coremark
+COREMARK_HEAP_ALIGN ?= 8
+CFLAGS += -DITERATIONS=$(COREMARK_ITERATIONS) -DCOREMARK_STATE_INIT_DIAG=$(COREMARK_STATE_INIT_DIAG) -DCOREMARK_HEAP_ALIGN=$(COREMARK_HEAP_ALIGN) -DCOMPILER_FLAGS=\"$(OPT_LEVEL)\" -I./app/coremark
 C_SRCS = \
     app/coremark/core_list_join.c \
     app/coremark/core_main.c \
@@ -40,8 +41,11 @@ C_SRCS = \
 else ifeq ($(APP),sim_smoke)
 CFLAGS += -I./app/sim_smoke
 C_SRCS = app/sim_smoke/main.c bsp/uart/bsp_uart.c
+else ifeq ($(APP),ls_dependency)
+CFLAGS += -I./app/ls_dependency
+C_SRCS = app/ls_dependency/main.c bsp/uart/bsp_uart.c
 else
-$(error Unsupported APP '$(APP)'. Supported applications: coremark sim_smoke)
+$(error Unsupported APP '$(APP)'. Supported applications: coremark sim_smoke ls_dependency)
 endif
 
 ASM_SRCS = lib/startup/startup.S

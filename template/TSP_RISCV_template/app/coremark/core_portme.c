@@ -104,7 +104,10 @@ void portable_fini(core_portable *p) {
 // 极简静态对齐堆 (供官方代码的 portable_malloc 使用)
 // ==========================================
 // 强制 8 字节对齐，确保基地址绝对安全
-__attribute__((aligned(8))) static ee_u8 my_heap[TOTAL_DATA_SIZE * MULTITHREAD + 256];
+#ifndef COREMARK_HEAP_ALIGN
+#define COREMARK_HEAP_ALIGN 8
+#endif
+__attribute__((aligned(COREMARK_HEAP_ALIGN))) static ee_u8 my_heap[TOTAL_DATA_SIZE * MULTITHREAD + 256];
 static int heap_offset = 0;
 
 void *portable_malloc(size_t size) {
