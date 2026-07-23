@@ -8,7 +8,6 @@ MEMORY
 
 SECTIONS
 {
-  /* 1. 指令段：存放在 IRAM */
   .text : {
     . = ALIGN(4);
     PROVIDE(_text_start = .);
@@ -18,10 +17,7 @@ SECTIONS
     PROVIDE(_text_end = .);
   } > IRAM
 
-  /* 2. 只读数据段：因为现在 IRAM 可被 LSU 读取，
-        所以直接将只读常量留在 IRAM 即可，节约 SRAM 空间！ */
-  /* 3. 初始化数据段 (比如 int a = 1)
-        存放(LMA)在 IRAM 掉电不丢失，运行(VMA)在 SRAM 允许读写 */
+  /* Pango initializes this section in SRAM before CPU reset is released. */
   .data : {
     . = ALIGN(4);
     PROVIDE(_data_start = .);
@@ -31,12 +27,8 @@ SECTIONS
     *(.data .data.*)
     . = ALIGN(4);
     PROVIDE(_data_end = .);
-  } > SRAM AT > IRAM
-  
-  /* 记录 .data 段在 IRAM 中的确切起始地址，供汇编启动代码搬运使用 */
-  PROVIDE(_data_lma = LOADADDR(.data));
+  } > SRAM
 
-  /* 4. 未初始化数据段 (比如 int b;)：仅分配 SRAM 空间 */
   .bss : {
     . = ALIGN(4);
     PROVIDE(_bss_start = .);
@@ -49,6 +41,5 @@ SECTIONS
     PROVIDE(_end = .);
   } > SRAM
 
-  /* 5. 栈顶指针指向 SRAM 最高地址 */
-  PROVIDE(_sp = ORIGIN(SRAM) + LENGTH(SRAM)); 
+  PROVIDE(_sp = ORIGIN(SRAM) + LENGTH(SRAM));
 }

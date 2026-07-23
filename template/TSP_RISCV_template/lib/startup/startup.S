@@ -1,43 +1,21 @@
 .section .init, "ax"
-    .global _start
-    .type _start, @function
+.global _start
+.type _start, @function
 
 _start:
-    /* 🚨 终极手段：不要用 la sp, _sp 了！直接物理硬编码！ */
-    /* 强行将栈指针设在 SRAM (32KB) 的最顶端，赐予它无限的栈空间！ */
+    /* Data and read-only data are initialized directly in SRAM by Pango IP. */
     li sp, 0x20008000
 
-    /* ===================================================
-       2. 搬运 .data 段 (安全单字节拷贝，绝对免疫非对齐异常！)
-       =================================================== */
-    la a0, _data_lma     
-    la a1, _data_start   
-    la a2, _data_end     
-    bgeu a1, a2, 2f      
-1:
-    lb t0, 0(a0)         /* 使用 lb 代替 lw */
-    sb t0, 0(a1)         /* 使用 sb 代替 sw */
-    addi a0, a0, 1       /* 每次步进 1 个字节 */
-    addi a1, a1, 1       
-    bltu a1, a2, 1b
-2:
-
-    /* ===================================================
-       3. 清零 .bss 段 (安全单字节清零)
-       =================================================== */
+    /* Clear only uninitialized SRAM. */
     la a0, _bss_start
     la a1, _bss_end
-    bgeu a0, a1, 4f      
-3:
-    sb zero, 0(a0)       /* 使用 sb 代替 sw */
-    addi a0, a0, 1       /* 每次步进 1 个字节 */
-    bltu a0, a1, 3b
-4:
-
-    /* ===================================================
-       4. 环境准备完毕，跳转到 C 语言主函数
-       =================================================== */
+    bgeu a0, a1, 2f
+1:
+    sb zero, 0(a0)
+    addi a0, a0, 1
+    bltu a0, a1, 1b
+2:
     call main
 
-    /* 5. 如果 main 函数意外 return，死循环停在这里 */
-1:  j 1b
+3:
+    j 3b

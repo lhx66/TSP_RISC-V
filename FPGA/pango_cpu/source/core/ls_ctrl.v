@@ -80,12 +80,9 @@ reg [3:0]  raw_wstrb_r;    // 锁存原始写入字节掩码
 reg [31:0] rdata1_r;       // 锁存第一拍读回的数据
 
 // 识别 AXI 合法内存与 MPU 保护
-wire is_iram = (ls_addr_i[31:28] == 4'h0);
 wire is_dtcm = (ls_addr_i[31:28] == `SRAM_ADDR);
 wire is_axi_mem = (ls_addr_i[31:28] == `UART_ADDR) ||
-                  (ls_addr_i[31:28] == `TIMER_ADDR) ||
-                  is_iram;
-wire write_protect = is_iram & ls_we_i;
+                  (ls_addr_i[31:28] == `TIMER_ADDR);
 
 // 非对齐访问检测信号（移到always块外部）
 wire [3:0] wstrb_init =
@@ -137,7 +134,7 @@ always @(posedge clk or negedge rst_n) begin
                     if (is_dtcm) begin
                         dtcm_addr_o <= {ls_addr_i[31:2], 2'b00};
                         state <= ls_we_i ? DTCM_WRITE : DTCM_READ_REQ;
-                    end else if (is_axi_mem && !write_protect) begin
+                    end else if (is_axi_mem) begin
                         if (ls_we_i) begin
                             state         <= AXI_AW_W;
                             m_axi_awaddr  <= {ls_addr_i[31:2], 2'b00}; // 第 1 拍：对齐基地址
@@ -152,6 +149,7 @@ always @(posedge clk or negedge rst_n) begin
                             m_axi_arvalid <= 1'b1;
                         end
                     end else begin
+                        axi_read_data_r <= 32'b0;
                         state <= WAIT_WB;
                     end
                 end

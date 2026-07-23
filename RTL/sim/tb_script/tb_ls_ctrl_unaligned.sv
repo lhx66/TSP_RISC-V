@@ -47,6 +47,7 @@ module tb_ls_ctrl_unaligned;
     reg [31:0] pending_rdata;
     integer    errors;
     integer    i;
+    integer    axi_read_count;
 
     ls_ctrl dut (
         .clk(clk), .rst_n(rst_n),
@@ -88,6 +89,7 @@ module tb_ls_ctrl_unaligned;
             pending_b <= 1'b0;
         end
         if (m_axi_arvalid && m_axi_arready) begin
+            axi_read_count = axi_read_count + 1;
             pending_r <= 1'b1;
             pending_rdata <= mem[m_axi_araddr[5:2]];
             $display("[TB_DATA] t=%0t READ addr=%08x", $time, m_axi_araddr);
@@ -138,7 +140,7 @@ module tb_ls_ctrl_unaligned;
         wb_ls_ready_i = 1'b1;
         m_axi_awready = 1'b1; m_axi_wready = 1'b1; m_axi_arready = 1'b1;
         m_axi_bresp = 2'b00; m_axi_rresp = 2'b00; m_axi_bvalid = 0; m_axi_rvalid = 0; m_axi_rdata = 0; dtcm_rdata = 0;
-        pending_b = 0; pending_r = 0; pending_rdata = 0; errors = 0;
+        pending_b = 0; pending_r = 0; pending_rdata = 0; errors = 0; axi_read_count = 0;
         for (i = 0; i < 16; i = i + 1) mem[i] = 32'h00000000;
         mem[0] = 32'h44332211;
         mem[1] = 32'h88776655;
@@ -153,6 +155,10 @@ module tb_ls_ctrl_unaligned;
         do_store(32'h2000_0003, 4'b0011, 32'h00001234);
         #1 fail_if_not_equal(mem[0], 32'h34cc_dd11, "cross-word SH first word");
         #1 fail_if_not_equal(mem[1], 32'h8877_6612, "cross-word SH second word");
+
+        axi_read_count = 0;
+        do_load(32'h0000_0000, 3'd0, 5'd3, 32'h00000000);
+        #1 fail_if_not_equal(axi_read_count, 32'd0, "IRAM data port remains blocked");
 
         if (errors != 0) $fatal(1, "[TB_ERROR] %0d checks failed", errors);
         $display("[TB_INFO] Simulation Finished!");

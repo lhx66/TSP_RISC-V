@@ -46,7 +46,13 @@ endif
 ASM_SRCS = lib/startup/startup.S
 OBJS = $(C_SRCS:.c=.o) $(ASM_SRCS:.S=.o)
 
-all: $(TARGET).elf $(TARGET).bin $(TARGET).dump
+ifeq ($(APP),coremark)
+BUILD_ARTIFACTS = $(TARGET).elf $(TARGET).dump
+else
+BUILD_ARTIFACTS = $(TARGET).elf $(TARGET).bin $(TARGET).dump
+endif
+
+all: $(BUILD_ARTIFACTS)
 
 $(TARGET).elf: $(OBJS)
 	@echo "Linking $@"
