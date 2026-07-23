@@ -47,8 +47,11 @@ C_SRCS = app/ls_dependency/main.c bsp/uart/bsp_uart.c
 else ifeq ($(APP),unaligned_access)
 CFLAGS += -I./app/unaligned_access
 C_SRCS = app/unaligned_access/main.c bsp/uart/bsp_uart.c
+else ifeq ($(APP),state_machine)
+CFLAGS += -O3 -I./app/coremark -I./app/state_machine
+C_SRCS = app/state_machine/main.c app/coremark/core_state.c bsp/uart/bsp_uart.c
 else
-$(error Unsupported APP '$(APP)'. Supported applications: coremark sim_smoke ls_dependency unaligned_access)
+$(error Unsupported APP '$(APP)'. Supported applications: coremark sim_smoke ls_dependency unaligned_access state_machine)
 endif
 
 ASM_SRCS = lib/startup/startup.S
