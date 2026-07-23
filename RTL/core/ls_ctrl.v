@@ -63,6 +63,9 @@ localparam WAIT_WB  = 4'd5;
 localparam DTCM_WRITE = 4'd6;
 localparam DTCM_READ_REQ = 4'd7;
 localparam DTCM_READ_CAPTURE = 4'd8;
+localparam DTCM_RMW_READ_REQ = 4'd9;
+localparam DTCM_RMW_READ_CAPTURE = 4'd10;
+localparam DTCM_RMW_WRITE = 4'd11;
 
 reg [3:0] state;
 reg [1:0]                    addr_align_r;
@@ -78,6 +81,7 @@ reg        second_beat_r;  // 标记当前正在执行第 2 拍 AXI 事务
 reg [31:0] raw_wdata_r;    // 锁存原始写入数据
 reg [3:0]  raw_wstrb_r;    // 锁存原始写入字节掩码
 reg [31:0] rdata1_r;       // 锁存第一拍读回的数据
+reg [31:0] rmw_wdata_r;
 
 // 识别 AXI 合法内存与 MPU 保护
 wire is_dtcm = (ls_addr_i[31:28] == `SRAM_ADDR);
@@ -94,6 +98,19 @@ wire is_word = (ls_we_i && wstrb_init == 4'b1111) || (!ls_we_i && ls_load_type =
 wire is_half = (ls_we_i && wstrb_init == 4'b0011) || (!ls_we_i && (ls_load_type == 3'd1 || ls_load_type == 3'd2));
 wire cross_bound = (is_word && ls_addr_i[1:0] != 2'b00) || (is_half && ls_addr_i[1:0] == 2'b11);
 
+wire [31:0] dtcm_write_data_aligned = second_beat_r
+    ? (raw_wdata_r >> ({3'd4 - {1'b0, addr_align_r}, 3'b000}))
+    : (raw_wdata_r << ({addr_align_r, 3'b000}));
+wire [3:0] dtcm_write_strb_aligned = second_beat_r
+    ? (raw_wstrb_r >> (3'd4 - {1'b0, addr_align_r}))
+    : (raw_wstrb_r << addr_align_r);
+wire [31:0] dtcm_write_byte_mask = {
+    {8{dtcm_write_strb_aligned[3]}},
+    {8{dtcm_write_strb_aligned[2]}},
+    {8{dtcm_write_strb_aligned[1]}},
+    {8{dtcm_write_strb_aligned[0]}}
+};
+
 always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
         state           <= IDLE;
@@ -107,6 +124,7 @@ always @(posedge clk or negedge rst_n) begin
         raw_wdata_r     <= 32'b0;
         raw_wstrb_r     <= 4'b0;
         rdata1_r        <= 32'b0;
+        rmw_wdata_r     <= 32'b0;
 
         m_axi_awvalid   <= 1'b0;
         m_axi_wvalid    <= 1'b0;
@@ -133,7 +151,8 @@ always @(posedge clk or negedge rst_n) begin
 
                     if (is_dtcm) begin
                         dtcm_addr_o <= {ls_addr_i[31:2], 2'b00};
-                        state <= ls_we_i ? DTCM_WRITE : DTCM_READ_REQ;
+                        state <= !ls_we_i ? DTCM_READ_REQ :
+                                 (wstrb_init == 4'b1111 && !cross_bound) ? DTCM_WRITE : DTCM_RMW_READ_REQ;
                     end else if (is_axi_mem) begin
                         if (ls_we_i) begin
                             state         <= AXI_AW_W;
@@ -242,6 +261,26 @@ always @(posedge clk or negedge rst_n) begin
                     state <= WAIT_WB;
                 end
             end
+
+            DTCM_RMW_READ_REQ: begin
+                state <= DTCM_RMW_READ_CAPTURE;
+            end
+
+            DTCM_RMW_READ_CAPTURE: begin
+                rmw_wdata_r <= (dtcm_rdata_i & ~dtcm_write_byte_mask) |
+                               (dtcm_write_data_aligned & dtcm_write_byte_mask);
+                state <= DTCM_RMW_WRITE;
+            end
+
+            DTCM_RMW_WRITE: begin
+                if (cross_bound_r && !second_beat_r) begin
+                    second_beat_r <= 1'b1;
+                    dtcm_addr_o <= dtcm_addr_o + 32'd4;
+                    state <= DTCM_RMW_READ_REQ;
+                end else begin
+                    state <= WAIT_WB;
+                end
+            end
             
             WAIT_WB: begin
                 if (wb_ls_ready_i) begin
@@ -255,13 +294,9 @@ always @(posedge clk or negedge rst_n) begin
 end
 
 assign ls_ctrl_ready_o = (state == IDLE);
-assign dtcm_we_o = (state == DTCM_WRITE);
-assign dtcm_wdata_o = second_beat_r
-                   ? (raw_wdata_r >> ({3'd4 - {1'b0, addr_align_r}, 3'b000}))
-                   : (raw_wdata_r << ({addr_align_r, 3'b000}));
-assign dtcm_be_o = second_beat_r
-                ? (raw_wstrb_r >> (3'd4 - {1'b0, addr_align_r}))
-                : (raw_wstrb_r << addr_align_r);
+assign dtcm_we_o = (state == DTCM_WRITE) || (state == DTCM_RMW_WRITE);
+assign dtcm_wdata_o = (state == DTCM_RMW_WRITE) ? rmw_wdata_r : dtcm_write_data_aligned;
+assign dtcm_be_o = (state == DTCM_RMW_WRITE) ? 4'b1111 : dtcm_write_strb_aligned;
 
 // ==========================================
 // 读数据符号扩展与最终写回 (此时数据已经是完美对齐的了)
