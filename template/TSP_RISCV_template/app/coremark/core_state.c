@@ -127,6 +127,17 @@ static ee_u8 *errpat[4]   = { (ee_u8 *)"T0.3e-1F",
                             (ee_u8 *)"34.0e-T^" };
 
 #if COREMARK_STATE_INIT_DIAG
+static ee_u16
+core_state_diag_crc(ee_u32 size, ee_u8 *p)
+{
+    ee_u16 crc = 0;
+    ee_u32 i;
+
+    for (i = 0; i < size; i++)
+        crc = crcu8(p[i], crc);
+    return crc;
+}
+
 void
 core_state_init_diag(void)
 {
@@ -220,6 +231,10 @@ core_init_state(ee_u32 size, ee_s16 seed, ee_u8 *p)
         *(p + total) = 0;
         total++;
     }
+#if COREMARK_STATE_INIT_DIAG
+    ee_printf("[STATE_DIAG] init_crc %04x first %08x\n",
+              core_state_diag_crc(size, p), *(ee_u32 *)p);
+#endif
 #if CORE_DEBUG
     ee_printf("State Input: %s\n", start);
 #endif

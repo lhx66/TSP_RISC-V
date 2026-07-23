@@ -95,3 +95,10 @@ Goal: reuse the Pango dual-port IRAM/SRAM simulation models in RTL, verify and c
   - `sci_ptr 20000584 20000578 2000056c 20000560`, `sci_dat 30352e35 32312e2d 6537382d 362e302b`
   - `err_ptr 2000060c 20000600 200005f4 200005e8`, `err_dat 332e3054 542e542d 2e335431 302e3433`
 - Verification: `build_and_convert.bat coremark 1` passed with GCC 15.2.0 and `COREMARK_STATE_INIT_DIAG=1`; the rebuilt ELF contains all `[STATE_DIAG]` markers in its SRAM `.data` section.
+
+## CoreMark dynamic state-buffer diagnostic (2026-07-23)
+
+- Board evidence from the preceding diagnostic exactly matches all 32 static pattern pointers and words listed above. This excludes the CoreMark SRAM initialization image, its Pango mapping, and the static pattern pointer table as the cause of the state/list CRC failures.
+- The diagnostic image now also prints `[STATE_DIAG] init_crc <crc> first <word>` immediately after `core_init_state()` constructs the 666-byte dynamic state buffer. The checksum is the CoreMark `crcu8` reduction over every byte, so it detects any incorrect byte write without depending on a particular SRAM word layout.
+- A host-side reference execution of the same pattern-selection and CRC algorithm gives `init_crc ef98`, `first 32313035` (ASCII `5012`, little-endian), with byte 660 being the first zero-filled tail byte. If FPGA output differs, the error is in CPU/LSU dynamic byte-write initialization. If it matches, initialization is correct and the remaining fault is in state-machine execution, principally its `LBU`/branch path.
+- Verification: `build_and_convert.bat coremark 1` passed with GCC 15.2.0; `riscv-none-elf-strings coremark.elf` confirms the new `init_crc` diagnostic marker. The generated diagnostic images contain a 19,860-byte `.text` payload and a 2,900-byte `.data` payload. Regenerate both Pango IPs from `coremark_iram.dat` and `coremark_sram.dat`, then rebuild/program the FPGA before collecting the new line.
