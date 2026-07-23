@@ -1,7 +1,8 @@
 `include "../core/defines.v"
 
 module SoC_Top #(
-    parameter ENABLE_EXT_IRAM_LOADER = 1'b0
+    parameter ENABLE_EXT_IRAM_LOADER = 1'b0,
+    parameter ENABLE_EXT_SRAM_LOADER = 1'b0
 )(
     input  wire sys_clk,
     input  wire rst_n,
@@ -15,7 +16,12 @@ module SoC_Top #(
     input  wire [31:0] ext_axi_if_wdata,  input  wire [3:0]  ext_axi_if_wstrb, input  wire ext_axi_if_wvalid, output wire ext_axi_if_wready,
     output wire [1:0]  ext_axi_if_bresp,  output wire ext_axi_if_bvalid,  input  wire ext_axi_if_bready,
     input  wire [31:0] ext_axi_if_araddr, input  wire ext_axi_if_arvalid, output wire ext_axi_if_arready,
-    output wire [31:0] ext_axi_if_rdata,  output wire [1:0]  ext_axi_if_rresp, output wire ext_axi_if_rvalid, input  wire ext_axi_if_rready
+    output wire [31:0] ext_axi_if_rdata,  output wire [1:0]  ext_axi_if_rresp, output wire ext_axi_if_rvalid, input  wire ext_axi_if_rready,
+    input  wire [31:0] ext_axi_sram_awaddr, input wire ext_axi_sram_awvalid, output wire ext_axi_sram_awready,
+    input  wire [31:0] ext_axi_sram_wdata,  input wire [3:0] ext_axi_sram_wstrb, input wire ext_axi_sram_wvalid, output wire ext_axi_sram_wready,
+    output wire [1:0]  ext_axi_sram_bresp,  output wire ext_axi_sram_bvalid, input wire ext_axi_sram_bready,
+    input  wire [31:0] ext_axi_sram_araddr, input wire ext_axi_sram_arvalid, output wire ext_axi_sram_arready,
+    output wire [31:0] ext_axi_sram_rdata,  output wire [1:0] ext_axi_sram_rresp, output wire ext_axi_sram_rvalid, input wire ext_axi_sram_rready
 );
     wire clk;
     sys_pll u_sys_pll (
@@ -40,6 +46,12 @@ module SoC_Top #(
     wire [1:0]  m1_axi_bresp;   wire        m1_axi_bvalid;  wire        m1_axi_bready;
     wire [31:0] m1_axi_araddr;  wire        m1_axi_arvalid; wire        m1_axi_arready;
     wire [31:0] m1_axi_rdata;   wire [1:0]  m1_axi_rresp;   wire        m1_axi_rvalid;  wire        m1_axi_rready;
+
+    wire [31:0] sram_s_axi_awaddr; wire       sram_s_axi_awvalid; wire       sram_s_axi_awready;
+    wire [31:0] sram_s_axi_wdata;  wire [3:0] sram_s_axi_wstrb;  wire       sram_s_axi_wvalid; wire       sram_s_axi_wready;
+    wire [1:0]  sram_s_axi_bresp;  wire       sram_s_axi_bvalid; wire       sram_s_axi_bready;
+    wire [31:0] sram_s_axi_araddr; wire       sram_s_axi_arvalid; wire       sram_s_axi_arready;
+    wire [31:0] sram_s_axi_rdata;  wire [1:0] sram_s_axi_rresp;   wire       sram_s_axi_rvalid; wire       sram_s_axi_rready;
 
     // Slave 2: Interconnect 到 UART
     wire [31:0] m2_axi_awaddr;  wire        m2_axi_awvalid; wire        m2_axi_awready;
@@ -75,6 +87,8 @@ module SoC_Top #(
     // 【调试修改】：强制设为 0，屏蔽悬空引脚的干扰，把总线 100% 交给内部 CPU
     wire sel_ext_w = ENABLE_EXT_IRAM_LOADER;
     wire sel_ext_r = ENABLE_EXT_IRAM_LOADER;
+    wire sel_ext_sram_w = ENABLE_EXT_SRAM_LOADER;
+    wire sel_ext_sram_r = ENABLE_EXT_SRAM_LOADER;
 
     // 写地址通道多路选择
     wire [31:0] core_s_axi_awaddr  = sel_ext_w ? ext_axi_if_awaddr  : m3_axi_awaddr;
@@ -115,6 +129,36 @@ module SoC_Top #(
     assign ext_axi_if_rvalid  = sel_ext_r ? core_s_axi_rvalid : 1'b0;
     assign m3_axi_rvalid      = ~sel_ext_r ? core_s_axi_rvalid : 1'b0;
     wire        core_s_axi_rready  = sel_ext_r ? ext_axi_if_rready  : m3_axi_rready;
+
+    assign sram_s_axi_awaddr  = sel_ext_sram_w ? ext_axi_sram_awaddr  : m1_axi_awaddr;
+    assign sram_s_axi_awvalid = sel_ext_sram_w ? ext_axi_sram_awvalid : m1_axi_awvalid;
+    assign ext_axi_sram_awready = sel_ext_sram_w ? sram_s_axi_awready : 1'b0;
+    assign m1_axi_awready       = ~sel_ext_sram_w ? sram_s_axi_awready : 1'b0;
+
+    assign sram_s_axi_wdata  = sel_ext_sram_w ? ext_axi_sram_wdata  : m1_axi_wdata;
+    assign sram_s_axi_wstrb  = sel_ext_sram_w ? ext_axi_sram_wstrb  : m1_axi_wstrb;
+    assign sram_s_axi_wvalid = sel_ext_sram_w ? ext_axi_sram_wvalid : m1_axi_wvalid;
+    assign ext_axi_sram_wready = sel_ext_sram_w ? sram_s_axi_wready : 1'b0;
+    assign m1_axi_wready       = ~sel_ext_sram_w ? sram_s_axi_wready : 1'b0;
+
+    assign ext_axi_sram_bresp  = sram_s_axi_bresp;
+    assign m1_axi_bresp        = sram_s_axi_bresp;
+    assign ext_axi_sram_bvalid = sel_ext_sram_w ? sram_s_axi_bvalid : 1'b0;
+    assign m1_axi_bvalid       = ~sel_ext_sram_w ? sram_s_axi_bvalid : 1'b0;
+    assign sram_s_axi_bready = sel_ext_sram_w ? ext_axi_sram_bready : m1_axi_bready;
+
+    assign sram_s_axi_araddr  = sel_ext_sram_r ? ext_axi_sram_araddr  : m1_axi_araddr;
+    assign sram_s_axi_arvalid = sel_ext_sram_r ? ext_axi_sram_arvalid : m1_axi_arvalid;
+    assign ext_axi_sram_arready = sel_ext_sram_r ? sram_s_axi_arready : 1'b0;
+    assign m1_axi_arready       = ~sel_ext_sram_r ? sram_s_axi_arready : 1'b0;
+
+    assign ext_axi_sram_rdata  = sram_s_axi_rdata;
+    assign ext_axi_sram_rresp  = sram_s_axi_rresp;
+    assign m1_axi_rdata        = sram_s_axi_rdata;
+    assign m1_axi_rresp        = sram_s_axi_rresp;
+    assign ext_axi_sram_rvalid = sel_ext_sram_r ? sram_s_axi_rvalid : 1'b0;
+    assign m1_axi_rvalid       = ~sel_ext_sram_r ? sram_s_axi_rvalid : 1'b0;
+    assign sram_s_axi_rready = sel_ext_sram_r ? ext_axi_sram_rready : m1_axi_rready;
 
     // -------------------------------------------------------------
     // [1] CPU 核心 (TSP_Core) 
@@ -199,11 +243,11 @@ module SoC_Top #(
         .cpu_rdata_o  (dtcm_rdata),
 
         // 端口B：依然连在系统 AXI 总线上（接受外部下载）
-        .s_axi_awaddr (m1_axi_awaddr), .s_axi_awvalid(m1_axi_awvalid), .s_axi_awready(m1_axi_awready),
-        .s_axi_wdata  (m1_axi_wdata),  .s_axi_wstrb  (m1_axi_wstrb),   .s_axi_wvalid (m1_axi_wvalid),  .s_axi_wready (m1_axi_wready),
-        .s_axi_bresp  (m1_axi_bresp),  .s_axi_bvalid (m1_axi_bvalid),  .s_axi_bready (m1_axi_bready),
-        .s_axi_araddr (m1_axi_araddr), .s_axi_arvalid(m1_axi_arvalid), .s_axi_arready(m1_axi_arready),
-        .s_axi_rdata  (m1_axi_rdata),  .s_axi_rresp  (m1_axi_rresp),   .s_axi_rvalid (m1_axi_rvalid),  .s_axi_rready (m1_axi_rready)
+        .s_axi_awaddr (sram_s_axi_awaddr), .s_axi_awvalid(sram_s_axi_awvalid), .s_axi_awready(sram_s_axi_awready),
+        .s_axi_wdata  (sram_s_axi_wdata),  .s_axi_wstrb  (sram_s_axi_wstrb),   .s_axi_wvalid (sram_s_axi_wvalid),  .s_axi_wready (sram_s_axi_wready),
+        .s_axi_bresp  (sram_s_axi_bresp),  .s_axi_bvalid (sram_s_axi_bvalid),  .s_axi_bready (sram_s_axi_bready),
+        .s_axi_araddr (sram_s_axi_araddr), .s_axi_arvalid(sram_s_axi_arvalid), .s_axi_arready(sram_s_axi_arready),
+        .s_axi_rdata  (sram_s_axi_rdata),  .s_axi_rresp  (sram_s_axi_rresp),   .s_axi_rvalid (sram_s_axi_rvalid),  .s_axi_rready (sram_s_axi_rready)
     );
 
     // -------------------------------------------------------------

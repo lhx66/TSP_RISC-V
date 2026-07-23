@@ -1,4 +1,5 @@
 #include "coremark.h"
+
 #include "core_portme.h"
 #include "../bsp/timer/bsp_timer.h"   // 【关键新增】引入你手写的 AXI 定时器驱动
 
@@ -34,6 +35,7 @@ CORETIMETYPE barebones_clock() {
 #define SAMPLE_TIME_IMPLEMENTATION 1
 
 static CORETIMETYPE start_time_val, stop_time_val;
+
 
 void start_time(void) {
     GETMYTIME(&start_time_val);
@@ -75,17 +77,21 @@ void portable_init(core_portable *p, int *argc, char *argv[]) {
     }
 
     // 极简调试信息
+#if !COREMARK_SIM_QUIET
     ee_printf("Boot %d\r\n", boot_count);
     ee_printf("Init OK\r\n");
+#endif
 
     timer0_init(0xFFFFFFFF, 0);
     timer0_start();
 
+#if !COREMARK_SIM_QUIET
     // 👇 加上这几句，测试定时器是不是真的在动！
     ee_printf("[DEBUG] Timer Init Value: %d\r\n", timer0_get_value());
     for(volatile int k=0; k<50000; k++); // 故意让 CPU 拖延一小会儿
     ee_printf("[DEBUG] Timer After Delay: %d\r\n", timer0_get_value());
 
+#endif
     if (sizeof(ee_ptr_int) != sizeof(ee_u8 *)) {
         ee_printf("ERROR! Please define ee_ptr_int to a type that holds a pointer!\n");
     }

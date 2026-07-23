@@ -29,27 +29,37 @@ module GTP_DRM18K #(
     input WEB, input CLKB, input CEB, input ORCEB, input RSTB
 );
     reg [17:0] mem [0:16383];
+    integer init_index;
+
+    // Pango initializes an unspecified DRM image from zero-valued INIT_xx
+    // parameters.  Keep that deterministic reset image in the lightweight
+    // simulation model as well.
+    initial begin
+        for (init_index = 0; init_index < 16384; init_index = init_index + 1)
+            mem[init_index] = 18'b0;
+    end
+
     always @(posedge CLKA or posedge RSTA) begin
         if (RSTA) DOA <= 18'b0;
-        else if (CEA) begin
+        else if (CEA && (CSA == CSA_MASK[2:0])) begin
             if (WEA) begin
                 // In 16-bit byte-write mode the generated Pango wrapper
                 // encodes the two byte enables in ADDRA[1:0].  Bits [7:0]
                 // and [16:9] are the DRM data bytes; [8] and [17] are parity.
-                if (ADDRA[0]) mem[ADDRA[13:2]][7:0]  <= DIA[7:0];
-                if (ADDRA[1]) mem[ADDRA[13:2]][16:9] <= DIA[16:9];
+                if (ADDRA[0]) mem[ADDRA[13:4]][7:0]  <= DIA[7:0];
+                if (ADDRA[1]) mem[ADDRA[13:4]][16:9] <= DIA[16:9];
             end
-            if (ORCEA || !DOA_REG) DOA <= WEA && WRITE_MODE_A == "TRANSPARENT_WRITE" ? DIA : mem[ADDRA[13:2]];
+            if (ORCEA || !DOA_REG) DOA <= WEA && WRITE_MODE_A == "TRANSPARENT_WRITE" ? DIA : mem[ADDRA[13:4]];
         end
     end
     always @(posedge CLKB or posedge RSTB) begin
         if (RSTB) DOB <= 18'b0;
-        else if (CEB) begin
+        else if (CEB && (CSB == CSB_MASK[2:0])) begin
             if (WEB) begin
-                if (ADDRB[0]) mem[ADDRB[13:2]][7:0]  <= DIB[7:0];
-                if (ADDRB[1]) mem[ADDRB[13:2]][16:9] <= DIB[16:9];
+                if (ADDRB[0]) mem[ADDRB[13:4]][7:0]  <= DIB[7:0];
+                if (ADDRB[1]) mem[ADDRB[13:4]][16:9] <= DIB[16:9];
             end
-            if (ORCEB || !DOB_REG) DOB <= WEB && WRITE_MODE_B == "TRANSPARENT_WRITE" ? DIB : mem[ADDRB[13:2]];
+            if (ORCEB || !DOB_REG) DOB <= WEB && WRITE_MODE_B == "TRANSPARENT_WRITE" ? DIB : mem[ADDRB[13:4]];
         end
     end
 endmodule

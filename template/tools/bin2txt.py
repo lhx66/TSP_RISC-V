@@ -10,8 +10,8 @@ IRAM_SIZE = 64 * 1024
 SRAM_SIZE = 32 * 1024
 
 
-def write_image(image: bytes, output_path: Path, capacity: int, pad: bool) -> int:
-    if not image:
+def write_image(image: bytes, output_path: Path, capacity: int, pad: bool, allow_empty: bool = False) -> int:
+    if not image and not allow_empty:
         raise ValueError("input image is empty")
     if len(image) > capacity:
         raise ValueError(
@@ -20,7 +20,7 @@ def write_image(image: bytes, output_path: Path, capacity: int, pad: bool) -> in
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with output_path.open("w", newline="\n") as hex_file:
-        output_size = capacity if pad else len(image)
+        output_size = capacity if pad else max(len(image), 4)
         for offset in range(0, output_size, 4):
             word_bytes = image[offset : offset + 4].ljust(4, b"\0")
             hex_file.write(f"{struct.unpack('<I', word_bytes)[0]:08x}\n")
@@ -49,7 +49,7 @@ def main() -> None:
         default=repo_root / "RTL" / "sim" / "programs" / "program.hex",
         help="IRAM word-per-line output",
     )
-    parser.add_argument("--sram-out", type=Path, help="SRAM output; required with --elf")
+    parser.add_argument("--sram-out", type=Path, help="optional SRAM output when extracting an ELF")
     parser.add_argument(
         "--objcopy",
         default="riscv-none-elf-objcopy",
@@ -62,9 +62,6 @@ def main() -> None:
         print(f"[bin2txt] wrote {args.iram_out.resolve()} ({size} bytes)")
         return
 
-    if args.sram_out is None:
-        parser.error("--sram-out is required with --elf")
-
     elf_path = args.elf.resolve()
     iram_size = write_image(
         extract_section(elf_path, args.objcopy, ".text"),
@@ -72,14 +69,16 @@ def main() -> None:
         IRAM_SIZE,
         False,
     )
-    sram_size = write_image(
-        extract_section(elf_path, args.objcopy, ".data"),
-        args.sram_out.resolve(),
-        SRAM_SIZE,
-        False,
-    )
     print(f"[bin2txt] wrote {args.iram_out.resolve()} (.text, {iram_size} bytes)")
-    print(f"[bin2txt] wrote {args.sram_out.resolve()} (.data, {sram_size} bytes)")
+    if args.sram_out is not None:
+        sram_size = write_image(
+            extract_section(elf_path, args.objcopy, ".data"),
+            args.sram_out.resolve(),
+            SRAM_SIZE,
+            False,
+            allow_empty=True,
+        )
+        print(f"[bin2txt] wrote {args.sram_out.resolve()} (.data, {sram_size} bytes)")
 
 
 if __name__ == "__main__":

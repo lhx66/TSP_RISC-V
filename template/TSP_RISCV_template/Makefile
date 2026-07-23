@@ -9,14 +9,16 @@ APP ?= coremark
 TARGET = $(APP)
 ARCH_FLAGS = -march=rv32im -mabi=ilp32
 COREMARK_OPT_LEVEL ?= -O3
-ifeq ($(APP),coremark)
+NONCORE_OPT_LEVEL ?= -O2
+LAYOUT_FLAGS ?= -fno-align-functions -fno-align-labels -fno-align-loops
+EXTRA_CFLAGS ?=
+ifneq (,$(filter coremark state_machine state_bench,$(APP)))
 OPT_LEVEL ?= $(COREMARK_OPT_LEVEL)
 else
-OPT_LEVEL ?= -O2
+OPT_LEVEL ?= $(NONCORE_OPT_LEVEL)
 endif
 CFLAGS = $(ARCH_FLAGS) $(OPT_LEVEL) -g -Wall -ffunction-sections -fdata-sections \
-         -fno-builtin -fno-common -mstrict-align -fno-align-functions \
-         -fno-align-labels -fno-align-loops -mno-relax \
+         -fno-builtin -fno-common -mstrict-align $(LAYOUT_FLAGS) -mno-relax $(EXTRA_CFLAGS) \
          -I./bsp/timer -I./bsp/uart -I./bsp
 LDFLAGS = $(ARCH_FLAGS) -T linker.lds -nostartfiles -Wl,--gc-sections \
           -Wl,-Map=$(TARGET).map
@@ -25,7 +27,9 @@ ifeq ($(APP),coremark)
 COREMARK_ITERATIONS ?= 0
 COREMARK_STATE_INIT_DIAG ?= 0
 COREMARK_HEAP_ALIGN ?= 8
-CFLAGS += -DITERATIONS=$(COREMARK_ITERATIONS) -DCOREMARK_STATE_INIT_DIAG=$(COREMARK_STATE_INIT_DIAG) -DCOREMARK_HEAP_ALIGN=$(COREMARK_HEAP_ALIGN) -DCOMPILER_FLAGS=\"$(OPT_LEVEL)\" -I./app/coremark
+COREMARK_SIM_QUIET ?= 0
+COREMARK_COMPILER_FLAGS ?= $(OPT_LEVEL)
+CFLAGS += -DITERATIONS=$(COREMARK_ITERATIONS) -DCOREMARK_STATE_INIT_DIAG=$(COREMARK_STATE_INIT_DIAG) -DCOREMARK_HEAP_ALIGN=$(COREMARK_HEAP_ALIGN) -DCOREMARK_SIM_QUIET=$(COREMARK_SIM_QUIET) -DCOMPILER_FLAGS=\"$(COREMARK_COMPILER_FLAGS)\" -I./app/coremark
 C_SRCS = \
     app/coremark/core_list_join.c \
     app/coremark/core_main.c \
@@ -48,10 +52,13 @@ else ifeq ($(APP),unaligned_access)
 CFLAGS += -I./app/unaligned_access
 C_SRCS = app/unaligned_access/main.c bsp/uart/bsp_uart.c
 else ifeq ($(APP),state_machine)
-CFLAGS += -O3 -I./app/coremark -I./app/state_machine
+CFLAGS += -I./app/coremark -I./app/state_machine
 C_SRCS = app/state_machine/main.c app/coremark/core_state.c bsp/uart/bsp_uart.c
+else ifeq ($(APP),sram_walk)
+CFLAGS += -I./app/sram_walk
+C_SRCS = app/sram_walk/main.c bsp/uart/bsp_uart.c
 else
-$(error Unsupported APP '$(APP)'. Supported applications: coremark sim_smoke ls_dependency unaligned_access state_machine)
+$(error Unsupported APP '$(APP)'. Supported applications: coremark sim_smoke ls_dependency unaligned_access state_machine sram_walk)
 endif
 
 ASM_SRCS = lib/startup/startup.S
