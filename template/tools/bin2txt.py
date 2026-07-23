@@ -76,10 +76,10 @@ def main() -> None:
         extract_section(elf_path, args.objcopy, ".data"),
         args.sram_out.resolve(),
         SRAM_SIZE,
-        True,
+        False,
     )
     print(f"[bin2txt] wrote {args.iram_out.resolve()} (.text, {iram_size} bytes)")
-    print(f"[bin2txt] wrote {args.sram_out.resolve()} (.data, {sram_size} bytes; zero-padded to {SRAM_SIZE} bytes)")
+    print(f"[bin2txt] wrote {args.sram_out.resolve()} (.data, {sram_size} bytes)")
 
 
 if __name__ == "__main__":
