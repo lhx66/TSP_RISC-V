@@ -43,7 +43,7 @@ module TSP_Core(
     // ====================================================================
     // 1. PC 控制器模块 (PC_control)
     // ====================================================================
-    PC_control u_PC_control(
+    PC_control #(.ENABLE_BTB(1'b0)) u_PC_control(
         .clk               (clk),
         .rst_n             (rst_n),
         .global_pc_o       (global_pc),

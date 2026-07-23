@@ -1,7 +1,9 @@
 `include "defines.v"
 
 //PC计数器 包含BPU
-module PC_control(
+module PC_control #(
+    parameter ENABLE_BTB = 1'b1
+)(
     input clk,
     input rst_n,
 
@@ -39,8 +41,9 @@ assign BTB_hit[1] = (global_pc_o[`BTB_TAG_PC_HIGH:`BTB_TAG_PC_LOW]
 // 分支预测输出
 //─────────────────────────────────────────
 wire [`INST_ADDR_WIDTH-1:0] pre_pc;
-assign pre_pc_taken = (BTB_hit[0] & BTBuffer[0][`BTB_ENTRY_WIDTH-1]) |
-                      (BTB_hit[1] & BTBuffer[1][`BTB_ENTRY_WIDTH-1]); //1:跳转 0：不跳转
+assign pre_pc_taken = ENABLE_BTB &
+                      ((BTB_hit[0] & BTBuffer[0][`BTB_ENTRY_WIDTH-1]) |
+                       (BTB_hit[1] & BTBuffer[1][`BTB_ENTRY_WIDTH-1])); //1:跳转 0：不跳转
 
 assign pre_pc       = BTB_hit[0] ? {BTBuffer[0][`BTB_TARGET_WIDTH-1:0], 2'b00} :
                                     {BTBuffer[1][`BTB_TARGET_WIDTH-1:0], 2'b00} ; // 未命中时值不使用
