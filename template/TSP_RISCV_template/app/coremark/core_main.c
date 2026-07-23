@@ -125,6 +125,9 @@ main(int argc, char *argv[])
 #endif
     /* first call any initializations needed */
     portable_init(&(results[0].port), &argc, argv);
+#if COREMARK_STATE_INIT_DIAG
+    core_state_init_diag();
+#endif
     /* First some checks to make sure benchmark will run ok */
     if (sizeof(struct list_head_s) > 128)
     {

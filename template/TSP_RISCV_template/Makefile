@@ -23,7 +23,8 @@ LDFLAGS = $(ARCH_FLAGS) -T linker.lds -nostartfiles -Wl,--gc-sections \
 
 ifeq ($(APP),coremark)
 COREMARK_ITERATIONS ?= 0
-CFLAGS += -DITERATIONS=$(COREMARK_ITERATIONS) -DCOMPILER_FLAGS=\"$(OPT_LEVEL)\" -I./app/coremark
+COREMARK_STATE_INIT_DIAG ?= 0
+CFLAGS += -DITERATIONS=$(COREMARK_ITERATIONS) -DCOREMARK_STATE_INIT_DIAG=$(COREMARK_STATE_INIT_DIAG) -DCOMPILER_FLAGS=\"$(OPT_LEVEL)\" -I./app/coremark
 C_SRCS = \
     app/coremark/core_list_join.c \
     app/coremark/core_main.c \

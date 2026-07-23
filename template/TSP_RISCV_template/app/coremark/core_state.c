@@ -126,6 +126,37 @@ static ee_u8 *errpat[4]   = { (ee_u8 *)"T0.3e-1F",
                             (ee_u8 *)"1T3.4e4z",
                             (ee_u8 *)"34.0e-T^" };
 
+#if COREMARK_STATE_INIT_DIAG
+void
+core_state_init_diag(void)
+{
+    ee_printf("[STATE_DIAG] int_ptr %08x %08x %08x %08x\n",
+              (ee_u32)(ee_ptr_int)intpat[0], (ee_u32)(ee_ptr_int)intpat[1],
+              (ee_u32)(ee_ptr_int)intpat[2], (ee_u32)(ee_ptr_int)intpat[3]);
+    ee_printf("[STATE_DIAG] int_dat %08x %08x %08x %08x\n",
+              *(ee_u32 *)intpat[0], *(ee_u32 *)intpat[1],
+              *(ee_u32 *)intpat[2], *(ee_u32 *)intpat[3]);
+    ee_printf("[STATE_DIAG] float_ptr %08x %08x %08x %08x\n",
+              (ee_u32)(ee_ptr_int)floatpat[0], (ee_u32)(ee_ptr_int)floatpat[1],
+              (ee_u32)(ee_ptr_int)floatpat[2], (ee_u32)(ee_ptr_int)floatpat[3]);
+    ee_printf("[STATE_DIAG] float_dat %08x %08x %08x %08x\n",
+              *(ee_u32 *)floatpat[0], *(ee_u32 *)floatpat[1],
+              *(ee_u32 *)floatpat[2], *(ee_u32 *)floatpat[3]);
+    ee_printf("[STATE_DIAG] sci_ptr %08x %08x %08x %08x\n",
+              (ee_u32)(ee_ptr_int)scipat[0], (ee_u32)(ee_ptr_int)scipat[1],
+              (ee_u32)(ee_ptr_int)scipat[2], (ee_u32)(ee_ptr_int)scipat[3]);
+    ee_printf("[STATE_DIAG] sci_dat %08x %08x %08x %08x\n",
+              *(ee_u32 *)scipat[0], *(ee_u32 *)scipat[1],
+              *(ee_u32 *)scipat[2], *(ee_u32 *)scipat[3]);
+    ee_printf("[STATE_DIAG] err_ptr %08x %08x %08x %08x\n",
+              (ee_u32)(ee_ptr_int)errpat[0], (ee_u32)(ee_ptr_int)errpat[1],
+              (ee_u32)(ee_ptr_int)errpat[2], (ee_u32)(ee_ptr_int)errpat[3]);
+    ee_printf("[STATE_DIAG] err_dat %08x %08x %08x %08x\n",
+              *(ee_u32 *)errpat[0], *(ee_u32 *)errpat[1],
+              *(ee_u32 *)errpat[2], *(ee_u32 *)errpat[3]);
+}
+#endif
+
 /* Function: core_init_state
         Initialize the input data for the state machine.
 

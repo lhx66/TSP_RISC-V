@@ -3,6 +3,8 @@ setlocal
 
 set "APP=%~1"
 if "%APP%"=="" set "APP=coremark"
+set "COREMARK_STATE_INIT_DIAG=%~2"
+if "%COREMARK_STATE_INIT_DIAG%"=="" set "COREMARK_STATE_INIT_DIAG=0"
 set "SCRIPT_DIR=%~dp0"
 set "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
 set "PROJECT_DIR=%SCRIPT_DIR%\..\TSP_RISCV_template"
@@ -32,7 +34,7 @@ if not defined PYTHON (
 echo [BUILD] application: %APP%
 cd /d "%PROJECT_DIR%" || exit /b 1
 make clean APP=%APP%
-make APP=%APP% || exit /b 1
+make APP=%APP% COREMARK_STATE_INIT_DIAG=%COREMARK_STATE_INIT_DIAG% || exit /b 1
 
 if /I "%APP%"=="coremark" (
     if not exist "%PROJECT_DIR%\coremark.elf" (

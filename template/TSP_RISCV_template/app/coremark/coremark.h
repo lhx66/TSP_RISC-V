@@ -174,6 +174,9 @@ ee_u16 core_bench_state(ee_u32 blksize,
                         ee_s16 seed2,
                         ee_s16 step,
                         ee_u16 crc);
+#if COREMARK_STATE_INIT_DIAG
+void   core_state_init_diag(void);
+#endif
 
 /* matrix benchmark functions */
 ee_u32 core_init_matrix(ee_u32      blksize,

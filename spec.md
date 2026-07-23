@@ -84,3 +84,14 @@ Goal: reuse the Pango dual-port IRAM/SRAM simulation models in RTL, verify and c
 - The FPGA CoreMark CRCs were unchanged after the read-modify-write experiment, so byte-enable encoding is not the confirmed root cause. The experiment was removed at the user's request: `ls_ctrl` again emits the original direct DTCM byte strobes for `SB`, `SH`, and unaligned write beats.
 - The Pango source copy is synchronized with the restored RTL. The targeted regression retains byte-store and signed/unsigned byte-load checks, but no longer requires full-word writes for subword stores.
 - The remaining investigation target is the generated SRAM initialization content and its mapping to the state-machine pattern data; no additional functional fix was made in this restoration revision.
+
+## CoreMark state-initialization diagnostic (2026-07-23)
+
+- A reproducible board-side diagnostic was added without changing the default benchmark: `COREMARK_STATE_INIT_DIAG` defaults to `0`; `build_and_convert.bat coremark 1` builds a diagnostic image with it enabled. It prints the four `intpat`, `floatpat`, `scipat`, and `errpat` pointers plus the first 32-bit word at each pointer before CoreMark initialization.
+- The current generated diagnostic images are `FPGA/pango_cpu/source/coremark_iram.dat` (19,564 bytes) and `coremark_sram.dat` (2,860 bytes). They are intentionally diagnostic images, not a valid score image. Regenerate the Pango IRAM/SRAM initialization IPs with these files before programming the FPGA.
+- Expected diagnostic output values are:
+  - `int_ptr 20000478 20000470 20000468 20000460`, `int_dat 32313035 34333231 3437382d 3232312b`
+  - `float_ptr 200004fc 200004f0 200004e4 200004d8`, `float_dat 352e3533 3332312e 3031312d 362e302b`
+  - `sci_ptr 20000584 20000578 2000056c 20000560`, `sci_dat 30352e35 32312e2d 6537382d 362e302b`
+  - `err_ptr 2000060c 20000600 200005f4 200005e8`, `err_dat 332e3054 542e542d 2e335431 302e3433`
+- Verification: `build_and_convert.bat coremark 1` passed with GCC 15.2.0 and `COREMARK_STATE_INIT_DIAG=1`; the rebuilt ELF contains all `[STATE_DIAG]` markers in its SRAM `.data` section.

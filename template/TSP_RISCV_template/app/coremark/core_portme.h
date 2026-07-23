@@ -9,6 +9,10 @@
 #define ITERATIONS 0
 #endif
 
+#ifndef COREMARK_STATE_INIT_DIAG
+#define COREMARK_STATE_INIT_DIAG 0
+#endif
+
 #ifndef TOTAL_DATA_SIZE
 #define TOTAL_DATA_SIZE 2016 
 #endif
