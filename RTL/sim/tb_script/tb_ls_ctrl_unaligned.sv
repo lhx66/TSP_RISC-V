@@ -48,6 +48,7 @@ module tb_ls_ctrl_unaligned;
     integer    errors;
     integer    i;
     integer    axi_read_count;
+    integer    cycle_count;
 
     ls_ctrl dut (
         .clk(clk), .rst_n(rst_n),
@@ -66,6 +67,10 @@ module tb_ls_ctrl_unaligned;
     );
 
     always @(posedge clk) begin
+        if (!rst_n)
+            cycle_count <= 0;
+        else
+            cycle_count <= cycle_count + 1;
         dtcm_rdata <= mem[dtcm_addr[5:2]];
         if (dtcm_we) begin
             if (dtcm_be[0]) mem[dtcm_addr[5:2]][7:0]   <= dtcm_wdata[7:0];
@@ -112,26 +117,38 @@ module tb_ls_ctrl_unaligned;
         end
     endtask
 
-    task automatic do_load(input [31:0] addr, input [2:0] load_type, input [4:0] rd, input [31:0] expected);
+    task automatic do_load(input [31:0] addr, input [2:0] load_type, input [4:0] rd, input [31:0] expected, input integer max_latency);
+        integer accepted_cycle;
+        integer completed_cycle;
         begin
             @(negedge clk);
             ls_req_i = 1'b1; ls_we_i = 1'b0; ls_addr_i = addr; ls_load_type = load_type; ls_rd = rd;
+            @(posedge clk); #1 accepted_cycle = cycle_count;
             @(negedge clk);
             ls_req_i = 1'b0;
             wait (ls_ctrl_wb_en_o);
+            #1 completed_cycle = cycle_count;
+            if ((max_latency != 0) && ((completed_cycle - accepted_cycle) > max_latency))
+                $fatal(1, "[TB_ERROR] aligned DTCM load latency=%0d cycles", completed_cycle - accepted_cycle);
             #1 fail_if_not_equal(ls_ctrl_wb_data_o, expected, "load result");
             @(posedge clk);
             wait (ls_ctrl_ready_o);
         end
     endtask
 
-    task automatic do_store(input [31:0] addr, input [3:0] byte_en, input [31:0] data);
+    task automatic do_store(input [31:0] addr, input [3:0] byte_en, input [31:0] data, input integer max_latency);
+        integer accepted_cycle;
+        integer completed_cycle;
         begin
             @(negedge clk);
             ls_req_i = 1'b1; ls_we_i = 1'b1; ls_addr_i = addr; ls_byte_en_i = byte_en; ls_wdata_i = data;
+            @(posedge clk); #1 accepted_cycle = cycle_count;
             @(negedge clk);
             ls_req_i = 1'b0;
             wait (ls_ctrl_ready_o);
+            #1 completed_cycle = cycle_count;
+            if ((max_latency != 0) && ((completed_cycle - accepted_cycle) > max_latency))
+                $fatal(1, "[TB_ERROR] aligned DTCM store latency=%0d cycles", completed_cycle - accepted_cycle);
         end
     endtask
 
@@ -140,28 +157,33 @@ module tb_ls_ctrl_unaligned;
         wb_ls_ready_i = 1'b1;
         m_axi_awready = 1'b1; m_axi_wready = 1'b1; m_axi_arready = 1'b1;
         m_axi_bresp = 2'b00; m_axi_rresp = 2'b00; m_axi_bvalid = 0; m_axi_rvalid = 0; m_axi_rdata = 0; dtcm_rdata = 0;
-        pending_b = 0; pending_r = 0; pending_rdata = 0; errors = 0; axi_read_count = 0;
+        pending_b = 0; pending_r = 0; pending_rdata = 0; errors = 0; axi_read_count = 0; cycle_count = 0;
         for (i = 0; i < 16; i = i + 1) mem[i] = 32'h00000000;
         mem[0] = 32'h44332211;
         mem[1] = 32'h88776655;
         repeat (3) @(posedge clk);
         rst_n = 1'b1;
 
-        do_load(32'h2000_0001, 3'd0, 5'd1, 32'h55443322);
-        do_load(32'h2000_0003, 3'd2, 5'd2, 32'h00005544);
-        do_store(32'h2000_0001, 4'b1111, 32'haabb_ccdd);
+        mem[2] = 32'hdead_beef;
+        do_load(32'h2000_0008, 3'd0, 5'd6, 32'hdead_beef, 1);
+        do_store(32'h2000_0008, 4'b1111, 32'hcafe_babe, 1);
+        #1 fail_if_not_equal(mem[2], 32'hcafe_babe, "aligned SW result");
+
+        do_load(32'h2000_0001, 3'd0, 5'd1, 32'h55443322, 0);
+        do_load(32'h2000_0003, 3'd2, 5'd2, 32'h00005544, 0);
+        do_store(32'h2000_0001, 4'b1111, 32'haabb_ccdd, 0);
         #1 fail_if_not_equal(mem[0], 32'hbbcc_dd11, "cross-word SW first word");
         #1 fail_if_not_equal(mem[1], 32'h8877_66aa, "cross-word SW second word");
-        do_store(32'h2000_0003, 4'b0011, 32'h00001234);
+        do_store(32'h2000_0003, 4'b0011, 32'h00001234, 0);
         #1 fail_if_not_equal(mem[0], 32'h34cc_dd11, "cross-word SH first word");
         #1 fail_if_not_equal(mem[1], 32'h8877_6612, "cross-word SH second word");
-        do_store(32'h2000_0002, 4'b0001, 32'h000000a5);
+        do_store(32'h2000_0002, 4'b0001, 32'h000000a5, 0);
         #1 fail_if_not_equal(mem[0], 32'h34a5_dd11, "byte store preserves adjacent bytes");
-        do_load(32'h2000_0002, 3'd4, 5'd4, 32'h000000a5);
-        do_load(32'h2000_0002, 3'd3, 5'd5, 32'hffff_ffa5);
+        do_load(32'h2000_0002, 3'd4, 5'd4, 32'h000000a5, 0);
+        do_load(32'h2000_0002, 3'd3, 5'd5, 32'hffff_ffa5, 0);
 
         axi_read_count = 0;
-        do_load(32'h0000_0000, 3'd0, 5'd3, 32'h00000000);
+        do_load(32'h0000_0000, 3'd0, 5'd3, 32'h00000000, 0);
         #1 fail_if_not_equal(axi_read_count, 32'd0, "IRAM data port remains blocked");
 
         if (errors != 0) $fatal(1, "[TB_ERROR] %0d checks failed", errors);

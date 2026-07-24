@@ -300,7 +300,12 @@ wire target_unit_ready =
 // ==========================================
 // 最终握手许可输出
 // ==========================================
-assign disp_exu_ready_o = target_unit_ready & (~dep_hit_moitf) & (~oitf_stall) & (~branch_in_flight);
+// An invalid decode word is a bubble, not a request for the unit selected by
+// its stale decode bits.  Keeping ready high for bubbles lets the IFU/PC drain
+// redirect responses even while an unrelated LSU transaction is completing.
+assign disp_exu_ready_o = ~idec_valid_i |
+                          (target_unit_ready & (~dep_hit_moitf) &
+                           (~oitf_stall) & (~branch_in_flight));
 
 // ====================================================================
 // 深度的优先级编码分配逻辑 (Priority Allocation)

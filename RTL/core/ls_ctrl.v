@@ -68,6 +68,7 @@ reg [3:0] state;
 reg [1:0]                    addr_align_r;
 reg [2:0]                    load_type_r;
 reg [`REGFILE_IDX_WIDTH-1:0] wb_rd_r;
+reg                          is_load_r;
 reg [31:0]                   axi_read_data_r;
 
 // ==========================================
@@ -94,12 +95,22 @@ wire is_word = (ls_we_i && wstrb_init == 4'b1111) || (!ls_we_i && ls_load_type =
 wire is_half = (ls_we_i && wstrb_init == 4'b0011) || (!ls_we_i && (ls_load_type == 3'd1 || ls_load_type == 3'd2));
 wire cross_bound = (is_word && ls_addr_i[1:0] != 2'b00) || (is_half && ls_addr_i[1:0] == 2'b11);
 
+// Port A SRAM reads are synchronous.  During DTCM_READ_CAPTURE the sampled
+// word is already stable, so the final beat can feed writeback directly.
+wire dtcm_read_done = (state == DTCM_READ_CAPTURE) &&
+                      (!cross_bound_r || second_beat_r);
+wire [31:0] dtcm_read_data = second_beat_r ?
+                            ({dtcm_rdata_i, rdata1_r} >> ({addr_align_r, 3'b000})) :
+                            (dtcm_rdata_i >> ({addr_align_r, 3'b000}));
+wire [31:0] wb_read_data = dtcm_read_done ? dtcm_read_data : axi_read_data_r;
+
 always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
         state           <= IDLE;
         addr_align_r    <= 2'b0;
         load_type_r     <= 3'b0;
         wb_rd_r         <= 0;
+        is_load_r       <= 1'b0;
         axi_read_data_r <= 32'b0;
         
         cross_bound_r   <= 1'b0;
@@ -125,6 +136,7 @@ always @(posedge clk or negedge rst_n) begin
                     addr_align_r  <= ls_addr_i[1:0];
                     load_type_r   <= ls_load_type;
                     wb_rd_r       <= ls_rd;
+                    is_load_r     <= ~ls_we_i;
 
                     cross_bound_r <= cross_bound;
                     second_beat_r <= 1'b0;
@@ -180,7 +192,7 @@ always @(posedge clk or negedge rst_n) begin
                         m_axi_awvalid <= 1'b1;
                         m_axi_wvalid  <= 1'b1;
                     end else begin
-                        state <= WAIT_WB; // 两拍全完成，收工
+                        state <= is_load_r ? WAIT_WB : IDLE;
                     end
                 end
             end
@@ -220,7 +232,7 @@ always @(posedge clk or negedge rst_n) begin
                     second_beat_r <= 1'b1;
                     dtcm_addr_o <= dtcm_addr_o + 32'd4;
                 end else begin
-                    state <= WAIT_WB;
+                    state <= IDLE;
                 end
             end
 
@@ -235,11 +247,12 @@ always @(posedge clk or negedge rst_n) begin
                     dtcm_addr_o <= dtcm_addr_o + 32'd4;
                     state <= DTCM_READ_REQ;
                 end else begin
-                    if (second_beat_r)
-                        axi_read_data_r <= ({dtcm_rdata_i, rdata1_r} >> ({addr_align_r, 3'b000}));
-                    else
-                        axi_read_data_r <= (dtcm_rdata_i >> ({addr_align_r, 3'b000}));
-                    state <= WAIT_WB;
+                    if (wb_ls_ready_i) begin
+                        state <= IDLE;
+                    end else begin
+                        axi_read_data_r <= dtcm_read_data;
+                        state <= WAIT_WB;
+                    end
                 end
             end
 
@@ -266,17 +279,18 @@ assign dtcm_be_o = second_beat_r
 // ==========================================
 // 读数据符号扩展与最终写回 (此时数据已经是完美对齐的了)
 // ==========================================
-assign ls_ctrl_wb_en_o = (state == WAIT_WB);
+assign ls_ctrl_wb_en_o = (dtcm_read_done && is_load_r) ||
+                         ((state == WAIT_WB) && is_load_r);
 assign ls_ctrl_wb_rd_o = wb_rd_r;
 
 reg  [31:0] final_wb_data;
 always @(*) begin
     case (load_type_r)
-        3'd0: final_wb_data = axi_read_data_r; // LW
-        3'd1: final_wb_data = {{16{axi_read_data_r[15]}}, axi_read_data_r[15:0]}; // LH
-        3'd2: final_wb_data = {16'b0, axi_read_data_r[15:0]}; // LHU
-        3'd3: final_wb_data = {{24{axi_read_data_r[7]}}, axi_read_data_r[7:0]}; // LB
-        3'd4: final_wb_data = {24'b0, axi_read_data_r[7:0]}; // LBU
+        3'd0: final_wb_data = wb_read_data; // LW
+        3'd1: final_wb_data = {{16{wb_read_data[15]}}, wb_read_data[15:0]}; // LH
+        3'd2: final_wb_data = {16'b0, wb_read_data[15:0]}; // LHU
+        3'd3: final_wb_data = {{24{wb_read_data[7]}}, wb_read_data[7:0]}; // LB
+        3'd4: final_wb_data = {24'b0, wb_read_data[7:0]}; // LBU
         default: final_wb_data = 32'b0;
     endcase
 end

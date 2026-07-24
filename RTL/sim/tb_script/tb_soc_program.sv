@@ -19,8 +19,9 @@ module tb_soc_program;
     reg [31:0] sram_mem [0:8191];
     string program_file, sram_file;
     integer i, words, sram_words, max_cycles, exec_cycles, patch_sram_index;
+    integer lsu_req_count, lsu_busy_cycles, dtcm_write_cycles;
     integer expected_uart;
-    reg check_uart, saw_expected_uart, trace_pc, verify_images, patch_sram, check_ifu, executing_image;
+    reg check_uart, saw_expected_uart, trace_pc, verify_images, patch_sram, check_ifu, executing_image, lsu_stats;
     reg [31:0] readback_word;
     reg [31:0] patch_sram_addr, patch_sram_value;
 
@@ -89,6 +90,11 @@ module tb_soc_program;
             $fatal(1, "[TB_ERROR] IFU instruction mismatch: pc=%08x got=%08x expected=%08x",
                    dut.u_TSP_Core.u_TSP_Ifu.inst_pc_o, dut.u_TSP_Core.u_TSP_Ifu.inst_o,
                    program_mem[dut.u_TSP_Core.u_TSP_Ifu.inst_pc_o[15:2]]);
+        if (lsu_stats && executing_image) begin
+            if (dut.u_TSP_Core.ls_req) lsu_req_count <= lsu_req_count + 1;
+            if (!dut.u_TSP_Core.ls_ctrl_ready) lsu_busy_cycles <= lsu_busy_cycles + 1;
+            if (dut.u_TSP_Core.dtcm_we_o) dtcm_write_cycles <= dtcm_write_cycles + 1;
+        end
         if (rst_n)
             exec_cycles <= exec_cycles + 1;
         else
@@ -98,9 +104,10 @@ module tb_soc_program;
     initial begin
         awaddr=0; wdata=0; wstrb=0; awvalid=0; wvalid=0; bready=1; araddr=0; arvalid=0; rready=1;
         sram_awaddr=0; sram_wdata=0; sram_wstrb=0; sram_awvalid=0; sram_wvalid=0; sram_bready=1; sram_araddr=0; sram_arvalid=0; sram_rready=1;
-        check_uart=0; saw_expected_uart=0; expected_uart=0; max_cycles=200000; exec_cycles=0; trace_pc=0; verify_images=0; patch_sram=0; check_ifu=0; executing_image=0;
+        check_uart=0; saw_expected_uart=0; expected_uart=0; max_cycles=200000; exec_cycles=0; lsu_req_count=0; lsu_busy_cycles=0; dtcm_write_cycles=0; trace_pc=0; verify_images=0; patch_sram=0; check_ifu=0; executing_image=0; lsu_stats=0;
         if ($value$plusargs("EXPECT_UART=%h", expected_uart)) check_uart=1;
         if ($test$plusargs("TRACE_PC")) trace_pc=1;
+        if ($test$plusargs("LSU_STATS")) lsu_stats=1;
         if ($test$plusargs("VERIFY_ALL_IMAGES")) verify_images=1;
         if ($test$plusargs("CHECK_IFU")) check_ifu=1;
         if ($value$plusargs("PATCH_SRAM_ADDR=%h", patch_sram_addr)) begin
@@ -156,10 +163,14 @@ module tb_soc_program;
         end
         $display("[TB_INFO] Loaded %0d words from %s", words, program_file);
         rst_n=0; repeat(3) @(posedge sys_clk); rst_n=1; executing_image=1;
+        lsu_req_count=0; lsu_busy_cycles=0; dtcm_write_cycles=0;
         $display("[TB_MONITOR] CPU reset released; executing loaded image");
         repeat(max_cycles) @(posedge sys_clk);
         if (check_uart && !saw_expected_uart)
             $fatal(1, "[TB_ERROR] expected UART byte %02x was not observed", expected_uart[7:0]);
+        if (lsu_stats)
+            $display("[TB_LSU_STATS] cycles=%0d requests=%0d busy_cycles=%0d dtcm_write_cycles=%0d",
+                     exec_cycles, lsu_req_count, lsu_busy_cycles, dtcm_write_cycles);
         $display("[TB_INFO] Simulation Finished!");
         $finish;
     end

@@ -43,57 +43,27 @@ wire is_load  = INST_LB | INST_LH | INST_LW | INST_LBU | INST_LHU;
 wire is_store = INST_SB | INST_SH | INST_SW;
 wire is_ls    = is_load | is_store;
 
-reg ls_busy_r;
+// The legacy signal names below are now combinational aliases.  They retain
+// the established request interface while removing the former LSU-local
+// queueing cycle.
+wire ls_busy_r = idec_valid_i & is_ls & ls_ctrl_ready_i;
+wire [2:0] store_type_r = INST_SW ? 3'd2 : (INST_SH ? 3'd1 : 3'd0);
+wire [2:0] load_type_r  = INST_LW  ? 3'd0 :
+                        INST_LH  ? 3'd1 :
+                        INST_LHU ? 3'd2 :
+                        INST_LB  ? 3'd3 : 3'd4;
+wire [31:0] rs2_data_r = rs2_op;
+wire [`REGFILE_IDX_WIDTH-1:0] rd_r = is_store ? 5'd0 : rd_i;
+wire is_store_r = is_store;
+wire [`REGFILE_DAT_WIDTH-1:0] ls_addr_r = ls_addr_i;
 
-assign exu_ls_ready_o = ~ls_busy_r;
-wire ls_fire = idec_valid_i & is_ls & exu_ls_ready_o;
-
-always @(posedge clk or negedge rst_n) begin
-    if (~rst_n) begin
-        ls_busy_r <= 1'b0;
-    end else begin
-        if (ls_busy_r && ls_ctrl_ready_i) begin
-            ls_busy_r <= 1'b0;
-        end
-        if (ls_fire) begin
-            ls_busy_r <= 1'b1;
-        end
-    end
-end
+// ls_ctrl accepts the request at the same edge as dispatch and owns the
+// single-outstanding-transaction constraint. Do not add a second queue here.
+assign exu_ls_ready_o = ls_ctrl_ready_i;
 
 // -------------------------------------------------------------
 // 第 2 步：提取并锁存控制信息与 Store 数据
 // -------------------------------------------------------------
-reg [2:0]  store_type_r;
-reg [2:0]  load_type_r;
-reg [31:0] rs2_data_r;
-reg [`REGFILE_IDX_WIDTH-1:0] rd_r;
-reg        is_store_r;
-reg [`REGFILE_DAT_WIDTH-1:0] ls_addr_r;
-
-always @(posedge clk or negedge rst_n) begin
-    if (~rst_n) begin
-        store_type_r <= 3'd0;
-        load_type_r  <= 3'd0;
-        rs2_data_r   <= 32'd0;
-        rd_r         <= 5'd0;
-        is_store_r   <= 1'b0;
-        ls_addr_r <= 32'd0;
-    end else if (ls_fire) begin
-        rs2_data_r   <= rs2_op;
-        rd_r         <= is_store ? 5'd0 : rd_i;
-        is_store_r   <= is_store;
-
-        store_type_r <= (INST_SW) ? 3'd2 :
-                        (INST_SH) ? 3'd1 : 3'd0;
-
-        load_type_r  <= (INST_LW)  ? 3'd0 :
-                        (INST_LH)  ? 3'd1 :
-                        (INST_LHU) ? 3'd2 :
-                        (INST_LB)  ? 3'd3 : 3'd4;
-        ls_addr_r <= ls_addr_i;
-    end
-end
 
 // -------------------------------------------------------------
 // 第 3 步：向 Lsu_Ctrl 输出请求信号

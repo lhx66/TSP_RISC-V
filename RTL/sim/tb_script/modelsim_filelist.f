@@ -30,4 +30,5 @@
 ../../peripheral/AXI_Interconnect.v
 ../../peripheral/soc_top.v
 tb_ls_ctrl_unaligned.sv
+tb_exu_ls_issue.sv
 tb_soc_program.sv
