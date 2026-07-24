@@ -318,6 +318,83 @@ wire [31:0] read_data_now = dtcm_read_done ?
 
 ### First-phase implementation result (2026-07-24)
 
+#### Code-level change record
+
+The following records the implementation rather than only its intended behavior. The paired files below have identical SHA-256 values, so the RTL used for ModelSim and the RTL selected by the Pango project have the same logic:
+
+| Function | Simulation/source RTL | Pango synthesis RTL |
+| --- | --- | --- |
+| LSU issue | `RTL/core/exu_ls.v` | `FPGA/pango_cpu/source/core/exu_ls.v` |
+| LSU controller | `RTL/core/ls_ctrl.v` | `FPGA/pango_cpu/source/core/ls_ctrl.v` |
+
+**1. `TSP_Exu_ls`: remove the private one-entry request queue.**
+
+Before this change, `exu_ls.v` had registered `ls_busy_r`, `store_type_r`, `load_type_r`, `rs2_data_r`, `rd_r`, `is_store_r`, and `ls_addr_r`. The first issue edge only loaded those registers. `ls_req_o` became asserted after that edge, so `ls_ctrl` could not accept the transaction until the following rising edge. `exu_ls_ready_o = ~ls_busy_r` then kept dispatch stalled until the controller later returned ready.
+
+The registers are replaced with combinational aliases of the valid current decoded instruction:
+
+```verilog
+wire ls_busy_r = idec_valid_i & is_ls & ls_ctrl_ready_i;
+assign exu_ls_ready_o = ls_ctrl_ready_i;
+assign ls_req_o  = ls_busy_r;
+assign ls_we_o   = is_store;
+assign ls_addr_o = ls_addr_i;
+assign ls_rd_o   = is_store ? 5'd0 : rd_i;
+```
+
+`ls_busy_r` is intentionally retained only as a legacy signal name; it is now a wire, not a state bit. `store_type_r`, `load_type_r`, `rs2_data_r`, and the address/rd aliases are also wires. This is safe because the downstream `ls_ctrl` samples all request fields only in `IDLE` when `ls_req_i=1`, at the same rising edge. Once it leaves `IDLE`, `ls_ctrl` owns registered copies of every field required by the outstanding transaction. The existing store byte-lane calculation is unchanged in meaning: it still derives `SB/SH/SW` byte enables and replicated write data from the current address and `rs2_op`; cross-word splitting remains entirely in `ls_ctrl`.
+
+**2. `ls_ctrl`: explicitly remember transaction direction.**
+
+`is_load_r` was added next to the existing destination-register and load-type registers and is assigned only when the request is accepted:
+
+```verilog
+// IDLE, only when ls_req_i is asserted
+load_type_r <= ls_load_type;
+wb_rd_r     <= ls_rd;
+is_load_r   <= ~ls_we_i;
+```
+
+This prevents stores from entering a load writeback path merely to release the controller. It is used for the final AXI-B response, for DTCM write completion, and as the qualification of `ls_ctrl_wb_en_o`.
+
+**3. `ls_ctrl`: direct final DTCM read result to writeback.**
+
+The DTCM SRAM port is synchronous. In `DTCM_READ_CAPTURE`, `dtcm_rdata_i` is already the selected word. The implementation therefore defines the completion condition and the aligned/cross-word result as combinational signals:
+
+```verilog
+wire dtcm_read_done = (state == DTCM_READ_CAPTURE) &&
+                      (!cross_bound_r || second_beat_r);
+wire [31:0] dtcm_read_data = second_beat_r ?
+    ({dtcm_rdata_i, rdata1_r} >> ({addr_align_r, 3'b000})) :
+    (dtcm_rdata_i >> ({addr_align_r, 3'b000}));
+wire [31:0] wb_read_data = dtcm_read_done ? dtcm_read_data : axi_read_data_r;
+assign ls_ctrl_wb_en_o = (dtcm_read_done && is_load_r) ||
+                         ((state == WAIT_WB) && is_load_r);
+```
+
+`final_wb_data` now sign/zero extends `wb_read_data`, not always `axi_read_data_r`. Thus an aligned DTCM load can present its data in the capture cycle without an extra `WAIT_WB` state. For a cross-word load, the first capture still saves `rdata1_r`, increments the aligned DTCM address, and issues the second read; only the second capture satisfies `dtcm_read_done`. No combinational SRAM read was introduced.
+
+The arbitration-safe fallback is deliberately retained. If `wb_ls_ready_i=0` in the final capture cycle, `dtcm_read_data` is copied into `axi_read_data_r` and state changes to `WAIT_WB`; normal registered writeback is then retried until `wb_ls_ready_i=1`. This preserves the previous behavior when MulDiv or another writeback source owns the arbiter.
+
+**4. State-machine transitions changed only at final completion.**
+
+| Old terminal transition | New terminal transition | Reason |
+| --- | --- | --- |
+| `DTCM_WRITE -> WAIT_WB` | `DTCM_WRITE -> IDLE` | A store has no register result; the old state only delayed `ready`. |
+| Final `AXI_B -> WAIT_WB` | `AXI_B -> IDLE` | `AXI_B` is the AXI write-response state, so it only completes stores and has no register result. AXI reads remain on `AXI_R -> WAIT_WB`. |
+| Final `DTCM_READ_CAPTURE -> WAIT_WB` | Arbiter ready: `-> IDLE`; otherwise `-> WAIT_WB` with saved data | Deliver a DTCM load at its final SRAM capture, retaining back-pressure correctness. |
+
+`cross_bound_r`, `second_beat_r`, `raw_wdata_r`, `raw_wstrb_r`, and `rdata1_r` were not removed. They continue to guarantee that unaligned `LW/LH/LHU/SW/SH` execute their second physical word access before the controller is released.
+
+**5. Verification code added with the RTL change.**
+
+- `RTL/sim/tb_script/tb_exu_ls_issue.sv` instantiates only `TSP_Exu_ls`, drives a valid `LW` while `ls_ctrl_ready_i=1`, and checks `ls_req_o`, address, rd, load type, and store enable in the same cycle. It failed on the old queue-based RTL and passes on this RTL.
+- `RTL/sim/tb_script/tb_ls_ctrl_unaligned.sv` now has a monotonically increasing `cycle_count`. Its aligned `LW` and `SW` cases require a maximum latency of one cycle from the controller acceptance edge, while unaligned/cross-word cases remain checked for data correctness without imposing that aligned limit. It also retains byte-enable, byte preservation, signed/unsigned load, and IRAM data-side isolation checks.
+- `RTL/sim/tb_script/tb_soc_program.sv` adds optional `+LSU_STATS`; it counts `ls_req`, non-ready LSU cycles, and `dtcm_we_o` cycles only when requested. It does not alter DUT ports or FPGA RTL. `+CHECK_IFU` remained enabled in all full-SoC regressions.
+- `RTL/sim/tb_script/modelsim_filelist.f` and `modelsim_exu_ls.do` include the new direct-issue unit test while keeping the normal all-RTL compile list.
+
+The exact passing commands were `cmd.exe /c sim.bat`, `vsim -c -do modelsim_exu_ls.do`, and `sim_soc.bat` runs of `sim_smoke`, `ls_dependency`, `unaligned_access`, `state_machine`, and `sram_walk` with `+CHECK_IFU` and expected UART byte `0x50`.
+
 - Completed the DTCM LSU control-path optimization in `TSP_Exu_ls` and `ls_ctrl` without changing module ports, RV32IM ABI, Harvard mapping, peripherals, clock/power domains, or Pango IP configuration. A valid load/store now enters `ls_ctrl` in the dispatch edge; the former one-cycle `TSP_Exu_ls` request queue is removed.
 - The final aligned DTCM store returns directly to `IDLE`; the final DTCM read-capture cycle directly drives load writeback. If writeback arbitration is unavailable, the controller retains the read data and uses the existing `WAIT_WB` fallback. Cross-word load/store semantics and AXI response ordering remain unchanged.
 - TDD passed: the new direct-issue test was red on the old RTL (`ls_req_o=0`) and now passes. The aligned DTCM load/store latency checks were red on the old controller and now pass with completion one cycle after controller acceptance. Existing unaligned, byte-enable, sign-extension, and IRAM-data-isolation checks also pass.
