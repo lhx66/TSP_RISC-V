@@ -318,6 +318,24 @@ wire [31:0] read_data_now = dtcm_read_done ?
 
 ### First-phase implementation result (2026-07-24)
 
+#### FPGA CoreMark result after the first-phase LSU optimization
+
+The synchronized Pango RTL was rebuilt and tested on FPGA with the normal non-diagnostic RV32IM `-O3` CoreMark image. The UART result is a complete valid CoreMark run:
+
+```text
+crclist   = 0xe714
+crcmatrix = 0x1fd7
+crcstate  = 0x8e3a
+crcfinal  = 0x33ff
+Correct operation validated.
+```
+
+The calibrated 2K run completed 1,100 iterations in `855,617,458` timer ticks at the established 50 MHz clock. The exact elapsed time is `17.11234916 s`, so the hardware result is `64.28 iterations/s`, or `1.286 CoreMark/MHz`. The UART's integer-second presentation is `17 s` and `64 iterations/s`; the exact tick conversion is the value to use for cross-version comparison.
+
+The last known passing baseline before this LSU optimization was 1,100 iterations in `939,394,914` ticks (`18.78789828 s`, `58.55 iterations/s`, `1.171 CoreMark/MHz`). With identical iteration count, clock frequency, compiler version, `-O3` optimization level, and SRAM memory location, the new result reduces benchmark ticks by `8.92%` and improves exact throughput by `9.79%`. This is an FPGA measurement, not only a structural-cycle estimate.
+
+`[DEBUG] Timer After Delay` also changed from the earlier observed `925292` to `675291`; it is retained as board evidence but is not used as a CoreMark metric because it measures startup-delay code outside the benchmark interval.
+
 #### Code-level change record
 
 The following records the implementation rather than only its intended behavior. The paired files below have identical SHA-256 values, so the RTL used for ModelSim and the RTL selected by the Pango project have the same logic:
@@ -400,7 +418,7 @@ The exact passing commands were `cmd.exe /c sim.bat`, `vsim -c -do modelsim_exu_
 - TDD passed: the new direct-issue test was red on the old RTL (`ls_req_o=0`) and now passes. The aligned DTCM load/store latency checks were red on the old controller and now pass with completion one cycle after controller acceptance. Existing unaligned, byte-enable, sign-extension, and IRAM-data-isolation checks also pass.
 - Full-filelist ModelSim regressions with `+CHECK_IFU` passed: `sim_smoke`, `ls_dependency`, `unaligned_access`, `state_machine`, and `sram_walk` each produced UART `0x50` (`P`). `ls_dependency` needs a 20,000-cycle budget; the 4 KiB `sram_walk` needs a 500,000-cycle budget.
 - `RTL/core/exu_ls.v` equals `FPGA/pango_cpu/source/core/exu_ls.v`, and `RTL/core/ls_ctrl.v` equals `FPGA/pango_cpu/source/core/ls_ctrl.v` after the update. No Pango IP/generated configuration file was changed.
-- Scope-limited performance claim: the implementation removes one front-end issue bubble per immediately accepted LSU transaction and one controller-release state after aligned DTCM completion. FPGA timing closure and a new CoreMark score have not been measured; rebuild with the synchronized Pango RTL and rerun the existing non-diagnostic `-O3` CoreMark. Expected functional signature remains `e714/1fd7/8e3a/33ff` and `Correct operation validated.`
+- Measured performance claim: the implementation removes one front-end issue bubble per immediately accepted LSU transaction and one controller-release state after aligned DTCM completion. The subsequent FPGA CoreMark measurement is recorded above: `855,617,458` ticks, `64.28 iterations/s`, and `1.286 CoreMark/MHz`, with all expected CRCs. This result establishes functional correctness and performance for the current 50 MHz implementation; future RTL changes still require timing closure and a new board measurement.
 
 - [ ] 当 `dtcm_read_done && wb_ls_ready_i` 时转回 IDLE；若仲裁器正被 MulDiv 占用，则先锁存 `read_data_now` 并转入 `WAIT_WB`，直至 `wb_ls_ready_i` 为 1。这样不丢失 load 结果，也不引入组合式 SRAM 读。
 - [ ] 在 `DTCM_WRITE` 的最终写拍后直接转 IDLE；在 `AXI_B` 最终响应后，store 直接转 IDLE。非对齐第二写拍和 AXI 两拍传输必须仍在最后一拍后才释放。
