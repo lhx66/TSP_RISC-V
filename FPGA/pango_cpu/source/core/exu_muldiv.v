@@ -123,7 +123,7 @@ module TSP_Exu_muldiv(
 endmodule
 
 // ==========================================
-// 极简 32 周期乘法器 (带进位与隔离锁)
+// Booth radix-4 17-cycle multiplier (keeps the existing MulDiv interface)
 // ==========================================
 module Simple_Multiplier_32 #(parameter N = 32) (
     input clk, input rst_n, input ld,
@@ -131,40 +131,67 @@ module Simple_Multiplier_32 #(parameter N = 32) (
     input [N-1:0] m, input [N-1:0] r,
     output valid, output [2*N-1:0] p
 );
-    reg [5:0] count; 
+    // Adapted from the mac16 V2.4 Booth-radix-4 idea: consume two
+    // multiplier bits per cycle while retaining the existing 32-bit API.
+    reg [4:0] count;
     reg is_busy, valid_reg;
-    reg [2*N-1:0] prod; 
     reg sign_p;
-    reg [N-1:0] abs_m_reg; 
-    
+    reg [63:0] product_mag_r;
+    reg signed [65:0] accum_r;
+    reg signed [65:0] mcand_r;
+    reg [34:0] multiplier_r;
+
     wire sign_m = ~unsigned_m & m[N-1];
     wire sign_r = ~unsigned_r & r[N-1];
-    wire [N-1:0] abs_m = sign_m ? (~m + 1'b1) : m;
-    wire [N-1:0] abs_r = sign_r ? (~r + 1'b1) : r;
-    
-    wire [N:0] sum = prod[2*N-1:N] + abs_m_reg; 
-    
+    wire [31:0] abs_m = sign_m ? (~m + 1'b1) : m;
+    wire [31:0] abs_r = sign_r ? (~r + 1'b1) : r;
+
+    reg signed [65:0] booth_addend;
+    always @(*) begin
+        case (multiplier_r[2:0])
+            3'b001, 3'b010: booth_addend =  mcand_r;
+            3'b011:         booth_addend =  mcand_r <<< 1;
+            3'b100:         booth_addend = -(mcand_r <<< 1);
+            3'b101, 3'b110: booth_addend = -mcand_r;
+            default:         booth_addend = 66'sd0;
+        endcase
+    end
+    wire signed [65:0] accum_next = accum_r + booth_addend;
+
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
-            count <= 0; is_busy <= 0; valid_reg <= 0; 
-            prod <= 0; sign_p <= 0; abs_m_reg <= 0;
+            count         <= 5'd0;
+            is_busy       <= 1'b0;
+            valid_reg     <= 1'b0;
+            sign_p        <= 1'b0;
+            product_mag_r <= 64'd0;
+            accum_r       <= 66'sd0;
+            mcand_r       <= 66'sd0;
+            multiplier_r  <= 35'd0;
         end else begin
-            valid_reg <= 0;
+            valid_reg <= 1'b0;
             if (ld && !is_busy) begin
-                count <= 32; is_busy <= 1; 
-                prod <= {{N{1'b0}}, abs_r};
-                sign_p <= sign_m ^ sign_r;
-                abs_m_reg <= abs_m; 
-            end else if (is_busy && count > 0) begin
-                if (prod[0]) prod <= {sum, prod[N-1:1]}; 
-                else         prod <= {1'b0, prod[2*N-1:1]};
-                    
-                count <= count - 1;
-                if (count == 1) begin is_busy <= 0; valid_reg <= 1; end
+                count        <= 5'd17;
+                is_busy      <= 1'b1;
+                sign_p       <= sign_m ^ sign_r;
+                accum_r      <= 66'sd0;
+                mcand_r      <= {34'd0, abs_m};
+                multiplier_r <= {2'b00, abs_r, 1'b0};
+            end else if (is_busy) begin
+                accum_r      <= accum_next;
+                mcand_r      <= mcand_r <<< 2;
+                multiplier_r <= {2'b00, multiplier_r[34:2]};
+                count        <= count - 1'b1;
+                if (count == 5'd1) begin
+                    product_mag_r <= accum_next[63:0];
+                    is_busy       <= 1'b0;
+                    valid_reg     <= 1'b1;
+                end
             end
         end
     end
-    assign p = sign_p ? (~prod + 1'b1) : prod;
+
+    assign p = sign_p ? (~product_mag_r + 1'b1) : product_mag_r;
     assign valid = valid_reg;
 endmodule
 

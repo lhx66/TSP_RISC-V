@@ -45,6 +45,9 @@ C_SRCS = \
 else ifeq ($(APP),sim_smoke)
 CFLAGS += -I./app/sim_smoke
 C_SRCS = app/sim_smoke/main.c bsp/uart/bsp_uart.c
+else ifeq ($(APP),mul_dependency)
+CFLAGS += -I./app/mul_dependency
+C_SRCS = app/mul_dependency/main.c bsp/uart/bsp_uart.c
 else ifeq ($(APP),ls_dependency)
 CFLAGS += -I./app/ls_dependency
 C_SRCS = app/ls_dependency/main.c bsp/uart/bsp_uart.c
@@ -58,7 +61,7 @@ else ifeq ($(APP),sram_walk)
 CFLAGS += -I./app/sram_walk
 C_SRCS = app/sram_walk/main.c bsp/uart/bsp_uart.c
 else
-$(error Unsupported APP '$(APP)'. Supported applications: coremark sim_smoke ls_dependency unaligned_access state_machine sram_walk)
+$(error Unsupported APP '$(APP)'. Supported applications: coremark sim_smoke mul_dependency ls_dependency unaligned_access state_machine sram_walk)
 endif
 
 ASM_SRCS = lib/startup/startup.S

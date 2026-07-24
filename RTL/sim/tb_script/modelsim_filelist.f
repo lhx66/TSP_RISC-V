@@ -33,4 +33,5 @@ tb_ls_ctrl_unaligned.sv
 tb_exu_ls_issue.sv
 tb_pc_control_no_btb.sv
 tb_pc_control_2bit.sv
+tb_multiplier_radix4.sv
 tb_soc_program.sv

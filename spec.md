@@ -316,6 +316,56 @@ wire [31:0] read_data_now = dtcm_read_done ?
                      (dtcm_rdata_i >> {addr_align_r,3'b000})) : axi_read_data_r;
 ```
 
+## Third-phase performance optimization: Booth radix-4 iterative multiplier (2026-07-24)
+
+### Source, scope, and interface preservation
+
+The design source is the user's `mac16` repository, branch `V2.4`, commit `01a928d49147aa190160bae79ba171e2e3432606`. Its `mac16_4_2.v` is a 16-bit streamed multiply-accumulate block: operands and results use serial one-bit interfaces, so it cannot replace the CPU's 32-bit parallel `Simple_Multiplier_32` port directly. This update therefore adapts its Booth radix-4 recoding method, not its incompatible MAC wrapper. No file from that repository is copied into this project.
+
+`Simple_Multiplier_32` retains its original interface and result timing contract:
+
+```verilog
+input  clk, rst_n, ld;
+input  unsigned_m, unsigned_r;
+input  [31:0] m, r;
+output valid;
+output [63:0] p;
+```
+
+`TSP_Exu_muldiv` still launches with `ld`, waits for the one-cycle `valid` completion pulse, and selects `p[31:0]` or `p[63:32]` for `MUL`/`MULH`/`MULHSU`/`MULHU` exactly as before. Thus decode, writeback arbitration, ports, software ABI, RV32IM behavior, clocks, Harvard memory mapping, and Pango IP configuration are unchanged.
+
+### Code-level implementation
+
+The former shift-and-add unit consumed one multiplier bit on every one of 32 busy cycles. The new sequential datapath in `RTL/core/exu_muldiv.v` uses a signed 66-bit accumulator and multiplicand plus a 35-bit recoding register:
+
+```verilog
+reg signed [65:0] accum_r, mcand_r;
+reg [34:0] multiplier_r;
+
+case (multiplier_r[2:0])
+    3'b001, 3'b010: booth_addend =  mcand_r;
+    3'b011:         booth_addend =  mcand_r <<< 1;
+    3'b100:         booth_addend = -(mcand_r <<< 1);
+    3'b101, 3'b110: booth_addend = -mcand_r;
+    default:         booth_addend = 66'sd0;
+endcase
+```
+
+At `ld`, signed operands are converted to magnitudes, `sign_p` saves the final result sign, and the multiplier state is initialized as `{2'b00, abs_r, 1'b0}`. Each busy cycle adds the Booth-selected `0`, `+M`, `+2M`, `-M`, or `-2M`, then shifts the multiplicand left by two and the recoding register right by two. The final result is conditionally two's-complemented by `sign_p`; this retains mixed-sign `MULHSU` semantics because `unsigned_m` and `unsigned_r` independently select magnitude conversion.
+
+Although radix-4 consumes two ordinary multiplier bits per cycle, a full 32-bit *unsigned* multiplier requires a final top sign-extension recoding group. Consequently the correct state is 35 bits and `count` starts at 17, not 16. This is essential for values with `r[31]=1`: the earlier 16-group prototype computed `MULHSU(-2, 0xffffffff)` as `0x0000000000000002`, omitting the top group; the corrected result is `0xfffffffe00000002`. The 66-bit signed internal width safely contains negative partial terms and the unsigned 64-bit final magnitude.
+
+### Verification and synchronized FPGA source
+
+The implementation is identical in `RTL/core/exu_muldiv.v` and `FPGA/pango_cpu/source/core/exu_muldiv.v`; their SHA-256 is `D160C5A97566D9C03CFDB1B9573D462E523B7DAD9A1C6694D51BC6FDBF093250`. No generated Pango IP or initialization file was modified.
+
+- New `RTL/sim/tb_script/tb_multiplier_radix4.sv` is a self-checking test of the real synthesizable multiplier. It proves 17-cycle completion and checks unsigned low product, signed negative product, `INT_MIN * 2`, `MULHSU(-2, 0xffffffff)`, and `MULHU(0xffffffff, 0xffffffff)`. The old 32-cycle unit fails its latency assertion; the final implementation passes all five cases.
+- New `RTL/sim/tb_script/modelsim_multiplier_radix4.do` compiles the full common RTL file list before running that test. `vsim -c -do "do modelsim_multiplier_radix4.do"` completed with zero errors.
+- `sim_smoke` remains a full-SoC general smoke test, but its compiler-optimized image does not contain a `MUL` instruction and is not used as multiplier instruction evidence. The dedicated `app/mul_dependency` probe uses volatile inline RV32 assembly for `mul`, `mulh`, `mulhsu`, and `mulhu`, with the same signed/unsigned boundary values checked in the unit test. Its generated disassembly contains all four opcodes at `0x40/0x4c/0x58/0x5c`; `sim_soc.bat +PROGRAM=../programs/mul_dependency.hex +EXPECT_UART=50 +CHECK_IFU +MAX_CYCLES=20000` loaded 52 words and emitted UART `0x50` (`P`).
+- Existing `cmd.exe /c sim.bat` passed after the replacement, retaining unaligned DTCM/byte-enable regression coverage.
+
+This reduces the iterative multiplier's busy duration from 32 to 17 cycles without introducing a large combinational multiplier tree or an FPGA-DSP dependency. Board validation should rebuild only from the synchronized RTL sources, leave Pango IP initialization configuration unchanged, and rerun the normal non-diagnostic `-O3` CoreMark image. A valid result must retain CRCs `e714/1fd7/8e3a/33ff`; compare exact timer ticks with the `v2.5.18` baseline of `854,909,058` ticks at 50 MHz. CoreMark is not multiplication-dominated, so correctness is mandatory while a large score increase is not assumed.
+
 ## Second-phase performance optimization: 2-bit BTB direction predictor (2026-07-24)
 
 ### Scope and compatibility
