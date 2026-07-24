@@ -373,6 +373,12 @@ New ModelSim drivers `modelsim_pc_control_2bit.do` and `modelsim_pc_control_no_b
 
 Rebuild the Pango project from the synchronized source RTL without changing any IP initialization setting, then run the existing normal non-diagnostic `-O3` CoreMark image. A valid run must retain CRCs `e714/1fd7/8e3a/33ff` and `Correct operation validated.` Compare exact `Total ticks` with the first-phase result of `855,617,458` ticks at 50 MHz. Any reported performance gain should be based on exact ticks, not CoreMark's integer-second UART display.
 
+### FPGA CoreMark result
+
+The `v2.5.18` FPGA run is functionally valid: `crclist=e714`, `crcmatrix=1fd7`, `crcstate=8e3a`, `crcfinal=33ff`, and it printed `Correct operation validated.` It completed the same 1,100 calibrated iterations in `854,909,058` ticks at 50 MHz, equivalent to `17.09818116 s`, `64.33 iterations/s`, and `1.287 CoreMark/MHz` (the UART's integer presentation remains 17 s and 64 iterations/s).
+
+Compared with the first-phase `v2.5.17` board baseline of `855,617,458` ticks, this is a reduction of `708,400` ticks, or `0.0828%`; exact throughput rises by the same `0.0829%`. The result is positive but small. It should be treated as a branch-pattern-specific microarchitectural improvement, not as a material benchmark acceleration without repeated-run variance data. The debug startup-delay value was unchanged at `675291`, so no unrelated startup timing change is evident in this run.
+
 ### First-phase implementation result (2026-07-24)
 
 #### FPGA CoreMark result after the first-phase LSU optimization
