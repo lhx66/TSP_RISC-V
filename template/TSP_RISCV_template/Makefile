@@ -18,7 +18,7 @@ else
 OPT_LEVEL ?= $(NONCORE_OPT_LEVEL)
 endif
 CFLAGS = $(ARCH_FLAGS) $(OPT_LEVEL) -g -Wall -ffunction-sections -fdata-sections \
-         -fno-builtin -fno-common -mstrict-align $(LAYOUT_FLAGS) -mno-relax $(EXTRA_CFLAGS) \
+         -fno-builtin -fno-common -mno-strict-align $(LAYOUT_FLAGS) -mno-relax $(EXTRA_CFLAGS) \
          -I./bsp/timer -I./bsp/uart -I./bsp
 LDFLAGS = $(ARCH_FLAGS) -T linker.lds -nostartfiles -Wl,--gc-sections \
           -Wl,-Map=$(TARGET).map
@@ -28,7 +28,7 @@ COREMARK_ITERATIONS ?= 0
 COREMARK_STATE_INIT_DIAG ?= 0
 COREMARK_HEAP_ALIGN ?= 8
 COREMARK_SIM_QUIET ?= 0
-COREMARK_COMPILER_FLAGS ?= $(OPT_LEVEL)
+COREMARK_COMPILER_FLAGS ?= $(OPT_LEVEL),-mno-strict-align
 CFLAGS += -DITERATIONS=$(COREMARK_ITERATIONS) -DCOREMARK_STATE_INIT_DIAG=$(COREMARK_STATE_INIT_DIAG) -DCOREMARK_HEAP_ALIGN=$(COREMARK_HEAP_ALIGN) -DCOREMARK_SIM_QUIET=$(COREMARK_SIM_QUIET) -DCOMPILER_FLAGS=\"$(COREMARK_COMPILER_FLAGS)\" -I./app/coremark
 C_SRCS = \
     app/coremark/core_list_join.c \

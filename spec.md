@@ -566,6 +566,16 @@ The exact passing commands were `cmd.exe /c sim.bat`, `vsim -c -do modelsim_exu_
 - `RTL/core/exu_ls.v` equals `FPGA/pango_cpu/source/core/exu_ls.v`, and `RTL/core/ls_ctrl.v` equals `FPGA/pango_cpu/source/core/ls_ctrl.v` after the update. No Pango IP/generated configuration file was changed.
 - Measured performance claim: the implementation removes one front-end issue bubble per immediately accepted LSU transaction and one controller-release state after aligned DTCM completion. The subsequent FPGA CoreMark measurement is recorded above: `855,617,458` ticks, `64.28 iterations/s`, and `1.286 CoreMark/MHz`, with all expected CRCs. This result establishes functional correctness and performance for the current 50 MHz implementation; future RTL changes still require timing closure and a new board measurement.
 
+### CoreMark unaligned-access compiler policy (v2.5.21, 2026-07-24)
+
+The DTCM load/store controller already supports unaligned byte, halfword, and word accesses. `ls_ctrl` detects cross-word `LH/LHU/LW/SH/SW` transactions, performs the required two physical DTCM accesses, and merges or splits data according to the byte offset. The existing `unaligned_access` RTL regression remains the hardware correctness test for this behavior.
+
+The CoreMark build policy is therefore changed from `-mstrict-align` to `-mno-strict-align` in `template/TSP_RISCV_template/Makefile`. Merely deleting `-mstrict-align` would not enable relaxed accesses with the installed GCC 15.2.0 toolchain: `riscv-none-elf-gcc -Q --help=target -march=rv32im -mabi=ilp32` reports `-mstrict-align [enabled]` as the target default. The explicit negative option is required to make the intended ABI/code-generation policy reproducible.
+
+CoreMark's matrix and list work areas are intentionally aligned by `align_mem()`, so relaxed alignment does not promise a score improvement. It allows compiler-generated unaligned scalar accesses when valid C source patterns permit them, while preserving the existing aligned fast path. The generated CoreMark images must be rebuilt from this configuration before FPGA use; their CRC validity and timer result require a new board measurement.
+
+The final non-diagnostic image is generated with `build_and_convert.bat coremark 0 8`. GCC 15.2.0 compiles all CoreMark and BSP translation units with `-march=rv32im -mabi=ilp32 -O3 -mno-strict-align`; `coremark_iram.dat` contains the 19,156-byte `.text` image and `coremark_sram.dat` contains the 2,508-byte `.data` image. `COREMARK_COMPILER_FLAGS` reports `-O3,-mno-strict-align` over UART; the comma is intentional because the Makefile passes the value as one preprocessor string argument. This image must complete one FPGA CoreMark CRC run before its timing score is recorded.
+
 - [ ] 当 `dtcm_read_done && wb_ls_ready_i` 时转回 IDLE；若仲裁器正被 MulDiv 占用，则先锁存 `read_data_now` 并转入 `WAIT_WB`，直至 `wb_ls_ready_i` 为 1。这样不丢失 load 结果，也不引入组合式 SRAM 读。
 - [ ] 在 `DTCM_WRITE` 的最终写拍后直接转 IDLE；在 `AXI_B` 最终响应后，store 直接转 IDLE。非对齐第二写拍和 AXI 两拍传输必须仍在最后一拍后才释放。
 - [ ] 运行 `cmd.exe /c sim.bat`；预期 Task 1 的对齐 load/store 延迟断言和所有原有跨字、符号扩展、IRAM 数据隔离检查全部通过。
