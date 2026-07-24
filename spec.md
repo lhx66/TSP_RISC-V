@@ -366,6 +366,14 @@ The implementation is identical in `RTL/core/exu_muldiv.v` and `FPGA/pango_cpu/s
 
 This reduces the iterative multiplier's busy duration from 32 to 17 cycles without introducing a large combinational multiplier tree or an FPGA-DSP dependency. Board validation should rebuild only from the synchronized RTL sources, leave Pango IP initialization configuration unchanged, and rerun the normal non-diagnostic `-O3` CoreMark image. A valid result must retain CRCs `e714/1fd7/8e3a/33ff`; compare exact timer ticks with the `v2.5.18` baseline of `854,909,058` ticks at 50 MHz. CoreMark is not multiplication-dominated, so correctness is mandatory while a large score increase is not assumed.
 
+### FPGA CoreMark result after multiplier replacement
+
+The `v2.5.19` board run is fully valid: `crclist=e714`, `crcmatrix=1fd7`, `crcstate=8e3a`, `crcfinal=33ff`, and it printed `Correct operation validated.` The normal non-diagnostic RV32IM `-O3` calibration completed the same 1,100 iterations in `699,875,058` ticks at the established 50 MHz clock. Exact elapsed time is `13.99750116 s`, yielding `78.585455` iterations/s and `1.571709 CoreMark/MHz`.
+
+The serial report prints `Total time (secs): 13` and `Iterations/Sec: 84`, because its reporting path first truncates the actual duration to integer seconds and then divides `1100 / 13`. The exact tick-derived rate above is the comparable CoreMark measurement; it must not be confused with the rounded UART value.
+
+Against the immediately preceding valid `v2.5.18` result of `854,909,058` ticks (`17.09818116 s`, `64.334328` iterations/s), the multiplier update removes `155,034,000` benchmark ticks (`18.1346%`) and improves exact throughput by `22.1517%`. The unchanged startup diagnostic value `675291`, identical compiler version/flags, 50 MHz clock, calibrated iteration count, SRAM location, and four CRCs support attributing this material change to the verified RTL update rather than benchmark configuration drift.
+
 ## Second-phase performance optimization: 2-bit BTB direction predictor (2026-07-24)
 
 ### Scope and compatibility
