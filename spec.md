@@ -374,6 +374,31 @@ The serial report prints `Total time (secs): 13` and `Iterations/Sec: 84`, becau
 
 Against the immediately preceding valid `v2.5.18` result of `854,909,058` ticks (`17.09818116 s`, `64.334328` iterations/s), the multiplier update removes `155,034,000` benchmark ticks (`18.1346%`) and improves exact throughput by `22.1517%`. The unchanged startup diagnostic value `675291`, identical compiler version/flags, 50 MHz clock, calibrated iteration count, SRAM location, and four CRCs support attributing this material change to the verified RTL update rather than benchmark configuration drift.
 
+## ASIC Design Compiler synthesis baseline (2026-07-24)
+
+### Scope and reproducible flow
+
+The DC flow is stored in `asic_syn/dc_tsp_core.tcl` and `asic_syn/run_tsp_core.sh`, adapted from the provided `example_syn` structure. It was uploaded and run in the Linux VM workspace `/home/autumn/Desktop/TSP_RISC-v` (the actual existing directory name uses a lowercase final `v`). Tool and library are Synopsys DC Ultra R-2020.09-SP4 and `db/ics55_LLSC_H9CR_typ_tt_1p2_25_nldm.db`, respectively: the reported results therefore apply only to this TT, 1.2 V, 25 C library.
+
+The synthesized top is `TSP_Core`, using the complete current `RTL/core` source list and `compile_ultra`. It intentionally excludes FPGA-only Pango RAM/PLL wrappers. `IRAM`, instantiated by `TSP_Ifu`, is an unresolved zero-area black-box macro in this run; therefore the results are **CPU standard-cell logic only**, not full-chip or minimum-SoC area. SRAM macro area/timing, PLL, IO pads, wire parasitics, package load, clock-tree insertion, and physical implementation are also not included.
+
+Constraints are one `clk` clock with the swept period, 0.10 ns setup uncertainty, 0.05 ns hold uncertainty, zero external input/output delay, and reset false-path. This is a logic-synthesis baseline rather than signoff STA. DC reports hold violations in every run because no CTS/physical hold fixing is present; they must be resolved after physical implementation and must not be ignored for tapeout.
+
+### Area / gate-equivalent baseline
+
+The library cell `NAND2X1H9R` has area `1.44`. Gate equivalents use `standard-cell area / 1.44`; this normalization is valid only inside this same library.
+
+| Clock target | Setup result | Cell area | Approx. GE | Notes |
+| --- | --- | ---: | ---: | --- |
+| 20.0 ns / 50 MHz | MET, WNS +12.86 ns | 41,083.56 | 28,530 | Core-only low-frequency baseline; 10,867 leaf cells. |
+| 5.0 ns / 200 MHz | MET, WNS 0.00 ns | 41,207.76 | 28,617 | Timing-driven mapping adds only small area. |
+| 1.5 ns / 666.667 MHz | MET, WNS 0.00 ns | 44,268.84 | 30,742 | High-effort mapping and hierarchy ungrouping; 2,137 sequential cells. |
+| 1.25 ns / 800 MHz | VIOLATED, WNS -0.07 ns, TNS -14.01 ns, 305 paths | 48,812.40 | 33,898 | DC used 426 s wall time yet did not close setup. |
+
+Thus this exact flow proves a closed setup-frequency lower bound of **666.667 MHz** and a failed point at **800 MHz**. The true pre-layout logic Fmax lies between them; no linear interpolation is claimed because DC changes the mapped netlist at each target. The 1.25 ns critical path is `u_TSP_Ifu/use_buffer_r_reg` to `u_ls_ctrl_axi_read_data_r_reg_*`; at 50 MHz, the critical path is within the Booth multiplier (`multiplier_r_reg` to `product_mag_r_reg`). This confirms the multiplier is no longer the only frequency limiter after aggressive timing-driven optimization.
+
+For a publishable ASIC result, next add foundry SRAM `.db` models and real interface loading, run multi-corner/multi-mode constraints (including slow voltage/high temperature), then place-and-route with extracted parasitics and CTS before reporting final Fmax, hold closure, power, and full-chip area.
+
 ## Second-phase performance optimization: 2-bit BTB direction predictor (2026-07-24)
 
 ### Scope and compatibility
