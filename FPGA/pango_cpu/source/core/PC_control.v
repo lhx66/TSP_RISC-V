@@ -26,6 +26,7 @@ module PC_control #(
 
 // BTB 条目格式、字段位置由 defines.v 中宏定义确定
 reg [`BTB_ENTRY_WIDTH-1:0] BTBuffer [0:`BTB_ENTRIES-1];
+reg [`BTB_ENTRIES-1:0]     btb_hyst;
 reg                         lru; // 0: entry0 为 LRU，1: entry1 为 LRU
 
 //─────────────────────────────────────────
@@ -77,24 +78,45 @@ wire btb_upd_hit0 = (BTB_update[`BTB_ENTRY_WIDTH-2:`BTB_TARGET_WIDTH]
 wire btb_upd_hit1 = (BTB_update[`BTB_ENTRY_WIDTH-2:`BTB_TARGET_WIDTH]
                      == BTBuffer[1][`BTB_ENTRY_WIDTH-2:`BTB_TARGET_WIDTH]);
 
+function [1:0] btb_next_state;
+    input [1:0] current_state;
+    input       actual_taken;
+    begin
+        if (actual_taken)
+            btb_next_state = (current_state == 2'b11) ? 2'b11 : current_state + 2'b01;
+        else
+            btb_next_state = (current_state == 2'b00) ? 2'b00 : current_state - 2'b01;
+    end
+endfunction
+
+wire [1:0] btb_next0 = btb_next_state({BTBuffer[0][`BTB_ENTRY_WIDTH-1], btb_hyst[0]},
+                                       BTB_update[`BTB_ENTRY_WIDTH-1]);
+wire [1:0] btb_next1 = btb_next_state({BTBuffer[1][`BTB_ENTRY_WIDTH-1], btb_hyst[1]},
+                                       BTB_update[`BTB_ENTRY_WIDTH-1]);
+
 always @(posedge clk or negedge rst_n) begin
     if (~rst_n) begin
         BTBuffer[0] <= {`BTB_ENTRY_WIDTH{1'b0}};
         BTBuffer[1] <= {`BTB_ENTRY_WIDTH{1'b0}};
+        btb_hyst    <= {`BTB_ENTRIES{1'b1}};
         lru         <= 1'b0;
     end else if (BTB_update_valid) begin
         if (btb_upd_hit0) begin
-            BTBuffer[0] <= BTB_update;
+            BTBuffer[0] <= {btb_next0[1], BTB_update[`BTB_ENTRY_WIDTH-2:0]};
+            btb_hyst[0] <= btb_next0[0];
             lru         <= 1'b1;
         end else if (btb_upd_hit1) begin
-            BTBuffer[1] <= BTB_update;
+            BTBuffer[1] <= {btb_next1[1], BTB_update[`BTB_ENTRY_WIDTH-2:0]};
+            btb_hyst[1] <= btb_next1[0];
             lru         <= 1'b0;
         end else begin
             if (~lru) begin
                 BTBuffer[0] <= BTB_update;
+                btb_hyst[0] <= BTB_update[`BTB_ENTRY_WIDTH-1] ? 1'b0 : 1'b1;
                 lru         <= 1'b1;
             end else begin
                 BTBuffer[1] <= BTB_update;
+                btb_hyst[1] <= BTB_update[`BTB_ENTRY_WIDTH-1] ? 1'b0 : 1'b1;
                 lru         <= 1'b0;
             end
         end

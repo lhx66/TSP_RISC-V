@@ -316,6 +316,63 @@ wire [31:0] read_data_now = dtcm_read_done ?
                      (dtcm_rdata_i >> {addr_align_r,3'b000})) : axi_read_data_r;
 ```
 
+## Second-phase performance optimization: 2-bit BTB direction predictor (2026-07-24)
+
+### Scope and compatibility
+
+This phase changes only branch direction state in `PC_control`. It retains the existing two-entry fully associative BTB, PC tag comparison, target storage, LRU replacement, `BTB_update` width/layout, `ENABLE_BTB` parameter, IFU interface, and execute-stage redirect/flush logic. No cache, pipeline stage, clock-domain, Pango IP, or software ABI change is introduced.
+
+The old predictor used the stored `BTBuffer[entry][BTB_ENTRY_WIDTH-1]` as the last observed branch result. A single uncommon not-taken result immediately changed a previously taken loop branch to predict not-taken, causing the next iteration to enter the existing redirect/flush recovery path. The new implementation uses that existing stored bit as the most-significant bit of a saturating direction counter and adds one low state bit per BTB entry:
+
+```verilog
+reg [`BTB_ENTRIES-1:0] btb_hyst;
+
+// state = {BTBuffer[entry][BTB_ENTRY_WIDTH-1], btb_hyst[entry]}
+// 00 strongly not-taken, 01 weakly not-taken,
+// 10 weakly taken,     11 strongly taken
+```
+
+Prediction itself remains on the same combinational fetch path and requires no new pipeline cycle. `pre_pc_taken` continues to read the existing BTBuffer MSB; it now naturally uses the counter MSB. The lower state bit is local controller state and is not exposed through any module port.
+
+### Exact update logic
+
+`BTB_update` from `exu_bjp.v` remains `{actual_branch_taken, tag, target}`. On a tag hit, `PC_control` computes a saturated next state from the old `{prediction_msb, btb_hyst}` and the actual taken result:
+
+```verilog
+function [1:0] btb_next_state;
+    input [1:0] current_state;
+    input       actual_taken;
+    begin
+        if (actual_taken)
+            btb_next_state = (current_state == 2'b11) ? 2'b11 : current_state + 2'b01;
+        else
+            btb_next_state = (current_state == 2'b00) ? 2'b00 : current_state - 2'b01;
+    end
+endfunction
+
+BTBuffer[0] <= {btb_next0[1], BTB_update[`BTB_ENTRY_WIDTH-2:0]};
+btb_hyst[0] <= btb_next0[0];
+```
+
+Thus `11` followed by one not-taken becomes `10` and remains taken-predicted; a second consecutive not-taken becomes `01` and flips prediction. The converse is symmetric for not-taken branches. A newly allocated entry starts weakly toward its observed first result: `10` for taken and `01` for not-taken. Reset initializes both entries to weakly not-taken (`BTBuffer` MSB `0`, `btb_hyst=1`) so reset does not create a taken prediction even for the reset-PC tag.
+
+Only the BTB's stored direction state changes. Tag and target bits are copied from `BTB_update` exactly as before, and the two existing LRU choices are unchanged. `JALR` continues to be excluded from BTB update in `exu_bjp.v`, so its dynamic target protection is unaffected.
+
+### Files synchronized and verification
+
+The same RTL is present in both `RTL/core/PC_control.v` and `FPGA/pango_cpu/source/core/PC_control.v`.
+
+- Red test: new `RTL/sim/tb_script/tb_pc_control_2bit.sv` trains one entry taken, injects one not-taken result, and requires prediction to remain taken; it failed on the old predictor with `[TB_ERROR] one not-taken outcome flipped a strongly-taken prediction`.
+- Green test: after the change, the same test proves hysteresis, flips only after the second consecutive not-taken result, proves not-taken saturation, and checks that the following PC is sequential.
+- Regression: `tb_pc_control_no_btb.sv` is added to the common file list and passes through `modelsim_pc_control_no_btb.do`, confirming `ENABLE_BTB=0` still forces sequential fetch.
+- Regression: `cmd.exe /c sim.bat` passes all DTCM/unaligned checks; `sim_soc.bat +PROGRAM=../programs/state_machine.hex +EXPECT_UART=50 +CHECK_IFU +MAX_CYCLES=30000` passes and observes UART `0x50` (`P`). The latter verifies branch-rich CoreMark state-transition code with instruction/PC consistency checking enabled.
+
+New ModelSim drivers `modelsim_pc_control_2bit.do` and `modelsim_pc_control_no_btb.do` compile the complete RTL file list and run the corresponding isolated tests. No test-only logic is present in synthesizable RTL.
+
+### FPGA validation required
+
+Rebuild the Pango project from the synchronized source RTL without changing any IP initialization setting, then run the existing normal non-diagnostic `-O3` CoreMark image. A valid run must retain CRCs `e714/1fd7/8e3a/33ff` and `Correct operation validated.` Compare exact `Total ticks` with the first-phase result of `855,617,458` ticks at 50 MHz. Any reported performance gain should be based on exact ticks, not CoreMark's integer-second UART display.
+
 ### First-phase implementation result (2026-07-24)
 
 #### FPGA CoreMark result after the first-phase LSU optimization
