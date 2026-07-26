@@ -42,7 +42,7 @@ localparam B_CLK_OR_POL_INV = 0 ; // @IPC bool
 
 localparam POWER_OPT = 0 ; // @IPC bool
 
-localparam INIT_FILE = "D:/FPGA/TSP_RISC-V-2.4/FPGA/pango_cpu/source/boot.dat" ; // @IPC string
+localparam INIT_FILE = "D:/FPGA/TSP_RISC-V/FPGA/pango_cpu/source/coremark_iram.dat" ; // @IPC string
 
 localparam INIT_FORMAT = "HEX" ; // @IPC enum BIN,HEX
 

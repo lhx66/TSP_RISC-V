@@ -70,10 +70,12 @@ localparam MODE_9K = 0 ; // @IPC bool
 
 localparam MODE_18K = 1 ; // @IPC bool
 
-localparam INIT_EN = 0 ; // @IPC bool
+localparam INIT_EN = 1 ; // @IPC bool
 
 
 //
+
+`include "SRAM_init_param.v"
 
 //********************************************************************************************************************************************************************
 //declare localparam
@@ -669,6 +671,71 @@ generate
         end
 
         GTP_DRM18K # (
+
+                 .INIT_00        (INIT_00[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_01        (INIT_01[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_02        (INIT_02[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_03        (INIT_03[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_04        (INIT_04[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_05        (INIT_05[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_06        (INIT_06[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_07        (INIT_07[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_08        (INIT_08[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_09        (INIT_09[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_0A        (INIT_0A[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_0B        (INIT_0B[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_0C        (INIT_0C[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_0D        (INIT_0D[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_0E        (INIT_0E[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_0F        (INIT_0F[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_10        (INIT_10[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_11        (INIT_11[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_12        (INIT_12[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_13        (INIT_13[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_14        (INIT_14[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_15        (INIT_15[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_16        (INIT_16[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_17        (INIT_17[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_18        (INIT_18[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_19        (INIT_19[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_1A        (INIT_1A[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_1B        (INIT_1B[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_1C        (INIT_1C[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_1D        (INIT_1D[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_1E        (INIT_1E[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_1F        (INIT_1F[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_20        (INIT_20[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_21        (INIT_21[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_22        (INIT_22[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_23        (INIT_23[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_24        (INIT_24[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_25        (INIT_25[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_26        (INIT_26[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_27        (INIT_27[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_28        (INIT_28[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_29        (INIT_29[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_2A        (INIT_2A[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_2B        (INIT_2B[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_2C        (INIT_2C[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_2D        (INIT_2D[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_2E        (INIT_2E[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_2F        (INIT_2F[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_30        (INIT_30[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_31        (INIT_31[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_32        (INIT_32[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_33        (INIT_33[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_34        (INIT_34[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_35        (INIT_35[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_36        (INIT_36[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_37        (INIT_37[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_38        (INIT_38[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_39        (INIT_39[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_3A        (INIT_3A[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_3B        (INIT_3B[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_3C        (INIT_3C[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_3D        (INIT_3D[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_3E        (INIT_3E[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
+                 .INIT_3F        (INIT_3F[(gen_j * DATA_LOOP_NUM + gen_i)*288 +: 288]),
 
                  .GRS_EN                   ( "FALSE"                  ),
                  .SIM_DEVICE               ( c_SIM_DEVICE             ),

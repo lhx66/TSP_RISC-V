@@ -15,35 +15,19 @@
     </header>
     <param_list>
         <param>
-            <name>B_CLK_OR_POL_INV</name>
+            <name>B_ADDR_STROBE_EN</name>
             <value>false</value>
-        </param>
-        <param>
-            <name>B_CLK_EN</name>
-            <value>false</value>
-        </param>
-        <param>
-            <name>B_ADDR_WIDTH</name>
-            <value>14</value>
-        </param>
-        <param>
-            <name>A_DATA_WIDTH</name>
-            <value>32</value>
-        </param>
-        <param>
-            <name>INIT_FILE</name>
-            <value>D:/FPGA/TSP_RISC-V-2.4/FPGA/pango_cpu/source/boot.dat</value>
         </param>
         <param>
             <name>POWER_OPT</name>
             <value>false</value>
         </param>
         <param>
-            <name>BYTE_SIZE</name>
-            <value>8</value>
+            <name>B_CLK_OR_POL_INV</name>
+            <value>false</value>
         </param>
         <param>
-            <name>B_ADDR_STROBE_EN</name>
+            <name>A_CLK_OR_POL_INV</name>
             <value>false</value>
         </param>
         <param>
@@ -51,68 +35,24 @@
             <value>false</value>
         </param>
         <param>
-            <name>B_DATA_WIDTH</name>
-            <value>32</value>
-        </param>
-        <param>
-            <name>MODE_18K</name>
-            <value>true</value>
-        </param>
-        <param>
-            <name>A_CLK_EN</name>
-            <value>false</value>
-        </param>
-        <param>
-            <name>A_OUTPUT_REG</name>
-            <value>false</value>
-        </param>
-        <param>
-            <name>A_ADDR_WIDTH</name>
-            <value>14</value>
-        </param>
-        <param>
-            <name>B_BE_WIDTH</name>
-            <value>4</value>
-        </param>
-        <param>
-            <name>B_RD_OCE_EN</name>
-            <value>false</value>
-        </param>
-        <param>
-            <name>A_BE_WIDTH</name>
-            <value>4</value>
-        </param>
-        <param>
             <name>SAMEWIDTH_EN</name>
             <value>true</value>
         </param>
         <param>
-            <name>MODE_9K</name>
-            <value>false</value>
-        </param>
-        <param>
-            <name>INIT_FORMAT</name>
-            <value>HEX</value>
-        </param>
-        <param>
-            <name>A_RD_OCE_EN</name>
-            <value>false</value>
-        </param>
-        <param>
-            <name>DRM_MODE_SEL</name>
-            <value>AUTO</value>
+            <name>B_DATA_WIDTH</name>
+            <value>32</value>
         </param>
         <param>
             <name>RESET_TYPE</name>
             <value>ASYNC</value>
         </param>
         <param>
-            <name>INIT_EN</name>
-            <value>true</value>
+            <name>INIT_FORMAT</name>
+            <value>HEX</value>
         </param>
         <param>
-            <name>A_CLK_OR_POL_INV</name>
-            <value>false</value>
+            <name>INIT_EN</name>
+            <value>true</value>
         </param>
         <param>
             <name>B_WRITE_MODE</name>
@@ -122,8 +62,12 @@
             <value>NORMAL_WRITE</value>
         </param>
         <param>
-            <name>WR_BYTE_EN</name>
-            <value>true</value>
+            <name>A_OUTPUT_REG</name>
+            <value>false</value>
+        </param>
+        <param>
+            <name>B_ADDR_WIDTH</name>
+            <value>14</value>
         </param>
         <param>
             <name>A_WRITE_MODE</name>
@@ -133,7 +77,63 @@
             <value>NORMAL_WRITE</value>
         </param>
         <param>
+            <name>A_CLK_EN</name>
+            <value>false</value>
+        </param>
+        <param>
+            <name>DRM_MODE_SEL</name>
+            <value>AUTO</value>
+        </param>
+        <param>
+            <name>B_RD_OCE_EN</name>
+            <value>false</value>
+        </param>
+        <param>
+            <name>A_RD_OCE_EN</name>
+            <value>false</value>
+        </param>
+        <param>
+            <name>B_BE_WIDTH</name>
+            <value>4</value>
+        </param>
+        <param>
+            <name>A_DATA_WIDTH</name>
+            <value>32</value>
+        </param>
+        <param>
+            <name>INIT_FILE</name>
+            <value>D:/FPGA/TSP_RISC-V/FPGA/pango_cpu/source/coremark_iram.dat</value>
+        </param>
+        <param>
             <name>B_OUTPUT_REG</name>
+            <value>false</value>
+        </param>
+        <param>
+            <name>MODE_18K</name>
+            <value>true</value>
+        </param>
+        <param>
+            <name>B_CLK_EN</name>
+            <value>false</value>
+        </param>
+        <param>
+            <name>WR_BYTE_EN</name>
+            <value>true</value>
+        </param>
+        <param>
+            <name>BYTE_SIZE</name>
+            <value>8</value>
+        </param>
+        <param>
+            <name>A_ADDR_WIDTH</name>
+            <value>14</value>
+        </param>
+        <param>
+            <name>A_BE_WIDTH</name>
+            <value>4</value>
+        </param>
+        <param>
+            <name>MODE_9K</name>
             <value>false</value>
         </param>
     </param_list>

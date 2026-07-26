@@ -29,3 +29,7 @@ FPGA/pango_cpu/cfg_verify_result.sbit
 
 # Unused board target
 FPGA/zynq7200_cpu/
+
+# spec
+spec.md
+TSP_RISCV_RTL_Learning.md

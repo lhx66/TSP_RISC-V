@@ -61,9 +61,9 @@ localparam B_CLK_OR_POL_INV = 0 ; // @IPC bool
 
 localparam POWER_OPT = 0 ; // @IPC bool
 
-localparam INIT_FILE = "NONE" ; // @IPC string
+localparam INIT_FILE = "D:/FPGA/TSP_RISC-V/FPGA/pango_cpu/source/coremark_sram.dat" ; // @IPC string
 
-localparam INIT_FORMAT = "BIN" ; // @IPC enum BIN,HEX
+localparam INIT_FORMAT = "HEX" ; // @IPC enum BIN,HEX
 
 localparam WR_BYTE_EN = 1 ; // @IPC bool
 
@@ -79,7 +79,7 @@ localparam RESET_TYPE = "ASYNC" ; // @IPC enum Sync_Internally,SYNC,ASYNC
 
 localparam BYTE_SIZE = 8 ; // @IPC enum 8,9
 
-localparam INIT_EN = 0 ; // @IPC bool
+localparam INIT_EN = 1 ; // @IPC bool
 
 localparam SAMEWIDTH_EN = 1 ; // @IPC bool
 
